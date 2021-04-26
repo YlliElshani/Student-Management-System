@@ -93,6 +93,7 @@ namespace Backend.Controllers
                             ,Birthday = '" + ad.Birthday + @"'
                             ,ParentName = '" + ad.ParentName + @"'
                             ,Hometown = '" + ad.Hometown + @"'
+                            ,where AdministratoriID = " + ad.AdministratoriID + @"
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SmsAppCon");

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\MSI\\Documents\\GitHub\\Student-Management-System\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\MSI\\Desktop\\Student-Management-System\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\MSI\\Documents\\GitHub\\Student-Management-System\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\MSI\\Desktop\\Student-Management-System\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\MSI\\Documents\\GitHub\\Student-Management-System\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\MSI\\Desktop\\Student-Management-System\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\MSI\\Documents\\GitHub\\Student-Management-System\\Backend\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\MSI\\Desktop\\Student-Management-System\\Backend\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\MSI\\Documents\\GitHub\\Student-Management-System\\Backend\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\MSI\\Desktop\\Student-Management-System\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
