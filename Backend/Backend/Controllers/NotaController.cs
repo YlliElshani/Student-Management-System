@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Backend.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -44,7 +45,7 @@ namespace Backend.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(NotaController n)
+        public JsonResult Post(Nota n)
         {
             string query = @"insert into dbo.Nota (Grade) values ('" + n.Grade + @"')";
             DataTable table = new DataTable();
@@ -67,7 +68,7 @@ namespace Backend.Controllers
         }
 
         [HttpPut]
-        public JsonResult Put (NotaController n)
+        public JsonResult Put (Nota n)
         {
             string query = @"update dbo.Nota set Grade = '" + n.Grade + @"";
             DataTable table = new DataTable();
