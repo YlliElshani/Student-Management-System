@@ -17,7 +17,7 @@ create table Student (
 
 insert into Student values ('Hysnije', 'Zllanoga', 'F', 20, 'Mizair Isma', '049604201', 'hysnijee.zllanoga@gmail.com', '03-06-2001', 'Lulzim', 'Rahovec')
  select * from Student
- drop table Administratori
+
  create table Administratori (
 	AdministratoriID int identity(1,1) primary key,
 	FirstName varchar (50),
@@ -33,3 +33,11 @@ insert into Student values ('Hysnije', 'Zllanoga', 'F', 20, 'Mizair Isma', '0496
  )
  insert into Administratori values('Alban', 'Rexhepi', 'M', 36, 'Muharrem Fejza', '049564428', 'alban.rexhepi@gmail.com', '04-04-1985', 'Bashkim', 'Prishtine')
  select * from Administratori
+
+ create table Nota(
+	NotaID int identity(1,1) primary key,
+	Grade varchar (10)
+ )
+
+ insert into Nota values ('A')
+ select * from Nota
