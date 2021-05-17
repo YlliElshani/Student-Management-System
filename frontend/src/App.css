@@ -5,11 +5,13 @@
   width:100vw;
   height:100vh;
 }
+
 .App-Main{
  display: flex;
  justify-content: center;
  padding-top:10%;
 }
+
 form{
   display: flex;
   flex-direction: column;
