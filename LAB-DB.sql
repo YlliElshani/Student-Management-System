@@ -9,7 +9,8 @@ create table Useri(
 	Age int,
 	PhoneNumber varchar(100),
 	Email varchar(200),
-	Address varchar(200)
+	Address varchar(200),
+	Password binary(64)
 )
 
 create table Administratori(
