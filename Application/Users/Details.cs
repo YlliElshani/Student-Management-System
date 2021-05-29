@@ -11,7 +11,7 @@ namespace Application.Users
     {
         public class Query : IRequest <User>
         {
-            public int UserId {get; set;}
+            public Guid UserId {get; set;}
         }
 
         public class Handler : IRequestHandler<Query, User>

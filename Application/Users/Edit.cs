@@ -10,7 +10,7 @@ namespace Application.Users
     {
         public class Command : IRequest
         {
-            public int UserId {get; set;}
+            public Guid UserId {get; set;}
 
             public string FirstName {get; set;}
 
@@ -27,6 +27,10 @@ namespace Application.Users
             public string Address {get; set;}
 
             public string Password {get; set;}
+
+            public string City {get; set;}
+
+            public string Role {get; set;}
         }
         
         public class Handler : IRequestHandler<Command>
@@ -52,7 +56,9 @@ namespace Application.Users
                 user.PhoneNumber = request.PhoneNumber ?? user.PhoneNumber;
                 user.Email = request.Email ?? user.Email;
                 user.Address = request.Address ?? user.Address;
-                user.Password = request.Password ?? user.Password;    
+                user.Password = request.Password ?? user.Password;
+                user.City = request.City ?? user.City;
+                user.Role = request.Role ?? user.Role;    
 
                 var success = await _context.SaveChangesAsync() > 0;
         

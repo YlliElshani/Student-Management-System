@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import { Button, Item, Segment} from 'semantic-ui-react'
 import { IUser } from '../../../app/models/user'
 
@@ -6,7 +6,7 @@ interface IProps {
     users: IUser[];
     selectUser: (id: string) => void;
     openCreateForm: () => void;
-    deleteUser: (id: string) => void;
+    deleteUser: (e: SyntheticEvent<HTMLButtonElement> ,id: string) => void;
 }
 
 export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, deleteUser})=> {
@@ -21,8 +21,8 @@ export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, dele
                     <Item.Header >{user.firstName} {user.lastName}</Item.Header>
                     <Item.Meta>{user.role}</Item.Meta>
                     <Item.Extra>
-                        <Button size='mini' floated='right' content='Shiko Detajet' onClick={() => selectUser(user.id)}/>
-                        <Button size='mini' floated='right' content='Fshij Perdoruesin' onClick={() => deleteUser(user.id)}/>
+                        <Button size='mini' floated='right' content='Shiko Detajet' onClick={(e) => selectUser(user.id)}/>
+                        <Button size='mini' floated='right' content='Fshij Perdoruesin' name={user.id} onClick={(e) => deleteUser(e, user.id)} />
                     </Item.Extra>
                     </Item.Content>
                 </Item>

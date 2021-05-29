@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210528104046_UserEntityAdded")]
+    [Migration("20210529151411_UserEntityAdded")]
     partial class UserEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("role");
+                    b.Property<string>("Role");
 
                     b.HasKey("UserId");
 

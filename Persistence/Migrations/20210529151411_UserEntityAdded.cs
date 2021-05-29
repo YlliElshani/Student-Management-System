@@ -21,7 +21,7 @@ namespace Persistence.Migrations
                     Address = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
-                    role = table.Column<string>(nullable: true)
+                    Role = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

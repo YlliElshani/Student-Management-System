@@ -23,7 +23,7 @@ namespace Persistence
                         Address = "Mizair Isma",
                         Password = "hysnije123",
                         City = "Rahovec",
-                        role = "student"
+                        Role = "Student"
                     },
                     new User
                     {
@@ -36,7 +36,7 @@ namespace Persistence
                         Address = "Nene Tereza",
                         Password = "altina123",
                         City = "Mitrovice",
-                        role = "student"
+                        Role = "Student"
                     }
                 };
                 context.Users.AddRange(users);

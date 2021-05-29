@@ -24,6 +24,6 @@ namespace Domain
 
         public string City {get; set;}
 
-        public string role {get; set;}
+        public string Role {get; set;}
     }
 }

@@ -39,7 +39,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<string>("role");
+                    b.Property<string>("Role");
 
                     b.HasKey("UserId");
 

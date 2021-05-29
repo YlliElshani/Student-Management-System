@@ -28,6 +28,10 @@ namespace Application.Users
             public string Address {get; set;}
 
             public string Password {get; set;}
+
+            public string City {get; set;}
+
+            public string Role {get; set;}
         }
 
         public class Handler : IRequestHandler<Command>
@@ -51,7 +55,9 @@ namespace Application.Users
                     PhoneNumber = request.PhoneNumber,
                     Email = request.Email,
                     Address = request.Address,
-                    Password = request.Password
+                    Password = request.Password,
+                    City = request.City,
+                    Role = request.Role
                 };
 
                 _context.Users.Add(user);

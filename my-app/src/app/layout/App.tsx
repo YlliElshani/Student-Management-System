@@ -1,14 +1,16 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, {useState, useEffect, Fragment, SyntheticEvent} from 'react';
 import { Container } from 'semantic-ui-react'
 import {IUser} from '../models/user';
 import { NavBar } from '../../features/nav/NavBar';
 import UserDashboard from '../../features/users/dashboard/UserDashboard';
 import agent from '../api/agent';
+import { LoadingComponent } from './LoadingComponent';
 
 const App = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [editMode, setEditMode] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleSelectUser = (id: string) => {
     setSelectedUser(users.filter(a => a.id === id)[0]);
@@ -36,7 +38,7 @@ const App = () => {
     })
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
     agent.Users.delete(id).then(() => {
           setUsers([...users.filter(a => a.id !==id)])
     })
@@ -49,17 +51,15 @@ const App = () => {
         users.push(user);
       })
       setUsers(users);
-    });
+    }).then(() => setLoading(false));
   }, []);
+
+  if(loading) return <LoadingComponent content='Loading Users'/>
 
     return (
       <Fragment>
         <NavBar/>
           <Container style={{marginTop:'10em'}}>
-      
-          </Container>
-
-          <Container>
               <UserDashboard users={users} 
               selectUser={handleSelectUser} 
               selectedUser={selectedUser}
@@ -69,11 +69,12 @@ const App = () => {
               openCreateForm={handleOpenCreateForm}
               createUser = {handleCreateUser}
               editUser = {handleEditUser}
-              deleteUser = {handleDelete}/>
+              deleteUser = {handleDelete}
+            />
           </Container>
-      </Fragment>
+        </Fragment>
     );
 }
 
-
+          
 export default App;
