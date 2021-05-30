@@ -19,7 +19,7 @@ const Users = {
     list: (): Promise<IUser[]> => requests.get('/users'),
     details: (id: string) => requests.get(`/users/${id}`),
     create: (user:IUser) => requests.post('/users', user),
-    update: (user: IUser) => requests.put(`/users/${user.id}`, user),
+    update: (user: IUser) => requests.put(`/users/${user.userId}`, user),
     delete: (id: string) => requests.delete(`/users/${id}`)
 }
 

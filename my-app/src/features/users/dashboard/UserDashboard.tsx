@@ -22,14 +22,14 @@ const UserDashboard:React.FC<IProps>= ({users, selectUser, selectedUser, editMod
     return (
         <Grid>
             <Grid.Column width='6'>
-                <UserList users={users} selectUser={selectUser} openCreateForm = {openCreateForm} deleteUser={deleteUser} />
+                <UserList users={users} selectUser={(selectedUser) => selectUser(selectedUser)} openCreateForm = {openCreateForm} deleteUser={deleteUser} />
             </Grid.Column>
             <Grid.Column width='6'>
                 {selectedUser && !editMode && (
                     <UserDetails user={selectedUser} setEditMode={setEditMode} setSelectedUser={setSelectedUser}/>
                 )}
                 {editMode && 
-                    <UserForm key={selectedUser && (selectedUser.id || 0)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser}/>
+                    <UserForm key={selectedUser && (selectedUser.userId)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser}/>
                 }
             </Grid.Column>
         </Grid>

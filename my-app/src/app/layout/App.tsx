@@ -13,7 +13,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   const handleSelectUser = (id: string) => {
-    setSelectedUser(users.filter(a => a.id === id)[0]);
+    setSelectedUser(users.filter(a => a.userId == id)[0]); 
     setEditMode(false);
   };
 
@@ -23,16 +23,18 @@ const App = () => {
   }
 
   const handleCreateUser = (user: IUser) => {
+
     agent.Users.create(user).then(() => {
-      setUsers([...users, user])
+
+      setUsers([...users, user]);
       setSelectedUser(user);
       setEditMode(false);
     })
   }
 
-  const handleEditUser = (user: IUser) => {
+  const handleEditUser = (user: IUser) => { 
     agent.Users.update(user).then(() => {
-      setUsers([...users.filter(a=> a.id !== user.id), user])
+      setUsers([...users.filter(a=> a.userId !== user.userId), user])
       setSelectedUser(user);
       setEditMode(false);
     })
@@ -40,7 +42,7 @@ const App = () => {
 
   const handleDelete = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
     agent.Users.delete(id).then(() => {
-          setUsers([...users.filter(a => a.id !==id)])
+          setUsers([...users.filter(a => a.userId !==id)])
     })
   }
 
@@ -52,7 +54,7 @@ const App = () => {
       })
       setUsers(users);
     }).then(() => setLoading(false));
-  }, []);
+  }, []); 
 
   if(loading) return <LoadingComponent content='Loading Users'/>
 
