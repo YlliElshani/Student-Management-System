@@ -13,7 +13,7 @@ namespace Application.Admins
         public class Query : IRequest<List<Admin>> { }
 
 
-        public class Handler : IRequestHandler<Query, List<Admin>>
+        public class Handler : IRequestHandler<Query, List<Admin>> 
         {
             private readonly DataContext _context;
 

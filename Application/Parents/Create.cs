@@ -1,19 +1,17 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Domain.obj;
+using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.Admins
+namespace Application.Parents
 {
     public class Create
-    { 
+    {
         public class Command : IRequest
         {
 
-            public string titulliZyrtar { get; set; } //Drejtor,Profesor etj
-
-            public int viteEksperienc { get; set; }
+            public int nrKidsEnrolled {get; set;}
 
         }
 
@@ -23,15 +21,15 @@ namespace Application.Admins
             public Handler(DataContext context)
             {
                 _context = context;
+
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var admins=new Admin{
-                    titulliZyrtar=request.titulliZyrtar,
-                    viteEksperienc=request.viteEksperienc
+                var parents=new Parent{
+                    nrKidsEnrolled=request.nrKidsEnrolled
                 };
 
-                _context.Admins.Add(admins);
+                _context.Parents.Add(parents);
                 var success = await _context.SaveChangesAsync()>0;
 
                 if(success) return Unit.Value;

@@ -57,15 +57,33 @@ namespace Persistence
                     }
                 };
 
+                var parents = new List<Parent>{
+                    new Parent{
+                        FirstName = "Endrit",
+                        LastName = "Makolli",
+                        Gender = "M",
+                        Age = 20,
+                        PhoneNumber = "0476454637",
+                        Email = "EndritMakolli5@gmail.com",
+                        Address = "Rr.Vellezrit Gervalla nr.53",
+                        Password = "Makolli444",
+                        City = "Prishtine",
+                        Role = "Parent",
+                        nrKidsEnrolled=3
+                    }    
+                };
+
                 context.Users.AddRange(users);
                 context.SaveChanges();
 
                 context.Admins.AddRange(admins);
                 context.SaveChanges();
 
+                context.Parents.AddRange(parents);
+                context.SaveChanges();
+
             }
         }
 
-        //ktu
     }
 }

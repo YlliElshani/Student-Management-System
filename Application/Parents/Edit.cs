@@ -1,19 +1,17 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Domain.obj;
 using MediatR;
 using Persistence;
 
-namespace Application.Admins
+namespace Application.Parents
 {
-    public class Create
-    { 
-        public class Command : IRequest
+    public class Edit
+    {
+    public class Command : IRequest
         {
-
-            public string titulliZyrtar { get; set; } //Drejtor,Profesor etj
-
-            public int viteEksperienc { get; set; }
+            public int? nrKidsEnrolled{get; set;}
+            public Guid UserId { get; set; }
 
         }
 
@@ -23,15 +21,18 @@ namespace Application.Admins
             public Handler(DataContext context)
             {
                 _context = context;
+
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var admins=new Admin{
-                    titulliZyrtar=request.titulliZyrtar,
-                    viteEksperienc=request.viteEksperienc
-                };
+                var parents=await _context.Parents.FindAsync(request.UserId);
 
-                _context.Admins.Add(admins);
+                if(parents==null) throw new Exception("Error Ac");
+
+
+                parents.nrKidsEnrolled=request.nrKidsEnrolled ?? parents.nrKidsEnrolled;
+
+
                 var success = await _context.SaveChangesAsync()>0;
 
                 if(success) return Unit.Value;

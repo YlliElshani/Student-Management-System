@@ -2,33 +2,32 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain;
-using Domain.obj;
 using MediatR;
 using Persistence;
 
-namespace Application.Admins
+namespace Application.Parents
 {
     public class Details
     {
-        public class Query : IRequest<Admin>
+         public class Query : IRequest<Parent>
         {
             public Guid UserId { get; set; }
         }
 
-        public class Handler : IRequestHandler<Query, Admin>
+        public class Handler : IRequestHandler<Query, Parent>
         {
             private readonly DataContext _context;
- 
+
             public Handler(DataContext context)
             {
                 _context = context;
 
             }
-            public async Task<Admin> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Parent> Handle(Query request, CancellationToken cancellationToken)
             {
-                var admins = await _context.Admins.FindAsync(request.UserId);
+                var parents = await _context.Parents.FindAsync(request.UserId);
                 
-                return admins;
+                return parents;
             }
         }
     }

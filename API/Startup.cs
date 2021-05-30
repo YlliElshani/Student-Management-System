@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MediatR;
 using Application.Users;
 using Application.Admins;
+using Application.Parents;
 
 namespace API
 {
@@ -36,6 +37,7 @@ namespace API
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddMediatR(typeof(ListAdmins.Handler).Assembly);
+            services.AddMediatR(typeof(ListParents.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

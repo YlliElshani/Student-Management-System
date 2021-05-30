@@ -1,31 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Application.Admins;
-using Domain.obj;
+using Application.Parents;
+using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController] 
+    [ApiController]
 
-    public class AdminController : ControllerBase
+    public class ParentsController : ControllerBase
     {
-        private readonly IMediator _mediator;
-        public AdminController(IMediator mediator)
+    private readonly IMediator _mediator;
+
+        public ParentsController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
+        
         [HttpGet]
-        public async Task<ActionResult<List<Admin>>> List(){
-            return await _mediator.Send(new ListAdmins.Query());
+        public async Task<ActionResult<List<Parent>>> List(){
+            return await _mediator.Send(new ListParents.Query());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Admin>> Details(Guid id){
+        public async Task<ActionResult<Parent>> Details(Guid id){
             return await _mediator.Send(new Details.Query{UserId = id});
         }
 
