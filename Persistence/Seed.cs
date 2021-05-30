@@ -1,6 +1,7 @@
 using System.Linq;
 using Domain;
 using System.Collections.Generic;
+using Domain.obj;
 
 namespace Persistence
 {
@@ -39,9 +40,75 @@ namespace Persistence
                         Role = "Student"
                     }
                 };
+                var admins = new List<Admin>{
+                     new Admin{
+                        FirstName = "Ylli",
+                        LastName = "Elshani",
+                        Gender = "M",
+                        Age = 20,
+                        PhoneNumber = "047294637",
+                        Email = "ylliElshani5@gmail.com",
+                        Address = "Rr.Vellezrit Gervalla nr.53",
+                        Password = "Elshani444",
+                        City = "Peje",
+                        Role = "Admin",
+                        titulliZyrtar="Drejtor",
+                        viteEksperienc=5
+                    }
+                };
+
+                var parents = new List<Parent>{
+                    new Parent{
+                        FirstName = "Endrit",
+                        LastName = "Makolli",
+                        Gender = "M",
+                        Age = 20,
+                        PhoneNumber = "0476454637",
+                        Email = "EndritMakolli5@gmail.com",
+                        Address = "Rr.Vellezrit Gervalla nr.53",
+                        Password = "Makolli444",
+                        City = "Prishtine",
+                        Role = "Parent",
+                        nrKidsEnrolled=3
+                    }    
+                };
+
                 context.Users.AddRange(users);
+                context.SaveChanges();
+
+                context.Admins.AddRange(admins);
+                context.SaveChanges();
+
+                context.Parents.AddRange(parents);
+                context.SaveChanges();
+
+            }
+
+            if(!context.Lendet.Any())
+            {
+                var lendet = new List<Lenda>
+                {
+                    new Lenda
+                    {
+                        Emri = "Matematike", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Matematike", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    }
+                };
+                context.Lendet.AddRange(lendet);
                 context.SaveChanges();
             }
         }
+
     }
 }

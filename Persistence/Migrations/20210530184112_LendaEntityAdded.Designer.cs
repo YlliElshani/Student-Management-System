@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210530184112_LendaEntityAdded")]
+    partial class LendaEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,9 +47,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("City");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
-
                     b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
@@ -65,28 +64,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
-                });
-
-            modelBuilder.Entity("Domain.Parent", b =>
-                {
-                    b.HasBaseType("Domain.User");
-
-                    b.Property<int>("nrKidsEnrolled");
-
-                    b.HasDiscriminator().HasValue("Parent");
-                });
-
-            modelBuilder.Entity("Domain.obj.Admin", b =>
-                {
-                    b.HasBaseType("Domain.User");
-
-                    b.Property<string>("titulliZyrtar");
-
-                    b.Property<int>("viteEksperienc");
-
-                    b.HasDiscriminator().HasValue("Admin");
                 });
 #pragma warning restore 612, 618
         }

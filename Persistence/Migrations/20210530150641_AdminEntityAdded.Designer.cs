@@ -2,37 +2,21 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210530150641_AdminEntityAdded")]
+    partial class AdminEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
-
-            modelBuilder.Entity("Domain.Lenda", b =>
-                {
-                    b.Property<Guid>("LendaId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Descripion");
-
-                    b.Property<string>("Emri");
-
-                    b.Property<string>("Klasa");
-
-                    b.Property<string>("Profesori");
-
-                    b.HasKey("LendaId");
-
-                    b.ToTable("Lendet");
-                });
 
             modelBuilder.Entity("Domain.User", b =>
                 {
@@ -67,15 +51,6 @@ namespace Persistence.Migrations
                     b.ToTable("Users");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("User");
-                });
-
-            modelBuilder.Entity("Domain.Parent", b =>
-                {
-                    b.HasBaseType("Domain.User");
-
-                    b.Property<int>("nrKidsEnrolled");
-
-                    b.HasDiscriminator().HasValue("Parent");
                 });
 
             modelBuilder.Entity("Domain.obj.Admin", b =>

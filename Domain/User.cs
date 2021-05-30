@@ -26,4 +26,5 @@ namespace Domain
 
         public string Role {get; set;}
     }
+
 }

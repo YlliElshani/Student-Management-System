@@ -1,37 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Application.Lendet;
+using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Domain;
-using Application.Users;
-using System; 
 
 namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
-    public class UsersController :  ControllerBase
+    public class LendetController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public UsersController(IMediator mediator)
+        public LendetController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<User>>> List()
+        public async Task<ActionResult<List<Lenda>>> List()
         {
             return await _mediator.Send(new List.Query());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> Details (Guid id)
+        public async Task<ActionResult<Lenda>> Details (Guid id)
         {
-            return await _mediator.Send(new Details.Query{UserId = id});
+            return await _mediator.Send(new Details.Query{LendaId = id});
         }
-
+        
         [HttpPost]
         public async Task<ActionResult<Unit>> Create(Create.Command command)
         {
@@ -41,14 +40,14 @@ namespace API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<Unit>> Edit(Guid id, Edit.Command command)
         {
-            command.UserId = id;
+            command.LendaId = id;
             return await _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new Delete.Command{UserId = id});
+            return await _mediator.Send(new Delete.Command{LendaId = id});
         }
     }
 }
