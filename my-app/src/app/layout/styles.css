@@ -1,6 +1,7 @@
 body{
-  background-color: #252839;
-  height:100vh;
+  background-image: url('../../assets/background.jpg');
+  background-size: cover;
+  background-position: bottom;
 }
 
 .profile-el{
@@ -21,4 +22,9 @@ body{
 
 .ui.items>.item>.content>.header, .ui.items>.item .meta {
   color:#252839;
+}
+
+.ui.segment.rightSideOfLogIn{
+  background-image: url('../../assets/login.jpg');
+  background-size: 100%;
 }

@@ -5,9 +5,14 @@ import { NavBar } from '../../features/nav/NavBar';
 import UserDashboard from '../../features/users/dashboard/UserDashboard';
 import agent from '../api/agent';
 import { LoadingComponent } from './LoadingComponent';
+import { HomePage } from '../../features/homepage/HomePage';
+import { Route } from 'react-router-dom';
+import { LogIn } from '../../features/logIn/LogIn';
+import { UserProfile } from '../../features/profile/UserProfile';
+import { UserList } from '../../features/users/dashboard/UserList';
 
 const App = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
+  {/*const [users, setUsers] = useState<IUser[]>([]);
   const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -60,13 +65,12 @@ const App = () => {
     }).then(() => setLoading(false));
   }, []); 
 
-  if(loading) return <LoadingComponent content='Loading Users'/>
+if(loading) return <LoadingComponent content='Loading Users'/>*/}
 
     return (
       <Fragment>
-        <NavBar/>
           <Container style={{marginTop:'6em'}}>
-              <UserDashboard 
+              {/*<UserDashboard 
                 users={users} 
                 selectUser={handleSelectUser} 
                 selectedUser={selectedUser}
@@ -79,8 +83,12 @@ const App = () => {
                 deleteUser = {handleDelete}
                 submitting = {submitting}
                 target = {target}
-            />
-          </Container>
+              />*/}
+              <Route exact path='/' component={HomePage}/>
+              <Route exact path='/login' component={LogIn}/>
+              <Route exact path='/profile' component={UserProfile}/>
+              <Route exact path='/users' component={UserDashboard}/>
+          </Container> 
         </Fragment>
     );
 }
