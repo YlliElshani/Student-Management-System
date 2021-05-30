@@ -16,20 +16,22 @@ interface IProps {
     createUser: (user:IUser) => void;
     editUser: (user:IUser) =>void;
     deleteUser: (e: SyntheticEvent<HTMLButtonElement>,id: string) => void;
+    submitting: boolean;
+    target: string;
 }
 
-const UserDashboard:React.FC<IProps>= ({users, selectUser, selectedUser, editMode, setEditMode, setSelectedUser, openCreateForm, createUser, editUser, deleteUser}) => {
+const UserDashboard:React.FC<IProps>= ({users, selectUser, selectedUser, editMode, setEditMode, setSelectedUser, openCreateForm, createUser, editUser, deleteUser, submitting, target}) => {
     return (
         <Grid>
             <Grid.Column width='6'>
-                <UserList users={users} selectUser={(selectedUser) => selectUser(selectedUser)} openCreateForm = {openCreateForm} deleteUser={deleteUser} />
+                <UserList users={users} selectUser={(selectedUser) => selectUser(selectedUser)} openCreateForm = {openCreateForm} deleteUser={deleteUser} submitting={submitting} target={target} />
             </Grid.Column>
             <Grid.Column width='6'>
                 {selectedUser && !editMode && (
                     <UserDetails user={selectedUser} setEditMode={setEditMode} setSelectedUser={setSelectedUser}/>
                 )}
                 {editMode && 
-                    <UserForm key={selectedUser && (selectedUser.userId)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser}/>
+                    <UserForm key={selectedUser && (selectedUser.userId)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser} submitting={submitting}/>
                 }
             </Grid.Column>
         </Grid>

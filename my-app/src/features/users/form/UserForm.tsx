@@ -8,9 +8,10 @@ interface IProps {
     user: IUser;
     createUser: (user:IUser) => void;
     editUser: (user:IUser) =>void;
+    submitting: boolean;
 }
 
-const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, createUser, editUser}) => {
+const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, createUser, editUser, submitting}) => {
 
     const initializeForm = () => {
         if (initialFormState) {
@@ -68,7 +69,7 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
                <Form.Input onChange={handleInputChange} name='address' placeholder='Address' value={user.address}/>
                <Form.Input onChange={handleInputChange} name='city' placeholder='City' value={user.city}/>
                <Form.Input onChange={handleInputChange} name='role' placeholder='Role' value={user.role}/>
-               <Button floated='right' positive type='submit' content='Dërgo'/>
+               <Button loading={submitting} floated='right' positive type='submit' content='Dërgo'/>
                <Button floated='right' type='submit' content='Anulo' onClick ={() => setEditMode(false)}/>
            </Form>
        </Segment>

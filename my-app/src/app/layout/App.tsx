@@ -11,6 +11,8 @@ const App = () => {
   const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false);
+  const [target, setTarget] = useState('');
 
   const handleSelectUser = (id: string) => {
     setSelectedUser(users.filter(a => a.userId == id)[0]); 
@@ -23,27 +25,29 @@ const App = () => {
   }
 
   const handleCreateUser = (user: IUser) => {
-
+    setSubmitting(true);
     agent.Users.create(user).then(() => {
-
       setUsers([...users, user]);
       setSelectedUser(user);
       setEditMode(false);
-    })
+    }).then(() => setSubmitting(false))
   }
 
   const handleEditUser = (user: IUser) => { 
+    setSubmitting(true);
     agent.Users.update(user).then(() => {
       setUsers([...users.filter(a=> a.userId !== user.userId), user])
       setSelectedUser(user);
       setEditMode(false);
-    })
+    }).then(() => setSubmitting(false))
   }
 
   const handleDelete = (event: SyntheticEvent<HTMLButtonElement>, id: string) => {
+    setSubmitting(true);
+    setTarget(event.currentTarget.name)
     agent.Users.delete(id).then(() => {
           setUsers([...users.filter(a => a.userId !==id)])
-    })
+    }).then(() => setSubmitting(false))
   }
 
   useEffect(()=>{
@@ -61,17 +65,20 @@ const App = () => {
     return (
       <Fragment>
         <NavBar/>
-          <Container style={{marginTop:'10em'}}>
-              <UserDashboard users={users} 
-              selectUser={handleSelectUser} 
-              selectedUser={selectedUser}
-              editMode={editMode}
-              setEditMode = {setEditMode}
-              setSelectedUser={setSelectedUser}
-              openCreateForm={handleOpenCreateForm}
-              createUser = {handleCreateUser}
-              editUser = {handleEditUser}
-              deleteUser = {handleDelete}
+          <Container style={{marginTop:'6em'}}>
+              <UserDashboard 
+                users={users} 
+                selectUser={handleSelectUser} 
+                selectedUser={selectedUser}
+                editMode={editMode}
+                setEditMode = {setEditMode}
+                setSelectedUser={setSelectedUser}
+                openCreateForm={handleOpenCreateForm}
+                createUser = {handleCreateUser}
+                editUser = {handleEditUser}
+                deleteUser = {handleDelete}
+                submitting = {submitting}
+                target = {target}
             />
           </Container>
         </Fragment>

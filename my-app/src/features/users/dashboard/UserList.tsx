@@ -7,9 +7,11 @@ interface IProps {
     selectUser: (id: string) => void;
     openCreateForm: () => void;
     deleteUser: (e: SyntheticEvent<HTMLButtonElement> ,id: string) => void;
+    submitting: boolean;
+    target: string;
 }
 
-export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, deleteUser})=> {
+export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, deleteUser, submitting, target})=> {
     return (
         <Segment clearing>
             <Button onClick={openCreateForm} content='Shto Përdorues'/>
@@ -21,8 +23,8 @@ export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, dele
                     <Item.Header >{user.firstName} {user.lastName}</Item.Header>
                     <Item.Meta>{user.role}</Item.Meta>
                     <Item.Extra>
-                        <Button size='mini' floated='right' content='Shiko Detajet' onClick={(e) => selectUser(user.userId)}/>
-                        <Button size='mini' floated='right' content='Fshij Perdoruesin' name={user.userId} onClick={(e) => deleteUser(e, user.userId)} />
+                        <Button size='mini' floated='right' content='Shiko Detajet' onClick={() => selectUser(user.userId)}/>
+                        <Button loading={target === user.userId && submitting} size='mini' floated='right' content='Fshij Perdoruesin' name={user.userId} onClick={(e) => deleteUser(e, user.userId)} />
                     </Item.Extra>
                     </Item.Content>
                 </Item>
