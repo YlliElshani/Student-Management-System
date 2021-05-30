@@ -1,6 +1,7 @@
 using System.Linq;
 using Domain;
 using System.Collections.Generic;
+using Domain.obj;
 
 namespace Persistence
 {
@@ -39,8 +40,29 @@ namespace Persistence
                         Role = "Student"
                     }
                 };
+                var admins = new List<Admin>{
+                     new Admin{
+                        FirstName = "Ylli",
+                        LastName = "Elshani",
+                        Gender = "M",
+                        Age = 20,
+                        PhoneNumber = "047294637",
+                        Email = "ylliElshani5@gmail.com",
+                        Address = "Rr.Vellezrit Gervalla nr.53",
+                        Password = "Elshani444",
+                        City = "Peje",
+                        Role = "Admin",
+                        titulliZyrtar="Drejtor",
+                        viteEksperienc=5
+                    }
+                };
+
                 context.Users.AddRange(users);
                 context.SaveChanges();
+
+                context.Admins.AddRange(admins);
+                context.SaveChanges();
+
             }
 
             if(!context.Lendet.Any())
@@ -68,5 +90,7 @@ namespace Persistence
                 context.SaveChanges();
             }
         }
+
+        //ktu
     }
 }
