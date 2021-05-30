@@ -42,6 +42,31 @@ namespace Persistence
                 context.Users.AddRange(users);
                 context.SaveChanges();
             }
+
+            if(!context.Lendet.Any())
+            {
+                var lendet = new List<Lenda>
+                {
+                    new Lenda
+                    {
+                        Emri = "Matematike", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Matematike", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    }
+                };
+                context.Lendet.AddRange(lendet);
+                context.SaveChanges();
+            }
         }
     }
 }
