@@ -1,4 +1,5 @@
 using Domain;
+using Domain.obj;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
@@ -11,9 +12,11 @@ namespace Persistence
         }
 
         public DbSet <User> Users {get; set;}
+        public DbSet<Admin> Admins{get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
         }
+
     }
 }
