@@ -12,7 +12,7 @@ namespace Persistence
         }
 
         public DbSet <User> Users {get; set;}
-
+        public DbSet <Student> Students {get; set;}
         public DbSet <Lenda> Lendet {get; set;}
         public DbSet<Admin> Admins{get; set;}
         public DbSet<Parent> Parents{get; set;}

@@ -40,6 +40,41 @@ namespace Persistence
                         Role = "Student"
                     }
                 };
+                var students = new List<Student>
+                {
+                    new Student
+                    {
+                        FirstName = "Albiona",
+                        LastName = "Berisha",
+                        Gender = "F",
+                        Age = 20,
+                        PhoneNumber = "049123456",
+                        Email = "albiona.berisha@gmail.com",
+                        Address = "Rexhep Osmani",
+                        Password = "albionae123",
+                        City = "Rahovec",
+                        Role = "Student",
+                        YearOfStudy = 2019,
+                        FieldOfStudy = "Natural Sciences",
+                        Grade = "11/11"
+                    },
+                    new Student
+                    {
+                        FirstName = "Era",
+                        LastName = "Hasimja",
+                        Gender = "F",
+                        Age = 19,
+                        PhoneNumber = "048456789",
+                        Email = "erahasimja@gmail.com",
+                        Address = "Melihate Rama",
+                        Password = "era123",
+                        City = "Gjakove",
+                        Role = "Student",
+                        YearOfStudy = 2018,
+                        FieldOfStudy = "Social Sciences",
+                        Grade = "12/9"
+                    }
+                };
                 var admins = new List<Admin>{
                      new Admin{
                         FirstName = "Ylli",
@@ -74,6 +109,9 @@ namespace Persistence
                 };
 
                 context.Users.AddRange(users);
+                context.SaveChanges();
+
+                context.Students.AddRange(students);
                 context.SaveChanges();
 
                 context.Admins.AddRange(admins);
