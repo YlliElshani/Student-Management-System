@@ -55,10 +55,6 @@ class UserDashboard extends Component{
         })
     }
 
-    componentDidUpdate(){
-
-    }
-
     render(){
         return (
             <Container>

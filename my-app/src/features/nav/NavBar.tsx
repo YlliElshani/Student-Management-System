@@ -8,10 +8,10 @@ export const NavBar:React.FC = () => {
             <Menu.Item><Icon name='graduation cap'></Icon></Menu.Item>
             <Menu.Item as={NavLink} to='/profile' name='Profili'/>
             <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Users'/>
-            <Menu.Item name='Lëndët'/>
-            <Menu.Item name='Transkripta'/>
-            <Menu.Item name='Orari'/>
-            <Menu.Item name='Pagesat'/>
+            <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
+            <Menu.Item as={NavLink} to='/transkripta' name='Transkripta'/>
+            {/*<Menu.Item name='Orari'/>
+            <Menu.Item name='Pagesat'/>*/}
             <Menu.Menu position='right'>
             <Dropdown item text='Gjuhët'>
                 <Dropdown.Menu>
@@ -20,7 +20,7 @@ export const NavBar:React.FC = () => {
                 </Dropdown.Menu>
             </Dropdown>
             <Menu.Item>
-                <Button primary>Dil</Button>
+                <Button as={NavLink} to='/' primary>Dil</Button>
             </Menu.Item>
             </Menu.Menu>
       </Menu>

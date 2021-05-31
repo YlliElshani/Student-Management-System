@@ -11,6 +11,8 @@ import { LogIn } from '../../features/logIn/LogIn';
 import { UserProfile } from '../../features/profile/UserProfile';
 import { UserList } from '../../features/users/dashboard/UserList';
 import { UserForm } from '../../features/users/form/UserForm';
+import { Transcript } from '../../features/transcript/Transcript';
+import { Lendet } from '../../features/lendet/Lendet';
 
 const App = () => {
   {/*const [users, setUsers] = useState<IUser[]>([]);
@@ -90,6 +92,8 @@ if(loading) return <LoadingComponent content='Loading Users'/>*/}
               <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/users' component={UserDashboard}/>
               <Route exact path='/form' component={UserForm}/>
+              <Route exact path='/lendet' component={Lendet}/>
+              <Route exact path='/transkripta' component={Transcript}/>
           </Container> 
         </Fragment>
     );
