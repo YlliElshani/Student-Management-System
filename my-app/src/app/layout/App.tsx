@@ -10,6 +10,7 @@ import { Route } from 'react-router-dom';
 import { LogIn } from '../../features/logIn/LogIn';
 import { UserProfile } from '../../features/profile/UserProfile';
 import { UserList } from '../../features/users/dashboard/UserList';
+import { UserForm } from '../../features/users/form/UserForm';
 
 const App = () => {
   {/*const [users, setUsers] = useState<IUser[]>([]);
@@ -88,6 +89,7 @@ if(loading) return <LoadingComponent content='Loading Users'/>*/}
               <Route exact path='/login' component={LogIn}/>
               <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/users' component={UserDashboard}/>
+              <Route exact path='/form' component={UserForm}/>
           </Container> 
         </Fragment>
     );
