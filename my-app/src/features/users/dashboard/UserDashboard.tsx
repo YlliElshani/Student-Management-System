@@ -26,14 +26,22 @@ const UserDashboard:React.FC<IProps>= ({users, selectUser, selectedUser, editMod
     return (
         <Grid>
             <Grid.Column width='6'>
+<<<<<<< HEAD
                 <UserList users={users} selectUser={(selectedUser) => selectUser(selectedUser)} openCreateForm = {openCreateForm} deleteUser={deleteUser} submitting={submitting} target={target} />
+=======
+                <UserList users={users} selectUser={selectUser} openCreateForm = {openCreateForm} deleteUser={deleteUser} />
+>>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
             </Grid.Column>
             <Grid.Column width='6'>
                 {selectedUser && !editMode && (
                     <UserDetails user={selectedUser} setEditMode={setEditMode} setSelectedUser={setSelectedUser}/>
                 )}
                 {editMode && 
+<<<<<<< HEAD
                     <UserForm key={selectedUser && (selectedUser.userId)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser} submitting={submitting}/>
+=======
+                    <UserForm key={selectedUser && (selectedUser.id || 0)} setEditMode={setEditMode} user={selectedUser!} createUser={createUser} editUser={editUser}/>
+>>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
                 }
             </Grid.Column>
         </Grid>

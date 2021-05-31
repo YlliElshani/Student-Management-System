@@ -12,7 +12,7 @@ interface IProps {
 const UserDetails:React.FC<IProps> = ({user, setEditMode, setSelectedUser}) => {
     return (
         <Segment>
-         <Grid key={user.userId} columns={1} divided>
+         <Grid key={user.id} columns={1} divided>
             <Grid.Row stretched>
             <Grid.Column>
                 <Segment>{user.firstName}</Segment>

@@ -21,7 +21,7 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
         }
         else {
             return {
-                userId: '',
+                id: '',
                 firstName: '',
                 lastName: '',
                 gender: '',
@@ -38,15 +38,12 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
 
     const [user, setUser] = useState<IUser>(initializeForm);
 
-    const handleSubmit = () => { 
-       if(user.userId === ''){
-
+    const handleSubmit = () => {
+       if(user.id === ''){
            let newUser = {
                 ...user,
-                userId: uuid()
+                id: uuid()
            }
-
-
            createUser(newUser);
        }
        else{
@@ -85,3 +82,7 @@ export class UserForm extends Component {
     }
 }
 
+<<<<<<< HEAD
+=======
+export default UserForm;
+>>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
