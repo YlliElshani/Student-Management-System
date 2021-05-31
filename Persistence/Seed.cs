@@ -105,7 +105,26 @@ namespace Persistence
                         City = "Prishtine",
                         Role = "Parent",
                         nrKidsEnrolled=3
-                    }    
+                    }   
+                 
+                };
+
+                var profesoret = new List<Profesor>{
+                    new Profesor{
+                        FirstName = "Gentrit",
+                        LastName = "Ulluri",
+                        Gender = "M",
+                        Age = 30,
+                        PhoneNumber = "049789456",
+                        Email = "gentritulluri@gmail.com",
+                        Address = "Muharrem Fejza",
+                        Password = "gentrit123",
+                        City = "Prishtine",
+                        Role = "Profesor",
+                        GradaAkademike = "Profesor i rregullt",
+                        Studimet = "Doktorature"
+                    }   
+                 
                 };
 
                 context.Users.AddRange(users);
@@ -118,6 +137,9 @@ namespace Persistence
                 context.SaveChanges();
 
                 context.Parents.AddRange(parents);
+                context.SaveChanges();
+
+                context.Profesoret.AddRange(profesoret);
                 context.SaveChanges();
 
             }

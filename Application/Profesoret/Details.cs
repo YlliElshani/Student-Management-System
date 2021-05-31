@@ -5,16 +5,16 @@ using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.Parents
+namespace Application.Profesoret
 {
     public class Details
     {
-        public class Query : IRequest<Parent>
+        public class Query : IRequest<Profesor>
         {
             public Guid UserId { get; set; }
         }
 
-        public class Handler : IRequestHandler<Query, Parent>
+        public class Handler : IRequestHandler<Query, Profesor>
         {
             private readonly DataContext _context;
 
@@ -23,11 +23,11 @@ namespace Application.Parents
                 _context = context;
 
             }
-            public async Task<Parent> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Profesor> Handle(Query request, CancellationToken cancellationToken)
             {
-                var parents = await _context.Parents.FindAsync(request.UserId);
+                var profesoret = await _context.Profesoret.FindAsync(request.UserId);
                 
-                return parents;
+                return profesoret;
             }
         }
     }

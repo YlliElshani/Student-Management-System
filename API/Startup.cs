@@ -9,6 +9,8 @@ using MediatR;
 using Application.Users;
 using Application.Admins;
 using Application.Parents;
+using Application.Students;
+using Application.Profesoret;
 
 namespace API
 {
@@ -38,7 +40,8 @@ namespace API
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddMediatR(typeof(ListAdmins.Handler).Assembly);
             services.AddMediatR(typeof(ListParents.Handler).Assembly);
-            //services.AddMediatR(typeof(ListStudents.Handler).Assembly);
+            services.AddMediatR(typeof(ListStudents.Handler).Assembly);
+            services.AddMediatR(typeof(ListProfesoret.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

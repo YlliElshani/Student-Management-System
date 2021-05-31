@@ -3,32 +3,28 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Domain;
-using Application.Students;
+using Application.Profesoret;
 using System;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-
-    public class StudentsController :  ControllerBase
+    public class ProfesoretController :  ControllerBase
     {
-
         private readonly IMediator _mediator;
 
-        public StudentsController(IMediator mediator)
+        public ProfesoretController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Student>>> List()
+        public async Task<ActionResult<List<Profesor>>> List()
         {
-            return await _mediator.Send(new ListStudents.Query());
+            return await _mediator.Send(new ListProfesoret.Query());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Student>> Details (Guid id)
+        public async Task<ActionResult<Profesor>> Details (Guid id)
         {
             return await _mediator.Send(new Details.Query{UserId = id});
         }

@@ -8,7 +8,7 @@ using Persistence;
 
 namespace Application.Students
 {
-    public class List
+    public class ListStudents
     {
         public class Query : IRequest<List<Student>> {}
 

@@ -16,6 +16,7 @@ namespace Persistence
         public DbSet <Lenda> Lendet {get; set;}
         public DbSet<Admin> Admins{get; set;}
         public DbSet<Parent> Parents{get; set;}
+        public DbSet<Profesor> Profesoret {get; set;}
 
 
         protected override void OnModelCreating(ModelBuilder builder)
