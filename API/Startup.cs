@@ -38,6 +38,7 @@ namespace API
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddMediatR(typeof(ListAdmins.Handler).Assembly);
             services.AddMediatR(typeof(ListParents.Handler).Assembly);
+            //services.AddMediatR(typeof(ListStudents.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
