@@ -3,6 +3,7 @@ import { Button, Container, Form, Segment } from 'semantic-ui-react'
 import { IUser } from '../../../app/models/user'
 import {v4 as uuid} from 'uuid';
 import { NavBar } from '../../nav/NavBar';
+import { NavLink } from 'react-router-dom';
 
 /*interface IProps {
     setEditMode: (editMode: boolean) => void;
@@ -76,7 +77,7 @@ export class UserForm extends Component {
                 <Form.Input  name='city' placeholder='City' />
                 <Form.Input  name='role' placeholder='Role' />
                 <Button  floated='right' positive type='submit' content='Dërgo'/>
-                <Button floated='right' type='submit' content='Anulo' d/>
+                <Button floated='right' type='submit' content='Anulo' as={NavLink} to='/users'/>
             </Form>
         </Segment>
         </Container>
