@@ -21,7 +21,7 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
         }
         else {
             return {
-                id: '',
+                userId: '',
                 firstName: '',
                 lastName: '',
                 gender: '',
@@ -38,12 +38,15 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
 
     const [user, setUser] = useState<IUser>(initializeForm);
 
-    const handleSubmit = () => {
-       if(user.id === ''){
+    const handleSubmit = () => { 
+       if(user.userId === ''){
+
            let newUser = {
                 ...user,
-                id: uuid()
+                userId: uuid()
            }
+
+
            createUser(newUser);
        }
        else{
@@ -82,5 +85,3 @@ export class UserForm extends Component {
     }
 }
 
-
-export default UserForm;

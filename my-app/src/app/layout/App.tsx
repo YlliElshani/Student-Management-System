@@ -23,7 +23,7 @@ const App = () => {
   const [target, setTarget] = useState('');
 
   const handleSelectUser = (id: string) => {
-    setSelectedUser(users.filter(a => a.id === id)[0]);
+    setSelectedUser(users.filter(a => a.userId == id)[0]); 
     setEditMode(false);
   };
 
@@ -33,27 +33,18 @@ const App = () => {
   }
 
   const handleCreateUser = (user: IUser) => {
-<<<<<<< HEAD
     setSubmitting(true);
     agent.Users.create(user).then(() => {
       setUsers([...users, user]);
-=======
-    agent.Users.create(user).then(() => {
-      setUsers([...users, user])
->>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
       setSelectedUser(user);
       setEditMode(false);
     }).then(() => setSubmitting(false))
   }
 
-<<<<<<< HEAD
   const handleEditUser = (user: IUser) => { 
     setSubmitting(true);
-=======
-  const handleEditUser = (user: IUser) => {
->>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
     agent.Users.update(user).then(() => {
-      setUsers([...users.filter(a=> a.id !== user.id), user])
+      setUsers([...users.filter(a=> a.userId !== user.userId), user])
       setSelectedUser(user);
       setEditMode(false);
     }).then(() => setSubmitting(false))
@@ -63,13 +54,8 @@ const App = () => {
     setSubmitting(true);
     setTarget(event.currentTarget.name)
     agent.Users.delete(id).then(() => {
-<<<<<<< HEAD
           setUsers([...users.filter(a => a.userId !==id)])
     }).then(() => setSubmitting(false))
-=======
-          setUsers([...users.filter(a => a.id !==id)])
-    })
->>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
   }
 
   useEffect(()=>{
@@ -80,7 +66,7 @@ const App = () => {
       })
       setUsers(users);
     }).then(() => setLoading(false));
-  }, []);
+  }, []); 
 
 if(loading) return <LoadingComponent content='Loading Users'/>*/}
 
