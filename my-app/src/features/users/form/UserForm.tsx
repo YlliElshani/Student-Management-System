@@ -82,7 +82,5 @@ export class UserForm extends Component {
     }
 }
 
-<<<<<<< HEAD
-=======
+
 export default UserForm;
->>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)

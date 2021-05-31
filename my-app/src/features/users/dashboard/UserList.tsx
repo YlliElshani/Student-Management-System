@@ -23,13 +23,9 @@ export const UserList:React.FC<IProps>= ({users,selectUser, openCreateForm, dele
                     <Item.Header >{user.firstName} {user.lastName}</Item.Header>
                     <Item.Meta>{user.role}</Item.Meta>
                     <Item.Extra>
-<<<<<<< HEAD
-                        <Button size='mini' floated='right' content='Shiko Detajet' onClick={() => selectUser(user.userId)}/>
-                        <Button loading={target === user.userId && submitting} size='mini' floated='right' content='Fshij Perdoruesin' name={user.userId} onClick={(e) => deleteUser(e, user.userId)} />
-=======
                         <Button size='mini' floated='right' content='Shiko Detajet' onClick={(e) => selectUser(user.id)}/>
                         <Button size='mini' floated='right' content='Fshij Perdoruesin' name={user.id} onClick={(e) => deleteUser(e, user.id)} />
->>>>>>> parent of 8487a75 (Shtohet CRUD i plote per users)
+
                     </Item.Extra>
                     </Item.Content>
                 </Item>
