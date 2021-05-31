@@ -1,9 +1,11 @@
-import React, {FormEvent, useState} from 'react'
-import { Button, Form, Segment } from 'semantic-ui-react'
+import React, {Component, FormEvent, useState} from 'react'
+import { Button, Container, Form, Segment } from 'semantic-ui-react'
 import { IUser } from '../../../app/models/user'
 import {v4 as uuid} from 'uuid';
+import { NavBar } from '../../nav/NavBar';
+import { NavLink } from 'react-router-dom';
 
-interface IProps {
+/*interface IProps {
     setEditMode: (editMode: boolean) => void;
     user: IUser;
     createUser: (user:IUser) => void;
@@ -55,25 +57,31 @@ const UserForm: React.FC<IProps> = ({setEditMode, user: initialFormState, create
     const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
         const {name, value} = event.currentTarget;
         setUser({...user, [name]: value});
-    };
+    };*/
 
-    return (
-       <Segment clearing>
-           <Form  onSubmit={handleSubmit}>
-               <Form.Input onChange={handleInputChange} name='firstName' placeholder='FirstName' value={user.firstName} />
-               <Form.Input onChange={handleInputChange} name='lastName' placeholder='LastName' value={user.lastName}/>
-               <Form.Input onChange={handleInputChange} name='gender' placeholder='Gender' value={user.gender}/>
-               <Form.Input onChange={handleInputChange} name='age' placeholder='Age' value={user.age}/>
-               <Form.Input onChange={handleInputChange} name='phoneNumber' placeholder='PhoneNumber' value={user.phoneNumber}/>
-               <Form.Input onChange={handleInputChange} name='email' placeholder='Email' value={user.email}/>
-               <Form.Input onChange={handleInputChange} name='address' placeholder='Address' value={user.address}/>
-               <Form.Input onChange={handleInputChange} name='city' placeholder='City' value={user.city}/>
-               <Form.Input onChange={handleInputChange} name='role' placeholder='Role' value={user.role}/>
-               <Button loading={submitting} floated='right' positive type='submit' content='Dërgo'/>
-               <Button floated='right' type='submit' content='Anulo' onClick ={() => setEditMode(false)}/>
-           </Form>
-       </Segment>
-    )
+export class UserForm extends Component {
+
+    render(){
+        return (
+            <Container>
+            <NavBar/>
+        <Segment clearing style={{width:'40%', marginLeft:'25%'}}>
+            <Form  style={{padding:'30px'}}>
+                <Form.Input  name='firstName' placeholder='FirstName' />
+                <Form.Input name='lastName' placeholder='LastName' />
+                <Form.Input  name='gender' placeholder='Gender' />
+                <Form.Input  name='age' placeholder='Age' />
+                <Form.Input  name='phoneNumber' placeholder='PhoneNumber'/>
+                <Form.Input name='email' placeholder='Email' />
+                <Form.Input  name='address' placeholder='Address'/>
+                <Form.Input  name='city' placeholder='City' />
+                <Form.Input  name='role' placeholder='Role' />
+                <Button  floated='right' positive type='submit' content='Dërgo'/>
+                <Button floated='right' type='submit' content='Anulo' as={NavLink} to='/users'/>
+            </Form>
+        </Segment>
+        </Container>
+        )
+    }
 }
 
-export default UserForm;

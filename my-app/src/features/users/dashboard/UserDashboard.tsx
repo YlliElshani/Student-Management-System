@@ -1,10 +1,10 @@
 import axios from 'axios'
-import React, { Component, SyntheticEvent } from 'react'
+import React, { Component, SyntheticEvent, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { Button, Container, Grid, Header, Item, List, Segment } from 'semantic-ui-react'
 import { IUser } from '../../../app/models/user'
 import { NavBar } from '../../nav/NavBar'
 import UserDetails from '../details/UserDetails'
-import  UserForm  from '../form/UserForm'
 import { UserList } from './UserList'
 
 {/*interface IProps {
@@ -41,7 +41,8 @@ const UserDashboard:React.FC<IProps>= ({users, selectUser, selectedUser, editMod
     )
 }*/}
 
-class UserDashboard extends Component{
+class UserDashboard extends Component{  
+    
     state = {
         users: []
     }
@@ -54,6 +55,10 @@ class UserDashboard extends Component{
         })
     }
 
+    componentDidUpdate(){
+
+    }
+
     render(){
         return (
             <Container>
@@ -62,7 +67,7 @@ class UserDashboard extends Component{
                     <Header.Content>Lista e Perdoruesve</Header.Content>
                 </Header>
                 <Segment>
-                    <Button content='Shto Përdorues'/>
+                    <Button as={NavLink} to='/form' content='Shto Përdorues' activeClassName="active"/>
                         <Item.Group divided>
                             {this.state.users.map((user: any) => (
                             <Item key={user.userId}>
