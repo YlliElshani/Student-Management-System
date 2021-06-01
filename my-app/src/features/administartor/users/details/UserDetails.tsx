@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { IUser } from '../../../app/models/user';
+import { IUser } from '../../../../app/models/user';
 
 interface IProps {
-    user:IUser;
-    setEditMode: (editMode: boolean) => void;
-    setSelectedUser: (user: IUser | null) => void;
+   user: IUser
+   setEditMode: (editMode: boolean)=>void;
+   setSelectedUser: (user: IUser | null)=>void;
 }
 
 
@@ -35,7 +35,7 @@ const UserDetails:React.FC<IProps> = ({user, setEditMode, setSelectedUser}) => {
             </Grid.Row>
         </Grid>
         <Button.Group>
-                <Button onClick={() => setEditMode(true)} basic color='blue' content='Ndrysho'/>
+                <Button onClick={() => setEditMode(true)}  basic color='blue' content='Ndrysho'/>
                 <Button onClick={() => setSelectedUser(null)} basic color='grey' content='Anulo'/>
             </Button.Group>
         </Segment>
