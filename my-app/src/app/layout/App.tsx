@@ -10,6 +10,8 @@ import { AdminProfile } from '../../features/administartor/AdminProfile';
 import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
 import ArsyetoMungesen from '../../features/ParentFeatures/ArsyetoMungesen';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
+import { Student } from '../../features/student/Student';
+import { StudentProfile } from '../../features/student/StudentProfile';
 
 const App = () => {
     return (
@@ -22,6 +24,9 @@ const App = () => {
               <Route exact path='/users' component={UserDashboard}/>
               <Route exact path='/adminProfile' component={AdminProfile}/>
               <Route exact path='/lendet' component={LendaDashboard}/>
+              <Route exact path='/student' component={Student}/>
+              <Route exact path='/transcript' component={Transcript}/>
+              <Route exact path='/studentProfile' component={StudentProfile}/>
           </Container> 
         </Fragment>
     );

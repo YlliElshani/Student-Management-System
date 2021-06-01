@@ -28,3 +28,8 @@ body{
   background-image: url('../../assets/login.jpg');
   background-size: 100%;
 }
+
+.ui.segment.Student{
+  background-image: url('../../assets/studentphoto4.jpeg');
+  background-size: 100%;
+}
