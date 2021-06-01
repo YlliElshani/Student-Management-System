@@ -11,6 +11,7 @@ using Application.Admins;
 using Application.Parents;
 using Application.Students;
 using Application.Profesoret;
+using Application.Trips;
 
 namespace API
 {
@@ -42,6 +43,7 @@ namespace API
             services.AddMediatR(typeof(ListParents.Handler).Assembly);
             services.AddMediatR(typeof(ListStudents.Handler).Assembly);
             services.AddMediatR(typeof(ListProfesoret.Handler).Assembly);
+            services.AddMediatR(typeof(ListTrips.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

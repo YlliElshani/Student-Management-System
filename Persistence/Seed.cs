@@ -168,6 +168,26 @@ namespace Persistence
                 context.Lendet.AddRange(lendet);
                 context.SaveChanges();
             }
+
+            if(!context.Trips.Any())
+            {
+                var trips = new List<Trip>
+                {
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "25 Qershor 2021",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    }
+                };
+
+                context.Trips.AddRange(trips);
+                context.SaveChanges();
+            }
         }
 
     }
