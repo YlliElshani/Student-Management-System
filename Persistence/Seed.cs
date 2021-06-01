@@ -188,6 +188,28 @@ namespace Persistence
                 context.Trips.AddRange(trips);
                 context.SaveChanges();
             }
+
+            if(!context.Notat.Any())
+            {
+                var notat = new List<Nota>
+                {
+                    new Nota
+                    {
+                        Lenda = "Gjuhe shqipe",
+                        Grade = 5
+                    },
+                    new Nota
+                    {
+                        Lenda = "Matematike",
+                        Grade = 3
+                        
+                    }
+                };
+                context.Notat.AddRange(notat);
+                context.SaveChanges();
+            }
+
+            
         }
 
     }

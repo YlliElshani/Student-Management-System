@@ -18,7 +18,7 @@ namespace Persistence
         public DbSet<Parent> Parents{get; set;}
         public DbSet<Profesor> Profesoret {get; set;}
         public DbSet<Trip> Trips {get; set;}
-
+        public DbSet<Nota> Notat {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
