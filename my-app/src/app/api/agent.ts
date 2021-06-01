@@ -1,5 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
+import { ILenda } from '../models/lenda';
 import { IUser } from '../models/user';
+//import {ILenda} from '../models/lenda';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -23,6 +25,15 @@ const Users = {
     delete: (id: string) => requests.delete(`/users/${id}`)
 }
 
+
+const Lendet = {
+    list: (): Promise<ILenda[]> => requests.get('/lendet'),
+    details: (id: string) => requests.get(`/lendet/${id}`),
+    create: (lenda:ILenda) => requests.post('/lendet', lenda),
+    update: (lenda: ILenda) => requests.put(`/lendet/${lenda.lendaId}`, lenda),
+    delete: (id: string) => requests.delete(`/lendet/${id}`)
+}
+
 export default {
-    Users
+    Users, Lendet
 }

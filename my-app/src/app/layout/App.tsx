@@ -9,6 +9,7 @@ import { Lendet } from '../../features/lendet/Lendet';
 import { AdminProfile } from '../../features/administartor/AdminProfile';
 import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
 import ArsyetoMungesen from '../../features/ParentFeatures/ArsyetoMungesen';
+import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 
 const App = () => {
     return (
@@ -20,6 +21,7 @@ const App = () => {
               <Route exact path='/ParentFeatures' component={ArsyetoMungesen}/>
               <Route exact path='/users' component={UserDashboard}/>
               <Route exact path='/adminProfile' component={AdminProfile}/>
+              <Route exact path='/lendet' component={LendaDashboard}/>
           </Container> 
         </Fragment>
     );
