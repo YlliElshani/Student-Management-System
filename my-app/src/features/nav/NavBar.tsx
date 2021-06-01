@@ -9,7 +9,9 @@ export const NavBar:React.FC = () => {
             <Menu.Item as={NavLink} to='/profile' name='Profili'/>
             <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Users'/>
             <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
-            <Menu.Item as={NavLink} to='/transkripta' name='Transkripta'/>
+            <Menu.Item as={NavLink} to='/ParentFeatures' name='ParentDashboard'/>
+            {/* veq per testim e kom lon linkun ne nav te dashboard  e heki kur
+            te kryhet logjika e Login-it */}
             {/*<Menu.Item name='Orari'/>
             <Menu.Item name='Pagesat'/>*/}
             <Menu.Menu position='right'>

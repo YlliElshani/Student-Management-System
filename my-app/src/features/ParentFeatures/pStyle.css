@@ -1,0 +1,38 @@
+.tabela{
+    border:4px solid black;
+}
+.ParentDiv{
+    padding:5px;
+    display: flex;
+}
+.Notat{
+    background-color: rgb(215, 201, 190);
+    border:4px solid black;
+    padding: 20px;
+}
+.FormArsyetoMungesen{
+    display: flex;
+    flex-direction: row;
+    float: left;
+    padding: 10px;
+    margin-right:80px;
+    margin-bottom: 20px;
+    border:4px solid black;
+    border-radius: 15px;
+    background-color: rgb(215, 201, 190);
+}
+.inputet{
+    margin-bottom: 10px;
+}
+
+.inputet2{
+    padding:5px;
+}
+    
+.inputet2 Label{
+    margin: 10px;
+}
+
+.inputet2 TextArea{
+    padding: 5px;
+}
