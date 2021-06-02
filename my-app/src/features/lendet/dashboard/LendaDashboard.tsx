@@ -1,6 +1,6 @@
 
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Item, Segment, Table } from 'semantic-ui-react'
+import { Button, Grid, Table } from 'semantic-ui-react'
 import agent from '../../../app/api/agent';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { ILenda } from '../../../app/models/lenda';
@@ -68,26 +68,7 @@ const LendaDashboard: React.FC = () => {
     return (
         <Grid>
             <NavBar />
-            <Grid.Column width={10}>
-                {/*    <Segment>
-                    <Button onClick={handleOpenCreateForm} content='Shto Lende' activeClassName="active"/>
-                        <Item.Group divided>
-                            {lendet.map((lenda) => (
-                            <Item key={lenda.lendaId}>
-                                <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
-                                <Item.Content inverted="true">
-                                <Item.Header >{lenda.emri}</Item.Header>
-                                <Item.Meta>{lenda.klasa}</Item.Meta>
-                                <Item.Extra>
-                                    <Button onClick={() => handleSelectLenda(lenda.lendaId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                    <Button name={lenda.lendaId} loading={target === lenda.lendaId && submitting} onClick={(e) => handleDelete(e, lenda.lendaId)} size='mini' floated='right' content='Fshij Lenden' />
-                                </Item.Extra>
-                                </Item.Content>
-                            </Item>
-                            ))}
-                        </Item.Group>
-                            </Segment>*/}
-                
+            <Grid.Column width={10}>    
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -128,7 +109,4 @@ const LendaDashboard: React.FC = () => {
         </Grid>
     )
 }
-
-
-
 export default LendaDashboard;

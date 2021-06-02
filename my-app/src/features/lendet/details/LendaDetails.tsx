@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Button, Segment, Card } from 'semantic-ui-react'
+import { Button,Card } from 'semantic-ui-react'
 import { ILenda } from '../../../app/models/lenda';
 
 
