@@ -5,7 +5,6 @@ import { Route } from 'react-router-dom';
 import { LogIn } from '../../features/logIn/LogIn';
 import { UserProfile } from '../../features/profile/UserProfile';
 import { Transcript } from '../../features/transcript/Transcript';
-import { Lendet } from '../../features/lendet/Lendet';
 import { AdminProfile } from '../../features/administartor/AdminProfile';
 import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
 import ArsyetoMungesen from '../../features/ParentFeatures/ArsyetoMungesen';
