@@ -9,14 +9,28 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210601233007_NotaEntityAdded")]
-    partial class NotaEntityAdded
+    [Migration("20210602150206_ProfesoraEntity")]
+    partial class ProfesoraEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+
+            modelBuilder.Entity("Domain.Detyra", b =>
+                {
+                    b.Property<Guid>("DetyraId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DetyraEmri");
+
+                    b.Property<string>("Pershkrimi");
+
+                    b.HasKey("DetyraId");
+
+                    b.ToTable("Detyrat");
+                });
 
             modelBuilder.Entity("Domain.Lenda", b =>
                 {

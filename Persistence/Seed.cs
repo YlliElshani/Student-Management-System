@@ -115,17 +115,27 @@ namespace Persistence
                         LastName = "Ulluri",
                         Gender = "M",
                         Age = 30,
-                        PhoneNumber = "049789456",
-                        Email = "gentritulluri@gmail.com",
-                        Address = "Muharrem Fejza",
-                        Password = "gentrit123",
-                        City = "Prishtine",
+                        PhoneNumber = "0472154621",
+                        Email = "GentritUlluri@gmail.com",
+                        Address = "Rr.Vellezrit Gervalla nr.53",
+                        Password = "Ulluri555",
+                        City = "Malishev",
                         Role = "Profesor",
-                        GradaAkademike = "Profesor i rregullt",
-                        Studimet = "Doktorature"
+                        GradaAkademike ="Profesor i rregullt",
+                        Studimet = "Master"
                     }   
                  
                 };
+                var detyrat = new List<Detyra>
+                {
+                    new Detyra
+                    {
+                        DetyraEmri = "Projekt",
+                        Pershkrimi = "Pershkrimi",
+                        
+                    }
+                };
+              
 
                 context.Users.AddRange(users);
                 context.SaveChanges();
@@ -141,6 +151,11 @@ namespace Persistence
 
                 context.Profesoret.AddRange(profesoret);
                 context.SaveChanges();
+
+                context.Detyrat.AddRange(detyrat);
+                context.SaveChanges();
+
+            
 
             }
 
