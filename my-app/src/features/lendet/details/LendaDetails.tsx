@@ -1,36 +1,34 @@
 import React from 'react'
-import { Grid, Button, Segment } from 'semantic-ui-react'
+import { Grid, Button, Segment, Card } from 'semantic-ui-react'
 import { ILenda } from '../../../app/models/lenda';
-//import { ILenda } from '../../../../app/models/lenda';
+
 
 interface IProps {
-   lenda: ILenda
-   setEditMode: (editMode: boolean)=>void;
-   setSelectedLenda: (lenda: ILenda | null)=>void;
+    lenda: ILenda
+    setEditMode: (editMode: boolean) => void;
+    setSelectedLenda: (lenda: ILenda | null) => void;
 }
 
 
-const LendaDetails:React.FC<IProps> = ({lenda, setEditMode, setSelectedLenda}) => {
+const LendaDetails: React.FC<IProps> = ({ lenda, setEditMode, setSelectedLenda }) => {
     return (
-        <Segment>
-         <Grid key={lenda.lendaId} columns={1} divided>
-            <Grid.Row stretched>
-            <Grid.Column>
-                <Segment>{lenda.emri}</Segment>
-                <Segment>{lenda.klasa}</Segment>
-                <Segment>{lenda.profesori}</Segment>
-            </Grid.Column>
-            <Grid.Column>
-                <br/>
-                      
-            </Grid.Column>
-            </Grid.Row>
-        </Grid>
-        <Button.Group>
-                <Button onClick={() => setEditMode(true)}  basic color='blue' content='Ndrysho'/>
-                <Button onClick={() => setSelectedLenda(null)} basic color='grey' content='Anulo'/>
-            </Button.Group>
-        </Segment>
+        <Card fluid>   
+            <Card.Content>
+                <Card.Header>{lenda.emri}</Card.Header>
+                <Card.Meta>
+                    <span>{lenda.klasa}</span>
+                </Card.Meta>
+                <Card.Description>
+                    {lenda.descripion}
+                </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+                <Button.Group widths={2}>
+                    <Button onClick={() => setEditMode(true)} basic color="blue" content='Edit' />
+                    <Button onClick={() => setSelectedLenda(null)} basic color="grey" content='Cancel' />
+                </Button.Group>
+            </Card.Content>
+        </Card>
     )
 }
 

@@ -3,5 +3,5 @@ export interface ILenda {
     emri: string; 
     klasa: string;
     profesori:string;
-    description:String;
+    descripion:String;
 }
