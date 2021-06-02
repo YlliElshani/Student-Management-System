@@ -12,6 +12,7 @@ import ArsyetoMungesen from '../../features/ParentFeatures/ArsyetoMungesen';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
+import AppNota from '../../features/notat/dashboard/AppNota';
 
 const App = () => {
     return (
@@ -27,6 +28,7 @@ const App = () => {
               <Route exact path='/student' component={Student}/>
               <Route exact path='/transcript' component={Transcript}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>
+              <Route exact path='/notat' component={AppNota}/>
           </Container> 
         </Fragment>
     );
