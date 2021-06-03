@@ -8,10 +8,11 @@ import { Transcript } from '../../features/transcript/Transcript';
 import { Lendet } from '../../features/lendet/Lendet';
 import { AdminProfile } from '../../features/administartor/AdminProfile';
 import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
-import ArsyetoMungesen from '../../features/ParentFeatures/ArsyetoMungesen';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
+import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
+//import { parentDashboard } from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 
 const App = () => {
     return (
@@ -20,7 +21,7 @@ const App = () => {
               <Route exact path='/' component={HomePage}/>
               <Route exact path='/login' component={LogIn}/>
               <Route exact path='/profile' component={UserProfile}/>
-              <Route exact path='/ParentFeatures' component={ArsyetoMungesen}/>
+              <Route exact path='/ParentFeatures' component={parentDashboard}/>
               <Route exact path='/users' component={UserDashboard}/>
               <Route exact path='/adminProfile' component={AdminProfile}/>
               <Route exact path='/lendet' component={LendaDashboard}/>

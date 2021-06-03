@@ -127,6 +127,13 @@ namespace Persistence
                  
                 };
 
+                var arsyetimet=new List<Arsyetim>{
+                    new Arsyetim{
+                        ArsyejaMungeses="Nxenesi eshte semur",
+                        nrDiteve=4
+                    }
+                };
+
                 context.Users.AddRange(users);
                 context.SaveChanges();
 
@@ -140,6 +147,9 @@ namespace Persistence
                 context.SaveChanges();
 
                 context.Profesoret.AddRange(profesoret);
+                context.SaveChanges();
+
+                context.Arsyet.AddRange(arsyetimet);
                 context.SaveChanges();
 
             }

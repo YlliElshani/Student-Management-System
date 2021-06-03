@@ -16,6 +16,20 @@ namespace Persistence.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("Domain.Arsyetim", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ArsyejaMungeses");
+
+                    b.Property<int>("nrDiteve");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Arsyet");
+                });
+
             modelBuilder.Entity("Domain.Lenda", b =>
                 {
                     b.Property<Guid>("LendaId")

@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
 import { IUser } from '../models/user';
 //import {ILenda} from '../models/lenda';
@@ -24,7 +25,7 @@ const Users = {
     update: (user: IUser) => requests.put(`/users/${user.userId}`, user),
     delete: (id: string) => requests.delete(`/users/${id}`)
 }
-
+ 
 
 const Lendet = {
     list: (): Promise<ILenda[]> => requests.get('/lendet'),
@@ -34,6 +35,14 @@ const Lendet = {
     delete: (id: string) => requests.delete(`/lendet/${id}`)
 }
 
+const Arsyetimet = {
+    list: (): Promise<IArsyeja[]> => requests.get('/usersP'),
+    details: (Id: string) => requests.get(`/usersP/${Id}`),
+    create: (Arsyetim:IArsyeja) => requests.post('/usersP', Arsyetim),
+    update: (Arsyetim: IArsyeja) => requests.put(`/usersP/${Arsyetim.Id}`, Arsyetim),
+    delete: (id: string) => requests.delete(`/usersP/${id}`)
+}
+
 export default {
-    Users, Lendet
+    Users, Lendet,Arsyetimet
 }

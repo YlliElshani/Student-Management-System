@@ -13,6 +13,8 @@ using Application.Students;
 using Application.Profesoret;
 using Application.Trips;
 using Application.Notat;
+using Application.Arsyetimet;
+
 
 namespace API
 {
@@ -46,6 +48,7 @@ namespace API
             services.AddMediatR(typeof(ListProfesoret.Handler).Assembly);
             services.AddMediatR(typeof(ListTrips.Handler).Assembly);
             services.AddMediatR(typeof(ListNotat.Handler).Assembly);
+            services.AddMediatR(typeof(ListaArsyetimeve.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
