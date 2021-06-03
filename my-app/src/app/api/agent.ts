@@ -4,6 +4,7 @@ import { ILenda } from '../models/lenda';
 import { IUser } from '../models/user';
 //import {ILenda} from '../models/lenda';
 import { INota } from '../models/nota';
+import { ITrajnim } from '../models/trajnim';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -51,7 +52,18 @@ const Notat = {
     update: (nota: INota) => requests.put(`/notat/${nota.notaId}`, nota),
     delete: (id: string) => requests.delete(`/notat/${id}`)
 }
+const Trajnimet = {
+    list: (): Promise<ITrajnim[]> => requests.get('/trajnimet'),
+    details: (Id: string) => requests.get(`/trajnimet/${Id}`),
+    create: (Trajnim:ITrajnim) => requests.post('/trajnimet', Trajnim),
+    update: (Trajnim: ITrajnim) => requests.put(`/trajnimet/${Trajnim.TrajnimId}`, Trajnim),
+    delete: (id: string) => requests.delete(`/trajnimet/${id}`)
+}
+
+
+
+
 
 export default {
-    Users, Lendet, Notat
+    Users, Lendet, Notat, Trajnimet
 }

@@ -143,6 +143,16 @@ namespace Persistence
                         nrDiteve=4
                     }
                 };
+                var trajnimet = new List<Trajnim>
+                {
+                    new Trajnim
+                    {
+                        TrajnimEmri = "HTML/CSS",
+                        Pershkrimi = "Front-End Learning",
+                        numriDiteve = 20
+                        
+                    }
+                };
 
                 context.Users.AddRange(users);
                 context.SaveChanges();
@@ -163,6 +173,9 @@ namespace Persistence
                 context.SaveChanges();
 
                 context.Detyrat.AddRange(detyrat);
+                context.SaveChanges();
+
+                context.Trajnimet.AddRange(trajnimet);
                 context.SaveChanges();
 
             
