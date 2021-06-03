@@ -1,6 +1,6 @@
 namespace Domain
 {
-    public class Profesor : User
+    public class Profesor:User
     {
         public string GradaAkademike { get; set; }
 

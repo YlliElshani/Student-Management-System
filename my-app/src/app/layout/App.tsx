@@ -5,7 +5,6 @@ import { Route } from 'react-router-dom';
 import { LogIn } from '../../features/logIn/LogIn';
 import { UserProfile } from '../../features/profile/UserProfile';
 import { Transcript } from '../../features/transcript/Transcript';
-import { Lendet } from '../../features/lendet/Lendet';
 import { AdminProfile } from '../../features/administartor/AdminProfile';
 import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
@@ -13,6 +12,7 @@ import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 //import { parentDashboard } from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
+import AppNota from '../../features/notat/dashboard/AppNota';
 
 const App = () => {
     return (
@@ -28,6 +28,7 @@ const App = () => {
               <Route exact path='/student' component={Student}/>
               <Route exact path='/transcript' component={Transcript}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>
+              <Route exact path='/notat' component={AppNota}/>
           </Container> 
         </Fragment>
     );

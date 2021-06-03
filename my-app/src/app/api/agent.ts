@@ -3,6 +3,7 @@ import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
 import { IUser } from '../models/user';
 //import {ILenda} from '../models/lenda';
+import { INota } from '../models/nota';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -43,6 +44,14 @@ const Arsyetimet = {
     delete: (id: string) => requests.delete(`/usersP/${id}`)
 }
 
+const Notat = {
+    list: (): Promise<INota[]> => requests.get('/notat'),
+    details: (id: string) => requests.get(`/notat/${id}`),
+    create: (nota:INota) => requests.post('/notat', nota),
+    update: (nota: INota) => requests.put(`/notat/${nota.notaId}`, nota),
+    delete: (id: string) => requests.delete(`/notat/${id}`)
+}
+
 export default {
-    Users, Lendet,Arsyetimet
+    Users, Lendet, Notat
 }
