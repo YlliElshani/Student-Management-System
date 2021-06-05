@@ -22,6 +22,7 @@ namespace Persistence
         public DbSet<Arsyetim> Arsyet {get; set;}
         public DbSet<Detyra> Detyrat {get; set;}
         public DbSet<Njoftime> Njoftimet {get; set;}
+        public DbSet<Trajnim> Trajnimet {get; set;}
         
 
         protected override void OnModelCreating(ModelBuilder builder)
