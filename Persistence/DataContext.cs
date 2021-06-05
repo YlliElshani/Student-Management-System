@@ -21,6 +21,7 @@ namespace Persistence
         public DbSet<Nota> Notat {get; set;}
         public DbSet<Arsyetim> Arsyet {get; set;}
         public DbSet<Detyra> Detyrat {get; set;}
+        public DbSet<Njoftime> Njoftimet {get; set;}
         
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -62,6 +62,20 @@ namespace Persistence.Migrations
                     b.ToTable("Lendet");
                 });
 
+            modelBuilder.Entity("Domain.Njoftime", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DataENjoftimit");
+
+                    b.Property<string>("Njoftimi");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Njoftimet");
+                });
+
             modelBuilder.Entity("Domain.Nota", b =>
                 {
                     b.Property<Guid>("NotaId")
