@@ -13,6 +13,7 @@ import { StudentProfile } from '../../features/student/StudentProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 //import { parentDashboard } from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
+import { TripsList } from '../../features/administartor/trips/TripsList';
 
 const App = () => {
     return (
@@ -23,12 +24,13 @@ const App = () => {
               <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/ParentFeatures' component={parentDashboard}/>
               <Route exact path='/users' component={UserDashboard}/>
-              <Route exact path='/adminProfile' component={AdminProfile}/>
+              <Route path='/adminProfile' component={AdminProfile}/>
               <Route exact path='/lendet' component={LendaDashboard}/>
               <Route exact path='/student' component={Student}/>
               <Route exact path='/transcript' component={Transcript}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>
               <Route exact path='/notat' component={AppNota}/>
+              <Route exact path='/trips' component={TripsList}/>
           </Container> 
         </Fragment>
     );

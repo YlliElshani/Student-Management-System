@@ -7,7 +7,7 @@ export const NavBar:React.FC = () => {
         <Menu size='mini' fixed='top'>
             <Menu.Item><Icon name='graduation cap'></Icon></Menu.Item>
             <Menu.Item as={NavLink} to='/profile' name='Profili'/>
-            <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Users'/>
+            <Menu.Item as={NavLink} to='/adminProfile' name='Admin Dashboard'/>
             <Menu.Item as={NavLink} to='/student' activeClassName="active" name='Student'/>
             <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
             <Menu.Item as={NavLink} to='/notat' activeClassName="active" name='Notat'/>

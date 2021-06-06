@@ -1,6 +1,5 @@
 import React from 'react'
-import { Card, Container, Grid, Icon, Segment } from 'semantic-ui-react'
-import App from '../../app/layout/App'
+import { Card, Container, Grid, Segment } from 'semantic-ui-react'
 import { NavBar } from '../nav/NavBar'
 
 export const UserProfile = () => {

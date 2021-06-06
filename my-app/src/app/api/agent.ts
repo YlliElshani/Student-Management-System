@@ -5,6 +5,7 @@ import { IUser } from '../models/user';
 //import {ILenda} from '../models/lenda';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
+import { ITrip } from '../models/trip';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -27,7 +28,6 @@ const Users = {
     update: (user: IUser) => requests.put(`/users/${user.userId}`, user),
     delete: (id: string) => requests.delete(`/users/${id}`)
 }
- 
 
 const Lendet = {
     list: (): Promise<ILenda[]> => requests.get('/lendet'),
@@ -60,10 +60,16 @@ const Trajnimet = {
     delete: (id: string) => requests.delete(`/trajnimet/${id}`)
 }
 
-
+const Trips = {
+    tripsList: () : Promise<ITrip[]> => requests.get('/trips'),
+    tripDetails: (id: string) => requests.get(`/trips/${id}`),
+    createTrip: (trip:ITrip) => requests.post('/trips',trip),
+    updateTrip: (trip: ITrip) => requests.put(`/trips/${trip.tripId}`, trip),
+    deleteTrip: (id: string) => requests.delete(`/trips/${id}`)
+}
 
 
 
 export default {
-    Users, Lendet, Notat, Trajnimet
+    Users, Lendet, Notat, Trajnimet, Trips
 }

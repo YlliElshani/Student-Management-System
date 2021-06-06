@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Container, Icon, Item, Label, Menu, Segment } from 'semantic-ui-react'
+import { Container, Icon, Label, Segment } from 'semantic-ui-react'
 
 export const HomePage = () => {
     return (

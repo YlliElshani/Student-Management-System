@@ -1,11 +1,10 @@
-import axios from 'axios'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Button, Container, Grid, GridColumn, Header, Item, List, Segment } from 'semantic-ui-react'
+import { Button, Container, Grid, Item, Segment } from 'semantic-ui-react'
 import agent from '../../../../app/api/agent'
 import { LoadingComponent } from '../../../../app/layout/LoadingComponent'
 import { IUser } from '../../../../app/models/user'
 import { NavBar } from '../../../nav/NavBar'
+import { AdminNavBar } from '../../AdminNavBar'
 import UserDetails from '../details/UserDetails'
 import UserForm from '../form/UserForm'
 
@@ -66,11 +65,13 @@ const UserDashboard:React.FC = () => {
     if(loading) return <LoadingComponent content='Loading Users'/>
 
         return (
-            <Grid>
+            <Container>
             <NavBar/>
+            <AdminNavBar/>
+            <Grid>
             <Grid.Column width='6'>
-                <Segment>
-                    <Button onClick={handleOpenCreateForm} content='Shto Përdorues' activeClassName="active"/>
+                <Segment style={{width:'80%'}}>
+                    <Button onClick={handleOpenCreateForm} content='Shto Përdorues' activeClassName="active" floated='right'/>
                         <Item.Group divided>
                             {users.map((user) => (
                             <Item key={user.userId}>
@@ -93,6 +94,7 @@ const UserDashboard:React.FC = () => {
                     {editMode && <UserForm setEditMode={setEditMode} user={selectedUser!} createUser={handleCreateUser} editUser={handleEditUser} submitting={submitting}/>}
                 </Grid.Column>
             </Grid>
+            </Container>
         )
 }
 
