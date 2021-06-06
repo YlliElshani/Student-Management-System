@@ -5,6 +5,7 @@ import { IUser } from '../models/user';
 //import {ILenda} from '../models/lenda';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
+import { IDetyra } from '../models/detyra';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -56,8 +57,16 @@ const Trajnimet = {
     list: (): Promise<ITrajnim[]> => requests.get('/trajnimet'),
     details: (Id: string) => requests.get(`/trajnimet/${Id}`),
     create: (Trajnim:ITrajnim) => requests.post('/trajnimet', Trajnim),
-    update: (Trajnim: ITrajnim) => requests.put(`/trajnimet/${Trajnim.TrajnimId}`, Trajnim),
+    update: (Trajnim: ITrajnim) => requests.put(`/trajnimet/${Trajnim.trajnimId}`, Trajnim),
     delete: (id: string) => requests.delete(`/trajnimet/${id}`)
+}
+
+const Detyrat = {
+    list: (): Promise<IDetyra[]> => requests.get('/detyrat'),
+    details: (id: string) => requests.get(`/detyrat/${id}`),
+    create: (detyra:IDetyra) => requests.post('/detyrat', detyra),
+    update: (detyra: IDetyra) => requests.put(`/detyrat/${detyra.detyraId}`, detyra),
+    delete: (id: string) => requests.delete(`/detyrat/${id}`)
 }
 
 
@@ -65,5 +74,5 @@ const Trajnimet = {
 
 
 export default {
-    Users, Lendet, Notat, Trajnimet
+    Users, Lendet, Notat, Trajnimet, Detyrat
 }

@@ -1,6 +1,6 @@
 export interface ITrajnim{
-    TrajnimId: string,
-    TrajnimEmri: string,
-    Pershkrimi: string,
+    trajnimId: string,
+    trajnimEmri: string,
+    pershkrimi: string,
     numriDiteve: string
 }

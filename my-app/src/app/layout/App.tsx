@@ -13,6 +13,8 @@ import { StudentProfile } from '../../features/student/StudentProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 //import { parentDashboard } from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
+import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
+import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
 
 const App = () => {
     return (
@@ -29,6 +31,8 @@ const App = () => {
               <Route exact path='/transcript' component={Transcript}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>
               <Route exact path='/notat' component={AppNota}/>
+              <Route exact path='/trajnimet' component={Myapp}/>
+              <Route exact path='/detyrat' component={DetyraApp}/>
           </Container> 
         </Fragment>
     );
