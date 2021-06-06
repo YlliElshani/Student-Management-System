@@ -12,9 +12,6 @@ export const NavBar:React.FC = () => {
             <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
             <Menu.Item as={NavLink} to='/notat' activeClassName="active" name='Notat'/>
             <Menu.Item as={NavLink} to='/ParentFeatures' name='ParentDashboard'/>
-            <Menu.Item as={NavLink} to='/trajnimet' name='Trajnimet'/>
-            <Menu.Item as={NavLink} to='/Detyrat' name='Detyrat'/>
-            <Menu.Item as={NavLink} to='/njoftimet' name='Njoftime'/>
             <Menu.Menu position='right'>
             <Dropdown item text='Gjuhët'>
                 <Dropdown.Menu>
