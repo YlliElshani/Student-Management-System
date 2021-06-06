@@ -15,6 +15,9 @@ import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
 import { TripsList } from '../../features/administrator/trips/TripsList';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
+import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
+
+
 
 const App = () => {
     return (
@@ -33,7 +36,11 @@ const App = () => {
               <Route exact path='/trajnimet' component={Myapp}/>
               <Route exact path='/detyrat' component={DetyraApp}/>
               <Route exact path='/trips' component={TripsList}/>
+<<<<<<< HEAD
               <Route exact path='/competitions' component={CompetitionsList}/>
+=======
+              <Route exact path='/profesorprofile' component={ProfesorProfile}/>
+>>>>>>> 61123755400b5a922558ab1ac62f168e3b6f3a4a
           </Container> 
         </Fragment>
     );
