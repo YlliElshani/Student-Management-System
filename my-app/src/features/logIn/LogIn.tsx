@@ -20,7 +20,7 @@ export const LogIn = () => {
                             <Form.Field>
                             <Checkbox label='Remember me' />
                             </Form.Field>
-                            <Button as={NavLink} to='/profile' type='submit'>Submit</Button>
+                            <Button as={NavLink} to='/adminProfile' type='submit'>Submit</Button>
                         </Form>
                     </Segment>
                     <Segment className='rightSideOfLogIn' >

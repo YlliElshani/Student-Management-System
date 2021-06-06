@@ -1,5 +1,5 @@
-import React, {ChangeEvent, FormEvent, useState} from 'react'
-import { Button, Dropdown, Form, Grid, Input, Label, Radio, Segment, TextArea } from 'semantic-ui-react'
+import React, {FormEvent, useState} from 'react'
+import { Button, Form, Segment } from 'semantic-ui-react'
 import { IArsyeja } from '../../../../app/models/arsyeja';
 import './pStyle.css';
 import {v4 as uuid} from 'uuid';

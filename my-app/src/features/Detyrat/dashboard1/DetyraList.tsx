@@ -2,7 +2,6 @@
 import React from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
 import { IDetyra } from '../../../app/models/detyra';
-import DetyraApp from './DetyraApp';
 
 interface IProps {
   detyrat: IDetyra[];

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Container } from 'semantic-ui-react';
-import axios from 'axios';
 import { INota } from '../../../app/models/nota';
 import { NavBar } from '../../nav/NavBar';
 import NotaDashboard from './NotaDashboard';

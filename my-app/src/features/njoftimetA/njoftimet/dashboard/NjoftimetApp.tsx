@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { Button, Container, Header, Icon, List, Segment } from 'semantic-ui-react';
+import { Button, Container, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';

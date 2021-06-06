@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, CardDescription, Icon } from 'semantic-ui-react'
+import { Button, Card, CardDescription } from 'semantic-ui-react'
 import { IArsyeja } from '../../../../app/models/arsyeja'
 
 interface IProps{

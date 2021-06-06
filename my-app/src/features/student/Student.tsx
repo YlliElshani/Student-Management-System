@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { Button, Container, Divider, Form, Grid, Image, Segment } from 'semantic-ui-react';
+import { Button, Container, Form, Segment } from 'semantic-ui-react';
 import { StudentNavBar } from './StudentNavBar'
 
 export const Student = () => {

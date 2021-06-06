@@ -1,7 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Button, Container, Form, Menu, Segment, Tab } from 'semantic-ui-react'
-import { StudentNavBar} from './StudentNavBar'
+import { Tab } from 'semantic-ui-react'
 
 const panes = [
     { menuItem: 'Informatat Personale', render: () => <Tab.Pane>Informatat Personale</Tab.Pane> },

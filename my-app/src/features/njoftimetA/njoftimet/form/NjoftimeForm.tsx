@@ -46,7 +46,7 @@ export const NjoftimeForm:React.FC<IProps> = ({setEditMode,njoftim:InitalFormSta
     return (
         <Segment clearing>
             <Form onSubmit={handleSubmit}>
-                <Form.Input onChange={handleInputChange}  placeholder='Data' name='data' type='datetime-local'  value={njoftim.dataENjoftimit}/>
+                <Form.Input onChange={handleInputChange}  placeholder='Data' name='dataENjoftimit' type='datetime-local'  value={njoftim.dataENjoftimit}/>
                 <Form.TextArea onChange={handleInputChange} placeholder='Njoftimi' name='njoftimi' value={njoftim.njoftimi}/>
                 <Button floated='right' positive type='submit' content='Submit'/>
                 <Button onClick={()=>setEditMode(false)} floated='right' content='Cancel'/>

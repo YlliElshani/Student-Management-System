@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import { IDetyra } from '../../../app/models/detyra';
 import DetyraForm from '../form1/DetyraForm';
-import DetyraList from './DetyraList';
 import DetyraDetails from '../Details1/DetyraDetails';
 import ListDetyrat from './DetyraList';
 

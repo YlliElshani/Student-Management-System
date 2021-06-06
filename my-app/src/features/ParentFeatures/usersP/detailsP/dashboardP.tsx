@@ -1,11 +1,9 @@
 import React from 'react'
-import { act } from 'react-dom/test-utils';
-import { Grid, GridColumn, List } from 'semantic-ui-react';
+import { Grid, GridColumn} from 'semantic-ui-react';
 import { IArsyeja } from '../../../../app/models/arsyeja';
 import ArsyetoMungesen from '../formP/ArsyetoMungesen';
 import ListaArsyetimeve from './ListaArsyetimeve';
 import MungesaDetails from '../details/mungesaDetails';
-import agent from '../../../../app/api/agent';
 
 interface IProps{
     arsyetimet: IArsyeja[];

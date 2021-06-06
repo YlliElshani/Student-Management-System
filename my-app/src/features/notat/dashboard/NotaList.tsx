@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Button, Label, Segment } from 'semantic-ui-react';
+import { Item, Button, Segment } from 'semantic-ui-react';
 import { INota } from '../../../app/models/nota';
 
 interface IProps {

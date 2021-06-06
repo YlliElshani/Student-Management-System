@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 import { INota } from '../../../app/models/nota';
 
 interface IProps {

@@ -1,12 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Button, Container } from 'semantic-ui-react';
-import axios from 'axios';
-import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { IDetyra } from '../../../app/models/detyra';
 import { NavBar } from '../../nav/NavBar';
 import DetyraDashboard from './DetyraDashboard';
 import agent from '../../../app/api/agent';
-import DetyraList from './DetyraList';
 
 
 

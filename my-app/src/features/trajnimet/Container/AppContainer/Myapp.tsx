@@ -1,6 +1,5 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
-import { Button, Container, Grid, GridColumn, Header, Item, List, Segment } from 'semantic-ui-react'
+import { Button, Grid, Item, Segment } from 'semantic-ui-react'
 import agent from '../../../../app/api/agent'
 import { LoadingComponent } from '../../../../app/layout/LoadingComponent'
 import { ITrajnim } from '../../../../app/models/trajnim'
