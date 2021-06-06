@@ -1,8 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import { Button, Container, Header, Icon, List } from 'semantic-ui-react';
+import { Button, Container, Header, Icon, List, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';
+import { NavBar } from '../../../nav/NavBar';
+import { AdminNavBar } from '../../../administartor/AdminNavBar';
 
 
 const NjoftimetApp=()=>{
@@ -53,17 +55,21 @@ const NjoftimetApp=()=>{
 
     return (
       <Container>
-        <Button onClick={handleOpenCreateForm} color='vk' content='Shto Njoftim'/>
-        <NjoftimetDashboard njoftimet={njoftimet}
-         selectNjoftim={handleSelectNjoftim}
-         selectedNjoftim={selectedNjoftim}
-         editMode={editMode}
-         setEditMode={setEditMode}
-         setSelectedNjoftim={setSelectedNjoftim}
-         createNjoftim={handleCreateNjoftim}
-         editNjoftim={handleEditNjoftim}
-         deleteNjoftim={handleDeleteNjoftim}
-         />
+        <NavBar/>
+        <AdminNavBar />
+        <Segment>
+          <Button onClick={handleOpenCreateForm} color='vk' content='Shto Njoftim'/>
+          <NjoftimetDashboard njoftimet={njoftimet}
+          selectNjoftim={handleSelectNjoftim}
+          selectedNjoftim={selectedNjoftim}
+          editMode={editMode}
+          setEditMode={setEditMode}
+          setSelectedNjoftim={setSelectedNjoftim}
+          createNjoftim={handleCreateNjoftim}
+          editNjoftim={handleEditNjoftim}
+          deleteNjoftim={handleDeleteNjoftim}
+          />
+         </Segment>
       </Container>
     );
 }

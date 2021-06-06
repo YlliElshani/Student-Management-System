@@ -46,7 +46,7 @@ const TripForm:React.FC<IProps> = ({setEditMode, trip: initialFormState, editTri
         }
      }
  
-     const handleInputChange = (event: FormEvent<HTMLInputElement>) => {
+     const handleInputChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
          const {name, value} = event.currentTarget;
          setTrip({...trip, [name]: value});
      }
@@ -57,8 +57,8 @@ const TripForm:React.FC<IProps> = ({setEditMode, trip: initialFormState, editTri
         <Form onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
             <Form.Input onChange={handleInputChange}  name='name' placeholder='Name' value={trip.name} />
             <Form.Input onChange={handleInputChange} name='place' placeholder='Place' value={trip.place} />
-            <Form.Input onChange={handleInputChange} name='date' placeholder='Date' value={trip.date} />
-            <Form.Input onChange={handleInputChange} name='description' placeholder='Description' value={trip.description} />
+            <Form.Input type='date' onChange={handleInputChange} name='date' placeholder='Date' value={trip.date} />
+            <Form.TextArea rows={5} onChange={handleInputChange} name='description' placeholder='Description' value={trip.description} />
             <Form.Input onChange={handleInputChange} name='participants' placeholder='Participants' value={trip.participants}/>
             <Form.Input onChange={handleInputChange} name='price' placeholder='Price' value={trip.price}/>
             <Button loading={submitting} floated='right' positive type='submit' content='Dërgo'/>

@@ -9,6 +9,7 @@ export const AdminNavBar = () => {
             <Menu.Item as={NavLink} to='/adminProfile' name='Profili'/>
             <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Lista e Përdoruesve'/>
             <Menu.Item as={NavLink} to='/trips' name='Shëtitjet'/>
+            <Menu.Item as={NavLink} to='/njoftimet' name='Njoftimet'/>
         </Menu>
         </Segment>
     )

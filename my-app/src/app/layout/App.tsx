@@ -6,7 +6,7 @@ import { LogIn } from '../../features/logIn/LogIn';
 import { UserProfile } from '../../features/profile/UserProfile';
 import { Transcript } from '../../features/transcript/Transcript';
 import { AdminProfile } from '../../features/administartor/AdminProfile';
-import UserDashboard from '../../features/administartor/users/dashboard/UserDashboard';
+import UserDashboard from '../../features/administartor/users/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';

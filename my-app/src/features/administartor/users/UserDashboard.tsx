@@ -1,12 +1,12 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Container, Grid, Item, Segment } from 'semantic-ui-react'
-import agent from '../../../../app/api/agent'
-import { LoadingComponent } from '../../../../app/layout/LoadingComponent'
-import { IUser } from '../../../../app/models/user'
-import { NavBar } from '../../../nav/NavBar'
-import { AdminNavBar } from '../../AdminNavBar'
-import UserDetails from '../details/UserDetails'
-import UserForm from '../form/UserForm'
+import agent from '../../../app/api/agent'
+import { LoadingComponent } from '../../../app/layout/LoadingComponent'
+import { IUser } from '../../../app/models/user'
+import { NavBar } from '../../nav/NavBar'
+import { AdminNavBar } from '../AdminNavBar'
+import UserDetails from './UserDetails'
+import UserForm from './UserForm'
 
 
 const UserDashboard:React.FC = () => {  
@@ -71,7 +71,7 @@ const UserDashboard:React.FC = () => {
             <Grid>
             <Grid.Column width='6'>
                 <Segment style={{width:'80%'}}>
-                    <Button onClick={handleOpenCreateForm} content='Shto Përdorues' activeClassName="active" floated='right'/>
+                    <Button onClick={handleOpenCreateForm} content='Shto Përdorues' activeClassName="active"/>
                         <Item.Group divided>
                             {users.map((user) => (
                             <Item key={user.userId}>
@@ -91,7 +91,7 @@ const UserDashboard:React.FC = () => {
                 </Grid.Column>
                 <Grid.Column width='6'>
                     {selectedUser && !editMode && (<UserDetails setSelectedUser={setSelectedUser} user={selectedUser} setEditMode={setEditMode}/>)}
-                    {editMode && <UserForm setEditMode={setEditMode} user={selectedUser!} createUser={handleCreateUser} editUser={handleEditUser} submitting={submitting}/>}
+                    {editMode && <UserForm key={selectedUser && selectedUser.userId || 0} setEditMode={setEditMode} user={selectedUser!} createUser={handleCreateUser} editUser={handleEditUser} submitting={submitting}/>}
                 </Grid.Column>
             </Grid>
             </Container>

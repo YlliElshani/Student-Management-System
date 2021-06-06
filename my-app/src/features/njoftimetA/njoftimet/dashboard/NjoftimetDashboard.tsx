@@ -1,6 +1,7 @@
 import React from 'react'
-import { Grid, List } from 'semantic-ui-react'
+import { Container, Grid} from 'semantic-ui-react'
 import { INjoftimi } from '../../../../app/models/njoftimi'
+import { AdminNavBar } from '../../../administartor/AdminNavBar'
 import { NavBar } from '../../../nav/NavBar'
 import { NjoftimeDetails } from '../details/NjoftimeDetails'
 import { NjoftimeForm } from '../form/NjoftimeForm'
@@ -31,22 +32,21 @@ export const NjoftimetDashboard:React.FC<IProps> = ({
     deleteNjoftim
     }) => {
     return (
-        <Grid>
-            <NavBar/>
-        <Grid.Column width={4}>
-            <NjoftimeList njoftimet={njoftimet} selectNjoftim={selectNjoftim} deleteNjoftim={deleteNjoftim}/>
-        </Grid.Column>
-        <Grid.Column width={6}>
-            {selectedNjoftim && !editMode &&
-            <NjoftimeDetails njoftim={selectedNjoftim} 
-            setEditMode={setEditMode}
-            setSelectedNjoftim={setSelectedNjoftim}
-            />}
-            {editMode &&
-            <NjoftimeForm key={selectedNjoftim && selectedNjoftim.id || 0} setEditMode={setEditMode} njoftim={selectedNjoftim!}
-                createNjoftim={createNjoftim} editNjoftim={editNjoftim}
-             />}
-        </Grid.Column>
-      </Grid>
+            <Grid>
+            <Grid.Column width={4}>
+                <NjoftimeList njoftimet={njoftimet} selectNjoftim={selectNjoftim} deleteNjoftim={deleteNjoftim}/>
+            </Grid.Column>
+            <Grid.Column width={6}>
+                {selectedNjoftim && !editMode &&
+                <NjoftimeDetails njoftim={selectedNjoftim} 
+                setEditMode={setEditMode}
+                setSelectedNjoftim={setSelectedNjoftim}
+                />}
+                {editMode &&
+                <NjoftimeForm key={selectedNjoftim && selectedNjoftim.id || 0} setEditMode={setEditMode} njoftim={selectedNjoftim!}
+                    createNjoftim={createNjoftim} editNjoftim={editNjoftim}
+                />}
+            </Grid.Column>
+            </Grid>
     )
 }

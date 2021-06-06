@@ -89,7 +89,7 @@ export const TripsList:React.FC = () => {
                 </Grid.Column>
                 <Grid.Column width='6'>
                     {selectedTrip && !editMode && (<TripDetails setSelectedTrip={setSelectedTrip} trip={selectedTrip} setEditMode={setEditMode}/>)}
-                    {editMode && <TripForm setEditMode={setEditMode} trip={selectedTrip!} createTrip={handleCreateTrip} editTrip={handleEditTrip} submitting={submitting}/>}
+                    {editMode && <TripForm key={selectedTrip && selectedTrip.tripId || 0} setEditMode={setEditMode} trip={selectedTrip!} createTrip={handleCreateTrip} editTrip={handleEditTrip} submitting={submitting}/>}
                 </Grid.Column>
             </Grid>
         </Container>

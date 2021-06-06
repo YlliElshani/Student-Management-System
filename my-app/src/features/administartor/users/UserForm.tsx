@@ -1,7 +1,7 @@
 import React, {FormEvent, useState} from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import {v4 as uuid} from 'uuid';
-import { IUser } from '../../../../app/models/user';
+import { IUser } from '../../../app/models/user';
 
 interface IProps {
     setEditMode: (editMode: boolean) => void;

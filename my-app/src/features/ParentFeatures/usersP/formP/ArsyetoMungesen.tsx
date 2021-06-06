@@ -56,8 +56,8 @@ interface IProps{
     <Segment clearing>
 
                 <Form onSubmit={handleSubmit}>
-                    <Form.Input onChange={handleInputChange}  name='nrDitve' placeholder='Numri i diteve' value={arsyetim.nrDiteve}/>
-                    <Form.TextArea onChange={()=>arsyetim.id} name='arsyja' placeholder="Arsyeja e Mungeses" value={arsyetim.arsyejaMungeses}/>
+                    <Form.Input onChange={handleInputChange}  name='nrDiteve' placeholder='Numri i diteve' value={arsyetim.nrDiteve}/>
+                    <Form.TextArea onChange={()=>arsyetim.id} name='arsyejaMungeses' placeholder="Arsyeja e Mungeses" value={arsyetim.arsyejaMungeses}/>
                         <Button className="btn" type="submit">Dergo</Button>
                         <Button onClick={()=>setEditMode(false)} className="btn">Anulo</Button>
                 </Form>
