@@ -12,8 +12,8 @@ const App = () => {
     const [selectedArsyetim, setSelectedArsyetim]=useState<IArsyeja | null>(null);
 
     const handleSelectArsyetim = (Id:string)=>{
-        setSelectedArsyetim(arsyetimet.filter(a=>a.Id ===Id)[0])
-        setEditMode(false);
+        setSelectedArsyetim(arsyetimet.filter(a => a.id == Id)[0])
+        if(selectedArsyetim == null) setSelectedArsyetim(arsyetimet.filter(a => a.id == Id)[0]);
     }
 
     const handleCreateArsyje =(arsyeja: IArsyeja)=>{
@@ -21,16 +21,18 @@ const App = () => {
     }
 
     const handleEditArsyeja=(arsyeja: IArsyeja)=>{
-        setArsyetimet([...arsyetimet.filter(a=>a.Id!==arsyeja.Id), arsyeja])
+        setArsyetimet([...arsyetimet.filter(a=>a.id!==arsyeja.id), arsyeja])
     }
 
+
+    
     const handleOpenCreateForm = () =>{
         setSelectedArsyetim(null);
         setEditMode(true);
     }
 
     const handleDeleteArsyja=(Id:string)=>{
-        setArsyetimet([...arsyetimet.filter(a=>a.Id!==Id)])
+        setArsyetimet([...arsyetimet.filter(a=>a.id!==Id)])
     }
 
     const [editMode, setEditMode]=useState(false);
@@ -41,16 +43,15 @@ const App = () => {
             });
     },[]);
 
-
     return (
       <Fragment>
           <NavBar/>
             <Container>
             <Button onClick={handleOpenCreateForm} content='Shto Arsyetim' activeClassName="active"/>
-                <DashboardP 
+                <DashboardP
                  openCreateForm={handleOpenCreateForm}
                  arsyetimet={arsyetimet}
-                 selectArsyetim={handleSelectArsyetim}
+                 selectArsyetim={handleSelectArsyetim} 
                  selectedArsyetim={selectedArsyetim!}
                  editMode={editMode}
                  setEditMode={setEditMode}

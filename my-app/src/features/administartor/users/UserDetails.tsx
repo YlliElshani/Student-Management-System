@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { IUser } from '../../../../app/models/user';
+import { IUser } from '../../../app/models/user';
 
 interface IProps {
    user: IUser

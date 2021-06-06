@@ -3,10 +3,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class ProfesoraEntity : Migration
+    public partial class NjoftimetEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Arsyet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    ArsyejaMungeses = table.Column<string>(nullable: true),
+                    nrDiteve = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Arsyet", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Detyrat",
                 columns: table => new
@@ -33,6 +46,19 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lendet", x => x.LendaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Njoftimet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Njoftimi = table.Column<string>(nullable: true),
+                    DataENjoftimit = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Njoftimet", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,10 +126,16 @@ namespace Persistence.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Arsyet");
+
+            migrationBuilder.DropTable(
                 name: "Detyrat");
 
             migrationBuilder.DropTable(
                 name: "Lendet");
+
+            migrationBuilder.DropTable(
+                name: "Njoftimet");
 
             migrationBuilder.DropTable(
                 name: "Notat");

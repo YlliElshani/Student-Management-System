@@ -7,13 +7,17 @@ export const NavBar:React.FC = () => {
         <Menu size='mini' fixed='top'>
             <Menu.Item><Icon name='graduation cap'></Icon></Menu.Item>
             <Menu.Item as={NavLink} to='/profile' name='Profili'/>
-            <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Users'/>
+            <Menu.Item as={NavLink} to='/adminProfile' name='Admin Dashboard'/>
             <Menu.Item as={NavLink} to='/student' activeClassName="active" name='Student'/>
             <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
             <Menu.Item as={NavLink} to='/notat' activeClassName="active" name='Notat'/>
             <Menu.Item as={NavLink} to='/ParentFeatures' name='ParentDashboard'/>
+<<<<<<< HEAD
             <Menu.Item as={NavLink} to='/trajnimet' name='Trajnimet'/>
             <Menu.Item as={NavLink} to='/Detyrat' name='Detyrat'/>
+=======
+            <Menu.Item as={NavLink} to='/njoftimet' name='Njoftime'/>
+>>>>>>> ce07ea13473023ccd27a0aa2b197fe24dfbfe7bb
             {/* veq per testim e kom lon linkun ne nav te dashboard  e heki kur
             te kryhet logjika e Login-it */}
             {/*<Menu.Item name='Orari'/>

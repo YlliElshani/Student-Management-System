@@ -1,31 +1,30 @@
 import React from 'react'
-import { Button, Item, Segment } from 'semantic-ui-react';
+import { Button, Item, Label, Segment } from 'semantic-ui-react';
 import { IArsyeja } from '../../../../app/models/arsyeja';
 
 interface IProps{
     arsyetimet: IArsyeja[];
-    selectArsyetim:(Id:string)=>void;
+    selectArsyetim:(arsyejaId:string)=>void;
     openCreateForm:()=>void;
-    deleteActivity:(Id:string)=>void;
-
+    deleteActivity:(arsyejaId:string)=>void;
 }
 
-
-export const ListaArsyetimeve:React.FC<IProps> = ({arsyetimet, selectArsyetim,openCreateForm,deleteActivity}) => {
+ const ListaArsyetimeve:React.FC<IProps> = ({arsyetimet, selectArsyetim,openCreateForm,deleteActivity}) => {
     return (
         <Segment clearing>
         <Item.Group divided>
             {arsyetimet.map(arsyetimet=>(
-                <Item key={arsyetimet.Id}>
+                <Item key={arsyetimet.id}>
                 <Item.Content>
-                    <Item.Meta>Mungesa e Arsyetuar</Item.Meta>
+                    <Item.Meta>Arsyeja e Mungeses:</Item.Meta>
                     <Item.Description>
-                        <div>{arsyetimet.ArsyejaMungeses}</div>
+                        <div>{arsyetimet.arsyejaMungeses}</div>
+                        <h4>Nr. i diteve te humbura:</h4>
                         <div>{arsyetimet.nrDiteve}</div>
                     </Item.Description>
                     <Item.Extra>
-                        <Button onClick={() =>selectArsyetim(arsyetimet.Id)}  content='Shiko' color='green' />
-                        <Button onClick={() =>deleteActivity(arsyetimet.Id)}  content='Fshij Arsyetimin' color='red' />
+                        <Button onClick={() =>selectArsyetim(arsyetimet.id)}  content='Shiko' color='green' />
+                        <Button onClick={() =>deleteActivity(arsyetimet.id)}  content='Fshij Arsyetimin' color='red' />
                     </Item.Extra>
                 </Item.Content>
                 </Item>

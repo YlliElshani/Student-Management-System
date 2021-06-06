@@ -2,6 +2,7 @@ using System.Linq;
 using Domain;
 using System.Collections.Generic;
 using Domain.obj;
+using System;
 
 namespace Persistence
 {
@@ -154,6 +155,13 @@ namespace Persistence
                     }
                 };
 
+                var njoftimet=new List<Njoftime>{
+                    new Njoftime{
+                        Njoftimi="Do te kete pushim ne kete date per shkak te festes se 1 qeshorit",
+                        DataENjoftimit=DateTime.Now
+                    }
+                };
+
                 context.Users.AddRange(users);
                 context.SaveChanges();
 
@@ -175,6 +183,8 @@ namespace Persistence
                 context.Detyrat.AddRange(detyrat);
                 context.SaveChanges();
 
+                context.Njoftimet.AddRange(njoftimet);
+                context.SaveChanges();
                 context.Trajnimet.AddRange(trajnimet);
                 context.SaveChanges();
 
