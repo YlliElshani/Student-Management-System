@@ -257,7 +257,22 @@ namespace Persistence
                 context.SaveChanges();
             }
 
-            
+            if(!context.Competitions.Any())
+            {
+                var competitions = new List<Competition>
+                {
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21 korrik 2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    }
+                };
+                context.Competitions.AddRange(competitions);
+                context.SaveChanges();
+            }
         }
 
     }

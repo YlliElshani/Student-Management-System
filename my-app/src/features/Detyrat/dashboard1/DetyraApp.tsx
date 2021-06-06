@@ -4,6 +4,7 @@ import { IDetyra } from '../../../app/models/detyra';
 import { NavBar } from '../../nav/NavBar';
 import DetyraDashboard from './DetyraDashboard';
 import agent from '../../../app/api/agent';
+import { ProfesorNavBar } from '../../profesor/ProfesorNavBar'
 
 
 
@@ -61,6 +62,7 @@ const DetyraApp = () => {
       <NavBar />
       
       <Container style={{ marginTop: '7em' }}>
+      <ProfesorNavBar/> 
       <Button onClick={handleOpenCreateForm} content='Shto Detyra' activeClassName="active" color='green'/>
         <DetyraDashboard
           detyrat={detyrat}

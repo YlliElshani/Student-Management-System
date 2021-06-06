@@ -4,7 +4,7 @@ import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';
 import { NavBar } from '../../../nav/NavBar';
-import { AdminNavBar } from '../../../administartor/AdminNavBar';
+import { AdminNavBar } from '../../../administrator/AdminNavBar';
 
 
 const NjoftimetApp=()=>{

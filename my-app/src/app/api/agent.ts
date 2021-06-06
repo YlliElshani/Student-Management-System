@@ -8,6 +8,7 @@ import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
 import { ITrip } from '../models/trip';
 import { INjoftimi } from '../models/njoftimi';
+import { ICompetition } from '../models/competition';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -88,7 +89,14 @@ const Njoftimet = {
     fshij: (id: string) => requests.delete(`/Njoftimet/${id}`)
 }
 
+const Competitions = {
+    competitionsList: () : Promise<ICompetition[]> => requests.get('/competition'),
+    competitionDetails: (id: string) => requests.get(`/competition/${id}`),
+    createCompetition: (competition:ICompetition) => requests.post('/competition',competition),
+    updateCompetition: (competition: ICompetition) => requests.put(`/competition/${competition.competitionId}`, competition),
+    deleteCompetition: (id: string) => requests.delete(`/competition/${id}`)
+}
 
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips,Njoftimet
+    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet
 }

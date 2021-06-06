@@ -3,18 +3,23 @@ import { Container } from 'semantic-ui-react'
 import { HomePage } from '../../features/homepage/HomePage';
 import { Route } from 'react-router-dom';
 import { LogIn } from '../../features/logIn/LogIn';
-import { AdminProfile } from '../../features/administartor/AdminProfile';
-import UserDashboard from '../../features/administartor/users/UserDashboard';
+import { AdminProfile } from '../../features/administrator/AdminProfile';
+import UserDashboard from '../../features/administrator/users/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
-import { TripsList } from '../../features/administartor/trips/TripsList';
 import { ParentProfile } from '../../features/ParentFeatures/ParentProfile';
 import ParentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard'
 import { ListoNjoftimet } from '../../features/ParentFeatures/NjoftimeList/ListoNjoftimet';
+import { TripsList } from '../../features/administrator/trips/TripsList';
+import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
+import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
+import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
+
+
 
 const App = () => {
     return (
@@ -34,6 +39,8 @@ const App = () => {
               <Route exact path='/trajnimet' component={Myapp}/>
               <Route exact path='/detyrat' component={DetyraApp}/>
               <Route exact path='/trips' component={TripsList}/>
+              <Route exact path='/competitions' component={CompetitionsList}/>
+              <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           </Container> 
         </Fragment>
     );
