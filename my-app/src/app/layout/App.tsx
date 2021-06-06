@@ -14,6 +14,9 @@ import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
 import { TripsList } from '../../features/administartor/trips/TripsList';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
+import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
+
+
 
 const App = () => {
     return (
@@ -32,6 +35,7 @@ const App = () => {
               <Route exact path='/trajnimet' component={Myapp}/>
               <Route exact path='/detyrat' component={DetyraApp}/>
               <Route exact path='/trips' component={TripsList}/>
+              <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           </Container> 
         </Fragment>
     );

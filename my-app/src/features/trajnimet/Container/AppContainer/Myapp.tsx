@@ -6,6 +6,7 @@ import { ITrajnim } from '../../../../app/models/trajnim'
 import { NavBar } from '../../../nav/NavBar'
 import TrajnimDetails from '../DetailsContainer/TrajnimDetails'
 import TrajnimForm from '../FormContainer/TrajnimForm'
+import { ProfesorNavBar } from '../../../profesor/ProfesorNavBar'
 
 
 const Myapp:React.FC = () => {  
@@ -67,6 +68,7 @@ const Myapp:React.FC = () => {
 
         return (
             <div>
+                <ProfesorNavBar/> 
                  <Button onClick={handleOpenCreateForm} content='Shto Trajnim'  color='green'/>
             <Grid>
                 
