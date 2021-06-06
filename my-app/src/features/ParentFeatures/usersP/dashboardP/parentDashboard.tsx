@@ -4,8 +4,9 @@ import axios from 'axios';
 import {IArsyeja} from '../../../../app/models/arsyeja';
 import { NavBar } from '../../../nav/NavBar';
 import DashboardP from '../detailsP/dashboardP';
+import { ParentNavBar } from '../../ParentNavBar';
 
-const App = () => {
+const ParentDashboard = () => {
 
     const [arsyetimet, setArsyetimet] = useState<IArsyeja[]>([])
 
@@ -46,6 +47,7 @@ const App = () => {
     return (
       <Fragment>
           <NavBar/>
+          <ParentNavBar/>
             <Container>
             <Button onClick={handleOpenCreateForm} content='Shto Arsyetim' activeClassName="active"/>
                 <DashboardP
@@ -65,4 +67,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default ParentDashboard;

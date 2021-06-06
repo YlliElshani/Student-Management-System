@@ -7,6 +7,7 @@ import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
 import { ITrip } from '../models/trip';
+import { INjoftimi } from '../models/njoftimi';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -79,8 +80,15 @@ const Trips = {
 }
 
 
+const Njoftimet = {
+    listimi: () : Promise<INjoftimi[]> => requests.get('/Njoftimet'),
+    detajet: (id: string) => requests.get(`/Njoftimet/${id}`),
+    krijo: (njoftimi:INjoftimi) => requests.post('/Njoftimet',njoftimi),
+    perditso: (njoftimi: INjoftimi) => requests.put(`/Njoftimet/${njoftimi.id}`, njoftimi),
+    fshij: (id: string) => requests.delete(`/Njoftimet/${id}`)
+}
+
 
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips
- 
+    Users, Lendet, Notat, Trajnimet, Detyrat, Trips,Njoftimet
 }

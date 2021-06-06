@@ -8,12 +8,13 @@ import UserDashboard from '../../features/administartor/users/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
-import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
 import { TripsList } from '../../features/administartor/trips/TripsList';
-import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
+import { ParentProfile } from '../../features/ParentFeatures/ParentProfile';
+import ParentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard'
+import { ListoNjoftimet } from '../../features/ParentFeatures/NjoftimeList/ListoNjoftimet';
 
 const App = () => {
     return (
@@ -21,10 +22,11 @@ const App = () => {
           <Container style={{marginTop:'6em'}}>
               <Route exact path='/' component={HomePage}/>
               <Route exact path='/login' component={LogIn}/>
-              <Route exact path='/ParentFeatures' component={parentDashboard}/>
-              <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
+              <Route exact path='/ParentFeatures' component={ParentProfile}/>
+              <Route exact path='/usersP' component={ParentDashboard}/>
+              <Route exact path='/NjoftimeList' component={ListoNjoftimet}/>
               <Route exact path='/users' component={UserDashboard}/>
-              <Route path='/adminProfile' component={AdminProfile}/>
+              <Route path='/dashboard' component={AdminProfile}/>
               <Route exact path='/lendet' component={LendaDashboard}/>
               <Route exact path='/student' component={Student}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>

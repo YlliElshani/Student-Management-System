@@ -8,7 +8,7 @@ interface IProps{
     deleteNjoftim:(id:string)=>void;
 }
 
-export const NjoftimeList:React.FC<IProps> = ({njoftimet,selectNjoftim,deleteNjoftim}) => {
+export const NjoftimeList:React.FC<IProps> = ({njoftimet,selectNjoftim}) => {
     return (
         <Segment>
             <Item.Group divided>
@@ -28,10 +28,6 @@ export const NjoftimeList:React.FC<IProps> = ({njoftimet,selectNjoftim,deleteNjo
                               floated='left'
                                content='Shiko detajet'
                                 color='instagram'/>
-                                <Button onClick={()=>deleteNjoftim(njoftim.id)}
-                              floated='left'
-                               content='Fshij Njoftimin'
-                                color='red'/>
                          </Item.Extra>
                      </Item.Content>
                      </Item>
