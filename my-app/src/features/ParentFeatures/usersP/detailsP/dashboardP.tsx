@@ -5,6 +5,7 @@ import { IArsyeja } from '../../../../app/models/arsyeja';
 import ArsyetoMungesen from '../formP/ArsyetoMungesen';
 import ListaArsyetimeve from './ListaArsyetimeve';
 import MungesaDetails from '../details/mungesaDetails';
+import agent from '../../../../app/api/agent';
 
 interface IProps{
     arsyetimet: IArsyeja[];
@@ -13,11 +14,12 @@ interface IProps{
     editMode:boolean;
     setEditMode:(editMode:boolean)=>void;
     openCreateForm:()=>void;
-    setSelectedArsyetim:(arsyetim:IArsyeja|null)=>void
+    setSelectedArsyetim:(arsyetim:IArsyeja|null)=>void 
     createArsyeja:(arsyetim:IArsyeja)=>void;
     editArsyeja:(arsyetim:IArsyeja)=>void;
     deleteActivity:(Id:string)=>void;
 }
+
 
  const DashboardP:React.FC<IProps> = ({arsyetimet, selectArsyetim,selectedArsyetim,editMode,setEditMode,openCreateForm,setSelectedArsyetim,createArsyeja,editArsyeja,deleteActivity}) => {
     return (

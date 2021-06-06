@@ -38,11 +38,11 @@ const Lendet = {
 }
 
 const Arsyetimet = {
-    list: (): Promise<IArsyeja[]> => requests.get('/usersP'),
-    details: (Id: string) => requests.get(`/usersP/${Id}`),
-    create: (Arsyetim:IArsyeja) => requests.post('/usersP', Arsyetim),
-    update: (Arsyetim: IArsyeja) => requests.put(`/usersP/${Arsyetim.Id}`, Arsyetim),
-    delete: (id: string) => requests.delete(`/usersP/${id}`)
+    list: (): Promise<IArsyeja[]> => requests.get('/ParentFeatures/usersP'),
+    details: (id: string) => requests.get(`/ParentFeatures/usersP${id}`),
+    create: (Arsyetim:IArsyeja) => requests.post('/ParentFeatures/usersP', Arsyetim),
+    update: (Arsyetim: IArsyeja) => requests.put(`/ParentFeatures/usersP${Arsyetim.id}`, Arsyetim),
+    delete: (id: string) => requests.delete(`/ParentFeatures/usersP${id}`)
 }
 
 const Notat = {

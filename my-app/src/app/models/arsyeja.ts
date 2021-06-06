@@ -1,5 +1,5 @@
 export interface IArsyeja{
-    Id: string,
-    ArsyejaMungeses: string,
-    nrDiteve: string
+    id: string;
+    arsyejaMungeses: string;
+    nrDiteve: string;
 }

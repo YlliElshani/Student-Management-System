@@ -14,13 +14,12 @@ const MungesaDetails:React.FC<IProps> = ({arsyetim,setEditMode,setSelectedArsyet
         <Card.Content>
           <Card.Header>Mungesa e Arsyetuar</Card.Header>
           <Card.Description>
-            {arsyetim.ArsyejaMungeses}
+            <h4>Arsyeja e mungeses:</h4>
+            {arsyetim.arsyejaMungeses}
           </Card.Description>
           <CardDescription>
+            <h5>Numri i diteve:</h5>
             {arsyetim.nrDiteve}
-          </CardDescription>
-          <CardDescription>
-            {arsyetim.Id}
           </CardDescription>
         </Card.Content>
         <Card.Content extra>

@@ -11,9 +11,9 @@ import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
-//import { parentDashboard } from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import { TripsList } from '../../features/administartor/trips/TripsList';
+import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 
 const App = () => {
     return (
@@ -23,6 +23,7 @@ const App = () => {
               <Route exact path='/login' component={LogIn}/>
               <Route exact path='/profile' component={UserProfile}/>
               <Route exact path='/ParentFeatures' component={parentDashboard}/>
+              <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
               <Route exact path='/users' component={UserDashboard}/>
               <Route path='/adminProfile' component={AdminProfile}/>
               <Route exact path='/lendet' component={LendaDashboard}/>
