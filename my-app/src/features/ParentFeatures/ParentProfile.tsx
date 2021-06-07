@@ -1,15 +1,14 @@
 import React from 'react'
 import { Container, Grid, Image, Label, List, Segment } from 'semantic-ui-react'
 import { NavBar } from '../nav/NavBar'
-import { AdminNavBar } from './AdminNavBar'
 import Photo from '../../assets/admin.jpg'
+import { ParentNavBar } from './ParentNavBar'
 
-export const AdminProfile = () => {
+export const ParentProfile = () => {
     return (
             <Container>
                 <NavBar />
-                
-                <AdminNavBar/> 
+                <ParentNavBar/>
                 <Segment>
                     <Grid centered style={{marginTop:'2em'}}>
                         <Label  color='red'>

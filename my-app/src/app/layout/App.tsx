@@ -8,14 +8,17 @@ import UserDashboard from '../../features/administrator/users/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
-import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
+import { ParentProfile } from '../../features/ParentFeatures/ParentProfile';
+import ParentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard'
+import { ListoNjoftimet } from '../../features/ParentFeatures/NjoftimeList/ListoNjoftimet';
 import { TripsList } from '../../features/administrator/trips/TripsList';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
 import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
+import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 
 
 
