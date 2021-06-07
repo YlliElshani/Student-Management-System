@@ -4,16 +4,12 @@ import { HomePage } from '../../features/homepage/HomePage';
 import { Route } from 'react-router-dom';
 import { LogIn } from '../../features/logIn/LogIn';
 import { AdminProfile } from '../../features/administrator/AdminProfile';
-import UserDashboard from '../../features/administrator/users/UserDashboard';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
-import { ParentProfile } from '../../features/ParentFeatures/ParentProfile';
-import ParentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard'
-import { ListoNjoftimet } from '../../features/ParentFeatures/NjoftimeList/ListoNjoftimet';
 import { TripsList } from '../../features/administrator/trips/TripsList';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
@@ -31,7 +27,6 @@ const App = () => {
               <Route exact path='/ParentFeatures' component={parentDashboard}/>
               <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
 
-              <Route exact path='/admin/users' component={UserDashboard}/>
               <Route path='/admin/profile' component={AdminProfile}/>
               <Route exact path='/admin/trips' component={TripsList}/>
               <Route exact path='/admin/competitions' component={CompetitionsList}/>

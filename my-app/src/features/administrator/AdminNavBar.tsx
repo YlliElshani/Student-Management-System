@@ -7,7 +7,6 @@ export const AdminNavBar = () => {
         <Segment>
         <Menu size='mini'>
             <Menu.Item as={NavLink} to='/admin/profile' name='Profili'/>
-            <Menu.Item as={NavLink} to='/admin/users' activeClassName="active" name='Lista e Përdoruesve'/>
             <Menu.Item as={NavLink} to='/admin/trips' name='Shëtitjet'/>
             <Menu.Item as={NavLink} to='/admin/competitions' name='Garat'/>
             <Menu.Item as={NavLink} to='/njoftimet' name='Njoftimet'/>
