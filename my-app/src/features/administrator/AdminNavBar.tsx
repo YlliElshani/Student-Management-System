@@ -6,11 +6,11 @@ export const AdminNavBar = () => {
     return (
         <Segment>
         <Menu size='mini'>
-            <Menu.Item as={NavLink} to='/adminProfile' name='Profili'/>
-            <Menu.Item as={NavLink} to='/users' activeClassName="active" name='Lista e Përdoruesve'/>
-            <Menu.Item as={NavLink} to='/trips' name='Shëtitjet'/>
+            <Menu.Item as={NavLink} to='/admin/profile' name='Profili'/>
+            <Menu.Item as={NavLink} to='/admin/users' activeClassName="active" name='Lista e Përdoruesve'/>
+            <Menu.Item as={NavLink} to='/admin/trips' name='Shëtitjet'/>
+            <Menu.Item as={NavLink} to='/admin/competitions' name='Garat'/>
             <Menu.Item as={NavLink} to='/njoftimet' name='Njoftimet'/>
-            <Menu.Item as={NavLink} to='/competitions' name='Garat'/>
         </Menu>
         </Segment>
     )

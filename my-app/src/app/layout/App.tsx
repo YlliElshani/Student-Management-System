@@ -27,16 +27,19 @@ const App = () => {
               <Route exact path='/login' component={LogIn}/>
               <Route exact path='/ParentFeatures' component={parentDashboard}/>
               <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
-              <Route exact path='/users' component={UserDashboard}/>
-              <Route path='/adminProfile' component={AdminProfile}/>
+
+              <Route exact path='/admin/users' component={UserDashboard}/>
+              <Route path='/admin/profile' component={AdminProfile}/>
+              <Route exact path='/admin/trips' component={TripsList}/>
+              <Route exact path='/admin/competitions' component={CompetitionsList}/>
+              
               <Route exact path='/lendet' component={LendaDashboard}/>
               <Route exact path='/student' component={Student}/>
               <Route exact path='/studentProfile' component={StudentProfile}/>
               <Route exact path='/notat' component={AppNota}/>
               <Route exact path='/trajnimet' component={Myapp}/>
               <Route exact path='/detyrat' component={DetyraApp}/>
-              <Route exact path='/trips' component={TripsList}/>
-              <Route exact path='/competitions' component={CompetitionsList}/>
+              
               <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           </Container> 
         </Fragment>
