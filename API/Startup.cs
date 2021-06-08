@@ -10,6 +10,8 @@ using Application.Trips;
 using Application.Notat;
 using Application.Arsyetimet;
 using Application.Njoftimet;
+using Application.KerkesaNdihme;
+using Application.KerkesaPrezantimi;
 
 namespace API
 {
@@ -40,6 +42,8 @@ namespace API
             services.AddMediatR(typeof(ListNotat.Handler).Assembly);
             services.AddMediatR(typeof(ListaArsyetimeve.Handler).Assembly);
             services.AddMediatR(typeof(ListaNjoftimeve.Handler).Assembly);
+            services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
+            services.AddMediatR(typeof(ListoKerkesatP.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

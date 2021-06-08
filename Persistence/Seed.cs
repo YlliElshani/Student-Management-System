@@ -174,6 +174,35 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            if(!context.KerkesaN.Any())
+            {
+                var kerkesat = new List<KerkesaNdihmes>
+                {
+                    new KerkesaNdihmes
+                    {
+                        kerkesaInfo="Kam nevoje per ndihm rreth numrave kompleks",
+                        dataECaktuar=DateTime.Now
+                    }
+                };
+                context.KerkesaN.AddRange(kerkesat);
+                context.SaveChanges();
+            };
+
+            if(!context.KerkesaP.Any())
+            {
+                var kerkesatP = new List<KerkesaPrezantimit>
+                {
+                    new KerkesaPrezantimit
+                    {
+                        prezantimiInfo="Dua te shfaq prezantimin tim rreth siguris ne internet",
+                        koheZgjatjaPerafert=25,
+                        dataCaktuar=DateTime.Now
+                    }
+                };
+                context.KerkesaP.AddRange(kerkesatP);
+                context.SaveChanges();
+            };
+
         }
 
     }

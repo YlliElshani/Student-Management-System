@@ -28,7 +28,11 @@ namespace Persistence
         public DbSet <Competition> Competitions {get; set;}
 
         public DbSet <Paralelja> Paralelet {get; set;}
-        
+
+        public DbSet <KerkesaNdihmes> KerkesaN {get; set;}
+
+        public DbSet <KerkesaPrezantimit> KerkesaP {get; set;}
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
