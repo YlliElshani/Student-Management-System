@@ -145,6 +145,35 @@ namespace Persistence
                 context.Competitions.AddRange(competitions);
                 context.SaveChanges();
             };
+
+            if(!context.Paralelet.Any())
+            {
+                var paralelet = new List<Paralelja>
+                {
+                    new Paralelja
+                    {
+                        Klasa = "X", 
+                        Paralele= "1",
+                        Kujdestari="Filan Fisteku", 
+                        NrNxenesve=30,
+                        Gjenerata="19/20"
+                        
+                    },
+                    new Paralelja
+                    {
+                        Klasa = "XI", 
+                        Paralele= "2",
+                        Kujdestari="Filane Fisteku", 
+                        NrNxenesve=32,
+                        Gjenerata="19/20"
+                        
+                    },
+                 
+                };
+                context.Paralelet.AddRange(paralelet);
+                context.SaveChanges();
+            };
+
         }
 
     }

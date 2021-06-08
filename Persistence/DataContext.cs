@@ -26,6 +26,8 @@ namespace Persistence
         public DbSet <Trajnim> Trajnimet {get; set;}
 
         public DbSet <Competition> Competitions {get; set;}
+
+        public DbSet <Paralelja> Paralelet {get; set;}
         
 
         protected override void OnModelCreating(ModelBuilder builder)
