@@ -6,8 +6,9 @@ export const ParentNavBar = () => {
     return (
     <Segment>
         <Menu size='mini'>
-            <Menu.Item as={NavLink} to='/usersP' name='Arsyetimi i Mungesave'/>
-            <Menu.Item as={NavLink} to='/NjoftimeList' name='Njoftime'/>
+            <Menu.Item as={NavLink} to='/parentProfile' name='Profili'/>
+            <Menu.Item as={NavLink} to='/ParentFeatures' name='Arsyetimi i Mungesave'/>
+            <Menu.Item as={NavLink} to='/listApp' name='Njoftime'/>
         </Menu>
     </Segment>
     )

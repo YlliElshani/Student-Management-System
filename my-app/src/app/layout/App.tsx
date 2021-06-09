@@ -15,6 +15,8 @@ import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/Njo
 import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
 import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
+import { ParentProfile } from '../../features/parentProfile/ParentProfile';
+import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
 
 
 
@@ -25,7 +27,9 @@ const App = () => {
               <Route exact path='/' component={HomePage}/>
               <Route exact path='/login' component={LogIn}/>
               <Route exact path='/ParentFeatures' component={parentDashboard}/>
+              <Route exact path='/parentProfile' component={ParentProfile}/>
               <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
+              <Route exact path='/listApp' component={listApp}/>
 
               <Route path='/admin/profile' component={AdminProfile}/>
               <Route exact path='/admin/trips' component={TripsList}/>

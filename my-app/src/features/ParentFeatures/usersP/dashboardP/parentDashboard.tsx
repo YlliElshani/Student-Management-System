@@ -4,7 +4,7 @@ import axios from 'axios';
 import {IArsyeja} from '../../../../app/models/arsyeja';
 import { NavBar } from '../../../nav/NavBar';
 import DashboardP from '../detailsP/dashboardP';
-import { ParentNavBar } from '../../ParentNavBar';
+import { ParentNavBar } from '../../../parentProfile/ParentNavBar';
 
 const ParentDashboard = () => {
 
@@ -24,8 +24,6 @@ const ParentDashboard = () => {
     const handleEditArsyeja=(arsyeja: IArsyeja)=>{
         setArsyetimet([...arsyetimet.filter(a=>a.id!==arsyeja.id), arsyeja])
     }
-
-
     
     const handleOpenCreateForm = () =>{
         setSelectedArsyetim(null);
