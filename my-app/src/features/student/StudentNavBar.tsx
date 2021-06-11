@@ -7,6 +7,7 @@ export const StudentNavBar = () => {
         <Menu size='mini' fixed='top'>
             <Menu.Item><Icon name='graduation cap'></Icon></Menu.Item>
             <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
+            <Menu.Item as={NavLink} to='/KerkesNdihme' activeClassName="active" name='Kerko Ndihmë'/>
             <Menu.Item name='Orari'/>
             <Menu.Item name='Pagesat'/>
             <Menu.Menu position='right'>

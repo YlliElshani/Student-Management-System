@@ -5,6 +5,7 @@ import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';
 import { NavBar } from '../../../nav/NavBar';
 import { AdminNavBar } from '../../../administrator/AdminNavBar';
+import agent from '../../../../app/api/agent';
 
 
 const NjoftimetApp=()=>{
@@ -20,21 +21,24 @@ const NjoftimetApp=()=>{
     }
 
     useEffect(()=>{
-        axios.get<INjoftimi []>('https://localhost:5000/api/Njoftimet').then(response => {
+        agent.Njoftimet.list()
+        .then(response => {
           let njoftim:INjoftimi [] = [];
-          response.data.forEach(njoftimet=>{
+          response.forEach((njoftimet: any)=>{
             njoftimet.dataENjoftimit=njoftimet.dataENjoftimit.split('.')[0]
             njoftim.push(njoftimet)
           })
-            setNjoftime(response.data)
+            setNjoftime(response)
         });
     }, []);
 
 
     const handleCreateNjoftim=(njoftim:INjoftimi)=>{
-      setNjoftime([...njoftimet,njoftim])
-      setSelectedNjoftim(njoftim);
-      setEditMode(false);
+      agent.Njoftimet.create(njoftim).then(()=>{
+        setNjoftime([...njoftimet,njoftim])
+        setSelectedNjoftim(njoftim);
+        setEditMode(false);
+      })
     }
 
     const handleEditNjoftim =(njoftim:INjoftimi)=>{
