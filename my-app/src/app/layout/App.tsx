@@ -17,6 +17,7 @@ import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import { ParentProfile } from '../../features/parentProfile/ParentProfile';
 import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
+import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
               <Route exact path='/parentProfile' component={ParentProfile}/>
               <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
               <Route exact path='/listApp' component={listApp}/>
+              <Route exact path='/KerkesNdihme' component={AppNdihme}/>
 
               <Route path='/admin/profile' component={AdminProfile}/>
               <Route exact path='/admin/trips' component={TripsList}/>

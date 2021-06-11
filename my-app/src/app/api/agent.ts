@@ -82,11 +82,11 @@ const Trips = {
 
 
 const Njoftimet = {
-    listimi: () : Promise<INjoftimi[]> => requests.get('/Njoftimet'),
-    detajet: (id: string) => requests.get(`/Njoftimet/${id}`),
-    krijo: (njoftimi:INjoftimi) => requests.post('/Njoftimet',njoftimi),
-    perditso: (njoftimi: INjoftimi) => requests.put(`/Njoftimet/${njoftimi.id}`, njoftimi),
-    fshij: (id: string) => requests.delete(`/Njoftimet/${id}`)
+    list: () : Promise<INjoftimi[]> => requests.get('/njoftimetA'),
+    details: (id: string) => requests.get(`/njoftimetA/${id}`),
+    create: (njoftim:INjoftimi) => requests.post('/njoftimetA',njoftim),
+    update: (njoftimi: INjoftimi) => requests.put(`/njoftimetA/${njoftimi.id}`, njoftimi),
+    delete: (id: string) => requests.delete(`/njoftimetA/${id}`)
 }
 
 const Competitions = {
@@ -98,5 +98,5 @@ const Competitions = {
 }
 
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet
+    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet
 }
