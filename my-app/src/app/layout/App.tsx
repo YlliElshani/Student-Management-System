@@ -17,6 +17,8 @@ import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import { ParentProfile } from '../../features/parentProfile/ParentProfile';
 import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
+import { StudentProfile2 } from '../../features/student/StudentProfile2';
+import { StudentProfilePhoto } from '../../features/student/StudentProfilePhoto';
 
 
 
@@ -41,6 +43,8 @@ const App = () => {
               <Route exact path='/notat' component={AppNota}/>
               <Route exact path='/trajnimet' component={Myapp}/>
               <Route exact path='/detyrat' component={DetyraApp}/>
+              <Route exact path='/studentProfile2' component={StudentProfile2}/>
+              <Route exact path='/studentProfilePhoto' component={StudentProfilePhoto}/>
               
               <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           </Container> 
