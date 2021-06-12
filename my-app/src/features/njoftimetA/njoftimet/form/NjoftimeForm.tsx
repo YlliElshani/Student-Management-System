@@ -8,9 +8,10 @@ interface IProps{
     njoftim:INjoftimi;
     createNjoftim:(njoftim:INjoftimi)=>void;
     editNjoftim:(njoftim:INjoftimi)=>void;
+    submitting:boolean;
 }
 
-export const NjoftimeForm:React.FC<IProps> = ({setEditMode,njoftim:InitalFormState,createNjoftim,editNjoftim}) => {
+export const NjoftimeForm:React.FC<IProps> = ({setEditMode,njoftim:InitalFormState,createNjoftim,editNjoftim,submitting}) => {
 
     const initalizeForm = () =>{
     if(InitalFormState){
@@ -48,7 +49,7 @@ export const NjoftimeForm:React.FC<IProps> = ({setEditMode,njoftim:InitalFormSta
             <Form onSubmit={handleSubmit}>
                 <Form.Input onChange={handleInputChange}  placeholder='Data' name='dataENjoftimit' type='datetime-local'  value={njoftim.dataENjoftimit}/>
                 <Form.TextArea onChange={handleInputChange} placeholder='Njoftimi' name='njoftimi' value={njoftim.njoftimi}/>
-                <Button floated='right' positive type='submit' content='Submit'/>
+                <Button loading={submitting} floated='right' positive type='submit' content='Submit'/>
                 <Button onClick={()=>setEditMode(false)} floated='right' content='Cancel'/>
             </Form>
         </Segment>

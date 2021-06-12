@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect, SyntheticEvent } from 'react';
 import { Button, Container, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
@@ -6,6 +6,7 @@ import { NjoftimetDashboard } from './NjoftimetDashboard';
 import { NavBar } from '../../../nav/NavBar';
 import { AdminNavBar } from '../../../administrator/AdminNavBar';
 import agent from '../../../../app/api/agent';
+import { LoadingN } from './LoadingN';
 
 
 const NjoftimetApp=()=>{
@@ -13,7 +14,9 @@ const NjoftimetApp=()=>{
     const [njoftimet,setNjoftime]=useState<INjoftimi[]>([]);
     const [selectedNjoftim, setSelectedNjoftim]=useState<INjoftimi|null>(null);
     const [editMode, setEditMode]=useState(false);
-
+    const [loading,setLoading]=useState(true);
+    const [submitting, setSubmitting] = useState(false);
+    const [target, setTarget] = useState('');
 
     const handleSelectNjoftim=(id:string)=>{
       setSelectedNjoftim(njoftimet.filter(a=>a.id===id)[0]);
@@ -29,26 +32,36 @@ const NjoftimetApp=()=>{
             njoftim.push(njoftimet)
           })
             setNjoftime(response)
-        });
+        }).then(()=>setLoading(false));
     }, []);
 
+    if (loading)return <LoadingN content={'Prisni pak...'}/>
 
+      
     const handleCreateNjoftim=(njoftim:INjoftimi)=>{
+      setSubmitting(true)
       agent.Njoftimet.create(njoftim).then(()=>{
         setNjoftime([...njoftimet,njoftim])
         setSelectedNjoftim(njoftim);
         setEditMode(false);
-      })
+      }).then(()=>setSubmitting(false))
     }
 
     const handleEditNjoftim =(njoftim:INjoftimi)=>{
-      setNjoftime([...njoftimet.filter(a=>a.id!==njoftim.id),njoftim])
-      setSelectedNjoftim(njoftim);
-      setEditMode(false);
+      setSubmitting(true)
+      agent.Njoftimet.update(njoftim).then(()=>{
+        setNjoftime([...njoftimet.filter(a=>a.id!==njoftim.id),njoftim])
+        setSelectedNjoftim(njoftim);
+        setEditMode(false);
+      }).then(()=>setSubmitting(false))
     }
 
-    const handleDeleteNjoftim = (id:string)=>{
-      setNjoftime([...njoftimet.filter(a=>a.id!==id)])
+    const handleDeleteNjoftim = (event:SyntheticEvent<HTMLButtonElement>,id:string)=>{
+      setSubmitting(true)
+      setTarget(event.currentTarget.name)
+      agent.Njoftimet.delete(id).then(()=>{
+        setNjoftime([...njoftimet.filter(a=>a.id!==id)])
+      }).then(()=>setSubmitting(false))
     }
 
     const handleOpenCreateForm=()=>{
@@ -72,6 +85,8 @@ const NjoftimetApp=()=>{
           createNjoftim={handleCreateNjoftim}
           editNjoftim={handleEditNjoftim}
           deleteNjoftim={handleDeleteNjoftim}
+          submitting={submitting}
+          target={target}
           />
          </Segment>
       </Container>

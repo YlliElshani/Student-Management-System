@@ -2,13 +2,13 @@ import axios, { AxiosResponse } from 'axios';
 import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
 import { IUser } from '../models/user';
-//import {ILenda} from '../models/lenda';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
 import { ITrip } from '../models/trip';
 import { INjoftimi } from '../models/njoftimi';
 import { ICompetition } from '../models/competition';
+import { INdihma } from '../models/kNdihme';
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -41,11 +41,11 @@ const Lendet = {
 }
 
 const Arsyetimet = {
-    list: (): Promise<IArsyeja[]> => requests.get('/ParentFeatures/usersP'),
-    details: (id: string) => requests.get(`/ParentFeatures/usersP${id}`),
-    create: (Arsyetim:IArsyeja) => requests.post('/ParentFeatures/usersP', Arsyetim),
-    update: (Arsyetim: IArsyeja) => requests.put(`/ParentFeatures/usersP${Arsyetim.id}`, Arsyetim),
-    delete: (id: string) => requests.delete(`/ParentFeatures/usersP${id}`)
+    list: (): Promise<IArsyeja[]> => requests.get('/Arsyeja'),
+    details: (id: string) => requests.get(`/Arsyeja/${id}`),
+    create: (Arsyetim:IArsyeja) => requests.post('/Arsyeja', Arsyetim),
+    update: (Arsyetim: IArsyeja) => requests.put(`/Arsyeja/${Arsyetim.id}`, Arsyetim),
+    delete: (id: string) => requests.delete(`/Arsyeja/${id}`)
 }
 
 const Notat = {
@@ -82,11 +82,11 @@ const Trips = {
 
 
 const Njoftimet = {
-    list: () : Promise<INjoftimi[]> => requests.get('/njoftimetA'),
-    details: (id: string) => requests.get(`/njoftimetA/${id}`),
-    create: (njoftim:INjoftimi) => requests.post('/njoftimetA',njoftim),
-    update: (njoftimi: INjoftimi) => requests.put(`/njoftimetA/${njoftimi.id}`, njoftimi),
-    delete: (id: string) => requests.delete(`/njoftimetA/${id}`)
+    list: () : Promise<INjoftimi[]> => requests.get('/njoftimet'),
+    details: (id: string) => requests.get(`/njoftimet/${id}`),
+    create: (njoftim:INjoftimi) => requests.post('/njoftimet',njoftim),
+    update: (njoftimi: INjoftimi) => requests.put(`/njoftimet/${njoftimi.id}`, njoftimi),
+    delete: (id: string) => requests.delete(`/njoftimet/${id}`)
 }
 
 const Competitions = {
@@ -97,6 +97,15 @@ const Competitions = {
     deleteCompetition: (id: string) => requests.delete(`/competition/${id}`)
 }
 
+const KerkesaN = {
+    listN: () : Promise<INdihma[]> => requests.get('/KerkesaN'),
+    detailsN: (id: string) => requests.get(`/KerkesaN/${id}`),
+    createN: (kerkesaNdihme:INdihma) => requests.post('/KerkesaN',kerkesaNdihme),
+    updateN: (kerkesaNdihme: INdihma) => requests.put(`/KerkesaN/${kerkesaNdihme.id}`, kerkesaNdihme),
+    deleteN: (id: string) => requests.delete(`/KerkesaN/${id}`)
+}
+
+
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet
+    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN
 }

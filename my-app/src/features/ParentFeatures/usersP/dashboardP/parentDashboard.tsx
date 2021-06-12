@@ -5,12 +5,17 @@ import {IArsyeja} from '../../../../app/models/arsyeja';
 import { NavBar } from '../../../nav/NavBar';
 import DashboardP from '../detailsP/dashboardP';
 import { ParentNavBar } from '../../../parentProfile/ParentNavBar';
+import agent from '../../../../app/api/agent';
+import { LoadingP } from './LoadingP';
 
 const ParentDashboard = () => {
 
     const [arsyetimet, setArsyetimet] = useState<IArsyeja[]>([])
 
     const [selectedArsyetim, setSelectedArsyetim]=useState<IArsyeja | null>(null);
+    const [submitting, setSubmitting] = useState(false);
+    const [target, setTarget] = useState('');
+    const [loading, setLoading] = useState(true);
 
     const handleSelectArsyetim = (Id:string)=>{
         setSelectedArsyetim(arsyetimet.filter(a => a.id == Id)[0])
@@ -18,11 +23,15 @@ const ParentDashboard = () => {
     }
 
     const handleCreateArsyje =(arsyeja: IArsyeja)=>{
-        setArsyetimet([...arsyetimet,arsyeja])
+        agent.Arsyetimet.create(arsyeja).then(()=>{
+         setArsyetimet([...arsyetimet,arsyeja])
+        })
     }
 
     const handleEditArsyeja=(arsyeja: IArsyeja)=>{
-        setArsyetimet([...arsyetimet.filter(a=>a.id!==arsyeja.id), arsyeja])
+        agent.Arsyetimet.update(arsyeja).then(()=>{
+            setArsyetimet([...arsyetimet.filter(a=>a.id!==arsyeja.id), arsyeja])
+        })
     }
     
     const handleOpenCreateForm = () =>{
@@ -31,16 +40,29 @@ const ParentDashboard = () => {
     }
 
     const handleDeleteArsyja=(Id:string)=>{
-        setArsyetimet([...arsyetimet.filter(a=>a.id!==Id)])
+        agent.Arsyetimet.delete(Id).then(()=>{
+            setArsyetimet([...arsyetimet.filter(a=>a.id!==Id)])
+        })
     }
 
     const [editMode, setEditMode]=useState(false);
 
+      
     useEffect(()=>{
-            axios.get<IArsyeja[]>('https://localhost:5000/api/Arsyeja').then(response => {
-                setArsyetimet(response.data)
-            });
-    },[]);
+        agent.Arsyetimet.list()
+        .then(response => {
+          let arsyetim:IArsyeja [] = [];
+          response.forEach((arsyetimet)=>{
+            arsyetim.push(arsyetimet)
+          })
+            setArsyetimet(response)
+        }).then(()=>setLoading(false));
+    }, []);
+
+    if (loading) return <LoadingP content={'Prisni pak...'}/>
+        
+    
+    
 
     return (
       <Fragment>

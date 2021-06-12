@@ -1,15 +1,19 @@
 import axios from 'axios';
 import React, { useState, useEffect, Fragment } from 'react';
-import { Button, Container, List } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import agent from '../../../../app/api/agent';
 import { INdihma } from '../../../../app/models/kNdihme';
 import { StudentNavBar } from '../../StudentNavBar';
 import { KerkeseNDashboard } from './KerkeseNDashboard';
+import { LoadingKn } from './LoadingKn';
 
 
 export const AppNdihme = () => {
 
     const [kerkesaN, setKerkesa]=useState<INdihma[]>([]);
     const [selectedKerkesN, setSelectedKerksesN]=useState<INdihma | null>(null)
+    const [loading,setLoading]=useState(true);
+    const [submitting, setSubmitting] = useState(false);
 
     const handleSelectKerkesN=(id:string)=>{
         setSelectedKerksesN(kerkesaN.filter(a=>a.id===id)[0])
@@ -25,30 +29,39 @@ export const AppNdihme = () => {
 
     
     const handleCreateKerkesa = (kerkesat:INdihma)=>{
-        setKerkesa([...kerkesaN, kerkesat])
-        setSelectedKerksesN(kerkesat)
-        setEditMode(false)
+        agent.KerkesaN.createN(kerkesat).then(()=>{
+            setKerkesa([...kerkesaN, kerkesat])
+            setSelectedKerksesN(kerkesat)
+            setEditMode(false)
+        })
     }
 
     const handleEditKerkesa =(kerkesa:INdihma)=>{
-        setKerkesa([...kerkesaN.filter(a=>a.id!==kerkesa.id), kerkesa])
-        setSelectedKerksesN(kerkesa)
-        setEditMode(false)
+        agent.KerkesaN.updateN(kerkesa).then(()=>{
+            setKerkesa([...kerkesaN.filter(a=>a.id!==kerkesa.id), kerkesa])
+            setSelectedKerksesN(kerkesa)
+            setEditMode(false)
+        })
     }
 
     useEffect(()=>{
-        axios.get<INdihma[]>('https://localhost:5000/api/KerkesaN').then(response=>{
-            let kerkesa:INdihma [] = [];
-            response.data.forEach(kerkesa=>{
-                kerkesa.dataECaktuar = kerkesa.dataECaktuar.split('.')[0]
-                kerkesaN.push(kerkesa)
-            })
-            setKerkesa(kerkesaN)
-        })
-    },[])
+        agent.KerkesaN.listN()
+        .then(response => {
+          let kerkesaNd:INdihma [] = [];
+          response.forEach((kerkesa)=>{
+            kerkesa.dataECaktuar=kerkesa.dataECaktuar.split('.')[0]
+            kerkesaNd.push(kerkesa)
+          })
+            setKerkesa(response)
+        }).then(()=>setLoading(false));
+    }, []);
+
+    if(loading) return <LoadingKn content='Prisni pak...'/>
 
     const handleDeleteKerkese = (id:string)=>{
-        setKerkesa([...kerkesaN.filter(a=>a.id!==id)])
+        agent.KerkesaN.deleteN(id).then(()=>{
+            setKerkesa([...kerkesaN.filter(a=>a.id!==id)])
+        })
     }
 
     return (
