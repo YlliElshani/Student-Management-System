@@ -1,17 +1,17 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
-import { INjoftimi } from '../../../../../app/models/njoftimi'
+import { ITrip } from '../../../app/models/trip'
 import { Lista } from './Lista'
 
 interface IProps{
-    listnjoftimet:INjoftimi[]
+    trips: ITrip[]
 }
 
-export const Listues:React.FC<IProps> = ({listnjoftimet}) => {
+export const Listues:React.FC<IProps> = ({trips}) => {
     return (
         <Grid>
             <Grid.Column width={10}>
-             <Lista njoftimet={listnjoftimet}/>
+             <Lista trips={trips}/>
             </Grid.Column>
         </Grid>
     )

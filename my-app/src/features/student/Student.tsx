@@ -17,7 +17,7 @@ export const Student = () => {
                         </Form>
                         <Form style={{padding:'60px', marginLeft:'15%'}}>
                             <Button as={NavLink} to='/studentProfile' type='submit'>Profili im</Button>
-                            <Button as={NavLink} to='/transcript' type='submit'>Transkripta</Button>
+                            <Button as={NavLink} to='/EServices' type='submit'>E-Shërbimet</Button>
                         </Form>
                     </Segment>
                     <Segment className='Student' >

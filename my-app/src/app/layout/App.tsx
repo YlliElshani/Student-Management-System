@@ -20,6 +20,10 @@ import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/
 import { StudentProfile2 } from '../../features/student/StudentProfile2';
 import { StudentProfilePhoto } from '../../features/student/StudentProfilePhoto';
 import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
+import { EServices } from '../../features/student/EServices/EServices';
+import ListApp from '../../features/student/listoNjoftimetS/listApp';
+import ListGApp from '../../features/student/listoGara/listGApp';
+import ListTApp from '../../features/student/listoTrips/listTApp';
 
 
 const App = () => {
@@ -46,6 +50,10 @@ const App = () => {
               <Route exact path='/detyrat' component={DetyraApp}/>
               <Route exact path='/studentProfile2' component={StudentProfile2}/>
               <Route exact path='/studentProfilePhoto' component={StudentProfilePhoto}/>
+              <Route exact path='/EServices' component={EServices}/>
+              <Route exact path='/listoNjoftimetS' component={ListApp}/>
+              <Route exact path='/listoGara' component={ListGApp}/>
+              <Route exact path='/listoTrips' component={ListTApp}/>
               
               <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           </Container> 

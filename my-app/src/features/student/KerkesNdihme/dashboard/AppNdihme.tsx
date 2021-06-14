@@ -3,6 +3,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Button } from 'semantic-ui-react';
 import agent from '../../../../app/api/agent';
 import { INdihma } from '../../../../app/models/kNdihme';
+import { StudentMiniNav } from '../../EServices/StudentMiniNav';
 import { StudentNavBar } from '../../StudentNavBar';
 import { KerkeseNDashboard } from './KerkeseNDashboard';
 import { LoadingKn } from './LoadingKn';
@@ -67,6 +68,7 @@ export const AppNdihme = () => {
     return (
         <div>
             <StudentNavBar/>
+            <StudentMiniNav/>
             <Button onClick={()=>handleOpenCreateForm()}content='Shto kerkese' color='twitter' />
             <KerkeseNDashboard kerkesat={kerkesaN} 
             selectKerkesa={handleSelectKerkesN} 

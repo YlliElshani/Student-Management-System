@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import { List } from 'semantic-ui-react';
 import axios from 'axios';
-import { INjoftimi } from '../../../../../app/models/njoftimi';
 import { Listues } from './Listues';
-import { NavBar } from '../../../../nav/NavBar';
-import { ParentNavBar } from '../../../../parentProfile/ParentNavBar';
+import { INjoftimi } from '../../../app/models/njoftimi';
+import { NavBar } from '../../nav/NavBar';
+import { StudentMiniNav } from '../EServices/StudentMiniNav';
 
 interface IProps{
   njoftimet: INjoftimi;
@@ -24,7 +24,7 @@ const ListApp =()=> {
     return (
       <div>
           <NavBar/>
-          <ParentNavBar/>
+          <StudentMiniNav/>
         <List>
           <Listues listnjoftimet={njoftimet}/>
         </List>
