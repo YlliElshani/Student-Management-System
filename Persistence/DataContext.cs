@@ -33,6 +33,7 @@ namespace Persistence
 
         public DbSet <KerkesaPrezantimit> KerkesaP {get; set;}
 
+        public DbSet <Evente> Eventet {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

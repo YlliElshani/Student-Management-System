@@ -203,6 +203,22 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            if(!context.Eventet.Any())
+            {
+                var evente = new List<Evente>
+                {
+                    new Evente
+                    {
+                        infoEvent="Do te festohet 28 Nëntori ne shkolle me kercime tradicionale",
+                        dataEEventit=DateTime.Now,
+                        kategoria="Feste",
+                        vendiMbajtjes="Ne sallën kryesore"
+                    }
+                };
+                context.Eventet.AddRange(evente);
+                context.SaveChanges();
+            };
+
         }
 
     }

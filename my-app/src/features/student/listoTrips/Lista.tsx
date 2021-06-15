@@ -36,7 +36,6 @@ export const Lista:React.FC<IProps> = ({trips}) => {
                     </span>
                     <br/>
                     <br/>
-
                     <span>
                       Cmimi:{trip.price}
                     </span>

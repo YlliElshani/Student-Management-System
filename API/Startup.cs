@@ -12,6 +12,7 @@ using Application.Arsyetimet;
 using Application.Njoftimet;
 using Application.KerkesaNdihme;
 using Application.KerkesaPrezantimi;
+using Application.Eventet;
 
 namespace API
 {
@@ -44,6 +45,7 @@ namespace API
             services.AddMediatR(typeof(ListaNjoftimeve.Handler).Assembly);
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListoKerkesatP.Handler).Assembly);
+            services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
