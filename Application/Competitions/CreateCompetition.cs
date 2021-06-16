@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Persistence;
 using Domain;
 using System;
+using FluentValidation;
 
 namespace Application.Competitions
 {
@@ -22,6 +23,18 @@ namespace Application.Competitions
             public string field {get; set;}
 
             public string awards {get; set;}
+        }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator () 
+            {
+                RuleFor(x => x.name).NotEmpty();
+                RuleFor(x => x.date).NotEmpty();
+                RuleFor(x => x.description).NotEmpty();
+                RuleFor(x => x.field).NotEmpty();
+                RuleFor(x => x.awards).NotEmpty();
+            }
         }
 
         public class Handler : IRequestHandler<Command>

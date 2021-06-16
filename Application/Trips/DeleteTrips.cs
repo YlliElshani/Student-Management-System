@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Persistence;
 using System;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Trips
 {
@@ -27,7 +29,7 @@ namespace Application.Trips
                 var trip = await _context.Trips.FindAsync(request.tripId);
 
                 if(trip == null)
-                    throw new Exception("Could not find trip");
+                    throw new RestException(HttpStatusCode.NotFound, new {trip = "Not Found"});
 
                 _context.Remove(trip);
 

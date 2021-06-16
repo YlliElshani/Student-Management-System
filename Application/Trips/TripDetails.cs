@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Domain;
 using MediatR;
 using Persistence;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Trips
 {
@@ -26,6 +28,9 @@ namespace Application.Trips
             public async Task<Trip> Handle(Query request, CancellationToken cancellationToken)
             {
                 var trip = await _context.Trips.FindAsync(request.tripId);
+
+                if(trip == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {trip = "Not Found"});
 
                 return trip;
             }

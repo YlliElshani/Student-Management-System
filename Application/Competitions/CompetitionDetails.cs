@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Domain;
 using MediatR;
 using Persistence;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Competitions
 {
@@ -26,6 +28,9 @@ namespace Application.Competitions
             public async Task<Competition> Handle(Query request, CancellationToken cancellationToken)
             {
                 var competition = await _context.Competitions.FindAsync(request.competitionId);
+
+                 if(competition == null)
+                    throw new RestException(HttpStatusCode.NotFound, new {competition = "Not Found"});
 
                 return competition;
             }

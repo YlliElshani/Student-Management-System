@@ -3,6 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Persistence;
 using System;
+using FluentValidation;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Competitions
 {
@@ -22,6 +25,18 @@ namespace Application.Competitions
 
             public string awards {get; set;}
         }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator () 
+            {
+                RuleFor(x => x.name).NotEmpty();
+                RuleFor(x => x.date).NotEmpty();
+                RuleFor(x => x.description).NotEmpty();
+                RuleFor(x => x.field).NotEmpty();
+                RuleFor(x => x.awards).NotEmpty();
+            }
+        }
         
         public class Handler : IRequestHandler<Command>
         {
@@ -37,7 +52,7 @@ namespace Application.Competitions
                 var competition = await _context.Competitions.FindAsync(request.competitionId);
 
                 if(competition == null)
-                    throw new Exception ("Could not find competition");
+                    throw new RestException(HttpStatusCode.NotFound, new {competition = "Not Found"});
 
                 competition.name = request.name ?? competition.name;
                 competition.date = request.date ?? competition.date;

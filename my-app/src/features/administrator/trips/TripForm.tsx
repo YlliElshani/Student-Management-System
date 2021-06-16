@@ -1,7 +1,18 @@
 import React, {FormEvent, useState} from 'react'
+import { combineValidators, composeValidators, hasLengthGreaterThan, isRequired } from 'revalidate';
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import {v4 as uuid} from 'uuid';
 import { ITrip } from '../../../app/models/trip';
+
+const validate = combineValidators({
+    name: isRequired({message: 'The competition name is required'}),
+    place: isRequired('Place'),
+    description: composeValidators(
+        isRequired('Name'), hasLengthGreaterThan(4)({message: 'Description needs to be at least 5 characters'}))(),
+    patricipants: isRequired('Participants'),
+    price: isRequired('Price')
+})
+
 
 interface IProps {
     setEditMode: (editMode: boolean) => void;
@@ -54,7 +65,7 @@ const TripForm:React.FC<IProps> = ({setEditMode, trip: initialFormState, editTri
     return (
     <Segment clearing>
         <Grid>
-        <Form onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
+        <Form validate={validate} onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
             <Form.Input onChange={handleInputChange}  name='name' placeholder='Name' value={trip.name} />
             <Form.Input onChange={handleInputChange} name='place' placeholder='Place' value={trip.place} />
             <Form.Input type='date' onChange={handleInputChange} name='date' placeholder='Date' value={trip.date} />

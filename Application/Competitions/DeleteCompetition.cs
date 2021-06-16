@@ -3,6 +3,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Persistence;
 using System;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Competitions
 {
@@ -27,7 +29,7 @@ namespace Application.Competitions
                 var competition = await _context.Competitions.FindAsync(request.competitionId);
 
                 if(competition == null)
-                    throw new Exception("Could not find competition");
+                    throw new RestException(HttpStatusCode.NotFound, new {competition = "Not Found"});
 
                 _context.Remove(competition);
 

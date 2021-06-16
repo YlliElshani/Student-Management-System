@@ -3,6 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Persistence;
 using System;
+using FluentValidation;
+using Application.Errors;
+using System.Net;
 
 namespace Application.Trips
 {
@@ -24,6 +27,19 @@ namespace Application.Trips
 
             public string price {get; set;}
         }
+
+        public class CommandValidator : AbstractValidator<Command>
+        {
+            public CommandValidator () 
+            {
+                RuleFor(x => x.name).NotEmpty();
+                RuleFor(x => x.place).NotEmpty();
+                RuleFor(x => x.date).NotEmpty();
+                RuleFor(x => x.description).NotEmpty();
+                RuleFor(x => x.participants).NotEmpty();
+                RuleFor(x => x.price).NotEmpty();
+            }
+        }
         
         public class Handler : IRequestHandler<Command>
         {
@@ -39,7 +55,7 @@ namespace Application.Trips
                 var trip = await _context.Trips.FindAsync(request.tripId);
 
                 if(trip == null)
-                    throw new Exception ("Could not find trip");
+                    throw new RestException(HttpStatusCode.NotFound, new {trip = "Not Found"});
 
                trip.name = request.name ?? trip.name;
                trip.place = request.place ?? trip.place;

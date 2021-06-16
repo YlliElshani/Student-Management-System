@@ -2,6 +2,15 @@ import React, {FormEvent, useState} from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import {v4 as uuid} from 'uuid';
 import { ICompetition } from '../../../app/models/competition';
+import {combineValidators, composeValidators, hasLengthGreaterThan, isRequired} from 'revalidate';
+
+const validate = combineValidators({
+    name: isRequired({message: 'The competition name is required'}),
+    description: composeValidators(
+        isRequired('Name'), hasLengthGreaterThan(4)({message: 'Description needs to be at least 5 characters'}))(),
+    field: isRequired('Field'),
+    awards: isRequired('Awards')
+})
 
 interface IProps {
     setEditMode: (editMode: boolean) => void;
@@ -53,7 +62,7 @@ const CompetitionForm:React.FC<IProps> = ({setEditMode, competition: initialForm
     return (
     <Segment clearing>
         <Grid>
-        <Form onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
+        <Form validate={validate} onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
             <Form.Input onChange={handleInputChange}  name='name' placeholder='Name' value={competition.name} />
             <Form.Input type='date' onChange={handleInputChange} name='date' placeholder='Date' value={competition.date} />
             <Form.TextArea rows={5} onChange={handleInputChange} name='description' placeholder='Description' value={competition.description} />

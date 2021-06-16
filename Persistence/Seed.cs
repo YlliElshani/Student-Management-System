@@ -2,13 +2,44 @@ using System.Linq;
 using Domain;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace Persistence
 {
     public class Seed
     {
-        public static void SeedData (DataContext context)
+        public static async Task SeedData (DataContext context, UserManager<AppUser> userManager)
         {
+            if(!userManager.Users.Any())
+            {
+                var users = new List<AppUser>
+                {
+                    new AppUser
+                    {
+                        DisplayName = "Hysnije",
+                        UserName = "Hysi",
+                        Email = "hysi@gmail.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Altina",
+                        UserName = "Tina",
+                        Email = "tina@gmail.com"
+                    },
+                    new AppUser
+                    {
+                        DisplayName = "Albiona",
+                        UserName = "Biona",
+                        Email = "biona@gmail.com"
+                    }
+                };
+                foreach (var user in users)
+                {
+                   await userManager.CreateAsync(user, "Pa$$w0rd");
+                }
+            }
+
             if(!context.Detyrat.Any())
             {
                 var detyrat = new List<Detyra>
@@ -97,7 +128,7 @@ namespace Persistence
                     {
                         name = "Vizitë në qytetin e Shkodrës",
                         place = "Shkodër",
-                        date = "25 Qershor 2021",
+                        date = "2021-06-30",
                         description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
                         participants = "Vetëm nxënësit e vitit të tretë",
                         price = "Pagesat i mbulon shkolla"
