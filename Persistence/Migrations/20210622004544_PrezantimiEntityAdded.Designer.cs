@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210608110419_KerkesaPrezantimit")]
-    partial class KerkesaPrezantimit
+    [Migration("20210622004544_PrezantimiEntityAdded")]
+    partial class PrezantimiEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,24 @@ namespace Persistence.Migrations
                     b.ToTable("Detyrat");
                 });
 
+            modelBuilder.Entity("Domain.Evente", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("dataEEventit");
+
+                    b.Property<string>("infoEvent");
+
+                    b.Property<string>("kategoria");
+
+                    b.Property<string>("vendiMbajtjes");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Eventet");
+                });
+
             modelBuilder.Entity("Domain.KerkesaNdihmes", b =>
                 {
                     b.Property<Guid>("Id")
@@ -212,6 +230,24 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaId");
 
                     b.ToTable("Paralelet");
+                });
+
+            modelBuilder.Entity("Domain.Prezantimi", b =>
+                {
+                    b.Property<Guid>("prezantimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("data");
+
+                    b.Property<string>("kohezgjatja");
+
+                    b.Property<string>("ora");
+
+                    b.Property<string>("prezantimiInfo");
+
+                    b.HasKey("prezantimiId");
+
+                    b.ToTable("Prezantimet");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>

@@ -11,9 +11,9 @@ using Application.Notat;
 using Application.Arsyetimet;
 using Application.Njoftimet;
 using Application.KerkesaNdihme;
-using Application.KerkesaPrezantimi;
 using Application.Eventet;
 using Application.Competitions;
+using Application.Prezantimet;
 using Domain;
 using Microsoft.AspNetCore.Identity;
 using FluentValidation.AspNetCore;
@@ -49,8 +49,8 @@ namespace API
             services.AddMediatR(typeof(ListaArsyetimeve.Handler).Assembly);
             services.AddMediatR(typeof(ListaNjoftimeve.Handler).Assembly);
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
-            services.AddMediatR(typeof(ListoKerkesatP.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
+            services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
             services.AddMvc()
                 .AddFluentValidation(cfg => 
                 cfg.RegisterValidatorsFromAssemblyContaining<CreateCompetition>()

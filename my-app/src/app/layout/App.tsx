@@ -25,6 +25,7 @@ import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
 import ListTApp from '../../features/student/listoTrips/listTApp';
 import { NotFound } from './NotFound';
+import { PrezantimetList } from '../../features/student/Prezantimi/PrezantimetList';
 
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
                 <Route exact path='/listoNjoftimetS' component={ListApp}/>
                 <Route exact path='/listoGara' component={ListGApp}/>
                 <Route exact path='/listoTrips' component={ListTApp}/>
+                <Route exact path='/prezantimet' component={PrezantimetList}/>
                 
                 <Route exact path='/profesorprofile' component={ProfesorProfile}/>
                 <Route component={NotFound}/>

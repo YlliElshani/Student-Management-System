@@ -61,7 +61,7 @@ export const CompetitionsList:React.FC = () => {
         }).then(() => setLoading(false));
       }, []); 
     
-    if(loading) return <LoadingComponent content='Loading Competitions'/>
+    if(loading) return <LoadingComponent content='Ju lutem prisni pak!'/>
     return (
         <Container>
             <NavBar/>
