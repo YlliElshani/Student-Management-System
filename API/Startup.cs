@@ -61,7 +61,7 @@ namespace API
             services.AddMvc(opt => {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 opt.Filters.Add(new AuthorizeFilter(policy));
-            })
+            });
             services.AddMvc()
                 .AddFluentValidation(cfg => 
                 cfg.RegisterValidatorsFromAssemblyContaining<CreateCompetition>()
