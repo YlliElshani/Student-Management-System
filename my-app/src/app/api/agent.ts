@@ -26,14 +26,6 @@ const requests = {
     delete: (url:string) => axios.delete(url).then(sleep(1000)).then(responseBody)
 }
 
-const Users = {
-    list: (): Promise<IUser[]> => requests.get('/users'),
-    details: (id: string) => requests.get(`/users/${id}`),
-    create: (user:IUser) => requests.post('/users', user),
-    update: (user: IUser) => requests.put(`/users/${user.userId}`, user),
-    delete: (id: string) => requests.delete(`/users/${id}`)
-}
-
 const Lendet = {
     list: (): Promise<ILenda[]> => requests.get('/lendet'),
     details: (id: string) => requests.get(`/lendet/${id}`),
@@ -116,5 +108,5 @@ const Prezantimet = {
 }
 
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
+     Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
 }
