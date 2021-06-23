@@ -219,21 +219,6 @@ namespace Persistence
                 context.SaveChanges();
             };
 
-            if(!context.KerkesaP.Any())
-            {
-                var kerkesatP = new List<KerkesaPrezantimit>
-                {
-                    new KerkesaPrezantimit
-                    {
-                        prezantimiInfo="Dua te shfaq prezantimin tim rreth siguris ne internet",
-                        koheZgjatjaPerafert=25,
-                        dataCaktuar=DateTime.Now
-                    }
-                };
-                context.KerkesaP.AddRange(kerkesatP);
-                context.SaveChanges();
-            };
-
             if(!context.Eventet.Any())
             {
                 var evente = new List<Evente>
@@ -250,6 +235,22 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            if(!context.Prezantimet.Any())
+            {
+                var prezantimet = new List<Prezantimi>
+                {
+                    new Prezantimi
+                    {
+                        prezantimiInfo = "Kerkoj prezantim për projektin në lëndën e fizikës.",
+                        kohezgjatja = "30 minuta",
+                        data = "2021-07-17",
+                        ora = "10:40"
+                    }
+                };
+
+                context.Prezantimet.AddRange(prezantimet);
+                context.SaveChanges();
+            };
         }
 
     }

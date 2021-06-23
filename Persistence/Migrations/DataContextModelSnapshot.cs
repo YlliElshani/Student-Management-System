@@ -230,6 +230,24 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
+            modelBuilder.Entity("Domain.Prezantimi", b =>
+                {
+                    b.Property<Guid>("prezantimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("data");
+
+                    b.Property<string>("kohezgjatja");
+
+                    b.Property<string>("ora");
+
+                    b.Property<string>("prezantimiInfo");
+
+                    b.HasKey("prezantimiId");
+
+                    b.ToTable("Prezantimet");
+                });
+
             modelBuilder.Entity("Domain.Trajnim", b =>
                 {
                     b.Property<Guid>("TrajnimId")

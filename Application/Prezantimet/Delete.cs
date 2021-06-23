@@ -1,16 +1,16 @@
-using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using Persistence;
-using System;
 
-namespace Application.KerkesaPrezantimi
+namespace Application.Prezantimet
 {
     public class Delete
     {
         public class Command : IRequest
         {
-            public Guid  Id {get; set;}
+            public Guid  prezantimiId {get; set;}
         }
 
         public class Handler : IRequestHandler<Command>
@@ -24,12 +24,12 @@ namespace Application.KerkesaPrezantimi
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var kerkesa = await _context.KerkesaP.FindAsync(request.Id);
+                var prezantimi = await _context.Prezantimet.FindAsync(request.prezantimiId);
 
-                if(kerkesa == null)
-                    throw new Exception("Could not find user");
+                if(prezantimi == null)
+                    throw new Exception("Could not find");
 
-                _context.Remove(kerkesa);
+                _context.Remove(prezantimi);
 
                 var success = await _context.SaveChangesAsync() > 0;
 
@@ -38,5 +38,6 @@ namespace Application.KerkesaPrezantimi
                 throw new Exception ("Problem saving changes");
             }
         }
+        
     }
 }

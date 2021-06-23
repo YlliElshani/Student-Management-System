@@ -9,6 +9,8 @@ import { ITrip } from '../models/trip';
 import { INjoftimi } from '../models/njoftimi';
 import { ICompetition } from '../models/competition';
 import { INdihma } from '../models/kNdihme';
+import { IPrezantimi } from '../models/prezantimi';
+
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
 
@@ -105,7 +107,14 @@ const KerkesaN = {
     deleteN: (id: string) => requests.delete(`/KerkesaN/${id}`)
 }
 
+const Prezantimet = {
+    prezantimetList: () : Promise<IPrezantimi[]> => requests.get('/prezantimet'),
+    prezantimetDetails: (id: string) => requests.get(`/prezantimet/${id}`),
+    createPrezantimi: (prezantimi:IPrezantimi) => requests.post('/prezantimet',prezantimi),
+    updatePrezantimi: (prezantimi: IPrezantimi) => requests.put(`/prezantimet/${prezantimi.prezantimiId}`, prezantimi),
+    deletePrezantimi: (id: string) => requests.delete(`/prezantimet/${id}`)
+}
 
 export default {
-    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN
+    Users, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
 }

@@ -31,9 +31,9 @@ namespace Persistence
 
         public DbSet <KerkesaNdihmes> KerkesaN {get; set;}
 
-        public DbSet <KerkesaPrezantimit> KerkesaP {get; set;}
-
         public DbSet <Evente> Eventet {get; set;}
+
+        public DbSet <Prezantimi> Prezantimet {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
