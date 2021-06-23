@@ -8,47 +8,39 @@ using System;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
 
-    public class TripsController :  ControllerBase
+    public class TripsController :  BaseController
     {
-        private readonly IMediator _mediator;
-
-        public TripsController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
 
         [HttpGet]
         public async Task<ActionResult<List<Trip>>> List()
         {
-            return await _mediator.Send(new ListTrips.Query());
+            return await Mediator.Send(new ListTrips.Query());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Trip>> Details (Guid id)
         {
-            return await _mediator.Send(new TripDetails.Query{tripId = id});
+            return await Mediator.Send(new TripDetails.Query{tripId = id});
         }
 
         [HttpPost]
         public async Task<ActionResult<Unit>> Create(CreateTrip.Command command)
         {
-            return await _mediator.Send(command);
+            return await Mediator.Send(command);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<Unit>> Edit(Guid id, EditTrips.Command command)
         {
             command.tripId = id;
-            return await _mediator.Send(command);
+            return await Mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new DeleteTrips.Command{tripId = id});
+            return await Mediator.Send(new DeleteTrips.Command{tripId = id});
         }
     }
 }
