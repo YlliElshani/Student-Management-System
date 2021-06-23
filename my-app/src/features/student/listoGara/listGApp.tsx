@@ -17,7 +17,7 @@ const ListGApp =()=> {
     const[gara,setGara]=useState<ICompetition[]>([]);
 
     useEffect(()=>{
-      agent.Competitions.competitionsList().then((response) => { 
+      agent.Competitions.list().then((response) => { 
         let competitions: ICompetition[] = []; 
         response.forEach((competition) => {
           competitions.push(competition);

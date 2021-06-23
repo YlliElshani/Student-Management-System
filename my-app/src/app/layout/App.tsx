@@ -10,7 +10,6 @@ import { StudentProfile } from '../../features/student/StudentProfile';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
-import { TripsList } from '../../features/administrator/trips/TripsList';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
 import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
@@ -26,9 +25,11 @@ import ListGApp from '../../features/student/listoGara/listGApp';
 import ListTApp from '../../features/student/listoTrips/listTApp';
 import { NotFound } from './NotFound';
 import { PrezantimetList } from '../../features/student/Prezantimi/PrezantimetList';
+import TripsList from '../../features/administrator/trips/TripsList';
+import { observer } from 'mobx-react-lite';
 
 
-const App = () => {
+function App () {
     return (
       <Fragment>
           <Container style={{marginTop:'6em'}}>
@@ -68,4 +69,4 @@ const App = () => {
 }
 
           
-export default App;
+export default observer(App);

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
-import { IUser } from '../models/user';
+import { IUser, IUserFormValues } from '../models/user';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
@@ -24,6 +24,12 @@ const requests = {
     post: (url: string, body: {}) => axios.post(url, body).then(sleep(1000)).then(responseBody),
     put: (url: string, body: {}) => axios.put(url, body).then(sleep(1000)).then(responseBody),
     delete: (url:string) => axios.delete(url).then(sleep(1000)).then(responseBody)
+}
+
+const User = {
+    current: (): Promise<IUser> => requests.get('/user'),
+    login: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/login`, user),
+    register: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/register`, user)
 }
 
 const Lendet = {
@@ -67,11 +73,11 @@ const Detyrat = {
 
 
 const Trips = {
-    tripsList: () : Promise<ITrip[]> => requests.get('/trips'),
-    tripDetails: (id: string) => requests.get(`/trips/${id}`),
-    createTrip: (trip:ITrip) => requests.post('/trips',trip),
-    updateTrip: (trip: ITrip) => requests.put(`/trips/${trip.tripId}`, trip),
-    deleteTrip: (id: string) => requests.delete(`/trips/${id}`)
+    list: () : Promise<ITrip[]> => requests.get('/trips'),
+    details: (id: string) => requests.get(`/trips/${id}`),
+    create: (trip:ITrip) => requests.post('/trips',trip),
+    update: (trip: ITrip) => requests.put(`/trips/${trip.tripId}`, trip),
+    delete: (id: string) => requests.delete(`/trips/${id}`)
 }
 
 
@@ -84,11 +90,11 @@ const Njoftimet = {
 }
 
 const Competitions = {
-    competitionsList: () : Promise<ICompetition[]> => requests.get('/competition'),
-    competitionDetails: (id: string) => requests.get(`/competition/${id}`),
-    createCompetition: (competition:ICompetition) => requests.post('/competition',competition),
-    updateCompetition: (competition: ICompetition) => requests.put(`/competition/${competition.competitionId}`, competition),
-    deleteCompetition: (id: string) => requests.delete(`/competition/${id}`)
+    list: () : Promise<ICompetition[]> => requests.get('/competition'),
+    details: (id: string) => requests.get(`/competition/${id}`),
+    create: (competition:ICompetition) => requests.post('/competition',competition),
+    update: (competition: ICompetition) => requests.put(`/competition/${competition.competitionId}`, competition),
+    delete: (id: string) => requests.delete(`/competition/${id}`)
 }
 
 const KerkesaN = {
@@ -108,5 +114,5 @@ const Prezantimet = {
 }
 
 export default {
-     Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
+    User, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
 }

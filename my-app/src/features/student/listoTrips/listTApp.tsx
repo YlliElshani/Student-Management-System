@@ -17,7 +17,7 @@ export const ListTApp =()=> {
     const[trips,setTrips]=useState<ITrip[]>([]);
 
     useEffect(()=>{
-      agent.Trips.tripsList().then((response) => { 
+      agent.Trips.list().then((response) => { 
         let trips: ITrip[] = []; 
         response.forEach((trip) => {
           trips.push(trip);
