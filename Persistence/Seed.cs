@@ -11,34 +11,16 @@ namespace Persistence
     {
         public static async Task SeedData (DataContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
-            if(!roleManager.Roles.Any())
-            {
-                var roles = new List<AppRole>
-                {
-                    new AppRole
-                    {
-                        Descripion = "Can only view and send files eg homeworks or add questions",
-                        Name = "Student"
-                    },
-                    new AppRole
-                    {
-                        Descripion = "Can view and add to some extent",
-                        Name = "Parent"
-                    },
-                    new AppRole
-                    {
-                        Descripion = "Can view, add, delete and update",
-                        Name = "Profesor"
-                    },
-                    new AppRole
-                    {
-                        Descripion = "Can view, delete, update and add",
-                        Name = "Admin"
-                    }
-                };
-                foreach (var role in roles)
-                {
-                   await roleManager.CreateAsync(role);
+            var adminRole = "Admin";
+            var studentRole = "Student";
+            var guardianRole = "Guardian";
+            var profesorRole = "Profesor";
+            var roleNames = new String[] { adminRole, studentRole, guardianRole, profesorRole };
+
+            foreach (var roleName in roleNames) {
+                var role = await roleManager.RoleExistsAsync(roleName);
+                if (!role) {
+                    var result = await roleManager.CreateAsync(new AppRole { Name = roleName });
                 }
             }
 
@@ -79,9 +61,11 @@ namespace Persistence
                 };
                 foreach (var user in users)
                 {
-                   await userManager.CreateAsync(user, "Pa$$w0rd");
+                    await userManager.CreateAsync(user, "Pa$$w0rd");
+                    await userManager.AddToRoleAsync(user, adminRole);
                 }
-            }
+            };
+            
 
             if(!context.Detyrat.Any())
             {

@@ -11,7 +11,6 @@ import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
-import { CompetitionsList } from '../../features/administrator/competitions/CompetitionsList';
 import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import { ParentProfile } from '../../features/parentProfile/ParentProfile';
@@ -27,6 +26,7 @@ import { NotFound } from './NotFound';
 import { PrezantimetList } from '../../features/student/Prezantimi/PrezantimetList';
 import TripsList from '../../features/administrator/trips/TripsList';
 import { observer } from 'mobx-react-lite';
+import CompetitionsList from '../../features/administrator/competitions/CompetitionsList';
 
 
 function App () {
