@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Application",
-    "\\Application\\User"
+    "\\API"
   ],
-  "SelectedNode": "\\Application\\User\\Register.cs",
+  "SelectedNode": "\\API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

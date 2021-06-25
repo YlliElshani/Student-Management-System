@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210607125359_AddedIdentity")]
-    partial class AddedIdentity
+    [Migration("20210625115556_AddRoleIdentity")]
+    partial class AddRoleIdentity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -18,12 +18,43 @@ namespace Persistence.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
 
+            modelBuilder.Entity("Domain.AppRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken();
+
+                    b.Property<string>("Descripion");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex");
+
+                    b.ToTable("AspNetRoles");
+                });
+
             modelBuilder.Entity("Domain.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AccessFailedCount");
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("Age");
+
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -57,6 +88,8 @@ namespace Persistence.Migrations
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256);
+
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("Id");
 
@@ -118,6 +151,38 @@ namespace Persistence.Migrations
                     b.ToTable("Detyrat");
                 });
 
+            modelBuilder.Entity("Domain.Evente", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("dataEEventit");
+
+                    b.Property<string>("infoEvent");
+
+                    b.Property<string>("kategoria");
+
+                    b.Property<string>("vendiMbajtjes");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Eventet");
+                });
+
+            modelBuilder.Entity("Domain.KerkesaNdihmes", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("dataECaktuar");
+
+                    b.Property<string>("kerkesaInfo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("KerkesaN");
+                });
+
             modelBuilder.Entity("Domain.Lenda", b =>
                 {
                     b.Property<Guid>("LendaId")
@@ -164,6 +229,26 @@ namespace Persistence.Migrations
                     b.ToTable("Notat");
                 });
 
+            modelBuilder.Entity("Domain.Paralelja", b =>
+                {
+                    b.Property<Guid>("ParaleljaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Gjenerata");
+
+                    b.Property<string>("Klasa");
+
+                    b.Property<string>("Kujdestari");
+
+                    b.Property<int>("NrNxenesve");
+
+                    b.Property<string>("Paralele");
+
+                    b.HasKey("ParaleljaId");
+
+                    b.ToTable("Paralelet");
+                });
+
             modelBuilder.Entity("Domain.Trajnim", b =>
                 {
                     b.Property<Guid>("TrajnimId")
@@ -200,29 +285,6 @@ namespace Persistence.Migrations
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken();
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256);
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256);
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasName("RoleNameIndex");
-
-                    b.ToTable("AspNetRoles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -311,7 +373,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("Domain.AppRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -335,7 +397,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole")
+                    b.HasOne("Domain.AppRole")
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
