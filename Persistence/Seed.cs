@@ -11,11 +11,8 @@ namespace Persistence
     {
         public static async Task SeedData (DataContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
-            var adminRole = "Admin";
-            var studentRole = "Student";
-            var guardianRole = "Guardian";
-            var profesorRole = "Profesor";
-            var roleNames = new String[] { adminRole, studentRole, guardianRole, profesorRole };
+
+            var roleNames = new String[] { Roles.Admin, Roles.Student, Roles.Guardian, Roles.Profesor };
 
             foreach (var roleName in roleNames) {
                 var role = await roleManager.RoleExistsAsync(roleName);
@@ -62,7 +59,7 @@ namespace Persistence
                 foreach (var user in users)
                 {
                     await userManager.CreateAsync(user, "Pa$$w0rd");
-                    await userManager.AddToRoleAsync(user, adminRole);
+                    await userManager.AddToRoleAsync(user, Roles.Student);
                 }
             };
             
