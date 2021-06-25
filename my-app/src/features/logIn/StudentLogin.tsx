@@ -2,13 +2,14 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Checkbox, Container, Form, Segment } from 'semantic-ui-react'
 
-export const LogIn = () => {
+export const StudentLogin = () => {
     return (
         <div className='login'> 
             <Container>
                 <Segment.Group horizontal style={{width:'70%', marginLeft:'15%', marginTop:'15%', height:'400px'}}>
                     <Segment style={{width:'5%'}}>
                         <Form style={{padding:'60px'}}>
+                            <Form.Field> <label>Student Login</label> </Form.Field>
                             <Form.Field>
                             <label>Email</label>
                             <input placeholder='Email' />

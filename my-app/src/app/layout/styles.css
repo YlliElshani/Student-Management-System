@@ -1,12 +1,17 @@
 body{
   background-image: url('../../assets/background.jpg');
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+
 }
 
 .profile-el{
   display: inline-block;
   margin-left:13%;
+}
+
+.ui.container{
+  width:auto;
 }
 
 .lower-profile{

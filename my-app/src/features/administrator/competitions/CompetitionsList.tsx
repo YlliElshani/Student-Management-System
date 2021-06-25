@@ -4,7 +4,8 @@ import { Button, Container, Grid, Item, Segment } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
 import { NavBar } from '../../nav/NavBar'
-import { AdminNavBar } from '../AdminNavBar'
+import AdminNavBar from '../AdminNavBar'
+
 import CompetitionDetails from './CompetitionDetails'
 import CompetitionForm from './CompetitionForm'
 
@@ -27,12 +28,12 @@ export default observer(function CompetitionsList() {
     }
     
     return (
-        <Container>
-            <NavBar/>
-            <AdminNavBar />
-            <Grid>
-            <Grid.Column width='6'>
-                <Segment>
+        <Grid>
+            <Grid.Row>
+                <Grid.Column width='4'>
+                    <AdminNavBar />
+                </Grid.Column>
+                <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={() => competitionStore.openForm} content='Shto Garën'/>
                         <Item.Group divided>
                             {competitionsByDate.map((competition) => (
@@ -49,13 +50,13 @@ export default observer(function CompetitionsList() {
                             </Item>
                             ))}
                         </Item.Group>
-                </Segment>
                 </Grid.Column>
-                <Grid.Column width='6'>
+                <Grid.Column width='4' style={{marginTop:'3em'}}>
                     {selectedCompetition && !editMode && <CompetitionDetails />}
                     {editMode && <CompetitionForm />}
                 </Grid.Column>
-            </Grid>
-        </Container>
+                </Grid.Row>
+        </Grid>
+                
     )
 })

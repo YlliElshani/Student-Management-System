@@ -8,6 +8,10 @@ export interface IUser {
 export interface IUserFormValues {
     email: string;
     password: string;
-    displayName?:string;
-    username?:string;
+    displayName:string;
+    username:string;
+    age: string;
+    city: string;
+    address: string;
+    zipCode: string;
 }

@@ -4,9 +4,9 @@ import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';
 import { NavBar } from '../../../nav/NavBar';
-import { AdminNavBar } from '../../../administrator/AdminNavBar';
 import agent from '../../../../app/api/agent';
 import { LoadingN } from './LoadingN';
+import AdminNavBar from '../../../administrator/AdminNavBar';
 
 
 const NjoftimetApp=()=>{
