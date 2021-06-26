@@ -2,13 +2,14 @@ import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import { INota } from '../../../app/models/nota';
 
+
 interface IProps {
-    nota: INota;
-    setEditMode: (editMode: boolean) => void;
-    setSelectedNota: (nota: INota | null) => void;
+  nota: INota;
+  setEditMode: (editMode: boolean) => void;
+  setSelectedNota: (nota: INota | null) => void;
 }
 
-const NotaDetails: React.FC<IProps> = ({nota, setEditMode, setSelectedNota}) => {
+export const NotaDetails: React.FC<IProps> = ({nota, setEditMode, setSelectedNota}) => {
   return (
     <Card fluid>
       <Card.Content>

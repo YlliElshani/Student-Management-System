@@ -12,7 +12,7 @@ namespace Application.Notat
         {
             public Guid NotaId { get; set; }
             public string Lenda { get; set; }
-            public int Grade { get; set; }
+            public int? Grade { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -32,6 +32,7 @@ namespace Application.Notat
                     throw new Exception("Could not find grade");
                     
                 nota.Lenda = request.Lenda ?? nota.Lenda;
+                nota.Grade = request.Grade ?? nota.Grade;
                 
                 var success = await _context.SaveChangesAsync() > 0;
 

@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { Grid } from 'semantic-ui-react';
 import { INota } from '../../../app/models/nota';
 import NotaForm from '../form/NotaForm';
-import NotaList from './NotaList';
 import NotaDetails from '../details/NotaDetails';
-
+import NotaList from './NotaList';
 
 interface IProps {
   notat: INota[];
-  selectNota: (id: string) => void;
-  selectedNota: INota | null;
-  editMode: boolean;
+  selectNota:(id:string)=>void
+  selectedNota:INota | null
+  editMode:boolean;
   setEditMode: (editMode: boolean) => void;
   setSelectedNota: (nota: INota | null) => void;
-  createNota: (nota: INota) => void;
+  createNota:(nota:INota)=>void;
   editNota: (nota: INota) => void;
-  deleteNota: (id: string) => void;
+  deleteNota: (e: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+  submitting: boolean;
+  target: string;
 }
 
-const NotaDashboard: React.FC<IProps> = ({
+export const NotaDashboard: React.FC<IProps> = ({
   notat,
   selectNota,
   selectedNota,
@@ -27,7 +28,9 @@ const NotaDashboard: React.FC<IProps> = ({
   setSelectedNota,
   createNota,
   editNota,
-  deleteNota
+  deleteNota,
+  submitting,
+  target
 }) => {
   return (
     <Grid>
@@ -36,6 +39,8 @@ const NotaDashboard: React.FC<IProps> = ({
           notat={notat}
           selectNota={selectNota}
           deleteNota={deleteNota}
+          submitting={submitting}
+          target={target}
         />
       </Grid.Column>
       <Grid.Column width={6}>
@@ -53,6 +58,7 @@ const NotaDashboard: React.FC<IProps> = ({
             nota={selectedNota!}
             createNota={createNota}
             editNota={editNota}
+            submitting={submitting}
           />
         )}
       </Grid.Column>

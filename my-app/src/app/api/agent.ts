@@ -50,10 +50,10 @@ const Arsyetimet = {
 
 const Notat = {
     list: (): Promise<INota[]> => requests.get('/notat'),
-    details: (id: string) => requests.get(`/notat/${id}`),
+    details: (notaId: string) => requests.get(`/notat/${notaId}`),
     create: (nota:INota) => requests.post('/notat', nota),
     update: (nota: INota) => requests.put(`/notat/${nota.notaId}`, nota),
-    delete: (id: string) => requests.delete(`/notat/${id}`)
+    delete: (notaId: string) => requests.delete(`/notat/${notaId}`)
 }
 const Trajnimet = {
     list: (): Promise<ITrajnim[]> => requests.get('/trajnimet'),

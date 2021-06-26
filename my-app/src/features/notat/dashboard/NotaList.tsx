@@ -1,20 +1,24 @@
-import React from 'react';
-import { Item, Button, Segment } from 'semantic-ui-react';
+import React, { SyntheticEvent } from 'react';
+import { Item, Button, Label, Segment } from 'semantic-ui-react';
 import { INota } from '../../../app/models/nota';
 
 interface IProps {
   notat: INota[];
   selectNota: (id: string) => void;
-  deleteNota: (id: string) => void;
+  deleteNota: (event: SyntheticEvent<HTMLButtonElement>, id: string) => void;
+  submitting: boolean;
+  target: string;
 }
 
-const NotaList: React.FC<IProps> = ({
+export const NotaList: React.FC<IProps> = ({
   notat,
   selectNota,
-  deleteNota
+  deleteNota,
+  submitting,
+  target
 }) => {
   return (
-    <Segment clearing>
+    <Segment>
       <Item.Group divided>
         {notat.map(nota => (
           <Item key={nota.notaId}>
@@ -29,7 +33,9 @@ const NotaList: React.FC<IProps> = ({
                   color='blue'
                 />
                 <Button
-                  onClick={() => deleteNota(nota.notaId)}
+                  onClick={(e) => deleteNota(e, nota.notaId)}
+                  name={nota.notaId}
+                  loading={target==nota.notaId && submitting}
                   floated='right'
                   content='Delete'
                   color='red'
