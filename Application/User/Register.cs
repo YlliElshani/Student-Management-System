@@ -25,6 +25,14 @@ namespace Application.User
 
             public string Email { get; set; }
 
+            public string Age {get; set;}
+
+            public string City {get; set;}
+
+            public string Address {get; set;}
+
+            public string ZipCode {get; set;}
+
             public string Password { get; set; }
         }
 
@@ -35,6 +43,10 @@ namespace Application.User
                 RuleFor(x => x.DisplayName).NotEmpty();
                 RuleFor(x => x.UserName).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty().EmailAddress();
+                RuleFor(x => x.Age).NotEmpty();
+                RuleFor(x => x.City).NotEmpty();
+                RuleFor(x => x.Address).NotEmpty();
+                RuleFor(x => x.ZipCode).NotEmpty();
                 RuleFor(x => x.Password).Password();
             }
         }

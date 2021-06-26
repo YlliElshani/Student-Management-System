@@ -1,9 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Application",
-    "\\Application\\User"
+    "\\API",
+    "\\Domain",
+    "\\Persistence"
   ],
-  "SelectedNode": "\\Application\\User\\Register.cs",
+  "SelectedNode": "\\Persistence\\Seed.cs",
   "PreviewInSolutionExplorer": false
 }

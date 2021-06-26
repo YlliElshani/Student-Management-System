@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using Domain;
 using Application.Trips;
 using System; 
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
-
+    [AllowAnonymous]
     public class TripsController :  BaseController
     {
 

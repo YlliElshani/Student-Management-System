@@ -4,12 +4,14 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Persistence
 {
-    public class DataContext : IdentityDbContext<AppUser>
+    public class DataContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public DataContext(DbContextOptions options) : base (options)
         {
             
         }
+
+        public DbSet <Prezantimi> Prezantimet {get; set;}
 
         public DbSet <Lenda> Lendet {get; set;}
 
@@ -32,8 +34,6 @@ namespace Persistence
         public DbSet <KerkesaNdihmes> KerkesaN {get; set;}
 
         public DbSet <Evente> Eventet {get; set;}
-
-        public DbSet <Prezantimi> Prezantimet {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

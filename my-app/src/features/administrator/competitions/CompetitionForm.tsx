@@ -1,7 +1,5 @@
 import React, {FormEvent, useState} from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
-import {v4 as uuid} from 'uuid';
-import { ICompetition } from '../../../app/models/competition';
 import {combineValidators, composeValidators, hasLengthGreaterThan, isRequired} from 'revalidate';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../app/stores/store';

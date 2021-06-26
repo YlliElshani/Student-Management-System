@@ -1,6 +1,5 @@
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { ICompetition } from '../../../app/models/competition';
 import { useStore } from '../../../app/stores/store';
 
 export default function CompetitionDetails () {

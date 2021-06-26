@@ -13,7 +13,6 @@ interface IProps{
 
 export const NjoftimeList:React.FC<IProps> = ({njoftimet,selectNjoftim,deleteNjoftim,submitting,target}) => {
     return (
-        <Segment>
             <Item.Group divided>
                 {njoftimet.map(njoftim=>(
                      <Item key={njoftim.id}>
@@ -43,6 +42,5 @@ export const NjoftimeList:React.FC<IProps> = ({njoftimet,selectNjoftim,deleteNjo
                      </Item>
                 ))}
         </Item.Group>
-        </Segment>
     )
 }

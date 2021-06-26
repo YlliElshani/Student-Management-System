@@ -14,7 +14,7 @@ export const HomePage = () => {
                     <Segment>
                     <Container textAlign='center'>
                         <Icon circular name='users' size='huge' style={{marginTop:'50px', marginBottom:'30px'}}/>
-                        <Label as={NavLink} to='/login' tag style={{marginBottom:'50px'}}>
+                        <Label as={NavLink} to='/adminLogin' tag style={{marginBottom:'50px'}}>
                             Kycu si Admin
                         </Label>
                     </Container>
@@ -22,7 +22,7 @@ export const HomePage = () => {
                     <Segment>
                     <Container textAlign='center'>
                         <Icon circular color='teal' name='users' size='huge' style={{marginTop:'50px', marginBottom:'30px'}}/>
-                        <Label as={NavLink} to='/login' tag>
+                        <Label as={NavLink} to='/studentLogin' tag>
                             Kycu si Nxënës
                         </Label>
                     </Container>
@@ -30,7 +30,7 @@ export const HomePage = () => {
                     <Segment>
                     <Container textAlign='center'>
                         <Icon circular inverted name='users' size='huge' style={{marginTop:'50px', marginBottom:'30px'}}/>
-                        <Label as={NavLink} to='/login' tag>
+                        <Label as={NavLink} to='/profesorLogin' tag>
                             Kycu si Profesor
                         </Label>
                     </Container>
@@ -38,7 +38,7 @@ export const HomePage = () => {
                     <Segment>
                     <Container textAlign='center'>
                         <Icon circular inverted color='teal' name='users' size='huge' style={{marginTop:'50px', marginBottom:'30px'}}/>
-                        <Label as={NavLink} to='/login' tag>
+                        <Label as={NavLink} to='/guardianLogin' tag>
                             Kycu si Prind
                         </Label>
                     </Container>

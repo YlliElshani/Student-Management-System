@@ -5,9 +5,12 @@ using System.Collections.Generic;
 using Domain;
 using Application.Detyrat;
 using System; 
+using Microsoft.AspNetCore.Authorization;
+
 
 namespace API.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
 

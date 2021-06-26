@@ -1,7 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
-import { IUser, IUserFormValues } from '../models/user';
+import { User, UserFormValues } from '../models/user';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
@@ -10,9 +10,34 @@ import { INjoftimi } from '../models/njoftimi';
 import { ICompetition } from '../models/competition';
 import { INdihma } from '../models/kNdihme';
 import { IPrezantimi } from '../models/prezantimi';
+import { toast } from 'react-toastify';
+import { history } from '../..';
+import { store } from '../stores/store';
 
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
+
+axios.interceptors.response.use(async response => {
+    await sleep(1000);
+    return response;
+}, (error: AxiosError) => {
+    const{data,status} = error.response!;
+    switch(status) {
+        case 400:
+            toast.error('Bad Request');
+            break;
+        case 401:
+            toast.error('Unauthorized');
+            break;
+        case 404:
+            history.push('/not-found');
+            break;
+        case 500:
+            toast.error('Server Error');
+            break;
+    }
+    return Promise.reject(error);
+})
 
 const responseBody = (response: AxiosResponse) => response.data;
 
@@ -24,12 +49,6 @@ const requests = {
     post: (url: string, body: {}) => axios.post(url, body).then(sleep(1000)).then(responseBody),
     put: (url: string, body: {}) => axios.put(url, body).then(sleep(1000)).then(responseBody),
     delete: (url:string) => axios.delete(url).then(sleep(1000)).then(responseBody)
-}
-
-const User = {
-    current: (): Promise<IUser> => requests.get('/user'),
-    login: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/login`, user),
-    register: (user: IUserFormValues): Promise<IUser> => requests.post(`/user/register`, user)
 }
 
 const Lendet = {
@@ -113,6 +132,24 @@ const Prezantimet = {
     deletePrezantimi: (id: string) => requests.delete(`/prezantimet/${id}`)
 }
 
-export default {
-    User, Lendet, Notat, Trajnimet, Detyrat, Trips, Competitions, Arsyetimet,Njoftimet,KerkesaN, Prezantimet
+const Account = {
+    current: () => requests.get('/user'),
+    login: (user: UserFormValues) => requests.post(`/user/login`, user),
+    register: (user: UserFormValues) => requests.post(`/user/register`, user)
 }
+
+const agent = {
+    Account, 
+    Lendet, 
+    Notat, 
+    Trajnimet, 
+    Detyrat, 
+    Trips, 
+    Competitions, 
+    Arsyetimet,
+    Njoftimet,
+    KerkesaN, 
+    Prezantimet
+}
+
+export default agent;

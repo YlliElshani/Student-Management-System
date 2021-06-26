@@ -9,36 +9,73 @@ namespace Persistence
 {
     public class Seed
     {
-        public static async Task SeedData (DataContext context, UserManager<AppUser> userManager)
+        public static async Task SeedData (DataContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
-            if(!userManager.Users.Any())
-            {
-                var users = new List<AppUser>
-                {
-                    new AppUser
-                    {
-                        DisplayName = "Hysnije",
-                        UserName = "Hysi",
-                        Email = "hysi@gmail.com"
-                    },
-                    new AppUser
-                    {
-                        DisplayName = "Altina",
-                        UserName = "Tina",
-                        Email = "tina@gmail.com"
-                    },
-                    new AppUser
-                    {
-                        DisplayName = "Albiona",
-                        UserName = "Biona",
-                        Email = "biona@gmail.com"
-                    }
-                };
-                foreach (var user in users)
-                {
-                   await userManager.CreateAsync(user, "Pa$$w0rd");
+
+            var roleNames = new String[] { Roles.Admin, Roles.Student, Roles.Guardian, Roles.Profesor };
+
+            foreach (var roleName in roleNames) {
+                var role = await roleManager.RoleExistsAsync(roleName);
+                if (!role) {
+                    var result = await roleManager.CreateAsync(new AppRole { Name = roleName });
                 }
             }
+
+            if(!userManager.Users.Any())
+            {
+                var firstUser = new AppUser
+                {
+                    DisplayName = "Hysnije",
+                    UserName = "Hysi",
+                    Email = "hysi@gmail.com",
+                    Age = "20",
+                    City = "Rahovec",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000"
+                };
+                await userManager.CreateAsync(firstUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(firstUser, Roles.Student);
+
+                var secondUser = new AppUser
+                {
+                    DisplayName = "Altina",
+                    UserName = "Tina",
+                    Email = "tina@gmail.com",
+                    Age = "20",
+                    City = "Mitrovice",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000"
+                };
+                await userManager.CreateAsync(secondUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(secondUser, Roles.Admin);
+
+                var thirdUser = new AppUser
+                {
+                    DisplayName = "Albiona",
+                    UserName = "Biona",
+                    Email = "biona@gmail.com",
+                    Age = "20",
+                    City = "Rahovec",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000"
+                };
+                await userManager.CreateAsync(thirdUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(thirdUser, Roles.Profesor);
+
+                var fourthUser = new AppUser
+                {
+                    DisplayName = "Ylli Elshani",
+                    UserName = "Ylli",
+                    Email = "ylli@gmail.com",
+                    Age = "20",
+                    City = "Peje",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000"
+                };
+                await userManager.CreateAsync(fourthUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(fourthUser, Roles.Guardian);
+            };
+            
 
             if(!context.Detyrat.Any())
             {
@@ -167,7 +204,7 @@ namespace Persistence
                     new Competition
                     {
                         name = "Math Genius",
-                        date = "21 korrik 2021",
+                        date = "21-07-2021",
                         description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
                         field = "Matematikë",
                         awards = "Certifikatë"
@@ -235,20 +272,20 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            
             if(!context.Prezantimet.Any())
             {
-                var prezantimet = new List<Prezantimi>
+                var prezantime = new List<Prezantimi>
                 {
                     new Prezantimi
                     {
-                        prezantimiInfo = "Kerkoj prezantim për projektin në lëndën e fizikës.",
-                        kohezgjatja = "30 minuta",
-                        data = "2021-07-17",
-                        ora = "10:40"
+                        prezantimiInfo="Prezantimi do perfshij mbrojtjen e punimit ne lenden Matematike",
+                        kohezgjatja="20 minuta",
+                        data="03-07-2021",
+                        ora="12:45 PM"
                     }
                 };
-
-                context.Prezantimet.AddRange(prezantimet);
+                context.Prezantimet.AddRange(prezantime);
                 context.SaveChanges();
             };
         }

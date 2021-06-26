@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class AddedIdentity : Migration
+    public partial class AddRoleIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,8 @@ namespace Persistence.Migrations
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true),
+                    Descripion = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,7 +54,11 @@ namespace Persistence.Migrations
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
-                    DisplayName = table.Column<string>(nullable: true)
+                    DisplayName = table.Column<string>(nullable: true),
+                    Age = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Address = table.Column<string>(nullable: true),
+                    ZipCode = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -87,6 +92,34 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Detyrat", x => x.DetyraId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Eventet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    infoEvent = table.Column<string>(nullable: true),
+                    dataEEventit = table.Column<DateTime>(nullable: false),
+                    kategoria = table.Column<string>(nullable: true),
+                    vendiMbajtjes = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Eventet", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "KerkesaN",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    kerkesaInfo = table.Column<string>(nullable: true),
+                    dataECaktuar = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KerkesaN", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -128,6 +161,22 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notat", x => x.NotaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Paralelet",
+                columns: table => new
+                {
+                    ParaleljaId = table.Column<Guid>(nullable: false),
+                    Klasa = table.Column<string>(nullable: true),
+                    Paralele = table.Column<string>(nullable: true),
+                    Kujdestari = table.Column<string>(nullable: true),
+                    NrNxenesve = table.Column<int>(nullable: false),
+                    Gjenerata = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Paralelet", x => x.ParaleljaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -332,6 +381,12 @@ namespace Persistence.Migrations
                 name: "Detyrat");
 
             migrationBuilder.DropTable(
+                name: "Eventet");
+
+            migrationBuilder.DropTable(
+                name: "KerkesaN");
+
+            migrationBuilder.DropTable(
                 name: "Lendet");
 
             migrationBuilder.DropTable(
@@ -339,6 +394,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Notat");
+
+            migrationBuilder.DropTable(
+                name: "Paralelet");
 
             migrationBuilder.DropTable(
                 name: "Trajnimet");
