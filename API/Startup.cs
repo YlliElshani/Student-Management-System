@@ -59,8 +59,8 @@ namespace API
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
             services.AddMvc(opt => {
-                /*var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                opt.Filters.Add(new AuthorizeFilter(policy));*/
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
             })
                 .AddFluentValidation(cfg => 
                 cfg.RegisterValidatorsFromAssemblyContaining<CreateCompetition>()

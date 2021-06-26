@@ -33,7 +33,7 @@ namespace API.Middleware
 
         }
 
-        public async Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<ErrorHandlingMiddleware> logger)
+        private async Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger<ErrorHandlingMiddleware> logger)
         {
             object errors = null;
 
@@ -54,7 +54,8 @@ namespace API.Middleware
             context.Response.ContentType = "application/json";
             if(errors != null)
             {
-                var result = JsonConvert.SerializeObject(new {
+                var result = JsonConvert.SerializeObject(new 
+                {
                     errors
                 });
 

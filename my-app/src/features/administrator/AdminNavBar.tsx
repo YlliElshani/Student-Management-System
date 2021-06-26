@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
 
 const AdminNavBar = () => (
     <Sidebar.Pushable className="sideBarA">
@@ -25,7 +25,7 @@ const AdminNavBar = () => (
             <Icon name='trophy' />
             Garat
         </Menu.Item>
-        <Menu.Item as={NavLink} to='/njoftimet'>
+        <Menu.Item as={NavLink} to='/admin/njoftimet'>
             <Icon name='newspaper' />
             Njoftimet
         </Menu.Item>
