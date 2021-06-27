@@ -3,6 +3,12 @@ export interface User {
     displayName: string;
     token: string;
     image?:string;
+    email:string;
+    age: string;
+    city: string;
+    address: string;
+    zipCode: string;
+    phoneNumber:string;
 }
 
 export interface UserFormValues {
@@ -14,4 +20,5 @@ export interface UserFormValues {
     city?: string;
     address?: string;
     zipCode?: string;
+    phoneNumber?:string;
 }

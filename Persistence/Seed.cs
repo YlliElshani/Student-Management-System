@@ -25,39 +25,42 @@ namespace Persistence
             {
                 var firstUser = new AppUser
                 {
-                    DisplayName = "Hysnije",
+                    DisplayName = "Hysnije Zllanoga",
                     UserName = "Hysi",
                     Email = "hysi@gmail.com",
                     Age = "20",
                     City = "Rahovec",
                     Address = "Mizair Isma",
-                    ZipCode = "21000"
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(firstUser, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(firstUser, Roles.Student);
 
                 var secondUser = new AppUser
                 {
-                    DisplayName = "Altina",
+                    DisplayName = "Altina Hodaj",
                     UserName = "Tina",
                     Email = "tina@gmail.com",
                     Age = "20",
                     City = "Mitrovice",
                     Address = "Mizair Isma",
-                    ZipCode = "21000"
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(secondUser, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(secondUser, Roles.Admin);
 
                 var thirdUser = new AppUser
                 {
-                    DisplayName = "Albiona",
+                    DisplayName = "Albiona Berisha",
                     UserName = "Biona",
                     Email = "biona@gmail.com",
                     Age = "20",
                     City = "Rahovec",
                     Address = "Mizair Isma",
-                    ZipCode = "21000"
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(thirdUser, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(thirdUser, Roles.Profesor);
@@ -70,7 +73,8 @@ namespace Persistence
                     Age = "20",
                     City = "Peje",
                     Address = "Mizair Isma",
-                    ZipCode = "21000"
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(fourthUser, "Pa$$w0rd");
                 await userManager.AddToRoleAsync(fourthUser, Roles.Guardian);

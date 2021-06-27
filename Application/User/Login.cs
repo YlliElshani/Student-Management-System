@@ -60,7 +60,13 @@ namespace Application.User
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
-                        Image = null
+                        Image = null,
+                        Email = user.Email,
+                        Age = user.Age,
+                        City = user.City,
+                        Address = user.Address,
+                        ZipCode = user.ZipCode,
+                        PhoneNumber = user.PhoneNumber
                     };
                 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { HomePage } from '../../features/homepage/HomePage';
 import { Route, Switch } from 'react-router-dom';
-import { AdminProfile } from '../../features/administrator/AdminProfile';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
@@ -31,6 +30,7 @@ import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import NjoftimetApp from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
+import AdminProfile from '../../features/administrator/AdminProfile';
 
 
 function App () {
