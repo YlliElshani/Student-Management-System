@@ -1,11 +1,11 @@
 import { createContext, useContext } from "react";
 import CommonStore from "./commonStore";
 import CompetitionStore from "./competitionStore";
+import ModalStore from "./modalStore";
 import TripStore from "./tripStore";
 import UserStore from "./userStore";
 import LendaStore from "./lendaStore"
 import NotaStore from "./notaStore";
-
 
 
 interface Store {
@@ -15,6 +15,7 @@ interface Store {
     commonStore: CommonStore;
     lendaStore: LendaStore;
     notaStore: NotaStore;
+    modalStore: ModalStore;
 }
 
 export const store: Store = {
@@ -23,7 +24,8 @@ export const store: Store = {
     userStore: new UserStore(),
     commonStore: new CommonStore(),
     lendaStore: new LendaStore(),
-    notaStore: new NotaStore()
+    notaStore: new NotaStore(),
+    modalStore: new ModalStore()
 }
 
 export const StoreContext = createContext(store);
