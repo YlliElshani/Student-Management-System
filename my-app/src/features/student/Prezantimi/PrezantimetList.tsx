@@ -4,10 +4,11 @@ import agent from '../../../app/api/agent'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { IPrezantimi } from '../../../app/models/prezantimi'
 import { NavBar } from '../../nav/NavBar'
-import { StudentNavBar } from '../StudentNavBar'
-import { StudentMiniNav } from '../EServices/StudentMiniNav';
+import StudentMiniNav from '../EServices/StudentMiniNav'
 import PrezantimiDetails from './PrezantimiDetails'
 import PrezantimiForm from './PrezantimiForm'
+
+
 
 export const PrezantimetList:React.FC = () => {
     const [prezantimet, setPrezantimet] = useState<IPrezantimi[]>([]);
@@ -65,14 +66,13 @@ export const PrezantimetList:React.FC = () => {
     if(loading) return <LoadingComponent content='Ju lutem prisni pak!'/>
     
     return (
-        <Container>
-            <NavBar/>
-            <StudentNavBar />
+        <Grid>
+            <Grid.Row>
+            <Grid.Column width='4'>
             <StudentMiniNav />
-            <Grid>
-                <Grid.Column width='8'>
+            </Grid.Column>
+                <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={handleOpenCreateForm} content='Shto Prezantimin' color='twitter'/>
-                    <Segment>
                         <Item.Group divided>
                             {prezantimet.map((prezantimi) => (
                             <Item key={prezantimi.prezantimiId}>
@@ -88,13 +88,14 @@ export const PrezantimetList:React.FC = () => {
                             </Item>
                             ))}
                         </Item.Group>
-                    </Segment>
                 </Grid.Column>
                 <Grid.Column width='6'>
                     {selectedPrezantimi && !editMode && (<PrezantimiDetails setSelectedPrezantimi={setSelectedPrezantimi} prezantimi={selectedPrezantimi} setEditMode={setEditMode}/>)}
                     {editMode && <PrezantimiForm key={selectedPrezantimi && selectedPrezantimi.prezantimiId || 0} setEditMode={setEditMode} prezantimi={selectedPrezantimi!} createPrezantimi={handleCreatPrezantimi} editPrezantimi={handleEditPrezantimi} submitting={submitting}/>}
                 </Grid.Column>
-            </Grid>
-        </Container>
+            </Grid.Row>
+        </Grid>
     )
 }
+
+

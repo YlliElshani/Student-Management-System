@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { HomePage } from '../../features/homepage/HomePage';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
-import { Student } from '../../features/student/Student';
 import { StudentProfile } from '../../features/student/StudentProfile';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
@@ -12,8 +11,6 @@ import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import { ParentProfile } from '../../features/parentProfile/ParentProfile';
 import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
-import { StudentProfile2 } from '../../features/student/StudentProfile2';
-import { StudentProfilePhoto } from '../../features/student/StudentProfilePhoto';
 import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
 import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
@@ -31,6 +28,8 @@ import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import NjoftimetApp from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
+import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
+import LendaStudentiDashboard from '../../features/student/lendetStudenti/dashboard/LendaStudentiDashboard';
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
@@ -70,15 +69,24 @@ function App () {
           <Route exact path='/admin/trips' component={TripsList}/>
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimet' component={NjoftimetApp}/>
+
+          <Route exact path='/student/e-services' component={EServices}/>
+          <Route exact path='/student/profile' component={StudentProfile}/>
+          <Route exact path='/student/KerkesNdihme' component={AppNdihme}/>
+          <Route exact path='/student/prezantimet' component={PrezantimetList}/>
+          <Route exact path='/student/notat' component={AppNotaStudenti}/>
+          <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
+          <Route exact path='/student/listoTrips' component={ListTApp}/>
+          <Route exact path='/student/listoGara' component={ListGApp}/>
+          <Route exact path='/student/listoNjoftimetS' component={ListApp}/>
           
           <Route exact path='/lendet' component={LendaDashboard}/>
-          <Route exact path='/student' component={Student}/>
           <Route exact path='/studentProfile' component={StudentProfile}/>
+          <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/notat' component={AppNota}/>
+          <Route exact path='/notatStudenti' component={AppNotaStudenti}/>
           <Route exact path='/trajnimet' component={Myapp}/>
           <Route exact path='/detyrat' component={DetyraApp}/>
-          <Route exact path='/studentProfile2' component={StudentProfile2}/>
-          <Route exact path='/studentProfilePhoto' component={StudentProfilePhoto}/>
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>
           <Route exact path='/listoGara' component={ListGApp}/>

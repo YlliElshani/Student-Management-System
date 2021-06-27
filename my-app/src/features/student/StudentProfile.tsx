@@ -1,54 +1,117 @@
-import { NavLink } from 'react-router-dom'
-import { Button, Grid, Table, TableRow } from 'semantic-ui-react'
-import { StudentNavBar} from './StudentNavBar'
 import React from 'react'
-import { NavBar } from '../nav/NavBar'
+import { Container, Grid, Image, Divider, Header, Table, Icon } from 'semantic-ui-react'
+import StudentNavBar from './StudentNavBar'
+
+import Photo from '../../assets/studentphoto.jpg'
 
 export const StudentProfile = () => {
     return (
-        <div>
-            <NavBar />
-            <Grid.Column width={10}>
-                <Button primary as={NavLink} to='/studentProfile' activeClassName="active">Informatat Personale</Button>
-                <Button as={NavLink} to='/studentProfile2' activeClassName="active">Informatat Shtesë</Button>
-                <Button as={NavLink} to='/studentProfilePhoto' activeClassName="active">Foto</Button>
-                <Table celled striped className="tabela">
-                    <Table.Body>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> ID e Studentit</Table.Cell>
-                                <Table.Cell>202145798</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Email i Studentit</Table.Cell>
-                                <Table.Cell>altinahodaj1@gmail.com</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Emri</Table.Cell>
-                                <Table.Cell>Altina</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Emri i Prindit</Table.Cell>
-                                <Table.Cell>Osman</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Mbiemri</Table.Cell>
-                                <Table.Cell>Hodaj</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Mosha</Table.Cell>
-                                <Table.Cell>20</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Gjinia</Table.Cell>
-                                <Table.Cell>F</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell style={{fontWeight: "bold"}}> Vendlindja</Table.Cell>
-                                <Table.Cell>Prishtinë</Table.Cell>
-                            </Table.Row>
-                        </Table.Body>
+      <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+        <Grid.Column width='6' >
+          <StudentNavBar />
+        </Grid.Column>
+        <Grid.Column>
+          <Grid divided='vertically' style={{marginTop:"3em"}}>
+
+            <Grid.Row columns={2} style={{marginBottom:"3em"}}>
+              <Grid.Column width='5'>
+              <Image src={Photo} circular size='medium'/>
+              </Grid.Column>
+              <Grid.Column style={{marginTop:"4em", fontSize:"x-large"}} textAlign='center'>
+                <Container>Hysnije Zllanoga <Divider style={{width:"250px", marginLeft:"4em"}}>Studente</Divider> </Container>
+              </Grid.Column>
+            </Grid.Row>
+
+            <Grid.Row columns={1} style={{marginTop:"20px"}}>
+              <Table celled  >
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell><Icon style={{marginRight:"2em"}} name='newspaper'/>Informata Personale</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+
+                  <Table.Body>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Email
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>hysi@gmail.com</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Numri Tel.
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>049 - 575 - 412</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Qyteti
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>Rahovec</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Rruga
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>Rruga B</Table.Cell>
+                    </Table.Row>
+                  </Table.Body>
                 </Table>
-            </Grid.Column>
-        </div>
+            </Grid.Row>
+
+            <Grid.Row columns={1} style={{marginTop:"20px"}}>
+              <Table  celled  >
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell><Icon style={{marginRight:"2em"}} name='newspaper'/>Informata rreth shkollës</Table.HeaderCell>
+                    </Table.Row>
+                  </Table.Header>
+
+                  <Table.Body>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Drejtimi
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>Shkenca Natyrore</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Klasa 
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>XII/11</Table.Cell>
+                    </Table.Row>
+                  </Table.Body>
+                </Table>
+            </Grid.Row>
+
+          </Grid>
+        </Grid.Column>
+        </Grid.Row>
+    </Grid>
     )
 }

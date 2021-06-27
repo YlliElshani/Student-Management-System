@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
-import { User, UserFormValues } from '../models/user';
+import { UserFormValues } from '../models/user';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
@@ -12,7 +12,7 @@ import { INdihma } from '../models/kNdihme';
 import { IPrezantimi } from '../models/prezantimi';
 import { toast } from 'react-toastify';
 import { history } from '../..';
-import { store } from '../stores/store';
+
 
 
 axios.defaults.baseURL = 'https://localhost:5000/api';
@@ -27,7 +27,7 @@ axios.interceptors.response.use(async response => {
     await sleep(1000);
     return response;
 }, (error: AxiosError) => {
-    const{data,status} = error.response!;
+    const{status} = error.response!;
     switch(status) {
         case 400:
             toast.error('Bad Request');
@@ -59,7 +59,7 @@ const requests = {
 
 const Lendet = {
     list: (): Promise<ILenda[]> => requests.get('/lendet'),
-    details: (id: string) => requests.get(`/lendet/${id}`),
+    details: (lendaid: string) => requests.get(`/lendet/${lendaid}`),
     create: (lenda:ILenda) => requests.post('/lendet', lenda),
     update: (lenda: ILenda) => requests.put(`/lendet/${lenda.lendaId}`, lenda),
     delete: (id: string) => requests.delete(`/lendet/${id}`)
