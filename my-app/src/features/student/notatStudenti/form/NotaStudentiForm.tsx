@@ -1,7 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { Segment, Form, Button } from 'semantic-ui-react';
 import {v4 as uuid} from 'uuid';
-import { INota } from '../../../app/models/nota';
+import { INota } from '../../../../app/models/nota';
+
 
 interface IProps {
   setEditMode: (editMode: boolean) => void;
@@ -11,7 +12,7 @@ interface IProps {
   submitting: boolean;
 }
 
-export const NotaForm: React.FC<IProps> = ({
+export const NotaStudentiForm: React.FC<IProps> = ({
   setEditMode,
   nota: initialFormState,
   createNota,
@@ -34,10 +35,12 @@ export const NotaForm: React.FC<IProps> = ({
 
   const handleSubmit = () => {
     if (nota.notaId.length === 0) {
+      alert(nota.lenda)
       let newNota = {
         ...nota,
         notaId: uuid()
       };
+      alert(nota.notaId)
 
       createNota(newNota);
     } else {
@@ -80,4 +83,4 @@ export const NotaForm: React.FC<IProps> = ({
   );
 };
 
-export default NotaForm;
+export default NotaStudentiForm;
