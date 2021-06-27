@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Grid, Image, Label, List, Segment } from 'semantic-ui-react'
 import { NavBar } from '../nav/NavBar'
-import Photo from '../../assets/admin.jpg'
+import Photo from '../../assets/user.png'
 import { ParentNavBar } from './ParentNavBar'
 
 export const ParentProfile = () => {
