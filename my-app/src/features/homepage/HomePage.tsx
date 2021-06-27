@@ -4,13 +4,8 @@ import { Container, Icon, Label, Segment } from 'semantic-ui-react'
 
 export const HomePage = () => {
     return (
-        <div className='homepage'>
-            <Segment clearing raised>
-                <Container> 
-                </Container>
-            </Segment>
-            <div className='typesOfLogin' style={{marginTop:'50px'}}>
-                <Segment.Group horizontal style={{width:'70%', marginLeft:'13%'}} raised>
+            <div className='typesOfLogin' style={{marginTop:'10%'}}>
+                <Segment.Group horizontal style={{width:'68%', marginLeft:'17%'}} raised>
                     <Segment>
                     <Container textAlign='center'>
                         <Icon circular name='users' size='huge' style={{marginTop:'50px', marginBottom:'30px'}}/>
@@ -45,6 +40,5 @@ export const HomePage = () => {
                     </Segment>
                 </Segment.Group>
             </div>
-        </div>
     )
 }

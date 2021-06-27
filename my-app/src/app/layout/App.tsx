@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HomePage } from '../../features/homepage/HomePage';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
@@ -26,17 +26,35 @@ import { observer } from 'mobx-react-lite';
 import CompetitionsList from '../../features/administrator/competitions/CompetitionsList';
 import AdminLogin from '../../features/users/AdminLogin';
 import { ToastContainer } from 'react-toastify';
+import ModalContainer  from '../common/modals/modalContainer';
 import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import NjoftimetApp from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import AdminProfile from '../../features/administrator/AdminProfile';
+import { useStore } from '../stores/store';
+import { LoadingComponent } from './LoadingComponent';
+import modalContainer from '../common/modals/modalContainer';
+import { Container } from 'semantic-ui-react';
 
 
 function App () {
+  const {commonStore, userStore} = useStore();
+
+  useEffect(() => {
+    if (commonStore.token){
+      userStore.getUser().finally(() => commonStore.setAppLoaded());
+    } else {
+      commonStore.setAppLoaded();
+    } 
+  }, [commonStore, userStore])
+
+  if(!commonStore.appLoaded) return <LoadingComponent content='Loading App ...'/>
+
     return (
       <>
       <ToastContainer position='bottom-right' hideProgressBar/>
+      <ModalContainer />
         <Switch>
           <Route exact path='/' component={HomePage}/>
 

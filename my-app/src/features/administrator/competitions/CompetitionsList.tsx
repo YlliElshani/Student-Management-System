@@ -19,7 +19,7 @@ export default observer(function CompetitionsList() {
         competitionStore.loadCompetitions();
       }, [competitionStore]); 
     
-    if(competitionStore.loadingInitial) return <LoadingComponent content='Loading Competitions'/>
+    if(competitionStore.loadingInitial) return <LoadingComponent content='Loading Competitions ...'/>
     
     function handleDeleteCompetition(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);

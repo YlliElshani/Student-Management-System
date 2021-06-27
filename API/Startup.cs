@@ -58,16 +58,6 @@ namespace API
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
-            services.AddMvc(opt => {
-                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-                opt.Filters.Add(new AuthorizeFilter(policy));
-            })
-                .AddFluentValidation(cfg => 
-                cfg.RegisterValidatorsFromAssemblyContaining<CreateCompetition>()
-                .RegisterValidatorsFromAssemblyContaining<CreateTrip>())
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
-            services.AddIdentityCore<AppUser>().AddRoles<AppRole>().AddEntityFrameworkStores<DataContext>().AddSignInManager<SignInManager<AppUser>>();
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -80,6 +70,39 @@ namespace API
                     ValidateIssuer = false
                 };
             });
+
+            services.AddMvc(opt => {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                opt.Filters.Add(new AuthorizeFilter(policy));
+            })
+                .AddFluentValidation(cfg => 
+                cfg.RegisterValidatorsFromAssemblyContaining<CreateCompetition>()
+                .RegisterValidatorsFromAssemblyContaining<CreateTrip>())
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin",
+                    authBuilder =>
+                    {
+                        authBuilder.RequireRole("Admin");
+                    });
+                options.AddPolicy("Profesor", 
+                    authBuilder => {
+                        authBuilder.RequireRole("Profesor");
+                    });
+                 options.AddPolicy("Student", 
+                    authBuilder => {
+                        authBuilder.RequireRole("Student");
+                    });
+                 options.AddPolicy("Guardian", 
+                    authBuilder => {
+                        authBuilder.RequireRole("Guardian");
+                    });
+            });
+
+            services.AddIdentityCore<AppUser>().AddRoles<AppRole>().AddEntityFrameworkStores<DataContext>().AddSignInManager<SignInManager<AppUser>>();
 
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();

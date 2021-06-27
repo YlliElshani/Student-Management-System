@@ -22,3 +22,7 @@ export interface UserFormValues {
     zipCode?: string;
     phoneNumber?:string;
 }
+
+export interface UserRole {
+    
+}

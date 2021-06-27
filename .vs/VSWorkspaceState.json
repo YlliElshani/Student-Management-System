@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\API",
-    "\\Domain",
+    "\\API\\Controllers",
+    "\\Application",
+    "\\Application\\User",
     "\\Persistence"
   ],
-  "SelectedNode": "\\Persistence\\Seed.cs",
+  "SelectedNode": "\\API\\API.csproj",
   "PreviewInSolutionExplorer": false
 }

@@ -20,7 +20,7 @@ export default observer(function TripsList () {
         tripStore.loadTrips();
       }, [tripStore]); 
     
-    if(tripStore.loadingInitial) return <LoadingComponent content='Loading Trips'/>
+    if(tripStore.loadingInitial) return <LoadingComponent content='Loading Trips ...'/>
     
     function handleDeleteTrip(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);

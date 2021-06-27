@@ -8,6 +8,7 @@ interface Props{
     name: string;
     type?:string;
     label?: string;
+    className?:string;
 }
 
 export default function TextInput(props: Props){
@@ -16,7 +17,7 @@ export default function TextInput(props: Props){
     return(
         <Form.Field error={meta.error && !!meta.error}>
             <label>{props.label}</label>
-            <input {...field} {...props} />
+            <input style={{borderRadius:'20pt', marginBottom:'10px', height:'50px'}} {...field} {...props} />
             {meta.touched && meta.error ? (
                 <Label basic color='red'>{meta.error}</Label>
             ):null}

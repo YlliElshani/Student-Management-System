@@ -1,17 +1,13 @@
-body{
+/*body{
   background-image: url('../../assets/background.jpg');
   background-size: cover;
   background-position: center;
 
-}
-
+}*/
+/*
 .profile-el{
   display: inline-block;
   margin-left:13%;
-}
-
-.ui.container{
-  width:auto;
 }
 
 .lower-profile{
@@ -29,12 +25,7 @@ body{
   color:#252839;
 }
 
-.ui.segment.rightSideOfLogIn{
-  background-image: url('../../assets/login.jpg');
-  background-size: 100%;
-}
-
 .ui.segment.Student{
   background-image: url('../../assets/studentphoto4.jpeg');
   background-size: 100%;
-}
+}*/
