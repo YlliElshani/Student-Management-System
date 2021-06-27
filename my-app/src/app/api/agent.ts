@@ -12,6 +12,7 @@ import { INdihma } from '../models/kNdihme';
 import { IPrezantimi } from '../models/prezantimi';
 import { toast } from 'react-toastify';
 import { history } from '../..';
+import { store } from '../stores/store';
 
 
 
