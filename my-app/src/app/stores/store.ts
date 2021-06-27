@@ -4,6 +4,7 @@ import CompetitionStore from "./competitionStore";
 import TripStore from "./tripStore";
 import UserStore from "./userStore";
 import LendaStore from "./lendaStore"
+import NotaStore from "./notaStore";
 
 
 
@@ -12,7 +13,8 @@ interface Store {
     competitionStore: CompetitionStore;
     userStore: UserStore;
     commonStore: CommonStore;
-    lendaStore: LendaStore
+    lendaStore: LendaStore;
+    notaStore: NotaStore;
 }
 
 export const store: Store = {
@@ -20,7 +22,8 @@ export const store: Store = {
     competitionStore: new CompetitionStore(),
     userStore: new UserStore(),
     commonStore: new CommonStore(),
-    lendaStore: new LendaStore()
+    lendaStore: new LendaStore(),
+    notaStore: new NotaStore()
 }
 
 export const StoreContext = createContext(store);
