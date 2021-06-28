@@ -14,16 +14,16 @@ export const StudentProfile = () => {
         <Grid.Column>
           <Grid divided='vertically' style={{marginTop:"3em"}}>
 
-            <Grid.Row columns={2} style={{marginBottom:"3em"}}>
+            <Grid.Row columns={2} style={{marginBottom:"1em"}}>
               <Grid.Column width='5'>
               <Image src={Photo} circular size='medium'/>
               </Grid.Column>
-              <Grid.Column style={{marginTop:"4em", fontSize:"x-large"}} textAlign='center'>
-                <Container>Hysnije Zllanoga <Divider style={{width:"250px", marginLeft:"4em"}}>Studente</Divider> </Container>
+              <Grid.Column style={{fontSize:"x-large"}} textAlign='center'>
+                <Container>Hysnije Zllanoga <Divider style={{width:"250px", marginLeft:"1em"}}>Studente</Divider> </Container>
               </Grid.Column>
             </Grid.Row>
 
-            <Grid.Row columns={1} style={{marginTop:"20px"}}>
+            <Grid.Row columns={1} >
               <Table celled  >
                   <Table.Header>
                     <Table.Row>

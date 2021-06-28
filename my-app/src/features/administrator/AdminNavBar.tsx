@@ -17,7 +17,6 @@ export default observer(function AdminNavBar() {
             width='wide'
             direction='left'
             >
-                {/*shembull qysh me qit kushte duhet me hek ma vone*/}
                 {isLoggedIn ? (
                     <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='/admin/profile'>
                       <Icon name='user' />
@@ -40,7 +39,7 @@ export default observer(function AdminNavBar() {
             </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
-                LogOut
+                Dil
             </Menu.Item>
             </Sidebar>
 

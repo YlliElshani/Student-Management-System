@@ -17,8 +17,9 @@ namespace API.Controllers
             return await Mediator.Send(query);
         }*/
 
+        [AllowAnonymous]
         [HttpPost("loginAdmin")]
-        [Authorize(Roles.Admin)]
+        //[Authorize(Roles.Admin)]
         public async Task<ActionResult<User>> LoginAdmin(LoginAdmin.Query query)
         {
             return await Mediator.Send(query);

@@ -141,8 +141,14 @@ const Prezantimet = {
 
 const Account = {
     current: () => requests.get('/user'),
-    login: (user: UserFormValues) => requests.post(`/user/login`, user),
-    register: (user: UserFormValues) => requests.post(`/user/register`, user)
+    loginAdmin: (user: UserFormValues) => requests.post(`/admin/loginAdmin`, user),
+    registerAdmin: (user: UserFormValues) => requests.post(`/admin/registerAdmin`, user),
+    loginStudent: (user: UserFormValues) => requests.post(`/student/loginStudent`, user),
+    registerStudent: (user: UserFormValues) => requests.post(`/student/registerStudent`, user),
+    loginProfesor: (user: UserFormValues) => requests.post(`/profesor/loginProfesor`, user),
+    registerProfesor: (user: UserFormValues) => requests.post(`/profesor/registerProfesor`, user),
+    loginGuardian: (user: UserFormValues) => requests.post(`/guardian/loginGuardian`, user),
+    registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user)
 }
 
 const agent = {

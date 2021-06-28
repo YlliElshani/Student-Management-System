@@ -6,8 +6,7 @@ import StudentMiniNav from './StudentMiniNav'
 export const EServices = () => {
     return (
         <div>
-            <Container>
-            <StudentMiniNav/>
+        <StudentMiniNav/>
             <Segment.Group horizontal style={{width:'75%', marginTop:'-35%', height:'400px', marginLeft:'24%'}}>
                     <Segment style={{width:'5%'}}>
                         <Form style={{padding:'60px'}}>
@@ -23,7 +22,6 @@ export const EServices = () => {
                     <Segment className='Student' >
                     </Segment>
                 </Segment.Group>
-            </Container>
         </div>
 
     )

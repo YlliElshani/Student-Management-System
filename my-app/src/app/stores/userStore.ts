@@ -17,7 +17,7 @@ export default class UserStore {
 
     adminLogin = async (values: UserFormValues) => {
         try {
-            const user = await agent.Account.login(values);
+            const user = await agent.Account.loginAdmin(values);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/admin/profile');
@@ -28,7 +28,7 @@ export default class UserStore {
 
     studentLogin = async (values: UserFormValues) => {
         try {
-            const user = await agent.Account.login(values);
+            const user = await agent.Account.loginStudent(values);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/studentProfile');
@@ -39,7 +39,7 @@ export default class UserStore {
 
     guardianLogin = async (values: UserFormValues) => {
         try {
-            const user = await agent.Account.login(values);
+            const user = await agent.Account.loginGuardian(values);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/parentProfile');
@@ -50,7 +50,7 @@ export default class UserStore {
 
     professorLogin = async (values: UserFormValues) => {
         try {
-            const user = await agent.Account.login(values);
+            const user = await agent.Account.loginProfesor(values);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/profesorprofile');
