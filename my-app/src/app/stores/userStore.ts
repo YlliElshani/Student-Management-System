@@ -74,4 +74,51 @@ export default class UserStore {
             console.log(error);
         }
     }
+
+    registerAdmin = async (values: UserFormValues) => {
+        try {
+            const user = await agent.Account.registerAdmin(values);
+            store.commonStore.setToken(user.token);
+            runInAction(() => this.user = user);
+            history.push('/admin/profile');
+            //store.modalStore.closeModal();
+        } catch (error) {
+           throw error;
+        }
+    }
+    registerStudent = async (values: UserFormValues) => {
+        try {
+            const user = await agent.Account.registerStudent(values);
+            store.commonStore.setToken(user.token);
+            runInAction(() => this.user = user);
+            history.push('/studentProfile');
+            //store.modalStore.closeModal();
+        } catch (error) {
+           throw error;
+        }
+    }
+
+    registerProfesor = async (values: UserFormValues) => {
+        try {
+            const user = await agent.Account.registerProfesor(values);
+            store.commonStore.setToken(user.token);
+            runInAction(() => this.user = user);
+            history.push('/profesorprofile');
+            //store.modalStore.closeModal();
+        } catch (error) {
+           throw error;
+        }
+    }
+
+    registerGuardian = async (values: UserFormValues) => {
+        try {
+            const user = await agent.Account.registerGuardian(values);
+            store.commonStore.setToken(user.token);
+            runInAction(() => this.user = user);
+            history.push('/parentProfile');
+            //store.modalStore.closeModal();
+        } catch (error) {
+           throw error;
+        }
+    }
 }

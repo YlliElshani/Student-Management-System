@@ -3,8 +3,11 @@ import { Container, Grid, Image, Divider, Header, Table, Icon } from 'semantic-u
 import StudentNavBar from './StudentNavBar'
 
 import Photo from '../../assets/studentphoto.jpg'
+import { useStore } from '../../app/stores/store';
 
-export const StudentProfile = () => {
+export default function AdminProfile () {
+  const {userStore: {user,logout}} = useStore();
+  
     return (
       <Grid divided='vertically'>
         <Grid.Row columns={2}>
@@ -16,10 +19,10 @@ export const StudentProfile = () => {
 
             <Grid.Row columns={2} style={{marginBottom:"1em"}}>
               <Grid.Column width='5'>
-              <Image src={Photo} circular size='medium'/>
+              <Image src={user?.image || Photo} circular size='medium'/>
               </Grid.Column>
               <Grid.Column style={{fontSize:"x-large"}} textAlign='center'>
-                <Container>Hysnije Zllanoga <Divider style={{width:"250px", marginLeft:"1em"}}>Studente</Divider> </Container>
+                <Container>{user?.displayName}<Divider style={{width:"250px", marginLeft:"1em"}}>Studente</Divider> </Container>
               </Grid.Column>
             </Grid.Row>
 
@@ -40,7 +43,7 @@ export const StudentProfile = () => {
                           </Header.Content>
                         </Header>
                       </Table.Cell>
-                      <Table.Cell>hysi@gmail.com</Table.Cell>
+                      <Table.Cell>{user?.email}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                       <Table.Cell>
@@ -50,7 +53,7 @@ export const StudentProfile = () => {
                           </Header.Content>
                         </Header>
                       </Table.Cell>
-                      <Table.Cell>049 - 575 - 412</Table.Cell>
+                      <Table.Cell>{user?.phoneNumber}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                       <Table.Cell>
@@ -60,7 +63,7 @@ export const StudentProfile = () => {
                           </Header.Content>
                         </Header>
                       </Table.Cell>
-                      <Table.Cell>Rahovec</Table.Cell>
+                      <Table.Cell>{user?.city}</Table.Cell>
                     </Table.Row>
                     <Table.Row>
                       <Table.Cell>
@@ -70,7 +73,17 @@ export const StudentProfile = () => {
                           </Header.Content>
                         </Header>
                       </Table.Cell>
-                      <Table.Cell>Rruga B</Table.Cell>
+                      <Table.Cell>{user?.address}</Table.Cell>
+                    </Table.Row>
+                    <Table.Row>
+                      <Table.Cell>
+                        <Header as='h4' image>
+                          <Header.Content>
+                            Zip Kodi
+                          </Header.Content>
+                        </Header>
+                      </Table.Cell>
+                      <Table.Cell>{user?.zipCode}</Table.Cell>
                     </Table.Row>
                   </Table.Body>
                 </Table>

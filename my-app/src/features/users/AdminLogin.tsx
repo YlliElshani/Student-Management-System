@@ -1,15 +1,17 @@
 import { values } from 'mobx'
 import React from 'react'
-import { Button, Label, Segment, Image} from 'semantic-ui-react'
+import { Button, Label, Segment, Image, Header} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
 import { ErrorMessage, Form, Formik } from 'formik'
 import TextInput from '../../app/common/form/TextInput'
 import Img from '../../assets/login.png'
 import Tilt from 'react-parallax-tilt';
+import { NavLink } from 'react-router-dom'
+import AdminRegister from './AdminRegister'
 
 export default observer (function AdminLogin(){
-    const {userStore} = useStore();
+    const {userStore, modalStore} = useStore();
 
     return (
         <div style={{padding:'5%', marginLeft:'18%'}}>
@@ -21,7 +23,7 @@ export default observer (function AdminLogin(){
             setErrors({error: 'Invalid email or password'}))}>
                 {({ handleSubmit, isSubmitting, errors}) => (
                     <Form style={{paddingTop:"8%", marginRight:'50px'}} className='ui form' onSubmit={handleSubmit} autoComplete='off'>
-                        <p style={{fontSize:'large', marginLeft:'30%'}}><strong>Admin Login</strong></p>
+                        <Header as='h2' style={{fontSize:'large', marginLeft:'30%'}}>Admin Login</Header>
                         <TextInput name='email' placeholder='Email'/>
                         <TextInput name='password' placeholder='Password' type='password'/>
                         <ErrorMessage name='error' render={() =><Label style={{marginBottom: 10}} basic color='red' content={errors.error}/>}/>
@@ -29,7 +31,6 @@ export default observer (function AdminLogin(){
                     </Form>
                 )}
             </Formik>
-                
             </Segment.Group>
             </div>
     );

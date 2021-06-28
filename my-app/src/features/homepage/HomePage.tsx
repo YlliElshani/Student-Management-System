@@ -3,8 +3,13 @@ import { NavLink } from 'react-router-dom'
 import { Button, Container, Icon, Label, Segment } from 'semantic-ui-react'
 import Foto from '../../assets/school.png';
 import Tilt from 'react-parallax-tilt';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../app/stores/store';
+import AdminRegister from '../users/AdminRegister';
 
-export const HomePage = () => {
+export default observer (function HomePage(){
+    const {modalStore} = useStore();
+
     return (
         <div className="container">
             <Tilt>
@@ -13,6 +18,7 @@ export const HomePage = () => {
                 <Button as={NavLink} to='/adminLogin' className="login">Login as an Admin</Button>
                 <img src={Foto} className="product"/>
             </Segment>
+            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='adminRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -20,6 +26,7 @@ export const HomePage = () => {
                 <Button as={NavLink} to='/studentLogin' className="login">Login as a Student</Button>
                 <img src={Foto} className="product"/>
             </Segment>
+            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='studentRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -27,6 +34,7 @@ export const HomePage = () => {
                 <Button as={NavLink} to='/profesorLogin' className="login">Login as a Profesor</Button>
                 <img src={Foto} className="product"/>
             </Segment>
+            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='profesorRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -34,6 +42,7 @@ export const HomePage = () => {
                 <Button as={NavLink} to='/guardianLogin' className="login">Login as a Guardian</Button>
                 <img src={Foto} className="product"/>
             </Segment>
+            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='guardianRegister'/> 
             </Tilt>
         </div>
 
@@ -74,4 +83,4 @@ export const HomePage = () => {
                 </Segment.Group>
     </div>*/
     )
-}
+})

@@ -16,7 +16,7 @@ export default function TextInput(props: Props){
     return(
         <Form.Field error={meta.error && !!meta.error}>
             <label>{props.label}</label>
-            <input style={{borderRadius:'20pt', marginBottom:'10px', height:'50px', width:'300px'}} {...field} {...props} />
+            <input style={{borderRadius:'20pt', marginBottom:'20px', height:'50px', width:'300px'}} {...field} {...props} />
             {meta.touched && meta.error ? (
                 <Label basic color='red'>{meta.error}</Label>
             ):null}

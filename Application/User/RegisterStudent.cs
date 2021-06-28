@@ -47,7 +47,6 @@ namespace Application.User
                 RuleFor(x => x.DisplayName).NotEmpty();
                 RuleFor(x => x.UserName).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty().EmailAddress();
-                RuleFor(x => x.Image).NotEmpty();
                 RuleFor(x => x.Age).NotEmpty();
                 RuleFor(x => x.City).NotEmpty();
                 RuleFor(x => x.Address).NotEmpty();
@@ -85,7 +84,12 @@ namespace Application.User
                 {
                     DisplayName = request.DisplayName,
                     Email = request.Email,
-                    UserName = request.UserName
+                    UserName = request.UserName,
+                    Age = request.Age,
+                    City = request.City,
+                    Address = request.Address,
+                    ZipCode = request.ZipCode,
+                    PhoneNumber = request.PhoneNumber
                 };
 
 

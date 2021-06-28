@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import { HomePage } from '../../features/homepage/HomePage';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
-import { StudentProfile } from '../../features/student/StudentProfile';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
@@ -35,6 +33,12 @@ import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
 import modalContainer from '../common/modals/modalContainer';
 import { Container } from 'semantic-ui-react';
+import HomePage from '../../features/homepage/HomePage';
+import AdminRegister from '../../features/users/AdminRegister';
+import StudentRegister from '../../features/users/StudentRegister';
+import ProfesorRegister from '../../features/users/ProfesorRegister';
+import GuardianRegister from '../../features/users/GuardianRegister';
+import StudentProfile from '../../features/student/StudentProfile';
 
 
 function App () {
@@ -58,6 +62,7 @@ function App () {
           <Route exact path='/' component={HomePage}/>
 
           <Route exact path='/guardianLogin' component={GuardianLogin}/>
+          <Route exact path='/guardianRegister' component={GuardianRegister}/>
           <Route exact path='/ParentFeatures' component={parentDashboard}/>
           <Route exact path='/parentProfile' component={ParentProfile}/>
           <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
@@ -65,6 +70,7 @@ function App () {
           <Route exact path='/KerkesNdihme' component={AppNdihme}/>
 
           <Route exact path='/adminLogin' component={AdminLogin}/>
+          <Route exact path='/adminRegister' component={AdminRegister}/>
           <Route exact path='/admin/profile' component={AdminProfile}/>
           <Route exact path='/admin/trips' component={TripsList}/>
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
@@ -93,8 +99,10 @@ function App () {
           <Route exact path='/listoTrips' component={ListTApp}/>
           <Route exact path='/prezantimet' component={PrezantimetList}/>
           <Route exact path='/studentLogin' component={StudentLogin}/>
+          <Route exact path='/studentRegister' component={StudentRegister}/>
 
           <Route exact path='/profesorLogin' component={ProfesorLogin}/>
+          <Route exact path='/profesorRegister' component={ProfesorRegister}/>
           <Route exact path='/profesorprofile' component={ProfesorProfile}/>
           <Route component={NotFound}/>
         </Switch>
