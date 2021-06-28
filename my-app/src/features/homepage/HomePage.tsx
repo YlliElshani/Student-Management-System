@@ -1,10 +1,43 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Container, Icon, Label, Segment } from 'semantic-ui-react'
+import { Button, Container, Icon, Label, Segment } from 'semantic-ui-react'
+import Foto from '../../assets/school.png';
+import Tilt from 'react-parallax-tilt';
 
 export const HomePage = () => {
     return (
-            <div className='typesOfLogin' style={{marginTop:'10%'}}>
+        <div className="container">
+            <Tilt>
+            <Segment className="box" raised>
+                <h2 className="name">Admin</h2>
+                <Button as={NavLink} to='/adminLogin' className="login">Login as an Admin</Button>
+                <img src={Foto} className="product"/>
+            </Segment>
+            </Tilt>
+            <Tilt>
+            <Segment className="box" raised>
+                <h2 className="name">Student</h2>
+                <Button as={NavLink} to='/studentLogin' className="login">Login as a Student</Button>
+                <img src={Foto} className="product"/>
+            </Segment>
+            </Tilt>
+            <Tilt>
+            <Segment className="box" raised>
+                <h2 className="name">Profesor</h2>
+                <Button as={NavLink} to='/profesorLogin' className="login">Login as a Profesor</Button>
+                <img src={Foto} className="product"/>
+            </Segment>
+            </Tilt>
+            <Tilt>
+            <Segment className="box" raised>
+                <h2 className="name">Guardian</h2>
+                <Button as={NavLink} to='/guardianLogin' className="login">Login as a Guardian</Button>
+                <img src={Foto} className="product"/>
+            </Segment>
+            </Tilt>
+        </div>
+
+        /*  <div className='typesOfLogin' style={{marginTop:'10%'}}>
                 <Segment.Group horizontal style={{width:'68%', marginLeft:'17%'}} raised>
                     <Segment>
                     <Container textAlign='center'>
@@ -39,6 +72,6 @@ export const HomePage = () => {
                     </Container>
                     </Segment>
                 </Segment.Group>
-            </div>
+    </div>*/
     )
 }
