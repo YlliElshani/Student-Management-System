@@ -1,41 +1,39 @@
-import React, { SyntheticEvent } from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { SyntheticEvent, useState } from 'react';
 import { Item, Button, Label, Segment } from 'semantic-ui-react';
-import { INota } from '../../../app/models/nota';
+import { useStore } from '../../../app/stores/store';
 
-interface IProps {
-  notat: INota[];
-  selectNota: (id: string) => void;
-  deleteNota: (event: SyntheticEvent<HTMLButtonElement>, id: string) => void;
-  submitting: boolean;
-  target: string;
-}
+export default observer( function NotaList() {
+  const {notaStore} = useStore();
+  const {deleteNota, notatByLenda, loading} = notaStore;
 
-export const NotaList: React.FC<IProps> = ({
-  notat,
-  selectNota,
-  deleteNota,
-  submitting,
-  target
-}) => {
+  const [target, setTarget] = useState('');
+
+  function handleNotaDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
+    setTarget(e.currentTarget.name);
+    deleteNota(id);
+  }
+
+  
   return (
     <Segment>
       <Item.Group divided>
-        {notat.map(nota => (
+        {notatByLenda.map(nota => (
           <Item key={nota.notaId}>
             <Item.Content>
               <Item.Header as='a'>{nota.lenda}</Item.Header>
               <Item.Meta>{nota.grade}</Item.Meta>
               <Item.Extra>
                 <Button
-                  onClick={() => selectNota(nota.notaId)}
+                  onClick={() => notaStore.selectNota(nota.notaId)}
                   floated='right'
                   content='View'
                   color='blue'
                 />
                 <Button
-                  onClick={(e) => deleteNota(e, nota.notaId)}
+                  onClick={(e) => handleNotaDelete(e, nota.notaId)}
                   name={nota.notaId}
-                  loading={target==nota.notaId && submitting}
+                  loading={target==nota.notaId && loading}
                   floated='right'
                   content='Delete'
                   color='red'
@@ -46,7 +44,5 @@ export const NotaList: React.FC<IProps> = ({
         ))}
       </Item.Group>
     </Segment>
-  );
-};
-
-export default NotaList;
+  )
+})

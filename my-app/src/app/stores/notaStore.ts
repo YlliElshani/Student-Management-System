@@ -1,20 +1,20 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import { v4 as uuid } from 'uuid';
 import { INota } from "../models/nota";
+import {v4 as uuid} from 'uuid'
 
 export default class NotaStore {
     notaRegistry = new Map<string, INota>();
     selectedNota: INota | undefined = undefined;
     editMode = false;
     loading = false;
-    loadingInitial = true;
+    loadingInitial= true;
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    get competitionsByLenda() {
+    get notatByLenda() {
         return Array.from(this.notaRegistry.values()).sort((a, b) => 
             Date.parse(a.lenda) - Date.parse(b.lenda));
     }
@@ -22,8 +22,7 @@ export default class NotaStore {
     loadNotat = async () => {
         try {
             const notat = await agent.Notat.list();
-            notat.forEach(nota => {
-                nota.lenda = nota.lenda.split('T')[0];
+            notat.forEach(nota=>{
                 this.notaRegistry.set(nota.notaId, nota);
             })
             this.setLoadingInitial(false);
@@ -54,7 +53,7 @@ export default class NotaStore {
         this.editMode = false;
     }
 
-    createCompetition = async (nota: INota) => {
+    createNota = async (nota: INota) => {
         this.loading = true;
         nota.notaId = uuid();
         try {
@@ -97,7 +96,7 @@ export default class NotaStore {
             await agent.Notat.delete(id);
             runInAction(() => {
                 this.notaRegistry.delete(id);
-                if (this.selectedNota?.notaId === id) this.cancelSelectedNota();
+                if(this.selectedNota?.notaId === id) this.cancelSelectedNota();
                 this.loading = false;
             })
         } catch (error) {

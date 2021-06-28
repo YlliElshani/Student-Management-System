@@ -5,6 +5,7 @@ import ModalStore from "./modalStore";
 import TripStore from "./tripStore";
 import UserStore from "./userStore";
 import LendaStore from "./lendaStore"
+import NotaStore from "./notaStore";
 
 
 interface Store {
@@ -12,8 +13,9 @@ interface Store {
     competitionStore: CompetitionStore;
     userStore: UserStore;
     commonStore: CommonStore;
+    lendaStore: LendaStore;
+    notaStore: NotaStore;
     modalStore: ModalStore;
-    lendaStore: LendaStore
 }
 
 export const store: Store = {
@@ -21,8 +23,9 @@ export const store: Store = {
     competitionStore: new CompetitionStore(),
     userStore: new UserStore(),
     commonStore: new CommonStore(),
-    modalStore: new ModalStore(),
-    lendaStore: new LendaStore()
+    lendaStore: new LendaStore(),
+    notaStore: new NotaStore(),
+    modalStore: new ModalStore()
 }
 
 export const StoreContext = createContext(store);
