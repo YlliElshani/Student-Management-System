@@ -1,8 +1,10 @@
 using System.Threading.Tasks;
 using Application.User;
 using Domain;
+using Application.Professor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace API.Controllers
 {
@@ -34,10 +36,16 @@ namespace API.Controllers
         }
 
         [HttpGet]
-
         public async Task<ActionResult<User>> CurrentUser()
         {
             return await Mediator.Send(new CurrentUser.Query());
+        }
+
+        [AllowAnonymous]
+        [HttpGet("list")]
+        public async Task<ActionResult<List<AppUser>>> ProfesorsList()
+        {
+            return await Mediator.Send(new ProfesorsList.Query());
         }
     }
 }

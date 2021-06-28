@@ -81,7 +81,7 @@ namespace API
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             
-            services.AddAuthorization(options =>
+            /*services.AddAuthorization(options =>
             {
                 options.AddPolicy("Admin",
                     authBuilder =>
@@ -100,7 +100,7 @@ namespace API
                     authBuilder => {
                         authBuilder.RequireRole("Guardian");
                     });
-            });
+            });*/
 
             services.AddIdentityCore<AppUser>().AddRoles<AppRole>().AddEntityFrameworkStores<DataContext>().AddSignInManager<SignInManager<AppUser>>();
 
