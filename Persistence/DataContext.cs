@@ -35,6 +35,10 @@ namespace Persistence
 
         public DbSet <Evente> Eventet {get; set;}
 
+        public DbSet <AppUser> AppUser {get; set;}
+
+        public DbSet <AppRole> AppRole {get; set;}
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

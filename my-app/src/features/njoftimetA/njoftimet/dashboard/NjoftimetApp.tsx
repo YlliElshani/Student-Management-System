@@ -1,5 +1,5 @@
 import React, { useState,useEffect, SyntheticEvent } from 'react';
-import { Button, Container, Segment } from 'semantic-ui-react';
+import { Button, Container, Grid, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { INjoftimi } from '../../../../app/models/njoftimi';
 import { NjoftimetDashboard } from './NjoftimetDashboard';
@@ -71,25 +71,28 @@ const NjoftimetApp=()=>{
 
 
     return (
-      <Container>
-        <NavBar/>
-        <AdminNavBar />
-        <Segment>
-          <Button onClick={handleOpenCreateForm} color='vk' content='Shto Njoftim'/>
-          <NjoftimetDashboard njoftimet={njoftimet}
-          selectNjoftim={handleSelectNjoftim}
-          selectedNjoftim={selectedNjoftim}
-          editMode={editMode}
-          setEditMode={setEditMode}
-          setSelectedNjoftim={setSelectedNjoftim}
-          createNjoftim={handleCreateNjoftim}
-          editNjoftim={handleEditNjoftim}
-          deleteNjoftim={handleDeleteNjoftim}
-          submitting={submitting}
-          target={target}
-          />
-         </Segment>
-      </Container>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width='4'>
+            <AdminNavBar />
+          </Grid.Column>
+          <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
+            <Button onClick={handleOpenCreateForm} color='vk' content='Shto Njoftim'/>
+            <NjoftimetDashboard njoftimet={njoftimet}
+            selectNjoftim={handleSelectNjoftim}
+            selectedNjoftim={selectedNjoftim}
+            editMode={editMode}
+            setEditMode={setEditMode}
+            setSelectedNjoftim={setSelectedNjoftim}
+            createNjoftim={handleCreateNjoftim}
+            editNjoftim={handleEditNjoftim}
+            deleteNjoftim={handleDeleteNjoftim}
+            submitting={submitting}
+            target={target}
+            />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
 }
 

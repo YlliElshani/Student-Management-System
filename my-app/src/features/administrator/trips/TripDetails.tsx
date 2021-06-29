@@ -1,9 +1,7 @@
 import { observer } from 'mobx-react-lite';
-import React, { useContext } from 'react'
+import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { ITrip } from '../../../app/models/trip';
 import { useStore } from '../../../app/stores/store';
-import TripStore from '../../../app/stores/tripStore'
 
 
 export default function TripDetails ()  {

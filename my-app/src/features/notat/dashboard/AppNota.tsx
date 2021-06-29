@@ -1,77 +1,29 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { Container } from 'semantic-ui-react';
-import { INota } from '../../../app/models/nota';
-import { NavBar } from '../../nav/NavBar';
+import React, { useState,useEffect, SyntheticEvent } from 'react';
+import { Button, Container, Segment } from 'semantic-ui-react';
+import { NavBar } from '../../nav/NavBar'
+import { LoadingNota } from './LoadingNota';
 import NotaDashboard from './NotaDashboard';
-import agent from '../../../app/api/agent';
+import { useStore } from '../../../app/stores/store';
+import { observer } from 'mobx-react-lite';
 
-const AppNota = () => {
-  const [notat, setNotat] = useState<INota[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState(false);
-  const [selectedNota, setSelectedNota] = useState<INota | null>(
-    null
-  );
-  const [editMode, setEditMode] = useState(false);
+const AppNota=()=>{
+    const {notaStore} = useStore();
+    
+    useEffect(()=>{
+      notaStore.loadNotat();
+  }, [notaStore]);
 
-  const handleOpenCreateForm = () => {
-    setSelectedNota(null);
-    setEditMode(true);
-  }
+    if (notaStore.loadingInitial) return <LoadingNota content={'Prisni pak...'}/>
 
-  const handleCreateNota = (nota: INota) => {
-    setSubmitting(true);
-    agent.Notat.create(nota).then(() => {
-    setNotat([...notat, nota]);
-    setSelectedNota(nota);
-    setEditMode(false);
-    }).then(() => setSubmitting(false))
+    return (
+      <Container>
+        <NavBar/>
+        <Segment>
+          <Button onClick={() => notaStore.openForm()} content='Shto Notën'/>
+          <NotaDashboard/>
+         </Segment>
+      </Container>
+    );
 }
 
-
-  const handleEditNota = (nota: INota) => {
-    setNotat([...notat.filter(a => a.notaId !== nota.notaId), nota])
-    setSelectedNota(nota);
-    setEditMode(false);
-  }
-
-  const handleDeleteNota = (id: string) => {
-    setNotat([...notat.filter(a => a.notaId !== id)])
-  }
-
-  const handleSelectNota = (id: string) => {
-    setSelectedNota(notat.filter(a => a.notaId === id)[0]);
-    setEditMode(false);
-  };
-
-  useEffect(()=>{
-    agent.Notat.list().then((response) => { 
-      let notat: INota[] = []; 
-      response.forEach((nota) => {
-        notat.push(nota);
-      })
-      setNotat(notat);
-    }).then(() => setLoading(false));
-  }, []); 
-
-  return (
-    <Fragment>
-      <NavBar />
-      <Container style={{ marginTop: '7em' }}>
-        <NotaDashboard
-          notat={notat}
-          selectNota={handleSelectNota}
-          selectedNota={selectedNota}
-          editMode={editMode}
-          setEditMode={setEditMode}
-          setSelectedNota={setSelectedNota}
-          createNota={handleCreateNota}
-          editNota={handleEditNota}
-          deleteNota={handleDeleteNota}
-        />
-      </Container>
-    </Fragment>
-  );
-};
-
-export default AppNota;
+export default observer(AppNota);

@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useState, useEffect, Fragment } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Grid } from 'semantic-ui-react';
 import agent from '../../../../app/api/agent';
 import { INdihma } from '../../../../app/models/kNdihme';
-import { StudentMiniNav } from '../../EServices/StudentMiniNav';
-import { StudentNavBar } from '../../StudentNavBar';
+import StudentMiniNav from '../../EServices/StudentMiniNav';
 import { KerkeseNDashboard } from './KerkeseNDashboard';
 import { LoadingKn } from './LoadingKn';
 
@@ -66,10 +65,14 @@ export const AppNdihme = () => {
     }
 
     return (
-        <div>
-            <StudentNavBar/>
+        <Grid>
+            <Grid.Row>
+            <Grid.Column width='4'>
             <StudentMiniNav/>
+            </Grid.Column>
+            <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
             <Button onClick={()=>handleOpenCreateForm()}content='Shto kerkese' color='twitter' />
+            
             <KerkeseNDashboard kerkesat={kerkesaN} 
             selectKerkesa={handleSelectKerkesN} 
             selectedKerkeseN={selectedKerkesN!}
@@ -80,6 +83,8 @@ export const AppNdihme = () => {
             editKerkese={handleEditKerkesa}
             deleteKerkesa={handleDeleteKerkese}
             />
-        </div>
+            </Grid.Column>
+            </Grid.Row>
+        </Grid>
     )
 }

@@ -12,19 +12,24 @@
     "@types/react-dom": "^17.0.5",
     "axios": "^0.21.1",
     "final-form": "^4.20.2",
+    "formik": "^2.2.9",
     "mobx": "^6.3.2",
     "mobx-react-lite": "^3.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.3",
+    "react-parallax-tilt": "^1.5.37",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-tilt": "^0.1.4",
     "react-toastify": "^7.0.4",
+    "react-vanilla-tilt": "^1.0.0",
     "revalidate": "^1.2.0",
     "semantic-ui-react": "^2.0.3",
     "typescript": "^4.2.4",
     "uuid": "^8.3.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-native": "^0.64.10",
     "@types/react-router-dom": "^5.1.7",
     "@types/revalidate": "^1.1.2",
     "@types/uuid": "^8.3.0"

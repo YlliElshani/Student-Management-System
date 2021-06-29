@@ -1,10 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Container, Grid, Item, Segment } from 'semantic-ui-react'
+import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-
-import { NavBar } from '../../nav/NavBar'
 import AdminNavBar from '../AdminNavBar'
 
 import TripDetails from './TripDetails'
@@ -22,7 +20,7 @@ export default observer(function TripsList () {
         tripStore.loadTrips();
       }, [tripStore]); 
     
-    if(tripStore.loadingInitial) return <LoadingComponent content='Loading Trips'/>
+    if(tripStore.loadingInitial) return <LoadingComponent content='Loading Trips ...'/>
     
     function handleDeleteTrip(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);

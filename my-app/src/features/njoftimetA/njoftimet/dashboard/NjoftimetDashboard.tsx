@@ -34,7 +34,7 @@ export const NjoftimetDashboard:React.FC<IProps> = ({
     target
     }) => {
     return (
-            <Grid>
+        <Grid>
             <Grid.Column width={4}>
                 <NjoftimeList njoftimet={njoftimet} selectNjoftim={selectNjoftim} deleteNjoftim={deleteNjoftim} submitting={submitting} target={target}/>
             </Grid.Column>
@@ -49,6 +49,6 @@ export const NjoftimetDashboard:React.FC<IProps> = ({
                     createNjoftim={createNjoftim} editNjoftim={editNjoftim} submitting={submitting}
                 />}
             </Grid.Column>
-            </Grid>
+        </Grid>
     )
 }

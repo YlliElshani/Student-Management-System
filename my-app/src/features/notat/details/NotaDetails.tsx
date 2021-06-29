@@ -1,14 +1,15 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
-import { INota } from '../../../app/models/nota';
+import { LoadingComponent } from '../../../app/layout/LoadingComponent';
+import { useStore } from '../../../app/stores/store';
 
-interface IProps {
-    nota: INota;
-    setEditMode: (editMode: boolean) => void;
-    setSelectedNota: (nota: INota | null) => void;
-}
 
-const NotaDetails: React.FC<IProps> = ({nota, setEditMode, setSelectedNota}) => {
+export default function NotaDetails() {
+  const {notaStore} = useStore();
+  const {selectedNota: nota, openForm, cancelSelectedNota} = notaStore;
+
+  if(!nota) return <LoadingComponent/>;
+
   return (
     <Card fluid>
       <Card.Content>
@@ -19,12 +20,11 @@ const NotaDetails: React.FC<IProps> = ({nota, setEditMode, setSelectedNota}) => 
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths={2}>
-            <Button onClick={() => setEditMode(true)} basic color='blue' content='Edit' />
-            <Button onClick={() => setSelectedNota(null)} basic color='grey' content='Cancel' />
+            <Button onClick={() => openForm(nota.notaId)} basic color='blue' content='Edit' />
+            <Button onClick={cancelSelectedNota} basic color='grey' content='Cancel' />
         </Button.Group>
       </Card.Content>
     </Card>
   );
 };
 
-export default NotaDetails;

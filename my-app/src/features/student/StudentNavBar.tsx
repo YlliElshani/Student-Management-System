@@ -1,27 +1,54 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Dropdown, Icon, Menu } from 'semantic-ui-react'
+import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { useStore } from '../../app/stores/store';
 
-export const StudentNavBar = () => {
+export default observer(function StudentNavBar() {
+    const {userStore: {logout, isLoggedIn}} = useStore();
+    
     return (
-        <Menu size='mini' fixed='top'>
-            <Menu.Item><Icon name='graduation cap'></Icon></Menu.Item>
-            <Menu.Item as={NavLink} to='/lendet' activeClassName="active" name='Lëndët'/>
-            <Menu.Item as={NavLink} to='/KerkesNdihme' activeClassName="active" name='Kerko Ndihmë'/>
-            <Menu.Item as={NavLink} to='/prezantimet' activeClassName="active" name='Kerko Prezantim'/>
-            <Menu.Item name='Orari'/>
-            <Menu.Item name='Pagesat'/>
-            <Menu.Menu position='right'>
-            <Dropdown item text='Gjuhët'>
-                <Dropdown.Menu>
-                <Dropdown.Item>Albanian</Dropdown.Item>
-                <Dropdown.Item>English</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-            <Menu.Item>
-                <Button as={NavLink} to='/' primary>Dil</Button>
+        <Sidebar.Pushable className="sideBarA">
+            <Sidebar
+            as={Menu}
+            animation='overlay'
+            icon='labeled'
+            vertical
+            visible
+            width='wide'
+            direction='left'
+            >
+            {isLoggedIn ? (
+                        <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='/student/profile'>
+                        <Icon name='user' />
+                        Profili
+                    </Menu.Item>
+                    ) : (
+                        null
+                    )}
+            <Menu.Item as={NavLink} to='/student/e-services'>
+                <Icon name='server' />
+                E-Shërbimet
             </Menu.Item>
-            </Menu.Menu>
-      </Menu>
-    )
-}
+            <Menu.Item as={NavLink} to='/student/lendet'>
+                <Icon name='book' />
+                Lëndët
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/student/notat'>
+                <Icon name='grid layout' />
+                Notat
+            </Menu.Item>
+            <Menu.Item onClick={logout}>
+                <Icon name='log out'/>
+                Dil
+            </Menu.Item>
+            </Sidebar>
+
+            <Sidebar.Pusher>
+            <Segment basic style={{height:"100vh"}}>
+            </Segment>
+            </Sidebar.Pusher>
+        </Sidebar.Pushable>
+    );
+
+})

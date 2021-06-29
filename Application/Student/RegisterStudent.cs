@@ -15,7 +15,7 @@ using Application.Validators;
 
 namespace Application.User
 {
-    public class Register
+    public class RegisterStudent
     {
         public class Command : IRequest<User>
         {
@@ -25,6 +25,8 @@ namespace Application.User
 
             public string Email { get; set; }
 
+            public string Image {get; set;}
+
             public string Age {get; set;}
 
             public string City {get; set;}
@@ -32,6 +34,8 @@ namespace Application.User
             public string Address {get; set;}
 
             public string ZipCode {get; set;}
+
+            public string PhoneNumber {get; set;}
 
             public string Password { get; set; }
         }
@@ -47,6 +51,7 @@ namespace Application.User
                 RuleFor(x => x.City).NotEmpty();
                 RuleFor(x => x.Address).NotEmpty();
                 RuleFor(x => x.ZipCode).NotEmpty();
+                RuleFor(x => x.PhoneNumber).NotEmpty();
                 RuleFor(x => x.Password).Password();
             }
         }
@@ -79,11 +84,17 @@ namespace Application.User
                 {
                     DisplayName = request.DisplayName,
                     Email = request.Email,
-                    UserName = request.UserName
+                    UserName = request.UserName,
+                    Age = request.Age,
+                    City = request.City,
+                    Address = request.Address,
+                    ZipCode = request.ZipCode,
+                    PhoneNumber = request.PhoneNumber
                 };
 
 
                 var result = await _userManager.CreateAsync(user, request.Password);
+                var roleAdd = await _userManager.AddToRoleAsync(user, Roles.Student);
 
                 if(result.Succeeded)
                 {
@@ -92,7 +103,13 @@ namespace Application.User
                         DisplayName = user.DisplayName,
                         Token = _jwtGenerator.CreateToken(user),
                         Username = user.UserName,
-                        Image = null
+                        Image = null,
+                        Email = user.Email,
+                        Age = user.Age,
+                        City = user.City,
+                        Address = user.Address,
+                        ZipCode = user.ZipCode,
+                        PhoneNumber = user.PhoneNumber
                     };
                 } 
 

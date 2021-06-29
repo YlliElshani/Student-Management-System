@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Button, Container} from 'semantic-ui-react';
-import axios from 'axios';
 import {IArsyeja} from '../../../../app/models/arsyeja';
 import { NavBar } from '../../../nav/NavBar';
 import DashboardP from '../detailsP/dashboardP';

@@ -1,40 +1,116 @@
-body{
-  background-image: url('../../assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
 }
 
-.profile-el{
-  display: inline-block;
-  margin-left:13%;
-}
-
-.ui.container{
-  width:auto;
-}
-
-.lower-profile{
-  margin:100px;
-  padding:50px;
-  background-color:aliceblue;
-  width:70%;
-  text-align: center;
+.container{
+  position: relative;
   display: flex;
   justify-content: center;
-  margin-left: 16%;
+  align-items: center;
+  width: 1200px;
+  padding:13%;
+  margin-left: 11%;
+  transform-style: preserve-3d;
 }
 
-.ui.items>.item>.content>.header, .ui.items>.item .meta {
-  color:#252839;
+.container .box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 40px;
+  border-radius: 20px;
+  transform-style: preserve-3d;
 }
 
-.ui.segment.rightSideOfLogIn{
-  background-image: url('../../assets/login.jpg');
-  background-size: 100%;
+.container .box::before{
+  position: absolute;
+  top:20px;
+  left:20px;
+  font-size: 6em;
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+  opacity: 0;
+  transition: 0.5s;
 }
 
-.ui.segment.Student{
-  background-image: url('../../assets/studentphoto4.jpeg');
-  background-size: 100%;
+.container .box::after{
+  position: absolute;
+  bottom: 20px;
+  left:20px;
+  font-size: 6em;
+  font-weight: 900;
+  color: #fff;
+  font-style: italic;
+  opacity: 0;
+  transition: 0.5s;
 }
+.container .box:hover::after,
+.container .box:hover::before{
+  opacity: 0.04;
+}
+
+.container .box .name {
+  position: absolute;
+  top:0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translate3d(0,0,75px);
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+  color: #fff;
+}
+
+.container .box:hover .name {
+  top:120px;
+  opacity:1 ;
+}
+
+.container .box .login {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate3d(-50%,0,75px);
+  color: #fff;
+  background: rgb(43, 145, 51);
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.5s;
+  opacity: 0;
+  z-index: 10;
+  height:40px;
+  width: 200px;
+  text-align: center;
+}
+
+.container .box:hover .login {
+  bottom: 30px;
+  opacity: 1;
+}
+
+
+.container .box .product{
+  position: absolute;
+  top:50%;
+  left:50%;
+  max-width: 300px;
+  transition: 0.5s;
+  z-index: 11;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  transform: translate3d(-50%, -50%, 50px);
+}
+
+.group {
+  width: max-content;
+  display: flex;
+  justify-content: space-evenly;
+}
+

@@ -1,9 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Container, Grid, Item, Segment } from 'semantic-ui-react'
+import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import { NavBar } from '../../nav/NavBar'
 import AdminNavBar from '../AdminNavBar'
 
 import CompetitionDetails from './CompetitionDetails'
@@ -20,7 +19,7 @@ export default observer(function CompetitionsList() {
         competitionStore.loadCompetitions();
       }, [competitionStore]); 
     
-    if(competitionStore.loadingInitial) return <LoadingComponent content='Loading Competitions'/>
+    if(competitionStore.loadingInitial) return <LoadingComponent content='Loading Competitions ...'/>
     
     function handleDeleteCompetition(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);
