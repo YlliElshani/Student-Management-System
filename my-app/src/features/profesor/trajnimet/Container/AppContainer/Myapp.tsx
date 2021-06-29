@@ -1,12 +1,12 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item, Segment } from 'semantic-ui-react'
-import agent from '../../../../app/api/agent'
-import { LoadingComponent } from '../../../../app/layout/LoadingComponent'
-import { ITrajnim } from '../../../../app/models/trajnim'
-import { NavBar } from '../../../nav/NavBar'
+import agent from '../../../../../app/api/agent'
+import { LoadingComponent } from '../../../../../app/layout/LoadingComponent'
+import { ITrajnim } from '../../../../../app/models/trajnim'
+import { NavBar } from '../../../../nav/NavBar'
 import TrajnimDetails from '../DetailsContainer/TrajnimDetails'
 import TrajnimForm from '../FormContainer/TrajnimForm'
-import { ProfesorNavBar } from '../../../profesor/ProfesorNavBar'
+import { ProfesorNavBar } from '../../../../profesor/ProfesorNavBar'
 
 
 const Myapp:React.FC = () => {  
