@@ -13,6 +13,7 @@ import { IPrezantimi } from '../models/prezantimi';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { store } from '../stores/store';
+import { IQyteti } from '../models/qyteti';
 
 
 
@@ -132,11 +133,19 @@ const KerkesaN = {
 }
 
 const Prezantimet = {
-    prezantimetList: () : Promise<IPrezantimi[]> => requests.get('/prezantimet'),
-    prezantimetDetails: (id: string) => requests.get(`/prezantimet/${id}`),
-    createPrezantimi: (prezantimi:IPrezantimi) => requests.post('/prezantimet',prezantimi),
-    updatePrezantimi: (prezantimi: IPrezantimi) => requests.put(`/prezantimet/${prezantimi.prezantimiId}`, prezantimi),
-    deletePrezantimi: (id: string) => requests.delete(`/prezantimet/${id}`)
+    list: () : Promise<IPrezantimi[]> => requests.get('/prezantimet'),
+    details: (id: string) => requests.get(`/prezantimet/${id}`),
+    create: (prezantimi:IPrezantimi) => requests.post('/prezantimet',prezantimi),
+    update: (prezantimi: IPrezantimi) => requests.put(`/prezantimet/${prezantimi.prezantimiId}`, prezantimi),
+    delete: (id: string) => requests.delete(`/prezantimet/${id}`)
+}
+
+const Qytetet = {
+    list: () : Promise<IQyteti[]> => requests.get('/qytetet'),
+    details: (id: string) => requests.get(`/qytetet/${id}`),
+    create: (qyteti:IQyteti) => requests.post('/qytetet',qyteti),
+    update: (qyteti: IQyteti) => requests.put(`/qytetet/${qyteti.id}`, qyteti),
+    delete: (id: string) => requests.delete(`/qytetet/${id}`)
 }
 
 const Account = {
@@ -162,7 +171,8 @@ const agent = {
     Arsyetimet,
     Njoftimet,
     KerkesaN, 
-    Prezantimet
+    Prezantimet,
+    Qytetet
 }
 
 export default agent;

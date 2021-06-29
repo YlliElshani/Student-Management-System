@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Domain
 {
@@ -7,5 +8,6 @@ namespace Domain
         public Guid NotaId { get; set; }
         public string Lenda { get; set; }
         public int Grade { get; set; }
+        public List<Lenda_Nota> Lenda_Notat {get; set;}
     }
 }

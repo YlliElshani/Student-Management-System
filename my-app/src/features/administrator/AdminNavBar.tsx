@@ -37,6 +37,10 @@ export default observer(function AdminNavBar() {
                 <Icon name='newspaper' />
                 Njoftimet
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/admin/qytetet'>
+                <Icon name='map' />
+                Qytetet
+            </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil

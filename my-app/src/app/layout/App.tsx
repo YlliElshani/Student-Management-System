@@ -12,7 +12,6 @@ import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
 import ListTApp from '../../features/student/listoTrips/listTApp';
 import { NotFound } from '../../features/errors/NotFound';
-import { PrezantimetList } from '../../features/student/Prezantimi/PrezantimetList';
 import TripsList from '../../features/administrator/trips/TripsList';
 import { observer } from 'mobx-react-lite';
 import CompetitionsList from '../../features/administrator/competitions/CompetitionsList';
@@ -40,6 +39,9 @@ import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/par
 import ParentProfile from '../../features/ParentFeatures/usersP/ParentProfile';
 import ListTApp2 from '../../features/listoTrips2/listTApp2';
 import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
+import QytetetList from '../../features/qytetet/QytetetList';
+import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
+import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 
 
 function App () {
@@ -76,6 +78,7 @@ function App () {
           <Route exact path='/admin/trips' component={TripsList}/>
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimet' component={NjoftimetApp}/>
+          <Route exact path='/admin/qytetet' component={QytetetList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>
