@@ -260,6 +260,22 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            if(!context.PlaniMes.Any())
+            {
+                var planiM = new List<PlaniMesimor>
+                {
+                    new PlaniMesimor
+                    {
+                        Id=1,
+                        planiInfo="Do te spjegohen bazat e trigonometris",
+                        kriteriSuksesit="Nxenesi do mundet te kryej detyra me formule te pitagores",
+                        dataShenimit=DateTime.Now
+                    }
+                };
+                context.PlaniMes.AddRange(planiM);
+                context.SaveChanges();
+            };
+
             if(!context.Eventet.Any())
             {
                 var evente = new List<Evente>

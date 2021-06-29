@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { ITrajnim } from '../../../../app/models/trajnim';
+import { ITrajnim } from '../../../../../app/models/trajnim';
 import  './Style.css';
 
 

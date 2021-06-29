@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Button, Container } from 'semantic-ui-react';
-import { IDetyra } from '../../../app/models/detyra';
-import { NavBar } from '../../nav/NavBar';
+import { IDetyra } from '../../../../app/models/detyra';
+import { NavBar } from '../../../nav/NavBar';
 import DetyraDashboard from './DetyraDashboard';
-import agent from '../../../app/api/agent';
-import { ProfesorNavBar } from '../../profesor/ProfesorNavBar'
+import agent from '../../../../app/api/agent';
+import { ProfesorNavBar } from '../../../profesor/ProfesorNavBar'
 
 
 

@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
-import Myapp from '../../features/trajnimet/Container/AppContainer/Myapp';
-import DetyraApp from '../../features/Detyrat/dashboard1/DetyraApp';
+import Myapp from '../../features/profesor/trajnimet/Container/AppContainer/Myapp';
+import DetyraApp from '../../features/profesor/Detyrat/dashboard1/DetyraApp';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
-import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
-import { ParentProfile } from '../../features/parentProfile/ParentProfile';
-import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
 import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
 import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
@@ -39,6 +36,10 @@ import StudentRegister from '../../features/users/StudentRegister';
 import ProfesorRegister from '../../features/users/ProfesorRegister';
 import GuardianRegister from '../../features/users/GuardianRegister';
 import StudentProfile from '../../features/student/StudentProfile';
+import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
+import ParentProfile from '../../features/ParentFeatures/usersP/ParentProfile';
+import ListTApp2 from '../../features/listoTrips2/listTApp2';
+import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
 
 
 function App () {
@@ -63,7 +64,7 @@ function App () {
 
           <Route exact path='/guardianLogin' component={GuardianLogin}/>
           <Route exact path='/guardianRegister' component={GuardianRegister}/>
-          <Route exact path='/ParentFeatures' component={parentDashboard}/>
+          <Route exact path='/usersP/ParentFeatures' component={parentDashboard}/>
           <Route exact path='/parentProfile' component={ParentProfile}/>
           <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
           <Route exact path='/listApp' component={listApp}/>
@@ -83,6 +84,8 @@ function App () {
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
           <Route exact path='/student/listoTrips' component={ListTApp}/>
+          <Route exact path='/usersP/listoTrips2' component={ListTApp2}/>
+          <Route exact path='/listoNjoftimetS' component={ListApp}/>
           <Route exact path='/student/listoGara' component={ListGApp}/>
           <Route exact path='/student/listoNjoftimetS' component={ListApp}/>
           

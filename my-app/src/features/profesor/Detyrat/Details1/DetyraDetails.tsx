@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
-import { IDetyra } from '../../../app/models/detyra';
+import { IDetyra } from '../../../../app/models/detyra';
 
 interface IProps {
     detyra: IDetyra;

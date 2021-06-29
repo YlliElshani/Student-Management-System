@@ -1,11 +1,11 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Button, Container} from 'semantic-ui-react';
+import { Button, Container, Grid} from 'semantic-ui-react';
 import {IArsyeja} from '../../../../app/models/arsyeja';
 import { NavBar } from '../../../nav/NavBar';
 import DashboardP from '../detailsP/dashboardP';
-import { ParentNavBar } from '../../../parentProfile/ParentNavBar';
 import agent from '../../../../app/api/agent';
 import { LoadingP } from './LoadingP';
+import ParentNavBar from '../ParentNavBar';
 
 const ParentDashboard = () => {
 
@@ -65,9 +65,12 @@ const ParentDashboard = () => {
 
     return (
       <Fragment>
-          <NavBar/>
-          <ParentNavBar/>
-            <Container>
+            <Grid.Row >
+                <Grid.Column width='4'>
+                    <ParentNavBar/>
+                </Grid.Column>
+          <Grid.Column width='10' style={{marginTop:'-40%', marginLeft:"25%"}}>
+
             <Button onClick={handleOpenCreateForm} content='Shto Arsyetim' activeClassName="active"/>
                 <DashboardP
                  openCreateForm={handleOpenCreateForm}
@@ -81,7 +84,8 @@ const ParentDashboard = () => {
                  editArsyeja={handleEditArsyeja}
                  deleteActivity={handleDeleteArsyja}
                 />
-            </Container>
+            </Grid.Column>
+            </Grid.Row>
       </Fragment>
     );
 }

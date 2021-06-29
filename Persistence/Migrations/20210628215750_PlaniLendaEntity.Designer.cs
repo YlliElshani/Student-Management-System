@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210628215750_PlaniLendaEntity")]
+    partial class PlaniLendaEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -294,20 +296,6 @@ namespace Persistence.Migrations
                     b.HasKey("prezantimiId");
 
                     b.ToTable("Prezantimet");
-                });
-
-            modelBuilder.Entity("Domain.Qyteti", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Emri");
-
-                    b.Property<string>("Shteti");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Qytetet");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>
