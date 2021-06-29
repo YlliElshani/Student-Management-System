@@ -39,9 +39,23 @@ namespace Persistence
 
         public DbSet <AppRole> AppRole {get; set;}
 
+        public DbSet <PlaniMesimor> PlaniMes {get; set;}
+
+        public DbSet <PlaniLenda> PlaniLendet {get; set;}
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<PlaniLenda>()
+            .HasOne(b => b.Lenda)
+            .WithMany(ba => ba.Plani_Lenda)
+            .HasForeignKey(bi => bi.LendaId);
+            
+            builder.Entity<PlaniLenda>()
+            .HasOne(b => b.planiMesimor)
+            .WithMany(ba => ba.Plani_Lenda)
+            .HasForeignKey(bi => bi.Id);
         }
 
     }
