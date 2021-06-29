@@ -39,9 +39,12 @@ namespace Persistence
 
         public DbSet <AppRole> AppRole {get; set;}
 
+        public DbSet <Qyteti> Qytetet {get; set;}
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
         }
 
     }

@@ -292,6 +292,20 @@ namespace Persistence
                 context.Prezantimet.AddRange(prezantime);
                 context.SaveChanges();
             };
+
+            if(!context.Qytetet.Any())
+            {
+                var qytete = new List<Qyteti>
+                {
+                    new Qyteti
+                    {
+                        Emri="Mitrovicë",
+                        Shteti="Kosovë"
+                    }
+                };
+                context.Qytetet.AddRange(qytete);
+                context.SaveChanges();
+            };
         }
 
     }
