@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210629194747_QytetiEntityAdded")]
+    partial class QytetiEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,37 +249,6 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<Guid>("LendaId");
-
-                    b.Property<int>("idP");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LendaId");
-
-                    b.ToTable("PlaniLenda");
-                });
-
-            modelBuilder.Entity("Domain.PlaniMesimor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("dataShenimit");
-
-                    b.Property<string>("kriteriSuksesit");
-
-                    b.Property<string>("planiInfo");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PlaniMesimor");
-                });
-
             modelBuilder.Entity("Domain.Prezantimi", b =>
                 {
                     b.Property<Guid>("prezantimiId")
@@ -430,19 +401,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.HasOne("Domain.PlaniMesimor", "planiMesimor")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.Lenda", "Lenda")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("LendaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

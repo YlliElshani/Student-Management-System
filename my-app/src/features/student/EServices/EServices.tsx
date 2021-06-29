@@ -7,7 +7,7 @@ export const EServices = () => {
     return (
         <div>
         <StudentMiniNav/>
-            <Segment.Group horizontal style={{width:'75%', marginTop:'-35%', height:'400px', marginLeft:'24%'}}>
+            <Segment.Group horizontal style={{width:'35%', marginTop:'-35%', height:'300px', marginLeft:'40%'}}>
                     <Segment style={{width:'5%'}}>
                         <Form style={{padding:'60px'}}>
                             <Form.Field>
@@ -18,8 +18,6 @@ export const EServices = () => {
                             <Button as={NavLink} to='/studentProfile' type='submit'>Profili im</Button>
                             <Button as={NavLink} to='/EServices' type='submit'>E-Shërbimet</Button>
                         </Form>
-                    </Segment>
-                    <Segment className='Student' >
                     </Segment>
                 </Segment.Group>
         </div>

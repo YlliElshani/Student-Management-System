@@ -39,6 +39,7 @@ namespace Persistence
 
         public DbSet <AppRole> AppRole {get; set;}
 
+        public DbSet <Qyteti> Qytetet {get; set;}
         public DbSet <PlaniMesimor> PlaniMes {get; set;}
 
         public DbSet <PlaniLenda> PlaniLendet {get; set;}
