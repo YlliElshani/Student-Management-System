@@ -13,6 +13,7 @@ using Application.Arsyetimet;
 using Application.Njoftimet;
 using Application.KerkesaNdihme;
 using Application.Eventet;
+using Application.PlaniMes;
 using Application.Competitions;
 using Domain;
 using Microsoft.AspNetCore.Identity;
@@ -58,7 +59,7 @@ namespace API
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
-
+            services.AddMediatR(typeof(ListPlanetM.Handler).Assembly);
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt => {

@@ -260,7 +260,7 @@ namespace Persistence
                 context.SaveChanges();
             };
 
-            if(!context.PlaniMes.Any())
+            if(!context.PlaniMesimor.Any())
             {
                 var planiM = new List<PlaniMesimor>
                 {
@@ -272,7 +272,7 @@ namespace Persistence
                         dataShenimit=DateTime.Now
                     }
                 };
-                context.PlaniMes.AddRange(planiM);
+                context.PlaniMesimor.AddRange(planiM);
                 context.SaveChanges();
             };
 
