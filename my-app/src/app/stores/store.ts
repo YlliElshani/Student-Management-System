@@ -8,6 +8,7 @@ import LendaStore from "./lendaStore"
 import NotaStore from "./notaStore";
 import QytetiStore from "./qytetiStore";
 import PrezantimiStore from "./prezantimiStore";
+import KlasaStore from "./klasaStore";
 
 
 interface Store {
@@ -20,6 +21,7 @@ interface Store {
     modalStore: ModalStore;
     qytetiStore: QytetiStore;
     prezantimiStore: PrezantimiStore;
+    klasaStore: KlasaStore;
 }
 
 export const store: Store = {
@@ -31,7 +33,8 @@ export const store: Store = {
     notaStore: new NotaStore(),
     modalStore: new ModalStore(),
     qytetiStore: new QytetiStore(),
-    prezantimiStore: new PrezantimiStore()
+    prezantimiStore: new PrezantimiStore(),
+    klasaStore: new KlasaStore()
 }
 
 export const StoreContext = createContext(store);

@@ -14,6 +14,7 @@ import { toast } from 'react-toastify';
 import { history } from '../..';
 import { store } from '../stores/store';
 import { IQyteti } from '../models/qyteti';
+import { IKlasa } from '../models/klasa';
 
 
 
@@ -160,6 +161,14 @@ const Account = {
     registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user)
 }
 
+const Klaset = {
+    list: (): Promise<IKlasa[]> => requests.get('/klaset'),
+    details: (klasaid: string) => requests.get(`/klaset/${klasaid}`),
+    create: (klasa:IKlasa) => requests.post('/klaset', klasa),
+    update: (klasa: IKlasa) => requests.put(`/klaset/${klasa.klasaId}`, klasa),
+    delete: (id: string) => requests.delete(`/klaset/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -172,7 +181,8 @@ const agent = {
     Njoftimet,
     KerkesaN, 
     Prezantimet,
-    Qytetet
+    Qytetet,
+    Klaset
 }
 
 export default agent;

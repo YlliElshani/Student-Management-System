@@ -322,6 +322,26 @@ namespace Persistence
                 context.Qytetet.AddRange(qytete);
                 context.SaveChanges();
             };
+            if(!context.Klaset.Any())
+            {
+                var klaset = new List<Klasa>
+                {
+                    new Klasa
+                    {
+                        EmriKl="X",
+                    },
+                    new Klasa
+                    {
+                        EmriKl="XI",
+                    },
+                    new Klasa
+                    {
+                        EmriKl="XII",
+                    }
+                };
+                context.Klaset.AddRange(klaset);
+                context.SaveChanges();
+            };
         }
 
     }

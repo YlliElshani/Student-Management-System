@@ -43,6 +43,7 @@ namespace Persistence
         public DbSet <PlaniMesimor> PlaniMes {get; set;}
 
         public DbSet <PlaniLenda> PlaniLendet {get; set;}
+        public DbSet <Klasa> Klaset {get; set;}
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

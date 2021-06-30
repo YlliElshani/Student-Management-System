@@ -42,6 +42,8 @@ import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/
 import QytetetList from '../../features/qytetet/QytetetList';
 import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
+import Shtesat from '../../features/administrator/Shtesat';
+import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 
 
 function App () {
@@ -79,6 +81,9 @@ function App () {
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimet' component={NjoftimetApp}/>
           <Route exact path='/admin/qytetet' component={QytetetList}/>
+          <Route exact path='/admin/lendet' component={LendaDashboard}/>
+          <Route exact path='/admin/shtesat' component={Shtesat}/>
+          <Route exact path='/admin/klaset' component={KlasaDashboard}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>
