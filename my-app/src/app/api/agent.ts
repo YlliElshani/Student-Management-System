@@ -13,6 +13,8 @@ import { IPrezantimi } from '../models/prezantimi';
 import { toast } from 'react-toastify';
 import { history } from '../..';
 import { store } from '../stores/store';
+import { IQyteti } from '../models/qyteti';
+import { IKlasa } from '../models/klasa';
 
 
 
@@ -37,7 +39,7 @@ axios.interceptors.response.use(async response => {
             toast.error('Unauthorized');
             break;
         case 404:
-            history.push('/not-found');
+            //history.push('/not-found');
             break;
         case 500:
             toast.error('Server Error');
@@ -132,11 +134,19 @@ const KerkesaN = {
 }
 
 const Prezantimet = {
-    prezantimetList: () : Promise<IPrezantimi[]> => requests.get('/prezantimet'),
-    prezantimetDetails: (id: string) => requests.get(`/prezantimet/${id}`),
-    createPrezantimi: (prezantimi:IPrezantimi) => requests.post('/prezantimet',prezantimi),
-    updatePrezantimi: (prezantimi: IPrezantimi) => requests.put(`/prezantimet/${prezantimi.prezantimiId}`, prezantimi),
-    deletePrezantimi: (id: string) => requests.delete(`/prezantimet/${id}`)
+    list: () : Promise<IPrezantimi[]> => requests.get('/prezantimet'),
+    details: (id: string) => requests.get(`/prezantimet/${id}`),
+    create: (prezantimi:IPrezantimi) => requests.post('/prezantimet',prezantimi),
+    update: (prezantimi: IPrezantimi) => requests.put(`/prezantimet/${prezantimi.prezantimiId}`, prezantimi),
+    delete: (id: string) => requests.delete(`/prezantimet/${id}`)
+}
+
+const Qytetet = {
+    list: () : Promise<IQyteti[]> => requests.get('/qytetet'),
+    details: (id: string) => requests.get(`/qytetet/${id}`),
+    create: (qyteti:IQyteti) => requests.post('/qytetet',qyteti),
+    update: (qyteti: IQyteti) => requests.put(`/qytetet/${qyteti.id}`, qyteti),
+    delete: (id: string) => requests.delete(`/qytetet/${id}`)
 }
 
 const Account = {
@@ -151,6 +161,14 @@ const Account = {
     registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user)
 }
 
+const Klaset = {
+    list: (): Promise<IKlasa[]> => requests.get('/klaset'),
+    details: (klasaid: string) => requests.get(`/klaset/${klasaid}`),
+    create: (klasa:IKlasa) => requests.post('/klaset', klasa),
+    update: (klasa: IKlasa) => requests.put(`/klaset/${klasa.klasaId}`, klasa),
+    delete: (id: string) => requests.delete(`/klaset/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -162,7 +180,9 @@ const agent = {
     Arsyetimet,
     Njoftimet,
     KerkesaN, 
-    Prezantimet
+    Prezantimet,
+    Qytetet,
+    Klaset
 }
 
 export default agent;

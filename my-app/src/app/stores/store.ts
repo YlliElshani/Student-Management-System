@@ -6,6 +6,9 @@ import TripStore from "./tripStore";
 import UserStore from "./userStore";
 import LendaStore from "./lendaStore"
 import NotaStore from "./notaStore";
+import QytetiStore from "./qytetiStore";
+import PrezantimiStore from "./prezantimiStore";
+import KlasaStore from "./klasaStore";
 
 
 interface Store {
@@ -16,6 +19,9 @@ interface Store {
     lendaStore: LendaStore;
     notaStore: NotaStore;
     modalStore: ModalStore;
+    qytetiStore: QytetiStore;
+    prezantimiStore: PrezantimiStore;
+    klasaStore: KlasaStore;
 }
 
 export const store: Store = {
@@ -25,7 +31,10 @@ export const store: Store = {
     commonStore: new CommonStore(),
     lendaStore: new LendaStore(),
     notaStore: new NotaStore(),
-    modalStore: new ModalStore()
+    modalStore: new ModalStore(),
+    qytetiStore: new QytetiStore(),
+    prezantimiStore: new PrezantimiStore(),
+    klasaStore: new KlasaStore()
 }
 
 export const StoreContext = createContext(store);

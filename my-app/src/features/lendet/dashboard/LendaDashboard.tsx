@@ -6,6 +6,8 @@ import LendaDetails from '../details/LendaDetails';
 import LendaForm from '../form/LendaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { NavBar } from '../../nav/NavBar';
+import AdminNavBar from '../../administrator/AdminNavBar';
+
 
 
 export default observer(function LendaDashboard() {
@@ -27,8 +29,11 @@ export default observer(function LendaDashboard() {
     return (
         
         <Grid style={{marginTop:'50px'}}>
-            <NavBar /> 
-            <Grid.Column width={10}>    
+            <Grid.Column width='4'>
+                    <AdminNavBar />
+                </Grid.Column>
+            
+            <Grid.Column width={10}>   
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -36,6 +41,7 @@ export default observer(function LendaDashboard() {
                             <Table.HeaderCell>Klasa</Table.HeaderCell>
                             <Table.HeaderCell>Profesori</Table.HeaderCell>
                             <Table.HeaderCell>Description</Table.HeaderCell>
+                            <Table.HeaderCell>Dropp</Table.HeaderCell>
                             <Table.HeaderCell>Edit</Table.HeaderCell>
                             <Table.HeaderCell>Delete</Table.HeaderCell>
                         </Table.Row>
@@ -47,6 +53,9 @@ export default observer(function LendaDashboard() {
                                 <Table.Cell>{lenda.klasa}</Table.Cell>
                                 <Table.Cell>{lenda.profesori}</Table.Cell>
                                 <Table.Cell>{lenda.descripion}</Table.Cell>
+                                <Table.Cell>
+                                    
+                                </Table.Cell>
                                 <Table.Cell><Button onClick={() => selectLenda(lenda.lendaId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
                                 <Table.Cell><Button inverted color='red' name={lenda.lendaId} loading={target === lenda.lendaId && loading} onClick={(e) => handleLendaDelete(e, lenda.lendaId)} size='mini'  content='Fshij Lenden' /></Table.Cell>
                             </Table.Row>
@@ -54,12 +63,14 @@ export default observer(function LendaDashboard() {
                     ))}
                 </Table>
                 <Button  class='ui button' inverted color='grey' onClick={() => lendaStore.openForm()} content='Shto Lende'/>
-            </Grid.Column>
-            <Grid.Column width='5'>
+                <Grid.Column width='5'>
                 {selectedLenda && !editMode && 
                 <LendaDetails/>}
                 {editMode && (<LendaForm/>)}
             </Grid.Column>
+            
+            </Grid.Column>
+            
         </Grid>
     )
 });

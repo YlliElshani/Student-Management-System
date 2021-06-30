@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210630010844_KlasaEntityAdded")]
+    partial class KlasaEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -358,18 +360,6 @@ namespace Persistence.Migrations
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
-                });
-
-            modelBuilder.Entity("Domain.VitiAkademik", b =>
-                {
-                    b.Property<Guid>("VitiAkademikId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("VitiAk");
-
-                    b.HasKey("VitiAkademikId");
-
-                    b.ToTable("VitetAkademike");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

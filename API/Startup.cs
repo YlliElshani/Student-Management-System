@@ -26,6 +26,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Application.Qytetet;
 
 namespace API
 {
@@ -59,7 +60,12 @@ namespace API
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
+<<<<<<< HEAD
             services.AddMediatR(typeof(ListPlanetM.Handler).Assembly);
+=======
+            services.AddMediatR(typeof(ListQytetet.Handler).Assembly);
+
+>>>>>>> 07e7511c0e543f363dc98f1e4dfe52f2c00b6e86
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt => {
