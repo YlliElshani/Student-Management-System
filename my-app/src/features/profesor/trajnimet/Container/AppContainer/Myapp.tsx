@@ -4,10 +4,10 @@ import agent from '../../../../../app/api/agent'
 import { LoadingComponent } from '../../../../../app/layout/LoadingComponent'
 import { ITrajnim } from '../../../../../app/models/trajnim'
 import { NavBar } from '../../../../nav/NavBar'
+import ProfesorNavBar from '../../../Profesor-Profili/ProfesorNavBar'
 import TrajnimDetails from '../DetailsContainer/TrajnimDetails'
 import TrajnimForm from '../FormContainer/TrajnimForm'
-import { ProfesorNavBar } from '../../../../profesor/ProfesorNavBar'
-
+import './MyAppStyle.css'
 
 const Myapp:React.FC = () => {  
     const [trajnimet, setTrajnimet] = useState<ITrajnim[]>([]);
@@ -69,10 +69,11 @@ const Myapp:React.FC = () => {
         return (
             <div>
                 <ProfesorNavBar/> 
+                <div className='outerdiv'>
                  <Button onClick={handleOpenCreateForm} content='Shto Trajnim'  color='green'/>
             <Grid>
                 
-            <NavBar/>
+       
             <Grid.Column width='6'>
                 <Segment>
                  
@@ -101,6 +102,7 @@ const Myapp:React.FC = () => {
                     {editMode && <TrajnimForm setEditMode={setEditMode} trajnim={selectedTrajnim!} createTrajnim={handleCreateTrajnim} editTrajnim={handleEditTrajnim} submitting={submitting}/>}
                 </Grid.Column>
             </Grid>
+            </div>
             </div>
         )
 }

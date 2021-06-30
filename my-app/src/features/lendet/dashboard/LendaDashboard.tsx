@@ -6,6 +6,7 @@ import LendaDetails from '../details/LendaDetails';
 import LendaForm from '../form/LendaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { NavBar } from '../../nav/NavBar';
+import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 
 
 export default observer(function LendaDashboard() {
@@ -26,9 +27,14 @@ export default observer(function LendaDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
-            <NavBar /> 
-            <Grid.Column width={10}>    
+        <Grid >
+            <Grid.Row>
+
+            <Grid.Column width='4'>
+            <ProfesorNavBar/>
+            </Grid.Column>
+            <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
+
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -60,6 +66,7 @@ export default observer(function LendaDashboard() {
                 <LendaDetails/>}
                 {editMode && (<LendaForm/>)}
             </Grid.Column>
+            </Grid.Row>
         </Grid>
     )
 });

@@ -4,7 +4,8 @@ import { IDetyra } from '../../../../app/models/detyra';
 import { NavBar } from '../../../nav/NavBar';
 import DetyraDashboard from './DetyraDashboard';
 import agent from '../../../../app/api/agent';
-import { ProfesorNavBar } from '../../../profesor/ProfesorNavBar'
+import ProfesorNavBar from '../../Profesor-Profili/ProfesorNavBar';
+import  './DetyraAppStyle.css'
 
 
 
@@ -58,13 +59,20 @@ const DetyraApp = () => {
   }, []); 
 
   return (
-    <Fragment>
-      <NavBar />
-      
-      <Container style={{ marginTop: '7em' }}>
-      <ProfesorNavBar/> 
+  
+
+    <Fragment >
+  
+      <ProfesorNavBar/>
+  
+         
+    <div className='div1'>
+
+      <Container className='div1' style={{ marginTop: '7em',}}>
+    
+     
       <Button onClick={handleOpenCreateForm} content='Shto Detyra' activeClassName="active" color='green'/>
-        <DetyraDashboard
+        <DetyraDashboard 
           detyrat={detyrat}
           selectDetyra={handleSelectDetyra}
           selectedDetyra={selectedDetyra}
@@ -75,9 +83,11 @@ const DetyraApp = () => {
           editDetyra={handleEditDetyra}
           deleteDetyra={handleDeleteDetyra}
         />
+           
       </Container>
+      </div>
     </Fragment>
-  
+
   );
 };
 

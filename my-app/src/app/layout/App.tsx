@@ -5,7 +5,7 @@ import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/profesor/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/profesor/Detyrat/dashboard1/DetyraApp';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
-import { ProfesorProfile } from '../../features/profesor/ProfesorProfile';
+
 import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
 import { ParentProfile } from '../../features/parentProfile/ParentProfile';
 import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
@@ -39,6 +39,10 @@ import StudentRegister from '../../features/users/StudentRegister';
 import ProfesorRegister from '../../features/users/ProfesorRegister';
 import GuardianRegister from '../../features/users/GuardianRegister';
 import StudentProfile from '../../features/student/StudentProfile';
+import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
+
+
+
 
 
 function App () {
@@ -82,6 +86,8 @@ function App () {
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
+
+
           <Route exact path='/student/listoTrips' component={ListTApp}/>
           <Route exact path='/student/listoGara' component={ListGApp}/>
           <Route exact path='/student/listoNjoftimetS' component={ListApp}/>
@@ -91,8 +97,13 @@ function App () {
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/notat' component={AppNota}/>
           <Route exact path='/notatStudenti' component={AppNotaStudenti}/>
+
           <Route exact path='/trajnimet' component={Myapp}/>
           <Route exact path='/detyrat' component={DetyraApp}/>
+
+          <Route exact path='/profesor/notat' component={AppNota}/>
+          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>
           <Route exact path='/listoGara' component={ListGApp}/>
