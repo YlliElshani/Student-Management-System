@@ -342,6 +342,34 @@ namespace Persistence
                 context.Klaset.AddRange(klaset);
                 context.SaveChanges();
             };
+            if(!context.VitetAkademike.Any())
+            {
+                var viteAkademike = new List<VitiAkademik>
+                {
+                    new VitiAkademik
+                    {
+                        VitiAk="17/18",
+                    },
+                    new VitiAkademik
+                    {
+                        VitiAk="18/19",
+                    },
+                    new VitiAkademik
+                    {
+                        VitiAk="18/19",
+                    },
+                    new VitiAkademik
+                    {
+                        VitiAk="19/20",
+                    },
+                    new VitiAkademik
+                    {
+                        VitiAk="20/21",
+                    }
+                };
+                context.VitetAkademike.AddRange(viteAkademike);
+                context.SaveChanges();
+            };
         }
 
     }
