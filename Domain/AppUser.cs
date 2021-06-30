@@ -5,6 +5,8 @@ namespace Domain
 {
     public class AppUser : IdentityUser
     {
+        public string Id {get; set;}
+
         public string DisplayName {get; set;}
 
         public string Age {get; set;}

@@ -45,6 +45,8 @@ import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
+import UserList from '../../features/administrator/users/UserList';
+
 
 
 function App () {
@@ -86,6 +88,7 @@ function App () {
           <Route exact path='/admin/shtesat' component={Shtesat}/>
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
+          <Route exact path='/admin/users' component={UserList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>

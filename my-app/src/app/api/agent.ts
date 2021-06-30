@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { IArsyeja } from '../models/arsyeja';
 import { ILenda } from '../models/lenda';
-import { UserFormValues } from '../models/user';
+import { User, UserFormValues } from '../models/user';
 import { INota } from '../models/nota';
 import { ITrajnim } from '../models/trajnim';
 import { IDetyra } from '../models/detyra';
@@ -152,6 +152,7 @@ const Qytetet = {
 
 const Account = {
     current: () => requests.get('/user'),
+    list: (): Promise<User[]> => requests.get('/admin/list'),
     loginAdmin: (user: UserFormValues) => requests.post(`/admin/loginAdmin`, user),
     registerAdmin: (user: UserFormValues) => requests.post(`/admin/registerAdmin`, user),
     loginStudent: (user: UserFormValues) => requests.post(`/student/loginStudent`, user),
@@ -159,7 +160,9 @@ const Account = {
     loginProfesor: (user: UserFormValues) => requests.post(`/profesor/loginProfesor`, user),
     registerProfesor: (user: UserFormValues) => requests.post(`/profesor/registerProfesor`, user),
     loginGuardian: (user: UserFormValues) => requests.post(`/guardian/loginGuardian`, user),
-    registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user)
+    registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user),
+    //update: (user: User) => requests.put(`/user/${user.id}`, user),
+    delete: (id: string) => requests.delete(`/admin/${id}`)
 }
 
 const Klaset = {

@@ -6,6 +6,11 @@ import { store } from "./store";
 
 export default class UserStore {
     user: User | null = null;
+    userRegistry = new Map<string, User>();
+    selectedUser: User | undefined = undefined;
+    editMode = false;
+    loading = false;
+    loadingInitial = true;
 
     constructor(){
         makeAutoObservable(this)
@@ -13,6 +18,35 @@ export default class UserStore {
 
     get isLoggedIn () {
         return !! this.user;
+    }
+
+    setLoadingInitial = (state: boolean) => {
+        this.loadingInitial = state;
+    }
+
+    selectUser = (id: string) => {
+        this.selectedUser = this.userRegistry.get(id);
+    }
+
+    cancelSelectedUser = () => {
+        this.selectedUser = undefined;
+    }
+
+    get users(){
+        return Array.from(this.userRegistry.values());
+    }
+
+    loadUsers = async () => {
+        try {
+            const users = await agent.Account.list();
+            users.forEach(user => {
+                this.userRegistry.set(user.id, user);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
     }
 
     adminLogin = async (values: UserFormValues) => {
@@ -119,6 +153,41 @@ export default class UserStore {
             //store.modalStore.closeModal();
         } catch (error) {
            throw error;
+        }
+    }
+
+    /*updateUser = async (user: User) => {
+        this.loading = true;
+        try {
+            await agent.Account.update(user);
+            runInAction(() => {
+                this.userRegistry.set(user.id, user);
+                this.selectedUser = user;
+                this.editMode = false;
+                this.loading = false;
+            })
+        } catch (error) {
+            console.log(error);
+            runInAction(() => {
+                this.loading = false;
+            })
+        }
+    }*/
+
+    deleteUser = async (id: string) => {
+        this.loading = true;
+        try {
+            await agent.Account.delete(id);
+            runInAction(() => {
+                this.userRegistry.delete(id);
+                if (this.selectedUser?.id === id) this.cancelSelectedUser();
+                this.loading = false;
+            })
+        } catch (error) {
+            console.log(error);
+            runInAction(() => {
+                this.loading = false;
+            })
         }
     }
 }

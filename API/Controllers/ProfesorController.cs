@@ -5,6 +5,8 @@ using Application.Professor;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using System;
+using MediatR;
 
 namespace API.Controllers
 {
@@ -43,9 +45,15 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpGet("list")]
-        public async Task<ActionResult<List<AppUser>>> ProfesorsList()
+        public async Task<ActionResult<List<AppUser>>> UserList()
         {
-            return await Mediator.Send(new ProfesorsList.Query());
+            return await Mediator.Send(new UserList.Query());
+        }
+
+        [AllowAnonymous]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Unit>> DeleteUser(string id){
+            return await Mediator.Send(new DeleteUser.Command{Id = id});
         }
     }
 }
