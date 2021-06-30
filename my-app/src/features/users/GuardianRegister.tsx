@@ -10,12 +10,12 @@ import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function GuardianRegister(){
-    const {userStore} = useStore();
+    const {userStore, modalStore} = useStore();
 
     return (
-            <Segment.Group horizontal style={{borderRadius:'5pt', width:'80%', marginTop:'4em', marginLeft:'10%'}}
+            <Segment.Group horizontal style={{borderRadius:'5pt', marginTop:'2em'}}
             raised>
-                <Tilt><Image src={Img} style={{height:'300px', padding:'20px', margin:'80px 70px'}} /></Tilt>
+                <Tilt><Image src={Img} style={{height:'250px', padding:'20px', margin:'90px 30px'}} /></Tilt>
                 <Formik 
             initialValues={{displayName:'', email: '', username:'', age:'', city:'', address:'', zipCode:'', phoneNumber:'', password:'', error: null}} 
             onSubmit={(values, {setErrors}) => userStore.registerGuardian(values).catch(error => 
@@ -50,6 +50,7 @@ export default observer (function GuardianRegister(){
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>
                             <ErrorMessage name='error' render={() =><Label style={{marginBottom: 5}} basic color='red' content={errors.error}/>}/>
                             <Button disabled={!isValid || !dirty || isSubmitting} style={{borderRadius:'20pt', marginBottom:'10px', height:'50px'}} positive loading={isSubmitting} content='Register' type='submit'/>
+                            <Button onClick={()=> modalStore.closeModal()} style={{borderRadius:'20pt', marginBottom:'10px', height:'50px'}} negative content='Cancel' type='submit'/>
                         </div>
                 </Form>
                 )}
