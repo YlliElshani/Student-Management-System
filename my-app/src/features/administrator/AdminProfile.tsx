@@ -22,7 +22,7 @@ export default function AdminProfile () {
               <Image src={user?.image || Photo} avatar circular size='medium'/>
               </Grid.Column>
               <Grid.Column style={{marginTop:"4em", fontSize:"x-large"}} textAlign='center'>
-                <Container>{user?.displayName}<Divider style={{width:"250px", marginLeft:"4em"}}>Administrator</Divider> </Container>
+                <Container>{user?.displayName}<Divider style={{width:"250px", marginLeft:"1em"}}>Administrator</Divider> </Container>
               </Grid.Column>
             </Grid.Row>
 
