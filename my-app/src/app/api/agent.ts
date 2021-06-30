@@ -15,6 +15,7 @@ import { history } from '../..';
 import { store } from '../stores/store';
 import { IQyteti } from '../models/qyteti';
 import { IKlasa } from '../models/klasa';
+import { IVitiAkademik } from '../models/vitiAkademik';
 
 
 
@@ -169,6 +170,14 @@ const Klaset = {
     delete: (id: string) => requests.delete(`/klaset/${id}`)
 }
 
+const VitetAkademike = {
+    list: (): Promise<IVitiAkademik[]> => requests.get('/vitetAkademike'),
+    details: (vitiAkademikId: string) => requests.get(`/vitetAkademike/${vitiAkademikId}`),
+    create: (vitiAkademik:IVitiAkademik) => requests.post('/vitetAkademike', vitiAkademik),
+    update: (vitiAkademik: IVitiAkademik) => requests.put(`/vitetAkademike/${vitiAkademik.vitiAkademikId}`, vitiAkademik),
+    delete: (id: string) => requests.delete(`/vitetAkademike/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -182,7 +191,8 @@ const agent = {
     KerkesaN, 
     Prezantimet,
     Qytetet,
-    Klaset
+    Klaset,
+    VitetAkademike
 }
 
 export default agent;

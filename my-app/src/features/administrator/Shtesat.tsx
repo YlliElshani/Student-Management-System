@@ -28,7 +28,7 @@ export default function AdminProfile() {
               </Card.Content>
               <Card.Content extra>
                 <div className='ui two buttons'>
-                  <Button basic color='green'>
+                  <Button basic color='green' as={NavLink} to='/admin/vitetAkademike'>
                     Shfaq
                   </Button>
                 </div>

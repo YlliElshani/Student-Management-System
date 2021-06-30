@@ -9,6 +9,7 @@ import NotaStore from "./notaStore";
 import QytetiStore from "./qytetiStore";
 import PrezantimiStore from "./prezantimiStore";
 import KlasaStore from "./klasaStore";
+import VitiAkademikStore from "./vitiAkademikStore";
 
 
 interface Store {
@@ -22,6 +23,7 @@ interface Store {
     qytetiStore: QytetiStore;
     prezantimiStore: PrezantimiStore;
     klasaStore: KlasaStore;
+    vitiAkademikStore: VitiAkademikStore;
 }
 
 export const store: Store = {
@@ -34,7 +36,8 @@ export const store: Store = {
     modalStore: new ModalStore(),
     qytetiStore: new QytetiStore(),
     prezantimiStore: new PrezantimiStore(),
-    klasaStore: new KlasaStore()
+    klasaStore: new KlasaStore(),
+    vitiAkademikStore: new VitiAkademikStore()
 }
 
 export const StoreContext = createContext(store);
