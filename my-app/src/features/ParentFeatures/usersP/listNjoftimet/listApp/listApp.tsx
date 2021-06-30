@@ -1,10 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import { List } from 'semantic-ui-react';
+import { Grid, List } from 'semantic-ui-react';
 import axios from 'axios';
 import { INjoftimi } from '../../../../../app/models/njoftimi';
 import { Listues } from './Listues';
 import { NavBar } from '../../../../nav/NavBar';
-import { ParentNavBar } from '../../../../parentProfile/ParentNavBar';
+import ParentNavBar from '../../ParentNavBar';
 
 interface IProps{
   njoftimet: INjoftimi;
@@ -22,13 +22,16 @@ const ListApp =()=> {
 
 
     return (
-      <div>
-          <NavBar/>
-          <ParentNavBar/>
-        <List>
-          <Listues listnjoftimet={njoftimet}/>
-        </List>
-      </div>
+      <Grid>
+      <Grid.Row>
+      <Grid.Column width='4'>
+      <ParentNavBar/>
+      </Grid.Column>
+      <Grid.Column width='10' style={{marginTop:'10em', marginLeft:"3em"}}>
+      <Listues listnjoftimet={njoftimet}/>
+    </Grid.Column>
+    </Grid.Row>
+  </Grid>
     );
 }
 

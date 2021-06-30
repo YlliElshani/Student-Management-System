@@ -18,13 +18,17 @@ export default observer(function AdminNavBar() {
             direction='left'
             >
                 {isLoggedIn ? (
-                    <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='/admin/profile'>
+                    <Menu.Item style={{marginTop:"10%"}} as={NavLink} to='/admin/profile'>
                       <Icon name='user' />
                       Profili
                   </Menu.Item>
                 ) : (
                     null
                 )}
+            <Menu.Item as={NavLink} to='/admin/users'>
+                <Icon name='users' />
+                Përdoruesit
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/admin/trips'>
                 <Icon name='sitemap' />
                 Shetitjet
@@ -36,6 +40,14 @@ export default observer(function AdminNavBar() {
             <Menu.Item as={NavLink} to='/admin/njoftimet'>
                 <Icon name='newspaper' />
                 Njoftimet
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/admin/qytetet'>
+                <Icon name='map' />
+                Qytetet
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/admin/shtesat'>
+                <Icon name='university' />
+                Ceshtjet administrative
             </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>

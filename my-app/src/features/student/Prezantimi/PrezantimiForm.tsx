@@ -1,71 +1,47 @@
-import React, {FormEvent, useState} from 'react'
+import { observer } from 'mobx-react-lite';
+import React, {ChangeEvent, useState} from 'react'
+import { combineValidators, composeValidators, hasLengthGreaterThan, isRequired } from 'revalidate';
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
-import {v4 as uuid, validate} from 'uuid';
-import { IPrezantimi } from '../../../app/models/prezantimi';
+import { validate } from 'uuid';
+import { useStore } from '../../../app/stores/store';
 
+export default observer(function PrezantimiForm() {
+    const {prezantimiStore} = useStore();
+    const {selectedPrezantimi, closeForm, createPrezantimi, updatePrezantimi, loading} = prezantimiStore;
 
-
-interface IProps {
-    setEditMode: (editMode: boolean) => void;
-    prezantimi: IPrezantimi
-    createPrezantimi: (prezantimi: IPrezantimi) => void;
-    editPrezantimi: (prezantimi: IPrezantimi) => void;
-    submitting: boolean;
-}
-
-export const PrezantimiForm:React.FC<IProps> = ({setEditMode, prezantimi: initialFormState, editPrezantimi, createPrezantimi, submitting}) => {
-    const initializeForm = () => {
-        if (initialFormState) {
-            return initialFormState
-        }
-        else {
-            return {
-                prezantimiId: '',
-                prezantimiInfo: '',
-                kohezgjatja: '',
-                data: '',
-                ora: '',
-            }
-        }
+    const initialState = selectedPrezantimi ?? {
+        prezantimiId: '',
+        prezantimiInfo: '',
+        kohezgjatja: '',
+        data: '',
+        ora: ''
     }
+    
 
-    const [prezantimi, setPrezantimi] = useState<IPrezantimi>(initializeForm);
+    const [prezantimi, setPrezantimi] = useState(initialState);
 
-    const handleSubmit = () => { 
-        if(prezantimi.prezantimiId === ''){
-            let newPrezantimi = {
-                 ...prezantimi,
-                 prezantimiId: uuid()
-            }
- 
- 
-            createPrezantimi(newPrezantimi);
-        }
-        else{
-            editPrezantimi(prezantimi);
-        }
+    function handleSubmit () { 
+        prezantimi.prezantimiId ? updatePrezantimi(prezantimi) : createPrezantimi(prezantimi);
      }
  
-     const handleInputChange = (event: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-         const {name, value} = event.currentTarget;
-         setPrezantimi({...prezantimi, [name]: value});
-     }
+    function handleInputChange (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
+        const {name, value} = event.currentTarget;
+        setPrezantimi({...prezantimi, [name]: value});
+    }
     
     return (
     <Segment clearing>
         <Grid>
-        <Form validate={validate} onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
-            <Form.TextArea rows={3} onChange={handleInputChange} name='prezantimiInfo' placeholder='Pershkrimi i prezantimit' value={prezantimi.prezantimiInfo} />
-            <Form.TextArea onChange={handleInputChange} name='kohezgjatja' placeholder='Kohezgjatja e prezantimit' value={prezantimi.kohezgjatja} />
-            <Form.Input type='date' onChange={handleInputChange} name='data' placeholder='Date' value={prezantimi.data} />
+        <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
+        <Form.TextArea rows={5} onChange={handleInputChange} name='prezantimiInfo' placeholder='PrezantimiInfo' value={prezantimi.prezantimiInfo} />
+            <Form.Input onChange={handleInputChange} name='kohezgjatja' placeholder='Kohezgjatja' value={prezantimi.kohezgjatja} />
+            <Form.Input type='date' onChange={handleInputChange} name='data' placeholder='Data' value={prezantimi.data} />
             <Form.Input onChange={handleInputChange} name='ora' placeholder='Ora' value={prezantimi.ora}/>
-            <Button loading={submitting} floated='right' positive type='submit' content='Shto'/>
-            <Button onClick={() => setEditMode(false)} floated='right' type='submit' content='Anulo' />
+            <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
+            <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>
         </Grid>
     </Segment>
     )
-}
-
-export default PrezantimiForm;
+})
 

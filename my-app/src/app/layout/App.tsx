@@ -6,16 +6,15 @@ import Myapp from '../../features/profesor/trajnimet/Container/AppContainer/Myap
 import DetyraApp from '../../features/profesor/Detyrat/dashboard1/DetyraApp';
 import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 
-import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
-import { ParentProfile } from '../../features/parentProfile/ParentProfile';
-import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
+
+
+
 import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
 import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
 import ListTApp from '../../features/student/listoTrips/listTApp';
 import { NotFound } from '../../features/errors/NotFound';
-import { PrezantimetList } from '../../features/student/Prezantimi/PrezantimetList';
 import TripsList from '../../features/administrator/trips/TripsList';
 import { observer } from 'mobx-react-lite';
 import CompetitionsList from '../../features/administrator/competitions/CompetitionsList';
@@ -42,6 +41,17 @@ import StudentProfile from '../../features/student/StudentProfile';
 import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
 
 
+import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
+import ParentProfile from '../../features/ParentFeatures/usersP/ParentProfile';
+import ListTApp2 from '../../features/listoTrips2/listTApp2';
+import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
+import QytetetList from '../../features/qytetet/QytetetList';
+import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
+import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
+import Shtesat from '../../features/administrator/Shtesat';
+import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
+import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
+import UserList from '../../features/administrator/users/UserList';
 
 
 
@@ -67,7 +77,7 @@ function App () {
 
           <Route exact path='/guardianLogin' component={GuardianLogin}/>
           <Route exact path='/guardianRegister' component={GuardianRegister}/>
-          <Route exact path='/ParentFeatures' component={parentDashboard}/>
+          <Route exact path='/usersP/ParentFeatures' component={parentDashboard}/>
           <Route exact path='/parentProfile' component={ParentProfile}/>
           <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
           <Route exact path='/listApp' component={listApp}/>
@@ -79,6 +89,12 @@ function App () {
           <Route exact path='/admin/trips' component={TripsList}/>
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimet' component={NjoftimetApp}/>
+          <Route exact path='/admin/qytetet' component={QytetetList}/>
+          <Route exact path='/admin/lendet' component={LendaDashboard}/>
+          <Route exact path='/admin/shtesat' component={Shtesat}/>
+          <Route exact path='/admin/klaset' component={KlasaDashboard}/>
+          <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
+          <Route exact path='/admin/users' component={UserList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>
@@ -89,6 +105,8 @@ function App () {
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
+          <Route exact path='/usersP/listoTrips2' component={ListTApp2}/>
+          <Route exact path='/listoNjoftimetS' component={ListApp}/>
           <Route exact path='/student/listoGara' component={ListGApp}/>
           <Route exact path='/student/listoNjoftimetS' component={ListApp}/>
           

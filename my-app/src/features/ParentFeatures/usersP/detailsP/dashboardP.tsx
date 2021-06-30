@@ -4,6 +4,8 @@ import { IArsyeja } from '../../../../app/models/arsyeja';
 import ArsyetoMungesen from '../formP/ArsyetoMungesen';
 import ListaArsyetimeve from './ListaArsyetimeve';
 import MungesaDetails from '../details/mungesaDetails';
+import './test.css';
+import ParentNavBar from '../ParentNavBar';
 
 interface IProps{
     arsyetimet: IArsyeja[];
@@ -21,16 +23,18 @@ interface IProps{
 
  const DashboardP:React.FC<IProps> = ({arsyetimet, selectArsyetim,selectedArsyetim,editMode,setEditMode,openCreateForm,setSelectedArsyetim,createArsyeja,editArsyeja,deleteActivity}) => {
     return (
-        <Grid>
-            <GridColumn width={10}>
+        <Grid className='test1'>
+            <Grid.Row>
+            <Grid.Column width='10'>
                 <ListaArsyetimeve arsyetimet={arsyetimet} selectArsyetim={selectArsyetim} openCreateForm={openCreateForm} deleteActivity={deleteActivity}/>
-            </GridColumn>
-            <GridColumn width={6}>
+            </Grid.Column>
+            <Grid.Column  width='10' style={{marginTop:'50%', marginLeft:"4em"}}>
                 {selectedArsyetim &&  !editMode &&
                 <MungesaDetails arsyetim={selectedArsyetim} setEditMode={setEditMode} setSelectedArsyetim={setSelectedArsyetim}/>}
                 {editMode  &&
                 <ArsyetoMungesen setEditMode={setEditMode} arsyetim={selectedArsyetim!} createArsyeja={createArsyeja} editArsyeja={editArsyeja}/>}
-            </GridColumn>
+            </Grid.Column>
+            </Grid.Row>
         </Grid>
     );
 };

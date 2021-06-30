@@ -18,7 +18,6 @@ export default observer (function HomePage(){
                 <Button as={NavLink} to='/adminLogin' className="login">Login as an Admin</Button>
                 <img src={Foto} className="product"/>
             </Segment>
-            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='adminRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -26,7 +25,6 @@ export default observer (function HomePage(){
                 <Button as={NavLink} to='/studentLogin' className="login">Login as a Student</Button>
                 <img src={Foto} className="product"/>
             </Segment>
-            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='studentRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -34,7 +32,6 @@ export default observer (function HomePage(){
                 <Button as={NavLink} to='/profesorLogin' className="login">Login as a Profesor</Button>
                 <img src={Foto} className="product"/>
             </Segment>
-            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='profesorRegister'/> 
             </Tilt>
             <Tilt>
             <Segment className="box" raised>
@@ -42,7 +39,6 @@ export default observer (function HomePage(){
                 <Button as={NavLink} to='/guardianLogin' className="login">Login as a Guardian</Button>
                 <img src={Foto} className="product"/>
             </Segment>
-            <Button className="login" size='huge' content='Create your Account' positive as={NavLink} to='guardianRegister'/> 
             </Tilt>
         </div>
 

@@ -27,10 +27,6 @@ export default observer(function ProfesorNavBar() {
                     ) : (
                         null
                     )}
-            <Menu.Item as={NavLink} to='/profesor/e-services'>
-                <Icon name='server' />
-                E-Shërbimet
-            </Menu.Item>
            
             <Menu.Item as={NavLink} to='/profesor/notat'>
                 <Icon name='grid layout' />
@@ -42,7 +38,7 @@ export default observer(function ProfesorNavBar() {
             </Menu.Item>
             <Menu.Item as={NavLink} to='/trajnimet'>
                 <Icon name='backward' />
-                Trajnimet
+                Oret Shtese
             </Menu.Item>
             <Menu.Item as={NavLink} to='/Detyrat'>
                 <Icon name='upload' />
