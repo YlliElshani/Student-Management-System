@@ -13,6 +13,8 @@ import VitiAkademikStore from "./vitiAkademikStore";
 import DetyraStore from "./detyraStore";
 import TrajnimStore from "./trajnimstore";
 import ArsyejaStore from "./arsyejaStore";
+import NjoftimeStore from "./njoftimeStore";
+import KerkesNdihmeStore from "./kerkesNdihmeStore";
 
 
 interface Store {
@@ -30,6 +32,8 @@ interface Store {
     detyraStore: DetyraStore;
     trajnimStore: TrajnimStore;
     arsyejaStore: ArsyejaStore;
+    njoftimeStore:NjoftimeStore;
+    kerkesNdihmeStore:KerkesNdihmeStore;
 }
 
 export const store: Store = {
@@ -44,9 +48,11 @@ export const store: Store = {
     prezantimiStore: new PrezantimiStore(),
     klasaStore: new KlasaStore(),
     vitiAkademikStore: new VitiAkademikStore(),
+    arsyejaStore: new ArsyejaStore(),
+    njoftimeStore:new NjoftimeStore(),
+    kerkesNdihmeStore:new KerkesNdihmeStore(),
     detyraStore: new DetyraStore(),
     trajnimStore: new TrajnimStore(),
-    arsyejaStore: new ArsyejaStore()
 }
 
 export const StoreContext = createContext(store);

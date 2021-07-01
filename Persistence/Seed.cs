@@ -431,6 +431,19 @@ namespace Persistence
                 context.VitetAkademike.AddRange(viteAkademike);
                 context.SaveChanges();
             };
+            if(!context.Kohezgjatja.Any())
+            {
+                var kohezgjatja = new List<Kohezgjatja>
+                {
+                    new Kohezgjatja
+                    {
+                        kohaMin=45,
+                        oraNisjes=10
+                    },
+                };
+                context.Kohezgjatja.AddRange(kohezgjatja);
+                context.SaveChanges();
+            };
         }
 
     }
