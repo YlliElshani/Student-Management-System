@@ -37,15 +37,8 @@ import ProfesorRegister from '../../features/users/ProfesorRegister';
 import GuardianRegister from '../../features/users/GuardianRegister';
 import StudentProfile from '../../features/student/StudentProfile';
 import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
-
-
-import parentDashboard from '../../features/ParentFeatures/usersP/dashboardP/parentDashboard';
-import ParentProfile from '../../features/ParentFeatures/usersP/ParentProfile';
 import ListTApp2 from '../../features/listoTrips2/listTApp2';
-import listApp from '../../features/ParentFeatures/usersP/listNjoftimet/listApp/listApp';
-
 import QytetetList from '../../features/qytetet/QytetetList';
-
 import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
@@ -55,6 +48,9 @@ import UserList from '../../features/administrator/users/UserList';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import TrajnimList from '../../features/profesor/trajnimet/TrajnimList';
 
+import listApp from '../../features/ParentFeatures/listNjoftimet/listApp/listApp';
+import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetList';
+import ParentProfile from '../../features/ParentFeatures/ParentProfile';
 
 
 
@@ -80,11 +76,12 @@ function App () {
 
           <Route exact path='/guardianLogin' component={GuardianLogin}/>
           <Route exact path='/guardianRegister' component={GuardianRegister}/>
-          <Route exact path='/usersP/ParentFeatures' component={parentDashboard}/>
-          <Route exact path='/parentProfile' component={ParentProfile}/>
           <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
           <Route exact path='/listApp' component={listApp}/>
           <Route exact path='/KerkesNdihme' component={AppNdihme}/>
+          <Route exact path='/mungesat' component={ArsyetimetList}/>
+          <Route exact path='/KerkesNdihme' component={AppNdihme}/>
+          <Route exact path='/parentProfile' component={ParentProfile}/>
 
           <Route exact path='/adminLogin' component={AdminLogin}/>
           <Route exact path='/adminRegister' component={AdminRegister}/>

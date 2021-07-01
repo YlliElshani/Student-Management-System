@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from 'semantic-ui-react'
-import { INjoftimi } from '../../../../../app/models/njoftimi'
+import { INjoftimi } from '../../../../app/models/njoftimi'
 import { Lista } from './Lista'
 
 interface IProps{

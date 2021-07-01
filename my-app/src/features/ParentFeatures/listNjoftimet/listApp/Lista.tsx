@@ -1,6 +1,6 @@
 import React from 'react'
 import { Item, Segment } from 'semantic-ui-react'
-import { INjoftimi } from '../../../../../app/models/njoftimi'
+import { INjoftimi } from '../../../../app/models/njoftimi'
 
 interface IProps{
     njoftimet:INjoftimi[]

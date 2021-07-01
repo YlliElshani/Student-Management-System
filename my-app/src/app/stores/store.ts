@@ -12,6 +12,7 @@ import KlasaStore from "./klasaStore";
 import VitiAkademikStore from "./vitiAkademikStore";
 import DetyraStore from "./detyraStore";
 import TrajnimStore from "./trajnimstore";
+import ArsyejaStore from "./arsyejaStore";
 
 
 interface Store {
@@ -28,6 +29,7 @@ interface Store {
     vitiAkademikStore: VitiAkademikStore;
     detyraStore: DetyraStore;
     trajnimStore: TrajnimStore;
+    arsyejaStore: ArsyejaStore;
 }
 
 export const store: Store = {
@@ -43,7 +45,8 @@ export const store: Store = {
     klasaStore: new KlasaStore(),
     vitiAkademikStore: new VitiAkademikStore(),
     detyraStore: new DetyraStore(),
-    trajnimStore: new TrajnimStore()
+    trajnimStore: new TrajnimStore(),
+    arsyejaStore: new ArsyejaStore()
 }
 
 export const StoreContext = createContext(store);

@@ -2,7 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
-import { useStore } from '../../../app/stores/store';
+import { useStore } from '../../app/stores/store';
 
 export default observer(function ParentNavBar() {
     const {userStore: {logout, isLoggedIn}} = useStore();
@@ -26,7 +26,7 @@ export default observer(function ParentNavBar() {
                     ) : (
                         null
                     )}
-            <Menu.Item as={NavLink} to='/usersP/ParentFeatures'>
+            <Menu.Item as={NavLink} to='/mungesat'>
                 <Icon name='info circle' />
                 Arsyeto Mungese
             </Menu.Item>

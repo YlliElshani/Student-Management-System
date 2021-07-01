@@ -5,7 +5,7 @@ import StudentNavBar from './StudentNavBar'
 import Photo from '../../assets/studentphoto.jpg'
 import { useStore } from '../../app/stores/store';
 
-export default function AdminProfile () {
+export default function StudentProfile () {
   const {userStore: {user,logout}} = useStore();
   
     return (
@@ -96,29 +96,6 @@ export default function AdminProfile () {
                       <Table.HeaderCell><Icon style={{marginRight:"2em"}} name='newspaper'/>Informata rreth shkollës</Table.HeaderCell>
                     </Table.Row>
                   </Table.Header>
-
-                  <Table.Body>
-                    <Table.Row>
-                      <Table.Cell>
-                        <Header as='h4' image>
-                          <Header.Content>
-                            Drejtimi
-                          </Header.Content>
-                        </Header>
-                      </Table.Cell>
-                      <Table.Cell>Shkenca Natyrore</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                      <Table.Cell>
-                        <Header as='h4' image>
-                          <Header.Content>
-                            Klasa 
-                          </Header.Content>
-                        </Header>
-                      </Table.Cell>
-                      <Table.Cell>XII/11</Table.Cell>
-                    </Table.Row>
-                  </Table.Body>
                 </Table>
             </Grid.Row>
 
