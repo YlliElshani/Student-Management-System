@@ -10,6 +10,5 @@ namespace Domain
         public string Klasa { get; set; }
         public string Profesori {get; set; }
         public string Descripion { get; set; }
-        public List<PlaniLenda> Plani_Lenda{get; set;}
     }
 }

@@ -40,6 +40,10 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='backward' />
                 Oret Shtese
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/planiMesimor'>
+                <Icon name='book' />
+                Plani Mesimor
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/detyrat'>
                 <Icon name='upload' />
                 Detyrat

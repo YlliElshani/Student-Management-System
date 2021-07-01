@@ -14,7 +14,7 @@ namespace Application.PlaniMes
         public class Command : IRequest
         {
 
-          public int Id{get; set;}
+          public Guid Id{get; set;}
 
         public string planiInfo{get; set;}
 

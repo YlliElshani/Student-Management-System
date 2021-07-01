@@ -50,6 +50,7 @@ import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetLis
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
 import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
+import PlaniMList from '../../features/planiMesimor/PlaniMList';
 
 
 
@@ -120,7 +121,8 @@ function App () {
         
 
           <Route exact path='/profesor/notat' component={AppNota}/>
-          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/notat' component={AppNota}/>
+          <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

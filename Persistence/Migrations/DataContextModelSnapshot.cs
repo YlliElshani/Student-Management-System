@@ -259,24 +259,9 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<Guid>("LendaId");
-
-                    b.Property<int>("idP");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LendaId");
-
-                    b.ToTable("PlaniLendet");
-                });
-
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataShenimit");
@@ -287,7 +272,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMes");
+                    b.ToTable("PlaniMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>
@@ -454,19 +439,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.HasOne("Domain.PlaniMesimor", "planiMesimor")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.Lenda", "Lenda")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("LendaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

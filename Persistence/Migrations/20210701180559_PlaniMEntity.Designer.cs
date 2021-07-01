@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210628215750_PlaniLendaEntity")]
-    partial class PlaniLendaEntity
+    [Migration("20210701180559_PlaniMEntity")]
+    partial class PlaniMEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -183,6 +183,18 @@ namespace Persistence.Migrations
                     b.ToTable("KerkesaN");
                 });
 
+            modelBuilder.Entity("Domain.Klasa", b =>
+                {
+                    b.Property<Guid>("KlasaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("EmriKl");
+
+                    b.HasKey("KlasaId");
+
+                    b.ToTable("Klaset");
+                });
+
             modelBuilder.Entity("Domain.Lenda", b =>
                 {
                     b.Property<Guid>("LendaId")
@@ -249,24 +261,9 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<Guid>("LendaId");
-
-                    b.Property<int>("idP");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LendaId");
-
-                    b.ToTable("PlaniLenda");
-                });
-
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataShenimit");
@@ -296,6 +293,20 @@ namespace Persistence.Migrations
                     b.HasKey("prezantimiId");
 
                     b.ToTable("Prezantimet");
+                });
+
+            modelBuilder.Entity("Domain.Qyteti", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Emri");
+
+                    b.Property<string>("Shteti");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Qytetet");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>
@@ -334,6 +345,18 @@ namespace Persistence.Migrations
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
+                });
+
+            modelBuilder.Entity("Domain.VitiAkademik", b =>
+                {
+                    b.Property<Guid>("VitiAkademikId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("VitiAk");
+
+                    b.HasKey("VitiAkademikId");
+
+                    b.ToTable("VitetAkademike");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -418,19 +441,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.HasOne("Domain.PlaniMesimor", "planiMesimor")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.Lenda", "Lenda")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("LendaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

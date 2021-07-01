@@ -11,7 +11,7 @@ namespace Application.PlaniMes
     {
         public class Query : IRequest<PlaniMesimor>
         {
-            public int Id { get; set; }
+            public Guid Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, PlaniMesimor>

@@ -266,7 +266,6 @@ namespace Persistence
                 {
                     new PlaniMesimor
                     {
-                        Id=1,
                         planiInfo="Do te spjegohen bazat e trigonometris",
                         kriteriSuksesit="Nxenesi do mundet te kryej detyra me formule te pitagores",
                         dataShenimit=DateTime.Now
