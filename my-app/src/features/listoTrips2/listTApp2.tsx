@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Listues } from './Listues';
 import { ITrip } from '../../app/models/trip';
 import agent from '../../app/api/agent';
-import ParentNavBar from '../ParentFeatures/usersP/ParentNavBar';
+import ParentNavBar from '../ParentFeatures/ParentNavBar';
 
 
 interface IProps{

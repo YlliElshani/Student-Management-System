@@ -1,10 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Container, Grid, Divider, Header, Table, Icon } from 'semantic-ui-react'
-import { useStore } from '../../../app/stores/store';
+import { useStore } from '../../app/stores/store';
 import ParentNavBar from './ParentNavBar';
 
 
-export default function AdminProfile () {
+export default observer( function ParentProfile () {
   const {userStore: {user,logout}} = useStore();
   
     return (
@@ -92,4 +93,4 @@ export default function AdminProfile () {
         </Grid.Row>
     </Grid>
     )
-}
+})
