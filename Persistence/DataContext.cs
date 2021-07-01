@@ -35,9 +35,9 @@ namespace Persistence
 
         public DbSet <Evente> Eventet {get; set;}
 
-        public DbSet <AppUser> AppUser {get; set;}
+        public DbSet <AppRole> AppRole { get; set; }
 
-        public DbSet <AppRole> AppRole {get; set;}
+        public DbSet <AppUser> AppUser {get; set;}
 
         public DbSet <PlaniMesimor> PlaniMesimor {get; set;}
         public DbSet <Qyteti> Qytetet {get; set;}

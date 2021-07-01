@@ -14,9 +14,9 @@ export default class QytetiStore {
         makeAutoObservable(this)
     }
 
-    get qytetiByEmri() {
+    get qytetetByAlphabet() {
         return Array.from(this.qytetiRegistry.values()).sort((a, b) => 
-            Date.parse(a.emri) - Date.parse(b.emri));
+            a.emri.localeCompare(b.emri));
     }
 
     loadQytetet = async () => {

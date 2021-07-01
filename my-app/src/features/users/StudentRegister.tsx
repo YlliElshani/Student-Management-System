@@ -10,7 +10,8 @@ import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function StudentRegister(){
-    const {userStore, modalStore} = useStore();
+    const {userStore, modalStore, qytetiStore} = useStore();
+    const {qytetetByAlphabet} = qytetiStore;
 
     return (
             <Segment.Group horizontal style={{borderRadius:'5pt', marginTop:'2em'}}
@@ -44,7 +45,11 @@ export default observer (function StudentRegister(){
                             <TextInput name='age' placeholder='Age'/>
                         </div>
                         <div  className='ui form' style={{marginTop:'4.7%'}}>
-                            <TextInput name='city' placeholder='City'/>
+                            <select style={{borderRadius:'20pt', marginBottom:'20px', height:'50px', width:'300px'}} name='city' placeholder='City'>
+                                {qytetetByAlphabet.map(qyteti => (
+                                    <option>{qyteti.emri}</option>
+                                ))}
+                            </select>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>

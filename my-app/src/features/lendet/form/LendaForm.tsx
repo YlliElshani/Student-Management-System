@@ -10,7 +10,7 @@ export default observer(function LendaForm() {
   const { selectedLenda, closeForm, createLenda, updateLenda, loading } = lendaStore;
   //i shton qito store t'qasaj tabele qe ka me hi ndrop-down (12-13)
   const { klasaStore } = useStore();
-  const { klasetByEmri} = klasaStore;
+  const { klasetByEmri } = klasaStore;
 
   const initialState = selectedLenda ?? {
     lendaId: '',

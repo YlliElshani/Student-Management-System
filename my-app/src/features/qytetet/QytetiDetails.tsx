@@ -4,7 +4,7 @@ import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store';
 
 
-export default function QytetiDetails ()  {
+export default observer (function QytetiDetails ()  {
     const {qytetiStore} = useStore();
     const {selectedQyteti: qyteti, openForm, cancelSelectedQyteti} = qytetiStore;
     
@@ -24,5 +24,5 @@ export default function QytetiDetails ()  {
             </Button.Group>
         </Segment>
     )
-}
+})
 

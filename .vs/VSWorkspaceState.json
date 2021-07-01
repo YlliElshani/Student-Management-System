@@ -4,9 +4,10 @@
     "\\API",
     "\\API\\Controllers",
     "\\Application",
+    "\\Application\\Admin",
     "\\Application\\User",
     "\\Persistence"
   ],
-  "SelectedNode": "\\API\\API.csproj",
+  "SelectedNode": "\\Application\\Admin\\AdminsList.cs",
   "PreviewInSolutionExplorer": false
 }

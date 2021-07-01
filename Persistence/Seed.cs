@@ -317,6 +317,36 @@ namespace Persistence
                     {
                         Emri="Mitrovicë",
                         Shteti="Kosovë"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Rahovec",
+                        Shteti="Kosovë"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Ulqin",
+                        Shteti="Mali i Zi"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Prishtinë",
+                        Shteti="Kosovë"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Prizren",
+                        Shteti="Kosovë"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Gjakovë",
+                        Shteti="Kosovë"
+                    },
+                    new Qyteti
+                    {
+                        Emri="Pejë",
+                        Shteti="Kosovë"
                     }
                 };
                 context.Qytetet.AddRange(qytete);

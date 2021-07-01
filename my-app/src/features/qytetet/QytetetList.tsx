@@ -12,7 +12,7 @@ export default observer(function QytetetList () {
 
     const {qytetiStore} = useStore();
     const {selectedQyteti, editMode} = qytetiStore;
-    const {deleteQyteti, qytetiByEmri, loading} = qytetiStore;
+    const {deleteQyteti, qytetetByAlphabet, loading} = qytetiStore;
 
     const [target, setTarget] = useState('');
     
@@ -36,7 +36,7 @@ export default observer(function QytetetList () {
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={() => qytetiStore.openForm()} content='Shto Qytetin'/>
                     <Item.Group divided>
-                        {qytetiByEmri.map((qyteti) => (
+                        {qytetetByAlphabet.map((qyteti) => (
                         <Item key={qyteti.id}>
                             <Item.Content inverted="true">
                             <Item.Header >{qyteti.emri}</Item.Header>

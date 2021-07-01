@@ -1,6 +1,6 @@
 import { values } from 'mobx'
 import React from 'react'
-import { Button, Label, Segment, Image, Header} from 'semantic-ui-react'
+import { Button, Label, Segment, Image, Header, Dropdown} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
 import { ErrorMessage, Form, Formik } from 'formik'
@@ -10,7 +10,8 @@ import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function AdminRegister(){
-    const {userStore, modalStore} = useStore();
+    const {userStore, modalStore, qytetiStore} = useStore();
+    const { qytetetByAlphabet } = qytetiStore;
 
     return (
             <Segment.Group horizontal style={{borderRadius:'5pt', marginTop:'2em'}}
@@ -44,7 +45,11 @@ export default observer (function AdminRegister(){
                             <TextInput name='age' placeholder='Age'/>
                         </div>
                         <div  className='ui form' style={{marginTop:'4.7%'}}>
-                            <TextInput name='city' placeholder='City'/>
+                            <select style={{borderRadius:'20pt', marginBottom:'20px', height:'50px', width:'300px'}} name='city' placeholder='City'>
+                                {qytetetByAlphabet.map(qyteti => (
+                                    <option key={qyteti.emri}>{qyteti.emri}</option>
+                                ))}
+                            </select>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>
