@@ -42,7 +42,7 @@ axios.interceptors.response.use(async response => {
             toast.error('Unauthorized');
             break;
         case 404:
-            //history.push('/not-found');
+            history.push('/not-found');
             break;
         case 500:
             toast.error('Server Error');
@@ -169,7 +169,7 @@ const Qytetet = {
 }
 
 const Account = {
-    current: () => requests.get('/user'),
+    current: () => requests.get('/admin'),
     list: (): Promise<User[]> => requests.get('/admin/list'),
     loginAdmin: (user: UserFormValues) => requests.post(`/admin/loginAdmin`, user),
     registerAdmin: (user: UserFormValues) => requests.post(`/admin/registerAdmin`, user),

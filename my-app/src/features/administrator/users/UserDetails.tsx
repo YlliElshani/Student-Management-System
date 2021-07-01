@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
-import { TextInput } from 'react-native';
 import { Button, Segment, Header, Form, Image } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import AdminRegister from '../../users/AdminRegister';

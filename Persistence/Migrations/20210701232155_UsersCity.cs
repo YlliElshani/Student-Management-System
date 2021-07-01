@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210701224514_UsersCity.cs
     public partial class UsersCity : Migration
-=======
-    public partial class AllEntity : Migration
->>>>>>> a98a15d3dae75053c244c896e731e99889eb54ac:Persistence/Migrations/20210701213211_AllEntity.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -139,11 +135,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701224514_UsersCity.cs
-                name: "Kohezgjatja",
-=======
                 name: "Kohezgjatjet",
->>>>>>> a98a15d3dae75053c244c896e731e99889eb54ac:Persistence/Migrations/20210701213211_AllEntity.cs
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -152,11 +144,7 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-<<<<<<< HEAD:Persistence/Migrations/20210701224514_UsersCity.cs
-                    table.PrimaryKey("PK_Kohezgjatja", x => x.Id);
-=======
                     table.PrimaryKey("PK_Kohezgjatjet", x => x.Id);
->>>>>>> a98a15d3dae75053c244c896e731e99889eb54ac:Persistence/Migrations/20210701213211_AllEntity.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -294,13 +282,13 @@ namespace Persistence.Migrations
                 name: "Vijushmerit",
                 columns: table => new
                 {
-                    VijushmeriaID = table.Column<Guid>(nullable: false),
+                    VijushmeriaId = table.Column<Guid>(nullable: false),
                     Pjesmarrja = table.Column<string>(nullable: true),
                     Studenti = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vijushmerit", x => x.VijushmeriaID);
+                    table.PrimaryKey("PK_Vijushmerit", x => x.VijushmeriaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -495,14 +483,10 @@ namespace Persistence.Migrations
                 name: "Klaset");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701224514_UsersCity.cs
-                name: "Kohezgjatja");
-=======
                 name: "Kohezgjatjet");
 
             migrationBuilder.DropTable(
                 name: "Lendet");
->>>>>>> a98a15d3dae75053c244c896e731e99889eb54ac:Persistence/Migrations/20210701213211_AllEntity.cs
 
             migrationBuilder.DropTable(
                 name: "Njoftimet");

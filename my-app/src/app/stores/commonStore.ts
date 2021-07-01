@@ -6,8 +6,6 @@ export default class CommonStore {
 
     constructor(){
         makeAutoObservable(this);
-
-
         reaction(
             () => this.token,
             token => {

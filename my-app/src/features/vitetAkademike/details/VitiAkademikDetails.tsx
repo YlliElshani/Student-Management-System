@@ -1,9 +1,9 @@
+import { observer } from 'mobx-react-lite';
 import { Button,Card } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
-import AdminNavBar from '../../administrator/AdminNavBar';
 
-export default function VitiAkademikDetails() {
+export default observer (function VitiAkademikDetails() {
     const {vitiAkademikStore} = useStore();
     const {selectedVitiAkademik: vitiAkademik, openForm, cancelSelectedVitiAkademik} = vitiAkademikStore
     if (!vitiAkademik) return <LoadingComponent/>;
@@ -20,4 +20,4 @@ export default function VitiAkademikDetails() {
             </Card.Content>
         </Card>
     )
-}
+})

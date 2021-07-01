@@ -29,8 +29,6 @@ import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppN
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
-import modalContainer from '../common/modals/modalContainer';
-import { Container } from 'semantic-ui-react';
 import HomePage from '../../features/homepage/HomePage';
 import AdminRegister from '../../features/users/AdminRegister';
 import StudentRegister from '../../features/users/StudentRegister';
@@ -40,7 +38,6 @@ import StudentProfile from '../../features/student/StudentProfile';
 import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
 import ListTApp2 from '../../features/listoTrips2/listTApp2';
 import QytetetList from '../../features/qytetet/QytetetList';
-import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
 
