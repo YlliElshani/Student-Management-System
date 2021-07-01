@@ -5,7 +5,6 @@ import { useStore } from '../../../app/stores/store';
 import VijushmeriaDetails from './VijushmeriaDetails';
 import VijushmeriaForm from './VijushmeriaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import { NavBar } from '../../nav/NavBar';
 import AdminNavBar from '../../administrator/AdminNavBar';
 import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 

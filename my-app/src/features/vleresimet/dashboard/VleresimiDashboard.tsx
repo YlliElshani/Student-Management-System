@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import { Button, Grid, Table } from 'semantic-ui-react'
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import { NavBar } from '../../nav/NavBar';
 import AdminNavBar from '../../administrator/AdminNavBar';
 import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 import { useStore } from '../../../app/stores/store';
