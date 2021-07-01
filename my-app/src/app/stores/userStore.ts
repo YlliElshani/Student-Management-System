@@ -115,7 +115,7 @@ export default class UserStore {
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/admin/profile');
-            //store.modalStore.closeModal();
+            store.modalStore.closeModal();
         } catch (error) {
            throw error;
         }
@@ -126,7 +126,7 @@ export default class UserStore {
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/studentProfile');
-            //store.modalStore.closeModal();
+            store.modalStore.closeModal();
         } catch (error) {
            throw error;
         }
@@ -138,7 +138,7 @@ export default class UserStore {
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/profesorprofile');
-            //store.modalStore.closeModal();
+            store.modalStore.closeModal();
         } catch (error) {
            throw error;
         }
@@ -150,7 +150,7 @@ export default class UserStore {
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
             history.push('/parentProfile');
-            //store.modalStore.closeModal();
+            store.modalStore.closeModal();
         } catch (error) {
            throw error;
         }

@@ -26,7 +26,6 @@ export default observer (function StudentRegister(){
                 username: Yup.string().required(),
                 email: Yup.string().required().email(),
                 age: Yup.string().required(),
-                city: Yup.string().required(),
                 address: Yup.string().required(),
                 zipCode: Yup.string().required(),
                 phoneNumber: Yup.string().required(),
