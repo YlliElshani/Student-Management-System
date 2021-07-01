@@ -15,8 +15,9 @@ const validate = combineValidators({
 
 
 export default observer(function TripForm() {
-    const {tripStore} = useStore();
+    const {tripStore, userStore} = useStore();
     const {selectedTrip, closeForm, createTrip, updateTrip, loading} = tripStore;
+    const {users} = userStore;
 
     const initialState = selectedTrip ?? {
         tripId: '',
@@ -25,11 +26,13 @@ export default observer(function TripForm() {
         date: '',
         description: '',
         participants: '',
-        price: ''
+        price: '',
+        user:''
     }
     
 
     const [trip, setTrip] = useState(initialState);
+    const [selected, setSelected] = React.useState("");
 
     function handleSubmit () { 
         trip.tripId ? updateTrip(trip) : createTrip(trip);
@@ -40,6 +43,12 @@ export default observer(function TripForm() {
         setTrip({...trip, [name]: value});
     }
     
+    function changeSelectOptionHandler(event: { target: { value: any; name?: any; }; }) {
+        setSelected(event.target.value);
+        const { name, value } = event.target;
+        setTrip({ ...trip, [name]: value });
+      }
+
     return (
     <Segment clearing>
         <Grid>
@@ -50,6 +59,14 @@ export default observer(function TripForm() {
             <Form.TextArea rows={5} onChange={handleInputChange} name='description' placeholder='Description' value={trip.description} />
             <Form.Input onChange={handleInputChange} name='participants' placeholder='Participants' value={trip.participants}/>
             <Form.Input onChange={handleInputChange} name='price' placeholder='Price' value={trip.price}/>
+            <Form.Input>
+                <select onChange={changeSelectOptionHandler} name='user' placeholder='User' value={trip.user}>
+                {users.map(user => (
+                    
+                    <option>{user.displayName}</option>
+                ))}
+                </select>
+            </Form.Input>
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
             <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>

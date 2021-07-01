@@ -5,7 +5,6 @@ import { useStore } from '../../../app/stores/store';
 import LendaDetails from '../details/LendaDetails';
 import LendaForm from '../form/LendaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import { NavBar } from '../../nav/NavBar';
 import AdminNavBar from '../../administrator/AdminNavBar';
 import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 

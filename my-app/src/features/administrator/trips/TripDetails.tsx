@@ -4,7 +4,7 @@ import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 
-export default function TripDetails ()  {
+export default observer( function TripDetails ()  {
     const {tripStore} = useStore();
     const {selectedTrip: trip, openForm, cancelSelectedTrip} = tripStore;
     
@@ -22,6 +22,7 @@ export default function TripDetails ()  {
                 <Segment>{trip!.description}</Segment>
                 <Segment>{trip!.participants}</Segment>
                 <Segment>{trip!.price}</Segment>
+                <Segment>{trip!.user}</Segment>
             </Grid.Column>
             </Grid.Row>
         </Grid>
@@ -32,4 +33,4 @@ export default function TripDetails ()  {
         </Segment>
     )
 }
-
+)

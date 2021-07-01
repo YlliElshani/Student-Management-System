@@ -7,14 +7,14 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application.PlaniMes
+namespace Application.PlaniM
 {
     public class Create
     {
         public class Command : IRequest
         {
 
-          public int Id{get; set;}
+          public Guid Id{get; set;}
 
         public string planiInfo{get; set;}
 

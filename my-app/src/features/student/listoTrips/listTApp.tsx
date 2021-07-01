@@ -3,7 +3,6 @@ import { Grid, List } from 'semantic-ui-react';
 import axios from 'axios';
 import { Listues } from './Listues';
 import { INjoftimi } from '../../../app/models/njoftimi';
-import { NavBar } from '../../nav/NavBar';
 
 import { ITrip } from '../../../app/models/trip';
 import agent from '../../../app/api/agent';

@@ -42,6 +42,7 @@ export default observer(function TripsList () {
                             <Item.Content inverted="true">
                             <Item.Header >{trip.name}</Item.Header>
                             <Item.Meta>{trip.place}</Item.Meta>
+                            <Item.Meta>{trip.user}</Item.Meta>
                             <Item.Extra>
                                 <Button onClick={() => tripStore.selectTrip(trip.tripId)} size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button name={trip.tripId} loading={loading && target === trip.tripId} onClick={(e) => handleDeleteTrip(e, trip.tripId)} size='mini' floated='right' content='Fshij Shëtitjen' />

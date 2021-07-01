@@ -1,9 +1,10 @@
+import { observer } from 'mobx-react-lite';
 import { Button,Card } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 import AdminNavBar from '../../administrator/AdminNavBar';
 
-export default function KlasaDetails() {
+export default observer( function KlasaDetails() {
     const {klasaStore} = useStore();
     const {selectedKlasa: klasa, openForm, cancelSelectedKlasa} = klasaStore
     if (!klasa) return <LoadingComponent/>;
@@ -20,4 +21,4 @@ export default function KlasaDetails() {
             </Card.Content>
         </Card>
     )
-}
+})

@@ -60,7 +60,7 @@ export default observer(function UserList () {
                             <Item.Header>{user.displayName}</Item.Header>
                             <Item.Meta>{user.email}</Item.Meta>
                             <Item.Extra>
-                                {/*<Button positive onClick={() => userStore.selectUser(user.id)} size='mini' floated='right' content='Shiko Detajet'/>*/}
+                                <Button positive onClick={(e) =>{userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                             </Item.Extra>
                             </Item.Content>
@@ -68,10 +68,6 @@ export default observer(function UserList () {
                         ))}
                     </Item.Group>
                 </Grid.Column>
-                {/*<Grid.Column  width='4' style={{marginTop:'3em'}}>
-                    {selectedUser && !editMode && 
-                    <UserDetails />}
-                </Grid.Column>*/}
             </Grid.Row>
         </Grid>
     )

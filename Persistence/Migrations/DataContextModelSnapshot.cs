@@ -275,7 +275,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataShenimit");
@@ -353,6 +353,8 @@ namespace Persistence.Migrations
                     b.Property<string>("place");
 
                     b.Property<string>("price");
+
+                    b.Property<string>("user");
 
                     b.HasKey("tripId");
 

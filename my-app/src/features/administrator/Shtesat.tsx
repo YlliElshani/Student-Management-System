@@ -5,8 +5,9 @@ import { useStore } from '../../app/stores/store'
 import AdminNavBar from './AdminNavBar'
 import Photo from '../../assets/user.png';
 import { NavLink } from 'react-router-dom';
+import { observer } from 'mobx-react-lite';
 
-export default function AdminProfile() {
+export default observer( function Shtesat() {
   const { userStore: { user, logout } } = useStore();
 
   return (
@@ -122,3 +123,4 @@ export default function AdminProfile() {
     </Grid>
   )
 }
+)

@@ -18,5 +18,7 @@ namespace Domain
 
         public string price {get; set;}
 
+        public string user {get; set;}
+
     }
 }

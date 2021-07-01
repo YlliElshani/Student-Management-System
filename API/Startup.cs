@@ -13,7 +13,7 @@ using Application.Arsyetimet;
 using Application.Njoftimet;
 using Application.KerkesaNdihme;
 using Application.Eventet;
-using Application.PlaniMes;
+using Application.PlaniM;
 using Application.Competitions;
 using Domain;
 using Microsoft.AspNetCore.Identity;
