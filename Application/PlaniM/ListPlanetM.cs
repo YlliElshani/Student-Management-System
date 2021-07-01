@@ -6,7 +6,7 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application.PlaniMes
+namespace Application.PlaniM
 {
     public class ListPlanetM
     {

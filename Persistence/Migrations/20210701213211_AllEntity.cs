@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class KohzgjatjaEntity : Migration
+    public partial class AllEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

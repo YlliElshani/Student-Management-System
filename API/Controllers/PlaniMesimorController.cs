@@ -5,7 +5,7 @@ using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Application.PlaniMes;
+using Application.PlaniM;
 
 namespace API.Controllers
 {

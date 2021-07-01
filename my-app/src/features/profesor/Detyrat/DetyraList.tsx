@@ -37,7 +37,7 @@ export default observer(function DetyratList () {
                     <ProfesorNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => detyraStore.openForm()} content='Shto Detyran'/>
+                    <Button onClick={() => detyraStore.openForm()} content='Shto Detyren'/>
                     <Item.Group divided>
                         {detyrat.map((detyra) => (
                         <Item key={detyra.detyraId}>
@@ -46,7 +46,7 @@ export default observer(function DetyratList () {
                             <Item.Meta>{detyra.pershkrimi}</Item.Meta>
                             <Item.Extra>
                                 <Button onClick={() => detyraStore.selectDetyra(detyra.detyraId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={detyra.detyraId} loading={loading && target === detyra.detyraId} onClick={(e) => handleDeleteDetyra(e, detyra.detyraId)} size='mini' floated='right' content='Fshij Detyran' />
+                                <Button name={detyra.detyraId} loading={loading && target === detyra.detyraId} onClick={(e) => handleDeleteDetyra(e, detyra.detyraId)} size='mini' floated='right' content='Fshij Detyren' />
                             </Item.Extra>
                             </Item.Content>
                         </Item>

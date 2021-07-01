@@ -5,7 +5,7 @@ using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.PlaniMes
+namespace Application.PlaniM
 {
     public class Details
     {

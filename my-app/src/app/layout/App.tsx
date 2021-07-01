@@ -21,7 +21,6 @@ import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
-import LendaStudentiDashboard from '../../features/student/lendetStudenti/dashboard/LendaStudentiDashboard';
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
@@ -102,7 +101,6 @@ function App () {
           <Route exact path='/student/KerkesNdihme' component={KerkesaList}/>
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
-          <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>

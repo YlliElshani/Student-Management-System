@@ -1,11 +1,9 @@
 import React from 'react'
 import { Container, Header, Table} from 'semantic-ui-react'
-import { NavBar } from '../nav/NavBar'
 
 export const Lendet = () => {
     return (
         <Container>
-            <NavBar/>
           <Table celled>
             <Table.Header>
               <Table.Row>
