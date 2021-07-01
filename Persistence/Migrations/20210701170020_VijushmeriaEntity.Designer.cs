@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210701170020_VijushmeriaEntity")]
+    partial class VijushmeriaEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,20 +195,6 @@ namespace Persistence.Migrations
                     b.ToTable("Klaset");
                 });
 
-            modelBuilder.Entity("Domain.Kohezgjatja", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("kohaMin");
-
-                    b.Property<float>("oraNisjes");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Kohezgjatjet");
-                });
-
             modelBuilder.Entity("Domain.Lenda", b =>
                 {
                     b.Property<Guid>("LendaId")
@@ -273,9 +261,24 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
+            modelBuilder.Entity("Domain.PlaniLenda", b =>
+                {
+                    b.Property<int>("Id");
+
+                    b.Property<Guid>("LendaId");
+
+                    b.Property<int>("idP");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LendaId");
+
+                    b.ToTable("PlaniLendet");
+                });
+
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataShenimit");
@@ -467,6 +470,19 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Domain.PlaniLenda", b =>
+                {
+                    b.HasOne("Domain.PlaniMesimor", "planiMesimor")
+                        .WithMany("Plani_Lenda")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Domain.Lenda", "Lenda")
+                        .WithMany("Plani_Lenda")
+                        .HasForeignKey("LendaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

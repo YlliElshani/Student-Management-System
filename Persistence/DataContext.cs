@@ -13,6 +13,10 @@ namespace Persistence
 
         public DbSet <Prezantimi> Prezantimet {get; set;}
 
+        public DbSet <Vijushmeria> Vijushmerit {get; set;}
+
+         public DbSet <Kohezgjatja> Kohezgjatjet {get; set;}
+
         public DbSet <Lenda> Lendet {get; set;}
 
         public DbSet <Trip> Trips {get; set;}
@@ -43,6 +47,7 @@ namespace Persistence
         public DbSet <Qyteti> Qytetet {get; set;}
         public DbSet <Klasa> Klaset {get; set;}
         public DbSet <VitiAkademik> VitetAkademike {get; set; }
+        public DbSet <Kohezgjatja> Kohezgjatja {get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
