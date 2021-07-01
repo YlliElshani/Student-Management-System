@@ -37,7 +37,7 @@ export default observer(function AdminNavBar() {
                 <Icon name='trophy' />
                 Garat
             </Menu.Item>
-            <Menu.Item as={NavLink} to='/admin/njoftimet'>
+            <Menu.Item as={NavLink} to='/admin/njoftimetN'>
                 <Icon name='newspaper' />
                 Njoftimet
             </Menu.Item>

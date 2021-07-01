@@ -1,11 +1,11 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { v4 as uuid } from 'uuid';
-import { INjoftimi } from "../models/njoftimi";
+import { INdihma } from "../models/kNdihme";
 
-export default class NjoftimeStore {
-    njoftimeRegistry = new Map<string, INjoftimi>();
-    selectedNjoftimi: INjoftimi | undefined = undefined;
+export default class KerkesNdihmeStore {
+    kerkesNRegistry = new Map<string, INdihma>();
+    selectedKerkese: INdihma | undefined = undefined;
     editMode = false;
     loading = false;
     loadingInitial = true;
@@ -14,16 +14,16 @@ export default class NjoftimeStore {
         makeAutoObservable(this)
     }
 
-    get njoftimet(){
-      return Array.from(this.njoftimeRegistry.values());
+    get kerkesat(){
+      return Array.from(this.kerkesNRegistry.values());
   }
 
 
-    loadNjoftimet = async () => {
+    loadKerkesat = async () => {
         try {
-            const njoftime = await agent.Njoftimet.list();
-            njoftime.forEach(njoftim => {
-                this.njoftimeRegistry.set(njoftim.id, njoftim);
+            const kerkesat = await agent.KerkesaN.listN();
+            kerkesat.forEach(kerkese => {
+                this.kerkesNRegistry.set(kerkese.id, kerkese);
             })
             this.setLoadingInitial(false);
         } catch (error) {
@@ -36,16 +36,16 @@ export default class NjoftimeStore {
         this.loadingInitial = state;
     }
 
-    selectNjoftim = (id: string) => {
-        this.selectedNjoftimi = this.njoftimeRegistry.get(id);
+    selectKerkesa = (id: string) => {
+        this.selectedKerkese = this.kerkesNRegistry.get(id);
     }
 
-    cancelSelectedNjoftimi = () => {
-        this.selectedNjoftimi = undefined;
+    cancelSelectedKerkese = () => {
+        this.selectedKerkese = undefined;
     }
 
     openForm = (id?: string) => {
-        id ? this.selectNjoftim(id) : this.cancelSelectedNjoftimi();
+        id ? this.selectKerkesa(id) : this.cancelSelectedKerkese();
         this.editMode = true;
     }
 
@@ -53,14 +53,14 @@ export default class NjoftimeStore {
         this.editMode = false;
     }
 
-    createNjoftim = async (njoftim: INjoftimi) => {
+    createKerkesa = async (kerkese: INdihma) => {
         this.loading = true;
-        njoftim.id = uuid();
+        kerkese.id = uuid();
         try {
-            await agent.Njoftimet.create(njoftim);
+            await agent.KerkesaN.createN(kerkese);
             runInAction(() => {
-                this.njoftimeRegistry.set(njoftim.id, njoftim);
-                this.selectedNjoftimi = njoftim;
+                this.kerkesNRegistry.set(kerkese.id, kerkese);
+                this.selectedKerkese = kerkese;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -72,13 +72,13 @@ export default class NjoftimeStore {
         }
     }
 
-    updateNjoftimi = async (njoftim: INjoftimi) => {
+    updateKerkese = async (kerkese: INdihma) => {
         this.loading = true;
         try {
-            await agent.Njoftimet.update(njoftim);
+            await agent.KerkesaN.updateN(kerkese);
             runInAction(() => {
-                this.njoftimeRegistry.set(njoftim.id, njoftim);
-                this.selectedNjoftimi = njoftim;
+                this.kerkesNRegistry.set(kerkese.id, kerkese);
+                this.selectedKerkese = kerkese;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -90,13 +90,13 @@ export default class NjoftimeStore {
         }
     }
 
-    deleteNjoftim = async (id: string) => {
+    deleteKerkesa = async (id: string) => {
         this.loading = true;
         try {
-            await agent.Njoftimet.delete(id);
+            await agent.KerkesaN.deleteN(id);
             runInAction(() => {
-                this.njoftimeRegistry.delete(id);
-                if (this.selectedNjoftimi?.id === id) this.cancelSelectedNjoftimi();
+                this.kerkesNRegistry.delete(id);
+                if (this.selectedKerkese?.id === id) this.cancelSelectedKerkese();
                 this.loading = false;
             })
         } catch (error) {

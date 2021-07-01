@@ -4,12 +4,10 @@ import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
 import Myapp from '../../features/profesor/trajnimet/Container/AppContainer/Myapp';
 import DetyraApp from '../../features/profesor/Detyrat/dashboard1/DetyraApp';
-import NjoftimeDashboard from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 
 
 
 
-import { AppNdihme } from '../../features/student/KerkesNdihme/dashboard/AppNdihme';
 import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
@@ -24,7 +22,6 @@ import ModalContainer  from '../common/modals/modalContainer';
 import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
-import NjoftimetApp from '../../features/njoftimetA/njoftimet/dashboard/NjoftimetApp';
 import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/dashboard/LendaStudentiDashboard';
 import AdminProfile from '../../features/administrator/AdminProfile';
@@ -52,6 +49,8 @@ import UserList from '../../features/administrator/users/UserList';
 import listApp from '../../features/ParentFeatures/listNjoftimet/listApp/listApp';
 import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetList';
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
+import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
+import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
 
 
 
@@ -77,11 +76,9 @@ function App () {
 
           <Route exact path='/guardianLogin' component={GuardianLogin}/>
           <Route exact path='/guardianRegister' component={GuardianRegister}/>
-          <Route exact path='/njoftimet' component={NjoftimeDashboard}/>
+          <Route exact path='/njoftimet' component={NjoftimeList}/>
           <Route exact path='/listApp' component={listApp}/>
-          <Route exact path='/KerkesNdihme' component={AppNdihme}/>
           <Route exact path='/mungesat' component={ArsyetimetList}/>
-          <Route exact path='/KerkesNdihme' component={AppNdihme}/>
           <Route exact path='/parentProfile' component={ParentProfile}/>
 
           <Route exact path='/adminLogin' component={AdminLogin}/>
@@ -89,7 +86,7 @@ function App () {
           <Route exact path='/admin/profile' component={AdminProfile}/>
           <Route exact path='/admin/trips' component={TripsList}/>
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
-          <Route exact path='/admin/njoftimet' component={NjoftimetApp}/>
+          <Route exact path='/admin/njoftimetN' component={NjoftimeList}/>
           <Route exact path='/admin/qytetet' component={QytetetList}/>
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
           <Route exact path='/admin/shtesat' component={Shtesat}/>
@@ -99,7 +96,7 @@ function App () {
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>
-          <Route exact path='/student/KerkesNdihme' component={AppNdihme}/>
+          <Route exact path='/student/KerkesNdihme' component={KerkesaList}/>
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
