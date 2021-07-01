@@ -16,6 +16,7 @@ import { store } from '../stores/store';
 import { IQyteti } from '../models/qyteti';
 import { IKlasa } from '../models/klasa';
 import { IVitiAkademik } from '../models/vitiAkademik';
+import { IVijushmeria } from '../models/vijushmeria';
 
 
 
@@ -67,6 +68,14 @@ const Lendet = {
     create: (lenda:ILenda) => requests.post('/lendet', lenda),
     update: (lenda: ILenda) => requests.put(`/lendet/${lenda.lendaId}`, lenda),
     delete: (id: string) => requests.delete(`/lendet/${id}`)
+}
+
+const Vijushmerit = {
+    list: (): Promise<IVijushmeria[]> => requests.get('/vijushmerit'),
+    details: (vijushmeriaId: string) => requests.get(`/vijushmerit/${vijushmeriaId}`),
+    create: (vijushmeria:IVijushmeria) => requests.post('/vijushmerit', vijushmeria),
+    update: (vijushmeria: IVijushmeria) => requests.put(`/vijushmerit/${vijushmeria.vijushmeriaId}`, vijushmeria),
+    delete: (id: string) => requests.delete(`/vijushmerit/${id}`)
 }
 
 const Arsyetimet = {
@@ -195,7 +204,8 @@ const agent = {
     Prezantimet,
     Qytetet,
     Klaset,
-    VitetAkademike
+    VitetAkademike,
+    Vijushmerit
 }
 
 export default agent;

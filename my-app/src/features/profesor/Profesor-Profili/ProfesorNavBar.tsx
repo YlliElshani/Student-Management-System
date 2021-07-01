@@ -44,10 +44,15 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='upload' />
                 Detyrat
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/ProfesorShtesat'>
+                <Icon name='upload' />
+                Shtesat
+            </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil
             </Menu.Item>
+           
             </Sidebar>
 
             <Sidebar.Pusher>
