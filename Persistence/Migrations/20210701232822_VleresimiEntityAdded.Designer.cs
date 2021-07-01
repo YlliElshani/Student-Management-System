@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210701212531_VleresimiEntityAdded.Designer.cs
-    [Migration("20210701212531_VleresimiEntityAdded")]
+    [Migration("20210701232822_VleresimiEntityAdded")]
     partial class VleresimiEntityAdded
-=======
-    [Migration("20210701213211_AllEntity")]
-    partial class AllEntity
->>>>>>> 6b7c9519d34c4a6ae2919e58815d346fa332b139:Persistence/Migrations/20210701213211_AllEntity.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -211,11 +206,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-<<<<<<< HEAD:Persistence/Migrations/20210701212531_VleresimiEntityAdded.Designer.cs
                     b.ToTable("Kohezgjatja");
-=======
-                    b.ToTable("Kohezgjatjet");
->>>>>>> 6b7c9519d34c4a6ae2919e58815d346fa332b139:Persistence/Migrations/20210701213211_AllEntity.Designer.cs
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -365,6 +356,8 @@ namespace Persistence.Migrations
 
                     b.Property<string>("price");
 
+                    b.Property<string>("user");
+
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
@@ -372,14 +365,14 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Vijushmeria", b =>
                 {
-                    b.Property<Guid>("VijushmeriaID")
+                    b.Property<Guid>("VijushmeriaId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Pjesmarrja");
 
                     b.Property<string>("Studenti");
 
-                    b.HasKey("VijushmeriaID");
+                    b.HasKey("VijushmeriaId");
 
                     b.ToTable("Vijushmerit");
                 });
