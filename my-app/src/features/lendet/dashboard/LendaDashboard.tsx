@@ -7,6 +7,7 @@ import LendaForm from '../form/LendaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { NavBar } from '../../nav/NavBar';
 import AdminNavBar from '../../administrator/AdminNavBar';
+import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 
 
 
@@ -30,7 +31,9 @@ export default observer(function LendaDashboard() {
         
         <Grid style={{marginTop:'50px'}}>
             <Grid.Column width='4'>
-                    <AdminNavBar />
+                <ProfesorNavBar />
+                 <AdminNavBar />
+                    
                 </Grid.Column>
             
             <Grid.Column width={10}>   

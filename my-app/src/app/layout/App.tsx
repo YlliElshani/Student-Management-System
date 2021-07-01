@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 import AppNota from '../../features/notat/dashboard/AppNota';
-import Myapp from '../../features/profesor/trajnimet/Container/AppContainer/Myapp';
-import DetyraApp from '../../features/profesor/Detyrat/dashboard1/DetyraApp';
 
 
 
@@ -36,8 +34,6 @@ import ProfesorRegister from '../../features/users/ProfesorRegister';
 import GuardianRegister from '../../features/users/GuardianRegister';
 import StudentProfile from '../../features/student/StudentProfile';
 import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
-
-
 import ListTApp2 from '../../features/listoTrips2/listTApp2';
 import QytetetList from '../../features/qytetet/QytetetList';
 import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
@@ -46,6 +42,9 @@ import Shtesat from '../../features/administrator/Shtesat';
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
 import UserList from '../../features/administrator/users/UserList';
+import DetyraList from '../../features/profesor/Detyrat/DetyraList';
+import TrajnimList from '../../features/profesor/trajnimet/TrajnimList';
+
 import listApp from '../../features/ParentFeatures/listNjoftimet/listApp/listApp';
 import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetList';
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
@@ -88,6 +87,9 @@ function App () {
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimetN' component={NjoftimeList}/>
           <Route exact path='/admin/qytetet' component={QytetetList}/>
+
+          <Route exact path='/detyrat' component={DetyraList}/>
+
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
           <Route exact path='/admin/shtesat' component={Shtesat}/>
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
@@ -114,8 +116,8 @@ function App () {
           <Route exact path='/notat' component={AppNota}/>
           <Route exact path='/notatStudenti' component={AppNotaStudenti}/>
 
-          <Route exact path='/trajnimet' component={Myapp}/>
-          <Route exact path='/detyrat' component={DetyraApp}/>
+          <Route exact path='/trajnimet' component={TrajnimList}/>
+        
 
           <Route exact path='/profesor/notat' component={AppNota}/>
           <Route exact path='/profesor/lendet' component={LendaDashboard}/>
