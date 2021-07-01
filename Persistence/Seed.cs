@@ -246,6 +246,37 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            
+            if(!context.Vijushmerit.Any())
+                        {
+                            var vijushmerit = new List<Vijushmeria>
+                            {
+                                new Vijushmeria
+                                {
+                                    Pjesmarrja = "80%", 
+                                    Studenti= "Endrit Makolli"                  
+                                }
+                            
+                            };
+                            context.Vijushmerit.AddRange(vijushmerit);
+                            context.SaveChanges();
+                        };
+
+                          if(!context.Kohezgjatjet.Any())
+                        {
+                            var kohezgjatjet = new List<Kohezgjatja>
+                            {
+                                new Kohezgjatja
+                                {
+                                    kohaMin = 45, 
+                                    oraNisjes= 18                  
+                                }
+                            
+                            };
+                            context.Kohezgjatjet.AddRange(kohezgjatjet);
+                            context.SaveChanges();
+                        };
+
             if(!context.KerkesaN.Any())
             {
                 var kerkesat = new List<KerkesaNdihmes>

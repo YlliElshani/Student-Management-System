@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210630010844_KlasaEntityAdded")]
-    partial class KlasaEntityAdded
+    [Migration("20210701170020_VijushmeriaEntity")]
+    partial class VijushmeriaEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -289,7 +289,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMes");
+                    b.ToTable("PlaniMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>
@@ -360,6 +360,32 @@ namespace Persistence.Migrations
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
+                });
+
+            modelBuilder.Entity("Domain.Vijushmeria", b =>
+                {
+                    b.Property<Guid>("VijushmeriaID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Pjesmarrja");
+
+                    b.Property<string>("Studenti");
+
+                    b.HasKey("VijushmeriaID");
+
+                    b.ToTable("Vijushmerit");
+                });
+
+            modelBuilder.Entity("Domain.VitiAkademik", b =>
+                {
+                    b.Property<Guid>("VitiAkademikId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("VitiAk");
+
+                    b.HasKey("VitiAkademikId");
+
+                    b.ToTable("VitetAkademike");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

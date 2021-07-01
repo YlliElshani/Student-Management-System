@@ -193,6 +193,20 @@ namespace Persistence.Migrations
                     b.ToTable("Klaset");
                 });
 
+            modelBuilder.Entity("Domain.Kohezgjatja", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("kohaMin");
+
+                    b.Property<float>("oraNisjes");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kohezgjatjet");
+                });
+
             modelBuilder.Entity("Domain.Lenda", b =>
                 {
                     b.Property<Guid>("LendaId")
@@ -287,7 +301,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMes");
+                    b.ToTable("PlaniMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>
@@ -358,6 +372,20 @@ namespace Persistence.Migrations
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");
+                });
+
+            modelBuilder.Entity("Domain.Vijushmeria", b =>
+                {
+                    b.Property<Guid>("VijushmeriaID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Pjesmarrja");
+
+                    b.Property<string>("Studenti");
+
+                    b.HasKey("VijushmeriaID");
+
+                    b.ToTable("Vijushmerit");
                 });
 
             modelBuilder.Entity("Domain.VitiAkademik", b =>

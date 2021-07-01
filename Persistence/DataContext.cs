@@ -13,6 +13,10 @@ namespace Persistence
 
         public DbSet <Prezantimi> Prezantimet {get; set;}
 
+        public DbSet <Vijushmeria> Vijushmerit {get; set;}
+
+         public DbSet <Kohezgjatja> Kohezgjatjet {get; set;}
+
         public DbSet <Lenda> Lendet {get; set;}
 
         public DbSet <Trip> Trips {get; set;}
