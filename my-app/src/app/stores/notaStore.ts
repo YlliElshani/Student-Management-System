@@ -14,9 +14,8 @@ export default class NotaStore {
         makeAutoObservable(this)
     }
 
-    get notatByLenda() {
-        return Array.from(this.notaRegistry.values()).sort((a, b) => 
-            Date.parse(a.lenda) - Date.parse(b.lenda));
+    get notat() {
+        return Array.from(this.notaRegistry.values());
     }
 
     loadNotat = async () => {

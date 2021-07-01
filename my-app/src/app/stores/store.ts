@@ -15,6 +15,7 @@ import TrajnimStore from "./trajnimstore";
 import ArsyejaStore from "./arsyejaStore";
 import NjoftimeStore from "./njoftimeStore";
 import KerkesNdihmeStore from "./kerkesNdihmeStore";
+import VleresimiStore from "./vleresimiStore";
 import VijushmeriaStore from "./vijushmeriaStore";
 import pMesimorStore from "./pMesimorStore";
 
@@ -36,6 +37,7 @@ interface Store {
     arsyejaStore: ArsyejaStore;
     njoftimeStore:NjoftimeStore;
     kerkesNdihmeStore:KerkesNdihmeStore;
+    vleresimiStore: VleresimiStore;
     vijushmeriaStore:VijushmeriaStore;
     pMesimorStore: pMesimorStore;
 }
@@ -57,6 +59,7 @@ export const store: Store = {
     kerkesNdihmeStore:new KerkesNdihmeStore(),
     detyraStore: new DetyraStore(),
     trajnimStore: new TrajnimStore(),
+    vleresimiStore: new VleresimiStore(),
     vijushmeriaStore: new VijushmeriaStore(),
     
     pMesimorStore:new pMesimorStore()

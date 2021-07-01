@@ -27,6 +27,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Application.Qytetet;
+using Application.Vleresimet;
 
 namespace API
 {
@@ -62,6 +63,7 @@ namespace API
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
             services.AddMediatR(typeof(ListPlanetM.Handler).Assembly);
             services.AddMediatR(typeof(ListQytetet.Handler).Assembly);
+            services.AddMediatR(typeof(ListVleresimet.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

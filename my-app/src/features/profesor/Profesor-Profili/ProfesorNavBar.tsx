@@ -36,6 +36,10 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='book' />
                 Lendet
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/vleresimet'>
+                <Icon name='book' />
+                Vleresimet
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/trajnimet'>
                 <Icon name='backward' />
                 Oret Shtese

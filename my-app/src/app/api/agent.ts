@@ -16,6 +16,7 @@ import { store } from '../stores/store';
 import { IQyteti } from '../models/qyteti';
 import { IKlasa } from '../models/klasa';
 import { IVitiAkademik } from '../models/vitiAkademik';
+import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
 
@@ -199,6 +200,14 @@ const VitetAkademike = {
     delete: (id: string) => requests.delete(`/vitetAkademike/${id}`)
 }
 
+const Vleresimet = {
+    list: (): Promise<IVleresimi[]> => requests.get('/vleresimet'),
+    details: (vleresimiId: string) => requests.get(`/vleresimet/${vleresimiId}`),
+    create: (vleresimi:IVleresimi) => requests.post('/vleresimet', vleresimi),
+    update: (vleresimi: IVleresimi) => requests.put(`/vleresimet/${vleresimi.vleresimiId}`, vleresimi),
+    delete: (id: string) => requests.delete(`/vleresimet/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -214,6 +223,7 @@ const agent = {
     Qytetet,
     Klaset,
     VitetAkademike,
+    Vleresimet,
     Vijushmerit,
     PlaniMesimor
 }

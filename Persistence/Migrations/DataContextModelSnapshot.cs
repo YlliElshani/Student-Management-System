@@ -387,6 +387,24 @@ namespace Persistence.Migrations
                     b.ToTable("VitetAkademike");
                 });
 
+            modelBuilder.Entity("Domain.Vleresimi", b =>
+                {
+                    b.Property<Guid>("VleresimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DataEVendosjes");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<int>("Nota");
+
+                    b.Property<string>("OraEVendosjes");
+
+                    b.HasKey("VleresimiId");
+
+                    b.ToTable("Vleresimet");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")

@@ -12,7 +12,5 @@ namespace Domain
         public string kriteriSuksesit{get; set;}
 
         public DateTime dataShenimit{get; set;}
-
-
     }
 }

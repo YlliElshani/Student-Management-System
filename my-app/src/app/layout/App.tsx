@@ -3,8 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
 
-import AppNota from '../../features/notat/dashboard/AppNota';
-
 
 
 
@@ -22,7 +20,6 @@ import ModalContainer  from '../common/modals/modalContainer';
 import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
-import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
 
 
 
@@ -53,6 +50,9 @@ import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetLis
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
 import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
+import NotaDashboard from '../../features/notat/dashboard/NotaDashboard';
+import VleresimiDashboard from '../../features/vleresimet/dashboard/VleresimiDashboard';
+import VleresimiStudentiDashboard from '../../features/student/vleresimiStudenti/VleresimiStudentiDashboard';
 import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
@@ -109,7 +109,7 @@ function App () {
           <Route exact path='/student/profile' component={StudentProfile}/>
           <Route exact path='/student/KerkesNdihme' component={KerkesaList}/>
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
-          <Route exact path='/student/notat' component={AppNotaStudenti}/>
+          <Route exact path='/student/vleresimi' component={VleresimiStudentiDashboard}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
@@ -122,14 +122,18 @@ function App () {
 
           <Route exact path='/studentProfile' component={StudentProfile}/>
           <Route exact path='/EServices' component={EServices}/>
-          <Route exact path='/notat' component={AppNota}/>
-          <Route exact path='/notatStudenti' component={AppNotaStudenti}/>
+          <Route exact path='/notat' component={NotaDashboard}/>
+          <Route exact path='/notatStudenti' component={NotaDashboard}/>
 
           <Route exact path='/trajnimet' component={TrajnimList}/>
         
 
-          <Route exact path='/profesor/notat' component={AppNota}/>
-          <Route exact path='/profesor/notat' component={AppNota}/>
+          <Route exact path='/profesor/notat' component={NotaDashboard}/>
+          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/vleresimet' component={VleresimiDashboard}/>
+          <Route exact path='/profesor/klasat' component={KlasaDashboard}/>
+          <Route exact path='/profesor/notat' component={NotaDashboard}/>
+          <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
           
           <Route exact path='/EServices' component={EServices}/>
