@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.Designer.cs
-    [Migration("20210701180559_PlaniMEntity")]
-    partial class PlaniMEntity
-=======
-    [Migration("20210701170530_KohezgjatjaEntity")]
-    partial class KohezgjatjaEntity
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170530_KohezgjatjaEntity.Designer.cs
+    [Migration("20210701210210_KohzgjatjaEntity")]
+    partial class KohzgjatjaEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -366,8 +361,6 @@ namespace Persistence.Migrations
                     b.ToTable("Trips");
                 });
 
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.Designer.cs
-=======
             modelBuilder.Entity("Domain.Vijushmeria", b =>
                 {
                     b.Property<Guid>("VijushmeriaID")
@@ -382,7 +375,6 @@ namespace Persistence.Migrations
                     b.ToTable("Vijushmerit");
                 });
 
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170530_KohezgjatjaEntity.Designer.cs
             modelBuilder.Entity("Domain.VitiAkademik", b =>
                 {
                     b.Property<Guid>("VitiAkademikId")

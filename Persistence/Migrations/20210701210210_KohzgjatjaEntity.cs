@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
-    public partial class PlaniMEntity : Migration
-=======
-    public partial class VijushmeriaEntity : Migration
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
+    public partial class KohzgjatjaEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -139,6 +135,19 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Kohezgjatjet",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    kohaMin = table.Column<int>(nullable: false),
+                    oraNisjes = table.Column<float>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kohezgjatjet", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Lendet",
                 columns: table => new
                 {
@@ -199,12 +208,7 @@ namespace Persistence.Migrations
                 name: "PlaniMesimor",
                 columns: table => new
                 {
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
                     Id = table.Column<Guid>(nullable: false),
-=======
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
                     planiInfo = table.Column<string>(nullable: true),
                     kriteriSuksesit = table.Column<string>(nullable: true),
                     dataShenimit = table.Column<DateTime>(nullable: false)
@@ -274,8 +278,6 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
-=======
                 name: "Vijushmerit",
                 columns: table => new
                 {
@@ -289,7 +291,6 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
                 name: "VitetAkademike",
                 columns: table => new
                 {
@@ -407,31 +408,6 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "PlaniLendet",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false),
-                    idP = table.Column<int>(nullable: false),
-                    LendaId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PlaniLendet", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PlaniLendet_PlaniMesimor_Id",
-                        column: x => x.Id,
-                        principalTable: "PlaniMesimor",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PlaniLendet_Lendet_LendaId",
-                        column: x => x.LendaId,
-                        principalTable: "Lendet",
-                        principalColumn: "LendaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -468,11 +444,6 @@ namespace Persistence.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PlaniLendet_LendaId",
-                table: "PlaniLendet",
-                column: "LendaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -509,12 +480,12 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Klaset");
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
+
+            migrationBuilder.DropTable(
+                name: "Kohezgjatjet");
 
             migrationBuilder.DropTable(
                 name: "Lendet");
-=======
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
 
             migrationBuilder.DropTable(
                 name: "Njoftimet");
@@ -526,11 +497,7 @@ namespace Persistence.Migrations
                 name: "Paralelet");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
                 name: "PlaniMesimor");
-=======
-                name: "PlaniLendet");
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
 
             migrationBuilder.DropTable(
                 name: "Prezantimet");
@@ -545,12 +512,9 @@ namespace Persistence.Migrations
                 name: "Trips");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701180559_PlaniMEntity.cs
-=======
                 name: "Vijushmerit");
 
             migrationBuilder.DropTable(
->>>>>>> 8fae6feaa58b1369cbdf9f5514501aaf274a1931:Persistence/Migrations/20210701170020_VijushmeriaEntity.cs
                 name: "VitetAkademike");
 
             migrationBuilder.DropTable(
@@ -558,12 +522,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "PlaniMesimor");
-
-            migrationBuilder.DropTable(
-                name: "Lendet");
         }
     }
 }

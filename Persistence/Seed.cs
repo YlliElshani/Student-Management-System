@@ -262,20 +262,6 @@ namespace Persistence
                             context.SaveChanges();
                         };
 
-                          if(!context.Kohezgjatjet.Any())
-                        {
-                            var kohezgjatjet = new List<Kohezgjatja>
-                            {
-                                new Kohezgjatja
-                                {
-                                    kohaMin = 45, 
-                                    oraNisjes= 18                  
-                                }
-                            
-                            };
-                            context.Kohezgjatjet.AddRange(kohezgjatjet);
-                            context.SaveChanges();
-                        };
 
             if(!context.KerkesaN.Any())
             {
@@ -336,6 +322,20 @@ namespace Persistence
                     }
                 };
                 context.Prezantimet.AddRange(prezantime);
+                context.SaveChanges();
+            };
+
+            if(!context.Kohezgjatjet.Any())
+            {
+                var koheZ = new List<Kohezgjatja>
+                {
+                    new Kohezgjatja
+                    {
+                        kohaMin=45,
+                        oraNisjes=8
+                    }
+                };
+                context.Kohezgjatjet.AddRange(koheZ);
                 context.SaveChanges();
             };
 
@@ -428,19 +428,6 @@ namespace Persistence
                     }
                 };
                 context.VitetAkademike.AddRange(viteAkademike);
-                context.SaveChanges();
-            };
-            if(!context.Kohezgjatja.Any())
-            {
-                var kohezgjatja = new List<Kohezgjatja>
-                {
-                    new Kohezgjatja
-                    {
-                        kohaMin=45,
-                        oraNisjes=10
-                    },
-                };
-                context.Kohezgjatja.AddRange(kohezgjatja);
                 context.SaveChanges();
             };
         }
