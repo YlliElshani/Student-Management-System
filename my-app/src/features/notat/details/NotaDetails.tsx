@@ -1,10 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 
 
-export default function NotaDetails() {
+export default observer( function NotaDetails() {
   const {notaStore} = useStore();
   const {selectedNota: nota, openForm, cancelSelectedNota} = notaStore;
 
@@ -26,5 +27,6 @@ export default function NotaDetails() {
       </Card.Content>
     </Card>
   );
-};
+}
 
+)

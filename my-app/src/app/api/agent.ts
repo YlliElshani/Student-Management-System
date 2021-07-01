@@ -17,6 +17,7 @@ import { IQyteti } from '../models/qyteti';
 import { IKlasa } from '../models/klasa';
 import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVijushmeria } from '../models/vijushmeria';
+import { IPlaniMesimor } from '../models/pMesimor';
 
 
 
@@ -151,6 +152,14 @@ const Prezantimet = {
     delete: (id: string) => requests.delete(`/prezantimet/${id}`)
 }
 
+const PlaniMesimor = {
+    list: () : Promise<IPlaniMesimor[]> => requests.get('/PlaniMesimor'),
+    details: (id: string) => requests.get(`/planiM/${id}`),
+    create: (planiM:IPlaniMesimor) => requests.post('/PlaniMesimor',planiM),
+    update: (planiM: IPlaniMesimor) => requests.put(`/PlaniMesimor/${planiM.id}`, planiM),
+    delete: (id: string) => requests.delete(`/PlaniMesimor/${id}`)
+}
+
 const Qytetet = {
     list: () : Promise<IQyteti[]> => requests.get('/qytetet'),
     details: (id: string) => requests.get(`/qytetet/${id}`),
@@ -205,7 +214,8 @@ const agent = {
     Qytetet,
     Klaset,
     VitetAkademike,
-    Vijushmerit
+    Vijushmerit,
+    PlaniMesimor
 }
 
 export default agent;

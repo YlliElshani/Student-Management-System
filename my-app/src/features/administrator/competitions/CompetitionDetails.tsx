@@ -1,8 +1,9 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
-export default function CompetitionDetails () {
+export default observer( function CompetitionDetails () {
     const {competitionStore} = useStore();
     const {selectedCompetition: competition, openForm, cancelSelectedCompetition} = competitionStore;
 
@@ -29,3 +30,4 @@ export default function CompetitionDetails () {
         </Segment>
     )
 }
+)

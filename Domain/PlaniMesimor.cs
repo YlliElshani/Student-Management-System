@@ -5,7 +5,7 @@ namespace Domain
 {
     public class PlaniMesimor
     {
-        public int Id{get; set;}
+        public Guid Id{get; set;}
 
         public string planiInfo{get; set;}
 
@@ -13,7 +13,6 @@ namespace Domain
 
         public DateTime dataShenimit{get; set;}
 
-        public List<PlaniLenda> Plani_Lenda{get; set;}
 
     }
 }

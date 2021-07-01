@@ -24,7 +24,7 @@ import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
 
-import LendaStudentiDashboard from '../../features/student/lendetStudenti/dashboard/LendaStudentiDashboard';
+
 
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
@@ -58,6 +58,7 @@ import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
 import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
+import PlaniMList from '../../features/planiMesimor/PlaniMList';
 
 
 
@@ -113,8 +114,6 @@ function App () {
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
 
-          <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
-
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
           <Route exact path='/usersP/listoTrips2' component={ListTApp2}/>
@@ -133,8 +132,8 @@ function App () {
         
 
           <Route exact path='/profesor/notat' component={AppNota}/>
-
-          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/notat' component={AppNota}/>
+          <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

@@ -5,13 +5,13 @@ using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.PlaniMes
+namespace Application.PlaniM
 {
     public class Details
     {
         public class Query : IRequest<PlaniMesimor>
         {
-            public int Id { get; set; }
+            public Guid Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, PlaniMesimor>

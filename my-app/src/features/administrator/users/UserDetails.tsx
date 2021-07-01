@@ -5,7 +5,7 @@ import { useStore } from '../../../app/stores/store';
 import AdminRegister from '../../users/AdminRegister';
 
 
-export default function UserDetails ()  {
+export default observer( function UserDetails ()  {
     const {userStore, modalStore} = useStore();
     const {selectedUser: user, cancelSelectedUser} = userStore;
     
@@ -35,4 +35,4 @@ export default function UserDetails ()  {
         </Segment>
     )
 }
-
+)

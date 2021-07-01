@@ -1,10 +1,11 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Container, Grid, Image, Divider, Header, Table, Icon } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 import ProfesorNavBar from './ProfesorNavBar';
 
-export default function ProfesorProfile () {
+export default observer( function ProfesorProfile () {
   const {userStore: {user,logout}} = useStore();
   
     return (
@@ -127,3 +128,4 @@ export default function ProfesorProfile () {
     </Grid>
     )
 }
+)
