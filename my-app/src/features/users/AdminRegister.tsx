@@ -26,6 +26,7 @@ export default observer (function AdminRegister(){
                 username: Yup.string().required(),
                 email: Yup.string().required().email(),
                 age: Yup.string().required(),
+                city:Yup.string().required(),
                 address: Yup.string().required(),
                 zipCode: Yup.string().required(),
                 phoneNumber: Yup.string().required(),
@@ -44,11 +45,12 @@ export default observer (function AdminRegister(){
                             <TextInput name='age' placeholder='Age'/>
                         </div>
                         <div  className='ui form' style={{marginTop:'4.7%'}}>
-                            <select style={{borderRadius:'20pt', marginBottom:'20px', height:'50px', width:'300px'}} name='city' placeholder='City'>
+                            <TextInput name='city' placeholder='city'/>
+                            {/*<select style={{borderRadius:'20pt', marginBottom:'20px', height:'50px', width:'300px'}} name='city' placeholder='City'>
                                 {qytetetByAlphabet.map(qyteti => (
                                     <option key={qyteti.emri}>{qyteti.emri}</option>
                                 ))}
-                            </select>
+                                </select>*/}
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>

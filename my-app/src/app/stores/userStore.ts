@@ -112,9 +112,9 @@ export default class UserStore {
     registerAdmin = async (values: UserFormValues) => {
         try {
             const user = await agent.Account.registerAdmin(values);
-            store.commonStore.setToken(user.token);
-            runInAction(() => this.user = user);
-            history.push('/admin/profile');
+            //store.commonStore.setToken(user.token);
+            //runInAction(() => this.user = user);
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -123,9 +123,9 @@ export default class UserStore {
     registerStudent = async (values: UserFormValues) => {
         try {
             const user = await agent.Account.registerStudent(values);
-            store.commonStore.setToken(user.token);
-            runInAction(() => this.user = user);
-            history.push('/studentProfile');
+            //store.commonStore.setToken(user.token);
+            //runInAction(() => this.user = user);
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -135,9 +135,9 @@ export default class UserStore {
     registerProfesor = async (values: UserFormValues) => {
         try {
             const user = await agent.Account.registerProfesor(values);
-            store.commonStore.setToken(user.token);
-            runInAction(() => this.user = user);
-            history.push('/profesorprofile');
+            //store.commonStore.setToken(user.token);
+            //runInAction(() => this.user = user);
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -147,9 +147,9 @@ export default class UserStore {
     registerGuardian = async (values: UserFormValues) => {
         try {
             const user = await agent.Account.registerGuardian(values);
-            store.commonStore.setToken(user.token);
-            runInAction(() => this.user = user);
-            history.push('/parentProfile');
+            //store.commonStore.setToken(user.token);
+            //runInAction(() => this.user = user);
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
