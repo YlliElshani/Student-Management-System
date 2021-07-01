@@ -444,6 +444,21 @@ namespace Persistence
                 context.Kohezgjatja.AddRange(kohezgjatja);
                 context.SaveChanges();
             };
+            if(!context.Vleresimet.Any())
+            {
+                var vleresimet = new List<Vleresimi>
+                {
+                    new Vleresimi
+                    {
+                        Lenda="Gjuhe Shqipe",
+                        Nota=5,
+                        DataEVendosjes="09-07-2021",
+                        OraEVendosjes="18:47 PM"
+                    },
+                };
+                context.Vleresimet.AddRange(vleresimet);
+                context.SaveChanges();
+            };
         }
 
     }

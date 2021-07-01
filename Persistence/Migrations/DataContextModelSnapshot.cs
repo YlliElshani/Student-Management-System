@@ -204,7 +204,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatjet");
+                    b.ToTable("Kohezgjatja");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -271,21 +271,6 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaId");
 
                     b.ToTable("Paralelet");
-                });
-
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.Property<int>("Id");
-
-                    b.Property<Guid>("LendaId");
-
-                    b.Property<int>("idP");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("LendaId");
-
-                    b.ToTable("PlaniLendet");
                 });
 
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
@@ -400,6 +385,24 @@ namespace Persistence.Migrations
                     b.ToTable("VitetAkademike");
                 });
 
+            modelBuilder.Entity("Domain.Vleresimi", b =>
+                {
+                    b.Property<Guid>("VleresimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DataEVendosjes");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<int>("Nota");
+
+                    b.Property<string>("OraEVendosjes");
+
+                    b.HasKey("VleresimiId");
+
+                    b.ToTable("Vleresimet");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -482,19 +485,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Domain.PlaniLenda", b =>
-                {
-                    b.HasOne("Domain.PlaniMesimor", "planiMesimor")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.Lenda", "Lenda")
-                        .WithMany("Plani_Lenda")
-                        .HasForeignKey("LendaId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

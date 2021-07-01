@@ -34,7 +34,7 @@ export default observer(function StudentNavBar() {
                 <Icon name='book' />
                 Lëndët
             </Menu.Item>
-            <Menu.Item as={NavLink} to='/student/notat'>
+            <Menu.Item as={NavLink} to='/student/vleresimi'>
                 <Icon name='grid layout' />
                 Notat
             </Menu.Item>

@@ -12,8 +12,5 @@ namespace Domain
         public string kriteriSuksesit{get; set;}
 
         public DateTime dataShenimit{get; set;}
-
-        public List<PlaniLenda> Plani_Lenda{get; set;}
-
     }
 }

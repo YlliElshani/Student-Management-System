@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class VijushmeriaEntity : Migration
+    public partial class VleresimiEntityAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -132,6 +132,19 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Klaset", x => x.KlasaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Kohezgjatja",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    kohaMin = table.Column<int>(nullable: false),
+                    oraNisjes = table.Column<float>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Kohezgjatja", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -291,6 +304,21 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Vleresimet",
+                columns: table => new
+                {
+                    VleresimiId = table.Column<Guid>(nullable: false),
+                    Lenda = table.Column<string>(nullable: true),
+                    Nota = table.Column<int>(nullable: false),
+                    DataEVendosjes = table.Column<string>(nullable: true),
+                    OraEVendosjes = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vleresimet", x => x.VleresimiId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -396,31 +424,6 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "PlaniLendet",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false),
-                    idP = table.Column<int>(nullable: false),
-                    LendaId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PlaniLendet", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_PlaniLendet_PlaniMesimor_Id",
-                        column: x => x.Id,
-                        principalTable: "PlaniMesimor",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PlaniLendet_Lendet_LendaId",
-                        column: x => x.LendaId,
-                        principalTable: "Lendet",
-                        principalColumn: "LendaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -457,11 +460,6 @@ namespace Persistence.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_PlaniLendet_LendaId",
-                table: "PlaniLendet",
-                column: "LendaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -500,6 +498,12 @@ namespace Persistence.Migrations
                 name: "Klaset");
 
             migrationBuilder.DropTable(
+                name: "Kohezgjatja");
+
+            migrationBuilder.DropTable(
+                name: "Lendet");
+
+            migrationBuilder.DropTable(
                 name: "Njoftimet");
 
             migrationBuilder.DropTable(
@@ -509,7 +513,7 @@ namespace Persistence.Migrations
                 name: "Paralelet");
 
             migrationBuilder.DropTable(
-                name: "PlaniLendet");
+                name: "PlaniMesimor");
 
             migrationBuilder.DropTable(
                 name: "Prezantimet");
@@ -530,16 +534,13 @@ namespace Persistence.Migrations
                 name: "VitetAkademike");
 
             migrationBuilder.DropTable(
+                name: "Vleresimet");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "PlaniMesimor");
-
-            migrationBuilder.DropTable(
-                name: "Lendet");
         }
     }
 }

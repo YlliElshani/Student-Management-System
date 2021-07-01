@@ -15,6 +15,7 @@ import TrajnimStore from "./trajnimstore";
 import ArsyejaStore from "./arsyejaStore";
 import NjoftimeStore from "./njoftimeStore";
 import KerkesNdihmeStore from "./kerkesNdihmeStore";
+import VleresimiStore from "./vleresimiStore";
 
 
 interface Store {
@@ -34,6 +35,7 @@ interface Store {
     arsyejaStore: ArsyejaStore;
     njoftimeStore:NjoftimeStore;
     kerkesNdihmeStore:KerkesNdihmeStore;
+    vleresimiStore: VleresimiStore;
 }
 
 export const store: Store = {
@@ -53,6 +55,7 @@ export const store: Store = {
     kerkesNdihmeStore:new KerkesNdihmeStore(),
     detyraStore: new DetyraStore(),
     trajnimStore: new TrajnimStore(),
+    vleresimiStore: new VleresimiStore()
 }
 
 export const StoreContext = createContext(store);

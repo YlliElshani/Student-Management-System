@@ -36,6 +36,10 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='book' />
                 Lendet
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/vleresimet'>
+                <Icon name='book' />
+                Vleresimet
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/trajnimet'>
                 <Icon name='backward' />
                 Oret Shtese
@@ -43,6 +47,10 @@ export default observer(function ProfesorNavBar() {
             <Menu.Item as={NavLink} to='/detyrat'>
                 <Icon name='upload' />
                 Detyrat
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/klasat'>
+                <Icon name='book' />
+                Klasat
             </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>

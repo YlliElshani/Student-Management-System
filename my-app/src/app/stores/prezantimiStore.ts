@@ -15,8 +15,7 @@ export default class PrezantimiStore {
     }
 
     get prezantimetByDate() {
-        return Array.from(this.prezantimiRegistry.values()).sort((a, b) => 
-            Date.parse(a.data) - Date.parse(b.data));
+        return Array.from(this.prezantimiRegistry.values());
     }
 
     loadPrezantimet = async () => {
