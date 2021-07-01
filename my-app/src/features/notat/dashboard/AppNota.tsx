@@ -1,6 +1,5 @@
 import React, { useState,useEffect, SyntheticEvent } from 'react';
 import { Button, Container, Grid, Segment } from 'semantic-ui-react';
-import { NavBar } from '../../nav/NavBar'
 import { LoadingNota } from './LoadingNota';
 import NotaDashboard from './NotaDashboard';
 import { useStore } from '../../../app/stores/store';

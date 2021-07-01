@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
+
 import AppNota from '../../features/notat/dashboard/AppNota';
 
 
@@ -21,7 +23,9 @@ import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
 import AppNotaStudenti from '../../features/student/notatStudenti/dashboard/AppNotaStudenti';
-import LendaStudentiDashboard from '../../features/student/lendetStudenti/dashboard/LendaStudentiDashboard';
+
+
+
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
@@ -39,6 +43,8 @@ import QytetetList from '../../features/qytetet/QytetetList';
 import PrezantimiDetails from '../../features/student/Prezantimi/PrezantimiDetails';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
+
+
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
 import UserList from '../../features/administrator/users/UserList';
@@ -50,6 +56,9 @@ import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetLis
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
 import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
+import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
+import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
+import PlaniMList from '../../features/planiMesimor/PlaniMList';
 
 
 
@@ -91,7 +100,10 @@ function App () {
           <Route exact path='/detyrat' component={DetyraList}/>
 
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/vijushmeria' component={VijushmeriaDashboard}/>
+
           <Route exact path='/admin/shtesat' component={Shtesat}/>
+          <Route exact path='/profesor/ProfesorShtesat' component={ProfesorShtesat}/>
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UserList}/>
@@ -101,7 +113,6 @@ function App () {
           <Route exact path='/student/KerkesNdihme' component={KerkesaList}/>
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/notat' component={AppNotaStudenti}/>
-          <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
@@ -111,6 +122,7 @@ function App () {
           <Route exact path='/student/listoNjoftimetS' component={ListApp}/>
           
           <Route exact path='/lendet' component={LendaDashboard}/>
+
           <Route exact path='/studentProfile' component={StudentProfile}/>
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/notat' component={AppNota}/>
@@ -120,7 +132,8 @@ function App () {
         
 
           <Route exact path='/profesor/notat' component={AppNota}/>
-          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/notat' component={AppNota}/>
+          <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

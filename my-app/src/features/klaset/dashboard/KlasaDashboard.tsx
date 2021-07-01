@@ -5,7 +5,6 @@ import { useStore } from '../../../app/stores/store';
 import KlasaDetails from '../details/KlasaDetails';
 import KlasaForm from '../form/KlasaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import { NavBar } from '../../nav/NavBar';
 import AdminNavBar from '../../administrator/AdminNavBar';
 
 

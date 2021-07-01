@@ -4,7 +4,7 @@ import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 
-export default function PrezantimiDetails ()  {
+export default observer(function PrezantimiDetails ()  {
     const {prezantimiStore} = useStore();
     const {selectedPrezantimi: prezantimi, openForm, cancelSelectedPrezantimi} = prezantimiStore;
     
@@ -30,4 +30,4 @@ export default function PrezantimiDetails ()  {
         </Segment>
     )
 }
-
+) 

@@ -40,14 +40,23 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='backward' />
                 Oret Shtese
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/planiMesimor'>
+                <Icon name='book' />
+                Plani Mesimor
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/detyrat'>
                 <Icon name='upload' />
                 Detyrat
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/ProfesorShtesat'>
+                <Icon name='upload' />
+                Shtesat
             </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil
             </Menu.Item>
+           
             </Sidebar>
 
             <Sidebar.Pusher>

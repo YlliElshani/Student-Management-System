@@ -7,7 +7,8 @@ import AdminRegister from '../../users/AdminRegister';
 import Tilt from 'react-parallax-tilt';
 import Img from '../../../assets/login.png'
 
-export default observer (function UserDetails ()  {
+
+export default observer( function UserDetails ()  {
     const {userStore, modalStore} = useStore();
     const {selectedUser: user, cancelSelectedUser} = userStore;
     
@@ -38,5 +39,5 @@ export default observer (function UserDetails ()  {
             </Form>
         </Segment>
     )
-})
-
+}
+)

@@ -1,8 +1,9 @@
+import { observer } from 'mobx-react-lite';
 import { Button,Card } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 
-export default function LendaDetails() {
+export default observer( function LendaDetails() {
     const {lendaStore} = useStore();
     const {selectedLenda: lenda, openForm, cancelSelectedLenda} = lendaStore
     if (!lenda) return <LoadingComponent/>;
@@ -25,4 +26,4 @@ export default function LendaDetails() {
             </Card.Content>
         </Card>
     )
-}
+})
