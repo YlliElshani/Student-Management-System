@@ -6,4 +6,5 @@ export interface ITrip {
     description:string;
     participants:string;
     price:string;
+    user:string;
 }

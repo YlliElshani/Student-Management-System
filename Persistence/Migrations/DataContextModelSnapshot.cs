@@ -204,7 +204,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatjet");
+                    b.ToTable("Kohezgjatja");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -368,6 +368,8 @@ namespace Persistence.Migrations
                     b.Property<string>("place");
 
                     b.Property<string>("price");
+
+                    b.Property<string>("user");
 
                     b.HasKey("tripId");
 

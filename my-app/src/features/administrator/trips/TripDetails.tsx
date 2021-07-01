@@ -22,6 +22,7 @@ export default function TripDetails ()  {
                 <Segment>{trip!.description}</Segment>
                 <Segment>{trip!.participants}</Segment>
                 <Segment>{trip!.price}</Segment>
+                <Segment>{trip!.user}</Segment>
             </Grid.Column>
             </Grid.Row>
         </Grid>

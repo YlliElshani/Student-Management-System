@@ -25,6 +25,8 @@ namespace Application.Trips
             public string participants {get; set;}
 
             public string price {get; set;}
+
+            public string user {get; set;}
         }
 
         public class CommandValidator : AbstractValidator<Command>
@@ -37,6 +39,7 @@ namespace Application.Trips
                 RuleFor(x => x.description).NotEmpty();
                 RuleFor(x => x.participants).NotEmpty();
                 RuleFor(x => x.price).NotEmpty();
+                RuleFor(x => x.user).NotEmpty();
             }
         }
 
@@ -59,7 +62,8 @@ namespace Application.Trips
                     date = request.date,
                     description = request.description,
                     participants = request.participants,
-                    price = request.price
+                    price = request.price,
+                    user = request.user
                 };
 
                 _context.Trips.Add(trip);
