@@ -28,12 +28,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Application.Qytetet;
 using Application.Vleresimet;
-<<<<<<< HEAD
 using Application.KohezgjatjaOres;
 using Application.Sallat;
-=======
-using Application.Sallat;
->>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21
+using Application.Competitions;
+using Application.MaterialiMesimor;
+
 namespace API
 {
     public class Startup
@@ -71,6 +70,8 @@ namespace API
             services.AddMediatR(typeof(ListVleresimet.Handler).Assembly);
             services.AddMediatR(typeof(ListoKoheZ.Handler).Assembly);
             services.AddMediatR(typeof(ListSallat.Handler).Assembly);
+            services.AddMediatR(typeof(ListCompetitions.Handler).Assembly);
+            services.AddMediatR(typeof(ListMaterialet.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

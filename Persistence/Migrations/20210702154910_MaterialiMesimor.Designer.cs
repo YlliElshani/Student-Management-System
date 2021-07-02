@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210702102702_AllEntity.Designer.cs
-    [Migration("20210702102702_AllEntity")]
-    partial class AllEntity
-=======
-    [Migration("20210702140618_SallaEntityAdded")]
-    partial class SallaEntityAdded
->>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21:Persistence/Migrations/20210702140618_SallaEntityAdded.Designer.cs
+    [Migration("20210702154910_MaterialiMesimor")]
+    partial class MaterialiMesimor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -230,6 +225,26 @@ namespace Persistence.Migrations
                     b.HasKey("LendaId");
 
                     b.ToTable("Lendet");
+                });
+
+            modelBuilder.Entity("Domain.Materiali", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FileDrop");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<string>("Perioda");
+
+                    b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Titulli");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Materialet");
                 });
 
             modelBuilder.Entity("Domain.Njoftime", b =>

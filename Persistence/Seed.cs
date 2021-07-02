@@ -174,6 +174,36 @@ namespace Persistence
                         participants = "Vetëm nxënësit e vitit të tretë",
                         price = "Pagesat i mbulon shkolla"
 
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
                     }
                 };
 
@@ -205,6 +235,30 @@ namespace Persistence
             {
                 var competitions = new List<Competition>
                 {
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
                     new Competition
                     {
                         name = "Math Genius",
@@ -481,6 +535,9 @@ namespace Persistence
                     }
                 };
                 context.Materialet.AddRange(materialet);
+                context.SaveChanges();
+            }
+            
             if(!context.Sallat.Any())
             {
                 var sallat = new List<Salla>
