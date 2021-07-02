@@ -19,6 +19,7 @@ import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
+import { IKoheZ } from '../models/kOres';
 
 
 
@@ -169,6 +170,15 @@ const Qytetet = {
     delete: (id: string) => requests.delete(`/qytetet/${id}`)
 }
 
+
+const KohezgjatjaOres = {
+    list: () : Promise<IKoheZ[]> => requests.get('/Kohezgjatja'),
+    details: (id: string) => requests.get(`/Kohezgjatja/${id}`),
+    create: (koheZ:IKoheZ) => requests.post('/Kohezgjatja',koheZ),
+    update: (koheZ: IKoheZ) => requests.put(`/Kohezgjatja/${koheZ.id}`, koheZ),
+    delete: (id: string) => requests.delete(`/Kohezgjatja/${id}`)
+}
+
 const Account = {
     current: () => requests.get('/admin'),
     list: (): Promise<User[]> => requests.get('/admin/list'),
@@ -225,7 +235,8 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-    PlaniMesimor
+    PlaniMesimor,
+    KohezgjatjaOres
 }
 
 export default agent;

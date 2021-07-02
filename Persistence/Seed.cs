@@ -430,7 +430,7 @@ namespace Persistence
                 context.VitetAkademike.AddRange(viteAkademike);
                 context.SaveChanges();
             };
-            if(!context.Kohezgjatja.Any())
+            if(!context.Kohezgjatjet.Any())
             {
                 var kohezgjatja = new List<Kohezgjatja>
                 {
@@ -440,7 +440,7 @@ namespace Persistence
                         oraNisjes=10
                     },
                 };
-                context.Kohezgjatja.AddRange(kohezgjatja);
+                context.Kohezgjatjet.AddRange(kohezgjatja);
                 context.SaveChanges();
             };
             if(!context.Vleresimet.Any())

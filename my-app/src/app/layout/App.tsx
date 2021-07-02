@@ -57,6 +57,7 @@ import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
+import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 
 
 
@@ -105,6 +106,7 @@ function App () {
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UserList}/>
+          <Route exact path='/admin/kohezgjatjaOres' component={KohaZList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
           <Route exact path='/student/profile' component={StudentProfile}/>
