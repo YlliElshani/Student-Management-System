@@ -41,7 +41,7 @@ export default observer(function TrajnimetList () {
                             <Item.Header >{trajnim.trajnimEmri}</Item.Header>
                             <Item.Meta>{trajnim.pershkrimi}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => trajnimStore.selectTrajnim(trajnim.trajnimId)} size='mini' floated='right' content='Shiko Detajet'/>
+                                <Button onClick={() => trajnimStore.selectTrajnim(trajnim.trajnimId)} size='mini' floated='right' color='green' content='Shiko Detajet'/>
                                 <Button name={trajnim.trajnimId} loading={loading && target === trajnim.trajnimId} onClick={(e) => handleDeleteTrajnim(e, trajnim.trajnimId)} size='mini' floated='right' content='Fshij Trajnimn' />
                             </Item.Extra>
                             </Item.Content>

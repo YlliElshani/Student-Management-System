@@ -54,13 +54,13 @@ export default observer(function VleresimiDashboard() {
                                 <Table.Cell>{vleresimi.nota}</Table.Cell>
                                 <Table.Cell>{vleresimi.dataEVendosjes}</Table.Cell>
                                 <Table.Cell>{vleresimi.oraEVendosjes}</Table.Cell>
-                                <Table.Cell><Button onClick={() => selectVleresimi(vleresimi.vleresimiId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
-                                <Table.Cell><Button inverted color='red' name={vleresimi.vleresimiId} loading={target === vleresimi.vleresimiId && loading} onClick={(e) => handleVleresimiDelete(e, vleresimi.vleresimiId)} size='mini'  content='Fshij Vleresimin' /></Table.Cell>
+                                <Table.Cell><Button onClick={() => selectVleresimi(vleresimi.vleresimiId)}   content='Edit'  color='green' /></Table.Cell>
+                                <Table.Cell><Button  name={vleresimi.vleresimiId} loading={target === vleresimi.vleresimiId && loading} onClick={(e) => handleVleresimiDelete(e, vleresimi.vleresimiId)}   content='Fshij Vleresimin' /></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => vleresimiStore.openForm()} content='Shto Vleresim'/>
+                <Button  class='ui button' onClick={() => vleresimiStore.openForm()} content='Shto Vleresim'/>
                 <Grid.Column width='5'>
                 {selectedVleresimi && !editMode && 
                 <VleresimiDetails/>}
