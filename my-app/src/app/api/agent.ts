@@ -253,12 +253,9 @@ const agent = {
     Vleresimet,
     Vijushmerit,
     PlaniMesimor,
-<<<<<<< HEAD
-    MaterialiMesimor
-=======
+    MaterialiMesimor,
     KohezgjatjaOres,
     Sallat
->>>>>>> 726e6bb0b0dccfefbf8dcae5941c637fd49e58d3
 }
 
 export default agent;
