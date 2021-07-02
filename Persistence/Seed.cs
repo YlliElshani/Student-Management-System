@@ -174,6 +174,36 @@ namespace Persistence
                         participants = "Vetëm nxënësit e vitit të tretë",
                         price = "Pagesat i mbulon shkolla"
 
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
                     }
                 };
 
@@ -205,6 +235,30 @@ namespace Persistence
             {
                 var competitions = new List<Competition>
                 {
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
                     new Competition
                     {
                         name = "Math Genius",
@@ -259,6 +313,23 @@ namespace Persistence
                             
                             };
                             context.Vijushmerit.AddRange(vijushmerit);
+                            context.SaveChanges();
+                        };
+
+                          
+            if(!context.Periodat.Any())
+                        {
+                            var periodat = new List<Perioda>
+                            {
+                                new Perioda
+                                {
+                                    Emri = "Perioda E Pare", 
+                                    Fillimi= "7/2/2021",
+                                    Mbarimi= "11/4/2021"                     
+                                }
+                            
+                            };
+                            context.Periodat.AddRange(periodat);
                             context.SaveChanges();
                         };
 
@@ -430,7 +501,7 @@ namespace Persistence
                 context.VitetAkademike.AddRange(viteAkademike);
                 context.SaveChanges();
             };
-            if(!context.Kohezgjatja.Any())
+            if(!context.Kohezgjatjet.Any())
             {
                 var kohezgjatja = new List<Kohezgjatja>
                 {
@@ -440,7 +511,7 @@ namespace Persistence
                         oraNisjes=10
                     },
                 };
-                context.Kohezgjatja.AddRange(kohezgjatja);
+                context.Kohezgjatjet.AddRange(kohezgjatja);
                 context.SaveChanges();
             };
             if(!context.Vleresimet.Any())
@@ -524,6 +595,47 @@ namespace Persistence
             };
 
         
+            if(!context.Materialet.Any())
+            {
+                var materialet = new List<Materiali>
+                {
+                    new Materiali
+                    {
+                        Titulli="Algorithms 4th Edition",
+                        Pershkrimi="Materiali dallon nga edicioni i 3-të, është riorganizuar dhe rishkruar në mënyrë thelbësore. Ndryshimet pasqyrojnë një model të qëndrueshëm modern të programimit, theksojnë zbatimet në shkencë dhe industri. Ai gjithashtu përfshin tema të ndryshme (p.sh., vargjet) dhe përdor veçori të reja në Java",
+                        Lenda="Algoritmet",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://algs4.cs.princeton.edu/home/"
+                    },
+                    new Materiali
+                    {
+                        Titulli="Permbledhje",
+                        Pershkrimi="Materiali përmban përmbledhje të të gjitha temave të ngërthyera në këtë lëndë.",
+                        Lenda="Inxhinieri Softuerike",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://filebin.net/a2tsaykahfr7orqg"
+                    }
+                };
+                context.Materialet.AddRange(materialet);
+                context.SaveChanges();
+            }
+            
+            if(!context.Sallat.Any())
+            {
+                var sallat = new List<Salla>
+                {
+                    new Salla
+                    {
+                        Emri="A210",
+                        Kapaciteti=80,
+                        Statusi="E Rezervuar",
+                        DataRezervimit="10-07-2021",
+                        OraRezervimit="10:40 AM"
+                    },
+                };
+                context.Sallat.AddRange(sallat);
+                context.SaveChanges();
+            };
         }
 
     }

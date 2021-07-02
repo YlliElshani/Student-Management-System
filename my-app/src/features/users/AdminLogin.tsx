@@ -7,8 +7,6 @@ import { ErrorMessage, Form, Formik } from 'formik'
 import TextInput from '../../app/common/form/TextInput'
 import Img from '../../assets/login.png'
 import Tilt from 'react-parallax-tilt';
-import { NavLink } from 'react-router-dom'
-import AdminRegister from './AdminRegister'
 
 export default observer (function AdminLogin(){
     const {userStore, modalStore} = useStore();
@@ -18,7 +16,7 @@ export default observer (function AdminLogin(){
             <Segment.Group horizontal style={{borderRadius:'5pt', width:'800px', height:'500px'}} raised>
                 <Tilt><Image src={Img} style={{height:'300px', margin:'80px 50px', padding:'30px'}} /></Tilt>
                 <Formik
-            initialValues={{email: '', password:'', error: null}} 
+            initialValues={{id:'', email: '', password:'', error: null}} 
             onSubmit={(values, {setErrors}) => userStore.adminLogin(values).catch(error => 
             setErrors({error: 'Invalid email or password'}))}>
                 {({ handleSubmit, isSubmitting, errors}) => (

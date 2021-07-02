@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class VleresimiEntityAdded : Migration
+    public partial class Entities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -135,7 +135,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Kohezgjatja",
+                name: "Kohezgjatjet",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -144,7 +144,7 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Kohezgjatja", x => x.Id);
+                    table.PrimaryKey("PK_Kohezgjatjet", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -160,6 +160,22 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lendet", x => x.LendaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Materialet",
+                columns: table => new
+                {
+                    id = table.Column<Guid>(nullable: false),
+                    Titulli = table.Column<string>(nullable: true),
+                    Pershkrimi = table.Column<string>(nullable: true),
+                    Lenda = table.Column<string>(nullable: true),
+                    Perioda = table.Column<string>(nullable: true),
+                    FileDrop = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Materialet", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -205,6 +221,20 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Periodat",
+                columns: table => new
+                {
+                    PeriodaId = table.Column<Guid>(nullable: false),
+                    Emri = table.Column<string>(nullable: true),
+                    Fillimi = table.Column<string>(nullable: true),
+                    Mbarimi = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Periodat", x => x.PeriodaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PlaniMesimor",
                 columns: table => new
                 {
@@ -244,6 +274,22 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Qytetet", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sallat",
+                columns: table => new
+                {
+                    SallaId = table.Column<Guid>(nullable: false),
+                    Emri = table.Column<string>(nullable: true),
+                    Kapaciteti = table.Column<int>(nullable: false),
+                    Statusi = table.Column<string>(nullable: true),
+                    DataRezervimit = table.Column<string>(nullable: true),
+                    OraRezervimit = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sallat", x => x.SallaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -498,10 +544,13 @@ namespace Persistence.Migrations
                 name: "Klaset");
 
             migrationBuilder.DropTable(
-                name: "Kohezgjatja");
+                name: "Kohezgjatjet");
 
             migrationBuilder.DropTable(
                 name: "Lendet");
+
+            migrationBuilder.DropTable(
+                name: "Materialet");
 
             migrationBuilder.DropTable(
                 name: "Njoftimet");
@@ -513,6 +562,9 @@ namespace Persistence.Migrations
                 name: "Paralelet");
 
             migrationBuilder.DropTable(
+                name: "Periodat");
+
+            migrationBuilder.DropTable(
                 name: "PlaniMesimor");
 
             migrationBuilder.DropTable(
@@ -520,6 +572,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Qytetet");
+
+            migrationBuilder.DropTable(
+                name: "Sallat");
 
             migrationBuilder.DropTable(
                 name: "Trajnimet");

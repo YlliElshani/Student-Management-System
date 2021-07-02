@@ -20,7 +20,7 @@ export default observer(function ProfesorNavBar() {
             direction='left'
             >
             {isLoggedIn ? (
-                        <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='profesorprofile'>
+                        <Menu.Item as={NavLink} to='/profile'>
                         <Icon name='user' />
                         Profili
                     </Menu.Item>
@@ -31,6 +31,10 @@ export default observer(function ProfesorNavBar() {
             <Menu.Item as={NavLink} to='/profesor/notat'>
                 <Icon name='grid layout' />
                 Notat
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/materialet'>
+                <Icon name='book' />
+                Materialet
             </Menu.Item>
             <Menu.Item as={NavLink} to='/profesor/lendet'>
                 <Icon name='book' />

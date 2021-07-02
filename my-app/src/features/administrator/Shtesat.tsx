@@ -57,6 +57,25 @@ export default observer( function Shtesat() {
             </Card>
           </Grid.Row>
 
+          
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Kohezgjatja e Oreve</Card.Header>
+                <Card.Description>
+                  Modifiko kohzgjatjen e oreve
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons' >
+                  <Button basic color='green' as={NavLink} to='/admin/kohezgjatjaOres'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
 
 
           <Grid.Row style={{ marginTop: '50px' }}>
@@ -146,6 +165,24 @@ export default observer( function Shtesat() {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <Button as={NavLink} to='/admin/lendet' basic color='green'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header as={NavLink} to='/periodat'>Periodat</Card.Header>
+                <Card.Description>
+                 Shtoni Perioda
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button as={NavLink} to='/periodat' basic color='green'>
                     Shfaq
                   </Button>
                 </div>

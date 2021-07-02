@@ -204,7 +204,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatja");
+                    b.ToTable("Kohezgjatjet");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -235,6 +235,25 @@ namespace Persistence.Migrations
                     b.HasKey("NderrimiId");
 
                     b.ToTable("Nderrimet");
+            });
+            modelBuilder.Entity("Domain.Materiali", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FileDrop");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<string>("Perioda");
+
+                    b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Titulli");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Materialet");
                 });
 
             modelBuilder.Entity("Domain.Njoftime", b =>
@@ -309,6 +328,21 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaaId");
 
                     b.ToTable("Paraleleet");
+            });
+            modelBuilder.Entity("Domain.Perioda", b =>
+                {
+                    b.Property<Guid>("PeriodaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Emri");
+
+                    b.Property<string>("Fillimi");
+
+                    b.Property<string>("Mbarimi");
+
+                    b.HasKey("PeriodaId");
+
+                    b.ToTable("Periodat");
                 });
 
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
@@ -357,6 +391,26 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Qytetet");
+                });
+
+            modelBuilder.Entity("Domain.Salla", b =>
+                {
+                    b.Property<Guid>("SallaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DataRezervimit");
+
+                    b.Property<string>("Emri");
+
+                    b.Property<int>("Kapaciteti");
+
+                    b.Property<string>("OraRezervimit");
+
+                    b.Property<string>("Statusi");
+
+                    b.HasKey("SallaId");
+
+                    b.ToTable("Sallat");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>
