@@ -273,6 +273,22 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
+            modelBuilder.Entity("Domain.Perioda", b =>
+                {
+                    b.Property<Guid>("PeriodaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Emri");
+
+                    b.Property<string>("Fillimi");
+
+                    b.Property<string>("Mbarimi");
+
+                    b.HasKey("PeriodaId");
+
+                    b.ToTable("Periodat");
+                });
+
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
                 {
                     b.Property<Guid>("Id")

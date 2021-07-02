@@ -57,6 +57,7 @@ import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
+import PeriodaList from '../../features/periodat/PeriodaList';
 
 
 
@@ -96,6 +97,7 @@ function App () {
           <Route exact path='/admin/qytetet' component={QytetetList}/>
 
           <Route exact path='/detyrat' component={DetyraList}/>
+          <Route exact path='/periodat' component={PeriodaList}/>
 
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
           <Route exact path='/profesor/vijushmeria' component={VijushmeriaDashboard}/>

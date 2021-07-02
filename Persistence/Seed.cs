@@ -262,6 +262,23 @@ namespace Persistence
                             context.SaveChanges();
                         };
 
+                          
+            if(!context.Periodat.Any())
+                        {
+                            var periodat = new List<Perioda>
+                            {
+                                new Perioda
+                                {
+                                    Emri = "Perioda E Pare", 
+                                    Fillimi= "7/2/2021",
+                                    Mbarimi= "11/4/2021"                     
+                                }
+                            
+                            };
+                            context.Periodat.AddRange(periodat);
+                            context.SaveChanges();
+                        };
+
 
             if(!context.KerkesaN.Any())
             {

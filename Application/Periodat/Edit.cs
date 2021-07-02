@@ -1,20 +1,20 @@
-
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.Vijushmerit
+namespace Application.Periodat
 {
-    public class Create
+    public class Edit
     {
         public class Command : IRequest
         {
-            public Guid VijushmeriaId { get; set; }
-            public string Pjesmarrja { get; set; }
-            public string Studenti { get; set; }
+            public Guid PeriodaId { get; set; }
+            public string Emri { get; set; }
+            public string Fillimi { get; set; }
+            public string Mbarimi { get; set; }
+
         }
 
         public class Handler : IRequestHandler<Command>
@@ -28,14 +28,18 @@ namespace Application.Vijushmerit
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var vijushmeria = new Vijushmeria
-                {
-                    VijushmeriaId=request.VijushmeriaId,
-                    Pjesmarrja=request.Pjesmarrja, 
-                    Studenti=request.Studenti
-                };
+                var perioda = await _context.Periodat.FindAsync(request.PeriodaId);
 
-                _context.Vijushmerit.Add(vijushmeria);
+                if (perioda == null)
+                    throw new Exception("Could not find subject");
+                    
+                perioda.Emri = request.Emri ?? perioda.Emri;
+                perioda.Fillimi = request.Fillimi ?? perioda.Fillimi;
+                perioda.Mbarimi = request.Mbarimi ?? perioda.Mbarimi;
+   
+
+                
+
                 var success = await _context.SaveChangesAsync() > 0;
 
                 if (success) return Unit.Value;

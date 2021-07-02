@@ -15,6 +15,8 @@ namespace Persistence
 
         public DbSet <Vijushmeria> Vijushmerit {get; set;}
 
+        public DbSet <Perioda> Periodat {get; set;}
+
          public DbSet <Kohezgjatja> Kohezgjatjet {get; set;}
 
         public DbSet <Lenda> Lendet {get; set;}

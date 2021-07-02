@@ -18,6 +18,7 @@ import KerkesNdihmeStore from "./kerkesNdihmeStore";
 import VleresimiStore from "./vleresimiStore";
 import VijushmeriaStore from "./vijushmeriaStore";
 import pMesimorStore from "./pMesimorStore";
+import PeriodaStore from "./periodaStore";
 
 
 interface Store {
@@ -39,6 +40,7 @@ interface Store {
     kerkesNdihmeStore:KerkesNdihmeStore;
     vleresimiStore: VleresimiStore;
     vijushmeriaStore:VijushmeriaStore;
+    periodaStore:PeriodaStore;
     pMesimorStore: pMesimorStore;
 }
 
@@ -61,7 +63,7 @@ export const store: Store = {
     trajnimStore: new TrajnimStore(),
     vleresimiStore: new VleresimiStore(),
     vijushmeriaStore: new VijushmeriaStore(),
-    
+    periodaStore: new PeriodaStore(),
     pMesimorStore:new pMesimorStore()
 }
 

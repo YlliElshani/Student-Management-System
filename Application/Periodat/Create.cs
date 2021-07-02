@@ -1,4 +1,3 @@
-
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,15 +5,16 @@ using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.Vijushmerit
+namespace Application.Periodat
 {
     public class Create
     {
         public class Command : IRequest
         {
-            public Guid VijushmeriaId { get; set; }
-            public string Pjesmarrja { get; set; }
-            public string Studenti { get; set; }
+            public Guid PeriodaId { get; set; }
+            public string Emri { get; set; }
+            public string Fillimi { get; set; }
+            public string Mbarimi { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -28,14 +28,15 @@ namespace Application.Vijushmerit
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var vijushmeria = new Vijushmeria
+                var perioda = new Perioda
                 {
-                    VijushmeriaId=request.VijushmeriaId,
-                    Pjesmarrja=request.Pjesmarrja, 
-                    Studenti=request.Studenti
+                    PeriodaId=request.PeriodaId,
+                    Emri=request.Emri, 
+                    Fillimi=request.Fillimi,
+                    Mbarimi=request.Mbarimi
                 };
 
-                _context.Vijushmerit.Add(vijushmeria);
+                _context.Periodat.Add(perioda);
                 var success = await _context.SaveChangesAsync() > 0;
 
                 if (success) return Unit.Value;
@@ -45,3 +46,4 @@ namespace Application.Vijushmerit
         }
     }
 }
+

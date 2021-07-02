@@ -19,6 +19,7 @@ import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
+import { IPerioda } from '../models/perioda';
 
 
 
@@ -78,6 +79,14 @@ const Vijushmerit = {
     create: (vijushmeria:IVijushmeria) => requests.post('/vijushmerit', vijushmeria),
     update: (vijushmeria: IVijushmeria) => requests.put(`/vijushmerit/${vijushmeria.vijushmeriaId}`, vijushmeria),
     delete: (id: string) => requests.delete(`/vijushmerit/${id}`)
+}
+
+const Periodat = {
+    list: (): Promise<IPerioda[]> => requests.get('/periodat'),
+    details: (periodaId: string) => requests.get(`/periodat/${periodaId}`),
+    create: (perioda:IPerioda) => requests.post('/periodat', perioda),
+    update: (perioda: IPerioda) => requests.put(`/periodat/${perioda.periodaId}`, perioda),
+    delete: (id: string) => requests.delete(`/periodat/${id}`)
 }
 
 const Arsyetimet = {
@@ -225,7 +234,8 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-    PlaniMesimor
+    PlaniMesimor,
+    Periodat
 }
 
 export default agent;
