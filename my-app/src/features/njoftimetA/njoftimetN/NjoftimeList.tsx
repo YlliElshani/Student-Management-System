@@ -34,7 +34,7 @@ export default observer(function NjoftimeList () {
                     <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => njoftimeStore.openForm()} content='Shto Arsyen'/>
+                    <Button onClick={() => njoftimeStore.openForm()} content='Shto Njoftimin'/>
                     <Item.Group divided>
                         {njoftimet.map((njoftim) => (
                         <Item key={njoftim.id}>
@@ -43,7 +43,7 @@ export default observer(function NjoftimeList () {
                             <Item.Meta>{njoftim.dataENjoftimit}</Item.Meta>
                             <Item.Extra>
                                 <Button onClick={() => njoftimeStore.selectNjoftim(njoftim.id)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={njoftim.id} loading={loading && target === njoftim.id} onClick={(e) => handleDeleteNjoftimi(e, njoftim.id)} size='mini' floated='right' content='Fshij Arsyjen' />
+                                <Button name={njoftim.id} loading={loading && target === njoftim.id} onClick={(e) => handleDeleteNjoftimi(e, njoftim.id)} size='mini' floated='right' content='Fshij Njoftimin' />
                             </Item.Extra>
                             </Item.Content>
                         </Item>

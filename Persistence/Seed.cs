@@ -430,7 +430,7 @@ namespace Persistence
                 context.VitetAkademike.AddRange(viteAkademike);
                 context.SaveChanges();
             };
-            if(!context.Kohezgjatja.Any())
+            if(!context.Kohezgjatjet.Any())
             {
                 var kohezgjatja = new List<Kohezgjatja>
                 {
@@ -440,7 +440,7 @@ namespace Persistence
                         oraNisjes=10
                     },
                 };
-                context.Kohezgjatja.AddRange(kohezgjatja);
+                context.Kohezgjatjet.AddRange(kohezgjatja);
                 context.SaveChanges();
             };
             if(!context.Vleresimet.Any())
@@ -481,6 +481,20 @@ namespace Persistence
                     }
                 };
                 context.Materialet.AddRange(materialet);
+            if(!context.Sallat.Any())
+            {
+                var sallat = new List<Salla>
+                {
+                    new Salla
+                    {
+                        Emri="A210",
+                        Kapaciteti=80,
+                        Statusi="E Rezervuar",
+                        DataRezervimit="10-07-2021",
+                        OraRezervimit="10:40 AM"
+                    },
+                };
+                context.Sallat.AddRange(sallat);
                 context.SaveChanges();
             };
         }

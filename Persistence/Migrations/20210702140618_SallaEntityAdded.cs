@@ -3,15 +3,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210702133958_MaterialiMesimor.cs
-    public partial class MaterialiMesimor : Migration
-=======
 <<<<<<< HEAD:Persistence/Migrations/20210702102702_AllEntity.cs
     public partial class AllEntity : Migration
 =======
     public partial class SallaEntityAdded : Migration
 >>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21:Persistence/Migrations/20210702140618_SallaEntityAdded.cs
->>>>>>> 726e6bb0b0dccfefbf8dcae5941c637fd49e58d3:Persistence/Migrations/20210702102702_AllEntity.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -168,22 +164,6 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Lendet", x => x.LendaId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Materialet",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(nullable: false),
-                    Titulli = table.Column<string>(nullable: true),
-                    Pershkrimi = table.Column<string>(nullable: true),
-                    Lenda = table.Column<string>(nullable: true),
-                    Perioda = table.Column<string>(nullable: true),
-                    FileDrop = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Materialet", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -542,9 +522,6 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Lendet");
-
-            migrationBuilder.DropTable(
-                name: "Materialet");
 
             migrationBuilder.DropTable(
                 name: "Njoftimet");

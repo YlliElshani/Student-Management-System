@@ -19,6 +19,8 @@ import VleresimiStore from "./vleresimiStore";
 import VijushmeriaStore from "./vijushmeriaStore";
 import pMesimorStore from "./pMesimorStore";
 import MaterialiMesimorStore from "./materialiMesimorStore";
+import KoheZStore from "./koheZStore";
+import SallaStore from "./sallaStore";
 
 
 interface Store {
@@ -42,6 +44,8 @@ interface Store {
     vijushmeriaStore:VijushmeriaStore;
     pMesimorStore: pMesimorStore;
     materialiStore: MaterialiMesimorStore;
+    koheZStore: KoheZStore;
+    sallaStore: SallaStore;
 }
 
 export const store: Store = {
@@ -64,7 +68,9 @@ export const store: Store = {
     vleresimiStore: new VleresimiStore(),
     vijushmeriaStore: new VijushmeriaStore(),
     pMesimorStore:new pMesimorStore(),
-    materialiStore: new MaterialiMesimorStore()
+    materialiStore: new MaterialiMesimorStore(),
+    koheZStore:new KoheZStore(),
+    sallaStore: new SallaStore(),
 }
 
 export const StoreContext = createContext(store);

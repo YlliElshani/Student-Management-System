@@ -204,7 +204,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatja");
+                    b.ToTable("Kohezgjatjet");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -339,6 +339,26 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Qytetet");
+                });
+
+            modelBuilder.Entity("Domain.Salla", b =>
+                {
+                    b.Property<Guid>("SallaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DataRezervimit");
+
+                    b.Property<string>("Emri");
+
+                    b.Property<int>("Kapaciteti");
+
+                    b.Property<string>("OraRezervimit");
+
+                    b.Property<string>("Statusi");
+
+                    b.HasKey("SallaId");
+
+                    b.ToTable("Sallat");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>
