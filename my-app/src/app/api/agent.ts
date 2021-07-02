@@ -19,6 +19,7 @@ import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
+import { ISalla } from '../models/salla';
 
 
 
@@ -169,6 +170,14 @@ const Qytetet = {
     delete: (id: string) => requests.delete(`/qytetet/${id}`)
 }
 
+const Sallat = {
+    list: () : Promise<ISalla[]> => requests.get('/sallat'),
+    details: (id: string) => requests.get(`/sallat/${id}`),
+    create: (salla: ISalla) => requests.post('/sallat',salla),
+    update: (salla: ISalla) => requests.put(`/sallat/${salla.sallaId}`, salla),
+    delete: (id: string) => requests.delete(`/sallat/${id}`)
+}
+
 const Account = {
     current: () => requests.get('/admin'),
     list: (): Promise<User[]> => requests.get('/admin/list'),
@@ -225,7 +234,8 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-    PlaniMesimor
+    PlaniMesimor,
+    Sallat
 }
 
 export default agent;

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class VleresimiEntityAdded : Migration
+    public partial class SallaEntityAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -244,6 +244,22 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Qytetet", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Sallat",
+                columns: table => new
+                {
+                    SallaId = table.Column<Guid>(nullable: false),
+                    Emri = table.Column<string>(nullable: true),
+                    Kapaciteti = table.Column<int>(nullable: false),
+                    Statusi = table.Column<string>(nullable: true),
+                    DataRezervimit = table.Column<string>(nullable: true),
+                    OraRezervimit = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Sallat", x => x.SallaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -520,6 +536,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Qytetet");
+
+            migrationBuilder.DropTable(
+                name: "Sallat");
 
             migrationBuilder.DropTable(
                 name: "Trajnimet");

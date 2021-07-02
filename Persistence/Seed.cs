@@ -458,6 +458,22 @@ namespace Persistence
                 context.Vleresimet.AddRange(vleresimet);
                 context.SaveChanges();
             };
+            if(!context.Sallat.Any())
+            {
+                var sallat = new List<Salla>
+                {
+                    new Salla
+                    {
+                        Emri="A210",
+                        Kapaciteti=80,
+                        Statusi="E Rezervuar",
+                        DataRezervimit="10-07-2021",
+                        OraRezervimit="10:40 AM"
+                    },
+                };
+                context.Sallat.AddRange(sallat);
+                context.SaveChanges();
+            };
         }
 
     }

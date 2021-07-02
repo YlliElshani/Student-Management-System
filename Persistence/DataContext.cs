@@ -49,6 +49,7 @@ namespace Persistence
         public DbSet <VitiAkademik> VitetAkademike {get; set; }
         public DbSet <Kohezgjatja> Kohezgjatja {get; set; }
         public DbSet <Vleresimi> Vleresimet {get; set; }
+        public DbSet <Salla> Sallat {get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
