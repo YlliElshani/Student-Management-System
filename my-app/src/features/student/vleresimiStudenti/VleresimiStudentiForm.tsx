@@ -18,8 +18,8 @@ export default observer(function VleresimiStudentiForm() {
     vleresimiId: '',
     lenda: '',
     nota: '',
-    dataVendosjes: '',
-    oraVendosjes: ''
+    dataEVendosjes: '',
+    oraEVendosjes: ''
   }
 
  
@@ -61,8 +61,8 @@ export default observer(function VleresimiStudentiForm() {
           ))}
         </select>
         </Form.Input>
-        <Form.Input onChange={handleInputChange} name='dataVendosjes' placeholder='dataVendosjes' value={vleresimi.dataVendosjes} />
-        <Form.Input onChange={handleInputChange} name='oraVendosjes' placeholder='oraVendosjes' value={vleresimi.oraVendosjes} />
+        <Form.Input onChange={handleInputChange} name='dataVendosjes' placeholder='dataVendosjes' value={vleresimi.dataEVendosjes} />
+        <Form.Input onChange={handleInputChange} name='oraVendosjes' placeholder='oraVendosjes' value={vleresimi.oraEVendosjes} />
       </Form>
     </Segment>
   )

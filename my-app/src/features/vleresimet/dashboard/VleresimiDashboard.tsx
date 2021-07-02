@@ -52,8 +52,8 @@ export default observer(function VleresimiDashboard() {
                             <Table.Row>
                                 <Table.Cell>{vleresimi.lenda}</Table.Cell>
                                 <Table.Cell>{vleresimi.nota}</Table.Cell>
-                                <Table.Cell>{vleresimi.dataVendosjes}</Table.Cell>
-                                <Table.Cell>{vleresimi.oraVendosjes}</Table.Cell>
+                                <Table.Cell>{vleresimi.dataEVendosjes}</Table.Cell>
+                                <Table.Cell>{vleresimi.oraEVendosjes}</Table.Cell>
                                 <Table.Cell><Button onClick={() => selectVleresimi(vleresimi.vleresimiId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
                                 <Table.Cell><Button inverted color='red' name={vleresimi.vleresimiId} loading={target === vleresimi.vleresimiId && loading} onClick={(e) => handleVleresimiDelete(e, vleresimi.vleresimiId)} size='mini'  content='Fshij Vleresimin' /></Table.Cell>
                             </Table.Row>

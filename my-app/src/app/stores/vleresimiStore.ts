@@ -15,7 +15,7 @@ export default class VleresimiStore {
     }
 
     get vleresimetByDate() {
-        return Array.from(this.vleresimiRegistry.values())
+        return Array.from(this.vleresimiRegistry.values());
     }
 
     loadVleresimet = async () => {

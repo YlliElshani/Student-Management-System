@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210701232155_UsersCity.cs
-    public partial class UsersCity : Migration
-=======
     public partial class VleresimiEntityAdded : Migration
->>>>>>> c14b6b0d6c1e8739be5474a990c0a04bcc70bfa4:Persistence/Migrations/20210701232822_VleresimiEntityAdded.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -139,11 +135,7 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701232155_UsersCity.cs
-                name: "Kohezgjatjet",
-=======
                 name: "Kohezgjatja",
->>>>>>> c14b6b0d6c1e8739be5474a990c0a04bcc70bfa4:Persistence/Migrations/20210701232822_VleresimiEntityAdded.cs
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -152,11 +144,7 @@ namespace Persistence.Migrations
                 },
                 constraints: table =>
                 {
-<<<<<<< HEAD:Persistence/Migrations/20210701232155_UsersCity.cs
-                    table.PrimaryKey("PK_Kohezgjatjet", x => x.Id);
-=======
                     table.PrimaryKey("PK_Kohezgjatja", x => x.Id);
->>>>>>> c14b6b0d6c1e8739be5474a990c0a04bcc70bfa4:Persistence/Migrations/20210701232822_VleresimiEntityAdded.cs
                 });
 
             migrationBuilder.CreateTable(
@@ -510,11 +498,7 @@ namespace Persistence.Migrations
                 name: "Klaset");
 
             migrationBuilder.DropTable(
-<<<<<<< HEAD:Persistence/Migrations/20210701232155_UsersCity.cs
-                name: "Kohezgjatjet");
-=======
                 name: "Kohezgjatja");
->>>>>>> c14b6b0d6c1e8739be5474a990c0a04bcc70bfa4:Persistence/Migrations/20210701232822_VleresimiEntityAdded.cs
 
             migrationBuilder.DropTable(
                 name: "Lendet");

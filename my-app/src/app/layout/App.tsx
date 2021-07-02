@@ -56,6 +56,7 @@ import VleresimiStudentiDashboard from '../../features/student/vleresimiStudenti
 import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
+import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
 
 
 
@@ -110,6 +111,7 @@ function App () {
           <Route exact path='/student/KerkesNdihme' component={KerkesaList}/>
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/vleresimi' component={VleresimiStudentiDashboard}/>
+          <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>

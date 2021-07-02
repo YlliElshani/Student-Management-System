@@ -50,13 +50,12 @@ export default observer(function VleresimiStudentiDashboard() {
                             <Table.Row>
                                 <Table.Cell>{vleresimi.lenda}</Table.Cell>
                                 <Table.Cell>{vleresimi.nota}</Table.Cell>
-                                <Table.Cell>{vleresimi.dataVendosjes}</Table.Cell>
-                                <Table.Cell>{vleresimi.oraVendosjes}</Table.Cell>
+                                <Table.Cell>{vleresimi.dataEVendosjes}</Table.Cell>
+                                <Table.Cell>{vleresimi.oraEVendosjes}</Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => vleresimiStore.openForm()} content='Shto Vleresim'/>
                 <Grid.Column width='5'>
                 {selectedVleresimi && !editMode && 
                 <VleresimiStudentiDetails/>}
