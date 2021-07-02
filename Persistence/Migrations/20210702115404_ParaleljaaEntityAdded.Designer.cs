@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210702115404_ParaleljaaEntityAdded")]
+    partial class ParaleljaaEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -225,18 +227,6 @@ namespace Persistence.Migrations
                     b.ToTable("Lendet");
                 });
 
-            modelBuilder.Entity("Domain.Nderrimi", b =>
-                {
-                    b.Property<Guid>("NderrimiId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Ndrr");
-
-                    b.HasKey("NderrimiId");
-
-                    b.ToTable("Nderrimet");
-                });
-
             modelBuilder.Entity("Domain.Njoftime", b =>
                 {
                     b.Property<Guid>("Id")
@@ -283,20 +273,6 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaId");
 
                     b.ToTable("Paralelet");
-                });
-
-            modelBuilder.Entity("Domain.ParaleljaKlasa", b =>
-                {
-                    b.Property<Guid>("ParaleljaKlasaId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("EmriKl");
-
-                    b.Property<string>("EmriPar");
-
-                    b.HasKey("ParaleljaKlasaId");
-
-                    b.ToTable("ParaleletKlaset");
                 });
 
             modelBuilder.Entity("Domain.Paraleljaa", b =>

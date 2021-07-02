@@ -30,7 +30,7 @@ export default observer(function LendaDashboard() {
         
         <Grid style={{marginTop:'50px'}}>
             <Grid.Column width='4'>
-                <ProfesorNavBar />
+                
                  <AdminNavBar />
                     
                 </Grid.Column>

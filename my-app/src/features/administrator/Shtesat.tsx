@@ -62,14 +62,50 @@ export default observer( function Shtesat() {
           <Grid.Row style={{ marginTop: '50px' }}>
             <Card>
               <Card.Content>
-                <Card.Header>Paralelet</Card.Header>
+                <Card.Header as={NavLink} to='/admin/paraleleet' basic color='green'>Paralelet</Card.Header>
                 <Card.Description>
                  Shtoni paralelet
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
                 <div className='ui two buttons'>
-                  <Button basic color='green'>
+                  <Button basic color='green' as={NavLink} to='/admin/paraleleet'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Klaset sipas paraleleve</Card.Header>
+                <Card.Description>
+                 Shtoni klaset ne paralele
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/admin/paraleletKlaset'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Nderrimet</Card.Header>
+                <Card.Description>
+                 Nderrimet
+              </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/admin/nderrimet'>
                     Shfaq
                   </Button>
                 </div>
