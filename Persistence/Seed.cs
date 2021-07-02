@@ -530,6 +530,71 @@ namespace Persistence
                 context.SaveChanges();
             };
 
+            if(!context.Paraleleet.Any())
+            {
+                var paraleleet = new List<Paraleljaa>
+                {
+                    new Paraleljaa
+                    {
+                        EmriPar="17/18",
+                    },
+                    new Paraleljaa
+                    {
+                        EmriPar="18/19",
+                    },
+                    new Paraleljaa
+                    {
+                        EmriPar="18/19",
+                    }
+                };
+                context.Paraleleet.AddRange(paraleleet);
+                context.SaveChanges();
+            };
+
+            if(!context.ParaleletKlaset.Any())
+            {
+                var paraleletKlaset = new List<ParaleljaKlasa>
+                {
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    },
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    },
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    }
+                };
+                context.ParaleletKlaset.AddRange(paraleletKlaset);
+                context.SaveChanges();
+            };
+
+            if(!context.Nderrimet.Any())
+            {
+                var nderrimet = new List<Nderrimi>
+                {
+                    new Nderrimi
+                    {
+                        Ndrr="Paradite",
+                    
+                    },
+                     new Nderrimi
+                    {
+                        Ndrr="Pasdite",
+                    
+                    }
+                };
+                context.Nderrimet.AddRange(nderrimet);
+                context.SaveChanges();
+            };
+
+        
             if(!context.Materialet.Any())
             {
                 var materialet = new List<Materiali>

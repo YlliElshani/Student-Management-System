@@ -18,6 +18,9 @@ import KerkesNdihmeStore from "./kerkesNdihmeStore";
 import VleresimiStore from "./vleresimiStore";
 import VijushmeriaStore from "./vijushmeriaStore";
 import pMesimorStore from "./pMesimorStore";
+import ParaleljaaStore from "./paraleljaaStore";
+import ParaleljaKlasaStore from "./paraleljaKlasaStore";
+import NderrimiStore from "./nderrimiStore";
 import PeriodaStore from "./periodaStore";
 import MaterialiMesimorStore from "./materialiMesimorStore";
 import KoheZStore from "./koheZStore";
@@ -45,6 +48,9 @@ interface Store {
     vijushmeriaStore:VijushmeriaStore;
     periodaStore:PeriodaStore;
     pMesimorStore: pMesimorStore;
+    paraleljaaStore: ParaleljaaStore;
+    paraleljaKlasaStore: ParaleljaKlasaStore;
+    nderrimiStore: NderrimiStore;
     materialiStore: MaterialiMesimorStore;
     koheZStore: KoheZStore;
     sallaStore: SallaStore;
@@ -69,8 +75,12 @@ export const store: Store = {
     trajnimStore: new TrajnimStore(),
     vleresimiStore: new VleresimiStore(),
     vijushmeriaStore: new VijushmeriaStore(),
-    periodaStore: new PeriodaStore(),
+    
     pMesimorStore:new pMesimorStore(),
+    paraleljaaStore: new ParaleljaaStore(),
+    paraleljaKlasaStore: new ParaleljaKlasaStore(),
+    nderrimiStore: new NderrimiStore(),
+    periodaStore: new PeriodaStore(),
     materialiStore: new MaterialiMesimorStore(),
     koheZStore:new KoheZStore(),
     sallaStore: new SallaStore(),

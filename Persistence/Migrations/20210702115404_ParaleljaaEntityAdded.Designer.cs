@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210702115404_ParaleljaaEntityAdded")]
+    partial class ParaleljaaEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -204,7 +206,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatjet");
+                    b.ToTable("Kohezgjatja");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -223,37 +225,6 @@ namespace Persistence.Migrations
                     b.HasKey("LendaId");
 
                     b.ToTable("Lendet");
-                });
-
-            modelBuilder.Entity("Domain.Nderrimi", b =>
-                {
-                    b.Property<Guid>("NderrimiId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Ndrr");
-
-                    b.HasKey("NderrimiId");
-
-                    b.ToTable("Nderrimet");
-            });
-            modelBuilder.Entity("Domain.Materiali", b =>
-                {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("FileDrop");
-
-                    b.Property<string>("Lenda");
-
-                    b.Property<string>("Perioda");
-
-                    b.Property<string>("Pershkrimi");
-
-                    b.Property<string>("Titulli");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Materialet");
                 });
 
             modelBuilder.Entity("Domain.Njoftime", b =>
@@ -304,20 +275,6 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
-            modelBuilder.Entity("Domain.ParaleljaKlasa", b =>
-                {
-                    b.Property<Guid>("ParaleljaKlasaId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("EmriKl");
-
-                    b.Property<string>("EmriPar");
-
-                    b.HasKey("ParaleljaKlasaId");
-
-                    b.ToTable("ParaleletKlaset");
-                });
-
             modelBuilder.Entity("Domain.Paraleljaa", b =>
                 {
                     b.Property<Guid>("ParaleljaaId")
@@ -328,21 +285,6 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaaId");
 
                     b.ToTable("Paraleleet");
-            });
-            modelBuilder.Entity("Domain.Perioda", b =>
-                {
-                    b.Property<Guid>("PeriodaId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Emri");
-
-                    b.Property<string>("Fillimi");
-
-                    b.Property<string>("Mbarimi");
-
-                    b.HasKey("PeriodaId");
-
-                    b.ToTable("Periodat");
                 });
 
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
@@ -391,26 +333,6 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Qytetet");
-                });
-
-            modelBuilder.Entity("Domain.Salla", b =>
-                {
-                    b.Property<Guid>("SallaId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("DataRezervimit");
-
-                    b.Property<string>("Emri");
-
-                    b.Property<int>("Kapaciteti");
-
-                    b.Property<string>("OraRezervimit");
-
-                    b.Property<string>("Statusi");
-
-                    b.HasKey("SallaId");
-
-                    b.ToTable("Sallat");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>

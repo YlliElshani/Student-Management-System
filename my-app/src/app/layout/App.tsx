@@ -57,6 +57,9 @@ import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
+import ParaleljaaDashboard from '../../features/paraleleet/dashboard/ParaleljaaDashboard';
+import ParaleletKlasetDashboard from '../../features/paraleletKlaset/ParaleletKlasetDashboard';
+import NderrimiDashboard from '../../features/nderrimet/dashboard/NderrimiDashboard';
 import PeriodaList from '../../features/periodat/PeriodaList';
 import MaterialetList from '../../features/profesor/materialetMesimore/MaterialetList';
 import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
@@ -111,6 +114,9 @@ function App () {
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UserList}/>
+          <Route exact path='/admin/paraleleet' component={ParaleljaaDashboard}/>
+          <Route exact path='/admin/paraleletklaset' component={ParaleletKlasetDashboard}/>
+          <Route exact path='/admin/nderrimet' component={NderrimiDashboard}/>
           <Route exact path='/admin/kohezgjatjaOres' component={KohaZList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>

@@ -19,6 +19,9 @@ import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
+import { IParaleljaa } from '../models/paraleljaa';
+import { IParaleljaKlasa } from '../models/paraleljaKlasa';
+import { INderrimi } from '../models/nderrimi';
 import { IPerioda } from '../models/perioda';
 import { Materiali } from '../models/materiali';
 import { IKoheZ } from '../models/kOres';
@@ -236,6 +239,29 @@ const Vleresimet = {
     update: (vleresimi: IVleresimi) => requests.put(`/vleresimet/${vleresimi.vleresimiId}`, vleresimi),
     delete: (id: string) => requests.delete(`/vleresimet/${id}`)
 }
+const Paraleleet = {
+    list: (): Promise<IParaleljaa[]> => requests.get('/paraleleet'),
+    details: (paraleljaaId: string) => requests.get(`/paraleleet/${paraleljaaId}`),
+    create: (paraleljaa:IParaleljaa) => requests.post('/paraleleet', paraleljaa),
+    update: (paraleljaa: IParaleljaa) => requests.put(`/paraleleet/${paraleljaa.paraleljaaId}`, paraleljaa),
+    delete: (id: string) => requests.delete(`/paraleleet/${id}`)
+}
+
+const ParaleletKlaset = {
+    list: (): Promise<IParaleljaKlasa[]> => requests.get('/paraleletKlaset'),
+    details: (paraleljaKlasaId: string) => requests.get(`/paraleletKlaset/${paraleljaKlasaId}`),
+    create: (paraleljaKlasa:IParaleljaKlasa) => requests.post('/paraleletKlaset', paraleljaKlasa),
+    update: (paraleljaKlasa: IParaleljaKlasa) => requests.put(`/paraleletKlaset/${paraleljaKlasa.paraleljaKlasaId}`, paraleljaKlasa),
+    delete: (id: string) => requests.delete(`/paraleletKlaset/${id}`)
+}
+const Nderrimet = {
+    list: (): Promise<INderrimi[]> => requests.get('/nderrimet'),
+    details: (nderrimiId: string) => requests.get(`/nderrimet/${nderrimiId}`),
+    create: (nderrimi:INderrimi) => requests.post('/nderrimet', nderrimi),
+    update: (nderrimi: INderrimi) => requests.put(`/nderrimet/${nderrimi.nderrimiId}`, nderrimi),
+    delete: (id: string) => requests.delete(`/nderrimet/${id}`)
+}
+
 
 const MaterialiMesimor = {
     list: (): Promise<Materiali[]> => requests.get('/materiali'),
@@ -261,7 +287,11 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-    PlaniMesimor,
+
+    PlaniMesimor, 
+    Paraleleet, 
+    ParaleletKlaset, 
+    Nderrimet,
     Periodat,
     MaterialiMesimor,
     KohezgjatjaOres,
