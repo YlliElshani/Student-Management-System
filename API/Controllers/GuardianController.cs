@@ -54,5 +54,13 @@ namespace API.Controllers
         public async Task<ActionResult<Unit>> DeleteUser(string id){
             return await Mediator.Send(new DeleteUser.Command{Id = id});
         }
+
+        [AllowAnonymous]
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Unit>> Edit(string id, Edit.Command command)
+        {
+            command.Id = id;
+            return await Mediator.Send(command);
+        }
     }
 }

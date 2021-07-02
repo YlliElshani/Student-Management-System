@@ -20,6 +20,9 @@ import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
 import { IPerioda } from '../models/perioda';
+import { Materiali } from '../models/materiali';
+import { IKoheZ } from '../models/kOres';
+import { ISalla } from '../models/salla';
 
 
 
@@ -178,6 +181,23 @@ const Qytetet = {
     delete: (id: string) => requests.delete(`/qytetet/${id}`)
 }
 
+
+const KohezgjatjaOres = {
+    list: () : Promise<IKoheZ[]> => requests.get('/Kohezgjatja'),
+    details: (id: string) => requests.get(`/Kohezgjatja/${id}`),
+    create: (koheZ:IKoheZ) => requests.post('/Kohezgjatja',koheZ),
+    update: (koheZ: IKoheZ) => requests.put(`/Kohezgjatja/${koheZ.id}`, koheZ),
+    delete: (id: string) => requests.delete(`/Kohezgjatja/${id}`)
+}
+
+const Sallat = {
+    list: () : Promise<ISalla[]> => requests.get('/sallat'),
+    details: (id: string) => requests.get(`/sallat/${id}`),
+    create: (salla: ISalla) => requests.post('/sallat',salla),
+    update: (salla: ISalla) => requests.put(`/sallat/${salla.sallaId}`, salla),
+    delete: (id: string) => requests.delete(`/sallat/${id}`)
+}
+
 const Account = {
     current: () => requests.get('/admin'),
     list: (): Promise<User[]> => requests.get('/admin/list'),
@@ -189,7 +209,7 @@ const Account = {
     registerProfesor: (user: UserFormValues) => requests.post(`/profesor/registerProfesor`, user),
     loginGuardian: (user: UserFormValues) => requests.post(`/guardian/loginGuardian`, user),
     registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user),
-    //update: (user: User) => requests.put(`/user/${user.id}`, user),
+    update: (user: User) => requests.put(`/admin/${user.id}`, user),
     delete: (id: string) => requests.delete(`/admin/${id}`)
 }
 
@@ -217,6 +237,13 @@ const Vleresimet = {
     delete: (id: string) => requests.delete(`/vleresimet/${id}`)
 }
 
+const MaterialiMesimor = {
+    list: (): Promise<Materiali[]> => requests.get('/materiali'),
+    create: (materiali:Materiali) => requests.post('/materiali', materiali),
+    update: (materiali: Materiali) => requests.put(`/materiali/${materiali.id}`, materiali),
+    delete: (id: string) => requests.delete(`/materiali/${id}`) 
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -235,7 +262,10 @@ const agent = {
     Vleresimet,
     Vijushmerit,
     PlaniMesimor,
-    Periodat
+    Periodat,
+    MaterialiMesimor,
+    KohezgjatjaOres,
+    Sallat
 }
 
 export default agent;

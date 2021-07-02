@@ -156,7 +156,7 @@ export default class UserStore {
         }
     }
 
-    /*updateUser = async (user: User) => {
+    updateUser = async (user: User) => {
         this.loading = true;
         try {
             await agent.Account.update(user);
@@ -172,7 +172,7 @@ export default class UserStore {
                 this.loading = false;
             })
         }
-    }*/
+    }
 
     deleteUser = async (id: string) => {
         this.loading = true;

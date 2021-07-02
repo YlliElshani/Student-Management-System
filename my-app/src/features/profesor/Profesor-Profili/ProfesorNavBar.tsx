@@ -32,6 +32,10 @@ export default observer(function ProfesorNavBar() {
                 <Icon name='grid layout' />
                 Notat
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/profesor/materialet'>
+                <Icon name='book' />
+                Materialet
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/profesor/lendet'>
                 <Icon name='book' />
                 Lendet
