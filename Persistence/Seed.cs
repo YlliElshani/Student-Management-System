@@ -114,8 +114,8 @@ namespace Persistence
                 {
                     new Trajnim
                     {
-                        TrajnimEmri = "HTML/CSS",
-                        Pershkrimi = "Front-End Learning",
+                        TrajnimEmri = "Perseritje Modulet",
+                        Pershkrimi = "2/12/2020 ne ora 10:00",
                         numriDiteve = 20
                         
                     }

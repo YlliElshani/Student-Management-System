@@ -20,7 +20,7 @@ export default observer(function ProfesorNavBar() {
             direction='left'
             >
             {isLoggedIn ? (
-                        <Menu.Item as={NavLink} to='/profile'>
+                        <Menu.Item style={{marginTop:"20%"}} as={NavLink} to='/profile'>
                         <Icon name='user' />
                         Profili
                     </Menu.Item>
@@ -28,38 +28,22 @@ export default observer(function ProfesorNavBar() {
                         null
                     )}
            
-            <Menu.Item as={NavLink} to='/profesor/notat'>
-                <Icon name='grid layout' />
-                Notat
-            </Menu.Item>
+           
             <Menu.Item as={NavLink} to='/profesor/materialet'>
-                <Icon name='book' />
+                <Icon name='plus' />
                 Materialet
             </Menu.Item>
-            <Menu.Item as={NavLink} to='/profesor/lendet'>
-                <Icon name='book' />
-                Lendet
-            </Menu.Item>
-            <Menu.Item as={NavLink} to='/profesor/vleresimet'>
-                <Icon name='book' />
-                Vleresimet
-            </Menu.Item>
-            <Menu.Item as={NavLink} to='/trajnimet'>
-                <Icon name='backward' />
-                Oret Shtese
-            </Menu.Item>
+
             <Menu.Item as={NavLink} to='/profesor/planiMesimor'>
                 <Icon name='book' />
                 Plani Mesimor
             </Menu.Item>
-            <Menu.Item as={NavLink} to='/detyrat'>
-                <Icon name='upload' />
-                Detyrat
-            </Menu.Item>
+
             <Menu.Item as={NavLink} to='/profesor/ProfesorShtesat'>
-                <Icon name='upload' />
-                Shtesat
+                <Icon name='users' />
+                Nxenesit
             </Menu.Item>
+            
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil
