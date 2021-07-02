@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210702143445_Entities.cs
     public partial class Entities : Migration
-=======
-    public partial class MaterialiMesimor : Migration
->>>>>>> 410f506de737416020e2084cd624533ebd5c32b9:Persistence/Migrations/20210702154910_MaterialiMesimor.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

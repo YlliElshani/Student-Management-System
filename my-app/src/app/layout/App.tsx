@@ -156,7 +156,7 @@ function App () {
 
           <Route exact path='/profesorLogin' component={ProfesorLogin}/>
           <Route exact path='/profesorRegister' component={ProfesorRegister}/>
-          <Route exact path='/profesorprofile' component={ProfesorProfile}/>
+          <Route exact path='/profile' component={ProfesorProfile}/>
           <Route component={NotFound}/>
         </Switch>
       </>

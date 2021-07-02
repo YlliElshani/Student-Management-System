@@ -20,7 +20,7 @@ export default observer(function ProfesorNavBar() {
             direction='left'
             >
             {isLoggedIn ? (
-                        <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='profesorprofile'>
+                        <Menu.Item as={NavLink} to='/profile'>
                         <Icon name='user' />
                         Profili
                     </Menu.Item>

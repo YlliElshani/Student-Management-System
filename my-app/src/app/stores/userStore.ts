@@ -87,7 +87,7 @@ export default class UserStore {
             const user = await agent.Account.loginProfesor(values);
             store.commonStore.setToken(user.token);
             runInAction(() => this.user = user);
-            history.push('/profesorprofile');
+            history.push('/profile');
         } catch (error) {
            throw error;
         }

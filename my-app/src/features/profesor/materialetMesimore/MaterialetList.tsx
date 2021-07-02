@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Icon, Item, Table, TextArea } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import ParentNavBar from '../../ParentFeatures/ParentNavBar'
+import ProfesorNavBar from '../Profesor-Profili/ProfesorNavBar'
 import MaterialiForm from './MaterialiForm'
 
 export default observer(function MaterialetList () {
@@ -29,7 +29,7 @@ export default observer(function MaterialetList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <ParentNavBar />
+                    <ProfesorNavBar />
                 </Grid.Column>
                 <Grid.Column width='11' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button positive size='mini' onClick={() => modalStore.openModal(<MaterialiForm/>)} content='Add'/>
