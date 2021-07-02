@@ -55,7 +55,7 @@ export default observer(function VijushmeriaDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button'  onClick={() => vijushmeriaStore.openForm()} content='Shto Lende'/>
+                <Button  class='ui button'  onClick={() => vijushmeriaStore.openForm()} content='Shto Vijushmerine'/>
                 <Grid.Column width='5'>
                 {selectedVijushmeria && !editMode && 
                 <VijushmeriaDetails/>}
