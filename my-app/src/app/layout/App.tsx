@@ -57,6 +57,7 @@ import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
+import MaterialetList from '../../features/profesor/materialetMesimore/MaterialetList';
 
 
 
@@ -137,6 +138,7 @@ function App () {
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
+          <Route exact path='/profesor/materialet' component={MaterialetList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

@@ -19,6 +19,7 @@ import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
 import { IPlaniMesimor } from '../models/pMesimor';
+import { Materiali } from '../models/materiali';
 
 
 
@@ -180,7 +181,7 @@ const Account = {
     registerProfesor: (user: UserFormValues) => requests.post(`/profesor/registerProfesor`, user),
     loginGuardian: (user: UserFormValues) => requests.post(`/guardian/loginGuardian`, user),
     registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user),
-    //update: (user: User) => requests.put(`/user/${user.id}`, user),
+    update: (user: User) => requests.put(`/admin/${user.id}`, user),
     delete: (id: string) => requests.delete(`/admin/${id}`)
 }
 
@@ -208,6 +209,13 @@ const Vleresimet = {
     delete: (id: string) => requests.delete(`/vleresimet/${id}`)
 }
 
+const MaterialiMesimor = {
+    list: (): Promise<Materiali[]> => requests.get('/materiali'),
+    create: (materiali:Materiali) => requests.post('/materiali', materiali),
+    update: (materiali: Materiali) => requests.put(`/materiali/${materiali.id}`, materiali),
+    delete: (id: string) => requests.delete(`/materiali/${id}`) 
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -225,7 +233,8 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-    PlaniMesimor
+    PlaniMesimor,
+    MaterialiMesimor
 }
 
 export default agent;

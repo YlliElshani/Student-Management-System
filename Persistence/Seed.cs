@@ -458,6 +458,31 @@ namespace Persistence
                 context.Vleresimet.AddRange(vleresimet);
                 context.SaveChanges();
             };
+
+            if(!context.Materialet.Any())
+            {
+                var materialet = new List<Materiali>
+                {
+                    new Materiali
+                    {
+                        Titulli="Algorithms 4th Edition",
+                        Pershkrimi="Materiali dallon nga edicioni i 3-të, është riorganizuar dhe rishkruar në mënyrë thelbësore. Ndryshimet pasqyrojnë një model të qëndrueshëm modern të programimit, theksojnë zbatimet në shkencë dhe industri. Ai gjithashtu përfshin tema të ndryshme (p.sh., vargjet) dhe përdor veçori të reja në Java",
+                        Lenda="Algoritmet",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://algs4.cs.princeton.edu/home/"
+                    },
+                    new Materiali
+                    {
+                        Titulli="Permbledhje",
+                        Pershkrimi="Materiali përmban përmbledhje të të gjitha temave të ngërthyera në këtë lëndë.",
+                        Lenda="Inxhinieri Softuerike",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://filebin.net/a2tsaykahfr7orqg"
+                    }
+                };
+                context.Materialet.AddRange(materialet);
+                context.SaveChanges();
+            };
         }
 
     }

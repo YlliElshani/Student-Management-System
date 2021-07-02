@@ -225,6 +225,26 @@ namespace Persistence.Migrations
                     b.ToTable("Lendet");
                 });
 
+            modelBuilder.Entity("Domain.Materiali", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FileDrop");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<string>("Perioda");
+
+                    b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Titulli");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Materialet");
+                });
+
             modelBuilder.Entity("Domain.Njoftime", b =>
                 {
                     b.Property<Guid>("Id")

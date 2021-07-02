@@ -43,6 +43,8 @@ namespace Persistence
 
         public DbSet <AppUser> AppUser {get; set;}
 
+        public DbSet <Materiali> Materialet {get; set;}
+
         public DbSet <PlaniMesimor> PlaniMesimor {get; set;}
         public DbSet <Qyteti> Qytetet {get; set;}
         public DbSet <Klasa> Klaset {get; set;}
