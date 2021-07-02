@@ -58,6 +58,7 @@ import VijushmeriaDashboard from '../../features/profesor/vijushmerit/Vijushmeri
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
 import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
+import SallatList from '../../features/administrator/sallat/SallatList';
 
 
 
@@ -95,6 +96,7 @@ function App () {
           <Route exact path='/admin/competitions' component={CompetitionsList}/>
           <Route exact path='/admin/njoftimetN' component={NjoftimeList}/>
           <Route exact path='/admin/qytetet' component={QytetetList}/>
+          <Route exact path='/admin/sallat' component={SallatList}/>
 
           <Route exact path='/detyrat' component={DetyraList}/>
 
