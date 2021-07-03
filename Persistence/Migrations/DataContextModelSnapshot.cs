@@ -580,15 +580,17 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("dataShenimit");
+                    b.Property<string>("KriteriPlotsimit");
 
-                    b.Property<string>("kriteriSuksesit");
+                    b.Property<string>("PlaniInfo");
 
-                    b.Property<string>("planiInfo");
+                    b.Property<string>("klasa");
+
+                    b.Property<string>("lenda");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMesimor");
+                    b.ToTable("PlanetMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>
