@@ -11,8 +11,7 @@ import PlaniMForm from './PlaniMForm'
 export default observer(function PlaniMList () {
 
     const {pMesimorStore} = useStore();
-    const {selectedPlani, editMode} = pMesimorStore;
-    const {deletePlani, planetM, loading} = pMesimorStore;
+    const {selectedPlaniM, editMode,deletePlaniM,loading,planiM} = pMesimorStore;
 
     const [target, setTarget] = useState('');
     
@@ -22,9 +21,9 @@ export default observer(function PlaniMList () {
     
     if(pMesimorStore.loadingInitial) return <LoadingComponent content='Prisni pak...'/>
     
-    function handleDeletePlani(e: SyntheticEvent<HTMLButtonElement>, Id: string) {
+    function handleDeletePlaniM(e: SyntheticEvent<HTMLButtonElement>, Id: string) {
         setTarget(e.currentTarget.name);
-        deletePlani(Id);
+        deletePlaniM(Id);
     }
 
     return (
@@ -34,19 +33,19 @@ export default observer(function PlaniMList () {
                     <ProfesorNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => pMesimorStore.openForm()} content='Shto Planin Mesimor'/>
+                    <Button onClick={() => pMesimorStore.openForm()} content='Shto planin mesimor per lenden'/>
                     <Item.Group divided>
-                        {planetM.map((planiM) => (
-                        <Item key={planiM.id}>
+                        {planiM.map((planiMesimor) => (
+                        <Item key={planiMesimor.id}>
                             <Item.Content inverted="true">
-                            <Item.Header >{planiM.planiInfo}</Item.Header>
-                            <Item.Meta>{planiM.kriteriSuksesit}</Item.Meta>
-                            <Item.Meta>{planiM.lenda}</Item.Meta>
-                            <Item.Meta>{planiM.klasa}</Item.Meta>
-                            <Item.Meta>{planiM.dataShenimit}</Item.Meta>
-                            <Item.Extra>
-                                <Button onClick={() => pMesimorStore.selectPlani(planiM.id)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={planiM.id} loading={loading && target === planiM.id} onClick={(e) => handleDeletePlani(e, planiM.id)} size='mini' floated='right' content='Fshij Planin' />
+                            <Item.Header >Plani Mesimor: {planiMesimor.planiInfo}</Item.Header>
+                            <h4>Kriteri i Suksesit:</h4>
+                            <Item.Header>{planiMesimor.kriteriPlotsimit}</Item.Header>
+                            <Item.Header>{planiMesimor.klasa}</Item.Header>
+                            <Item.Header>{planiMesimor.lenda}</Item.Header>
+                            <Item.Extra> 
+                                <Button onClick={() => pMesimorStore.selectPlaniM(planiMesimor.id)}size='mini' floated='right' content='Shiko Detajet'/>
+                                <Button name={planiMesimor.id} loading={loading && target === planiMesimor.id} onClick={(e) => handleDeletePlaniM(e, planiMesimor.id)} size='mini' floated='right' content='Fshij Planin Mesimor' />
                             </Item.Extra>
                             </Item.Content>
                         </Item>
@@ -54,7 +53,7 @@ export default observer(function PlaniMList () {
                     </Item.Group>
                 </Grid.Column>
                 <Grid.Column  width='4' style={{marginTop:'3em'}}>
-                    {selectedPlani && !editMode && 
+                    {selectedPlaniM && !editMode && 
                     <PlaniMDetails />}
                     {editMode && <PlaniMForm/>}
                 </Grid.Column>

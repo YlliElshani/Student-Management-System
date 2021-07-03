@@ -9,9 +9,9 @@ namespace Application.PlaniM
 {
     public class Details
     {
-        public class Query : IRequest<PlaniMesimor>
+        public class Query : IRequest <PlaniMesimor>
         {
-            public Guid Id { get; set; }
+            public Guid Id {get; set;}
         }
 
         public class Handler : IRequestHandler<Query, PlaniMesimor>
@@ -20,13 +20,13 @@ namespace Application.PlaniM
 
             public Handler(DataContext context)
             {
-                _context = context;
-
+                _context = context;   
             }
+
             public async Task<PlaniMesimor> Handle(Query request, CancellationToken cancellationToken)
             {
-                var planiM = await _context.PlaniMesimor.FindAsync(request.Id);
-                
+                var planiM = await _context.PlanetMesimor.FindAsync(request.Id);
+
                 return planiM;
             }
         }

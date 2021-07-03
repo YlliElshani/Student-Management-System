@@ -65,11 +65,11 @@ namespace API
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
-            services.AddMediatR(typeof(ListPlanetM.Handler).Assembly);
             services.AddMediatR(typeof(ListQytetet.Handler).Assembly);
             services.AddMediatR(typeof(ListVleresimet.Handler).Assembly);
             services.AddMediatR(typeof(ListoKoheZ.Handler).Assembly);
             services.AddMediatR(typeof(ListSallat.Handler).Assembly);
+            services.AddMediatR(typeof(ListPlanetMesimor.Handler).Assembly);
             services.AddMediatR(typeof(ListCompetitions.Handler).Assembly);
             services.AddMediatR(typeof(ListMaterialet.Handler).Assembly);
 

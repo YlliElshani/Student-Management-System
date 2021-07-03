@@ -18,7 +18,6 @@ import { IKlasa } from '../models/klasa';
 import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
-import { IPlaniMesimor } from '../models/pMesimor';
 import { IParaleljaa } from '../models/paraleljaa';
 import { IParaleljaKlasa } from '../models/paraleljaKlasa';
 import { INderrimi } from '../models/nderrimi';
@@ -26,6 +25,7 @@ import { IPerioda } from '../models/perioda';
 import { Materiali } from '../models/materiali';
 import { IKoheZ } from '../models/kOres';
 import { ISalla } from '../models/salla';
+import { IPlaniM } from '../models/pMesimor';
 
 
 
@@ -169,10 +169,10 @@ const Prezantimet = {
 }
 
 const PlaniMesimor = {
-    list: () : Promise<IPlaniMesimor[]> => requests.get('/PlaniMesimor'),
-    details: (id: string) => requests.get(`/planiM/${id}`),
-    create: (planiM:IPlaniMesimor) => requests.post('/PlaniMesimor',planiM),
-    update: (planiM: IPlaniMesimor) => requests.put(`/PlaniMesimor/${planiM.id}`, planiM),
+    list: () : Promise<IPlaniM[]> => requests.get('/PlaniMesimor'),
+    details: (id: string) => requests.get(`/PlaniMesimor/${id}`),
+    create: (planiM:IPlaniM) => requests.post('/PlaniMesimor',planiM),
+    update: (planiM: IPlaniM) => requests.put(`/PlaniMesimor/${planiM.id}`, planiM),
     delete: (id: string) => requests.delete(`/PlaniMesimor/${id}`)
 }
 
@@ -287,7 +287,6 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
-
     PlaniMesimor, 
     Paraleleet, 
     ParaleletKlaset, 
@@ -295,7 +294,7 @@ const agent = {
     Periodat,
     MaterialiMesimor,
     KohezgjatjaOres,
-    Sallat
+    Sallat,
 }
 
 export default agent;
