@@ -33,7 +33,7 @@ export default observer(function CompetitionsList() {
                     <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => competitionStore.openForm} content='Shto Garën'/>
+                    <Button onClick={() => competitionStore.openForm()} content='Shto Garën'/>
                         <Item.Group divided>
                             {competitionsByDate.map((competition) => (
                             <Item key={competition.competitionId}>
