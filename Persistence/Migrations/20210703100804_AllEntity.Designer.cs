@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210702102702_AllEntity.Designer.cs
-    [Migration("20210702102702_AllEntity")]
+    [Migration("20210703100804_AllEntity")]
     partial class AllEntity
-=======
-    [Migration("20210702140618_SallaEntityAdded")]
-    partial class SallaEntityAdded
->>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21:Persistence/Migrations/20210702140618_SallaEntityAdded.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -285,15 +280,17 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("dataShenimit");
+                    b.Property<string>("KriteriPlotsimit");
 
-                    b.Property<string>("kriteriSuksesit");
+                    b.Property<string>("PlaniInfo");
 
-                    b.Property<string>("planiInfo");
+                    b.Property<string>("klasa");
+
+                    b.Property<string>("lenda");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMesimor");
+                    b.ToTable("PlanetMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>

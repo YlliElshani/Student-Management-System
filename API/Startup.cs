@@ -28,12 +28,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Application.Qytetet;
 using Application.Vleresimet;
-<<<<<<< HEAD
 using Application.KohezgjatjaOres;
 using Application.Sallat;
-=======
-using Application.Sallat;
->>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21
 namespace API
 {
     public class Startup
@@ -66,11 +62,11 @@ namespace API
             services.AddMediatR(typeof(ListoKerkesatN.Handler).Assembly);
             services.AddMediatR(typeof(ListEventet.Handler).Assembly);
             services.AddMediatR(typeof(ListPrezantimet.Handler).Assembly);
-            services.AddMediatR(typeof(ListPlanetM.Handler).Assembly);
             services.AddMediatR(typeof(ListQytetet.Handler).Assembly);
             services.AddMediatR(typeof(ListVleresimet.Handler).Assembly);
             services.AddMediatR(typeof(ListoKoheZ.Handler).Assembly);
             services.AddMediatR(typeof(ListSallat.Handler).Assembly);
+            services.AddMediatR(typeof(ListPlanetMesimor.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

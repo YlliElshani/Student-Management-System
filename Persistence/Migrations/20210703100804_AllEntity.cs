@@ -3,11 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-<<<<<<< HEAD:Persistence/Migrations/20210702102702_AllEntity.cs
     public partial class AllEntity : Migration
-=======
-    public partial class SallaEntityAdded : Migration
->>>>>>> 707d803a231ab096d4dbe560f7251b7e6db7ec21:Persistence/Migrations/20210702140618_SallaEntityAdded.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -209,17 +205,18 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PlaniMesimor",
+                name: "PlanetMesimor",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    planiInfo = table.Column<string>(nullable: true),
-                    kriteriSuksesit = table.Column<string>(nullable: true),
-                    dataShenimit = table.Column<DateTime>(nullable: false)
+                    PlaniInfo = table.Column<string>(nullable: true),
+                    KriteriPlotsimit = table.Column<string>(nullable: true),
+                    klasa = table.Column<string>(nullable: true),
+                    lenda = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlaniMesimor", x => x.Id);
+                    table.PrimaryKey("PK_PlanetMesimor", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -533,7 +530,7 @@ namespace Persistence.Migrations
                 name: "Paralelet");
 
             migrationBuilder.DropTable(
-                name: "PlaniMesimor");
+                name: "PlanetMesimor");
 
             migrationBuilder.DropTable(
                 name: "Prezantimet");
