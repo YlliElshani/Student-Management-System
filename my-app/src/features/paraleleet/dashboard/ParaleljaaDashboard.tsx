@@ -51,7 +51,7 @@ export default observer(function ParaleljaaDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => paraleljaaStore.openForm()} content='Shto Paralelen'/>
+                <Button  class='ui button' onClick={() => paraleljaaStore.openForm()} content='Shto Paralelen'/>
                 <Grid.Column width='5'>
                 {selectedParaleljaa && !editMode && 
                 <ParaleljaaDetails/>}

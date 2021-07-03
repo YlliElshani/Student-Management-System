@@ -55,6 +55,7 @@ namespace Persistence
         public DbSet <Paraleljaa> Paraleleet {get; set;}
         public DbSet <ParaleljaKlasa> ParaleletKlaset {get; set;}
         public DbSet <Nderrimi> Nderrimet {get; set;}
+        public DbSet <Orari> Oraret {get; set;}
        
         
         public DbSet <Salla> Sallat {get; set; }

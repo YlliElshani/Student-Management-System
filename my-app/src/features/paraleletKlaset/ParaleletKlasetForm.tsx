@@ -40,11 +40,7 @@ export default observer(function ParaleletKlasaForm() {
     const { name, value } = event.target;
     setParaleljaKlasa({ ...paraleljaKlasa, [name]: value });
   }
-  function changeSelectOptionHandler2(event: { target: { value: any; name?: any; }; }) {
-    setSelected(event.target.value);
-    const { name, value } = event.target;
-    setParaleljaKlasa({ ...paraleljaKlasa, [name]: value });
-  }
+
 
   return (
     <Segment clearing>
@@ -61,7 +57,7 @@ export default observer(function ParaleletKlasaForm() {
         </Form.Input>
 
         <Form.Input>
-        <select onChange={changeSelectOptionHandler2} name='emriPar' placeholder='Klasa' value={paraleljaKlasa.emriPar}>
+        <select onChange={changeSelectOptionHandler} name='emriPar' placeholder='Klasa' value={paraleljaKlasa.emriPar}>
           {paraleleetByEmri.map(paraleleet => (    
             <option>{paraleleet.emriPar}</option>
           ))}

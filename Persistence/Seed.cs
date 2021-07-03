@@ -508,7 +508,7 @@ namespace Persistence
                     new Kohezgjatja
                     {
                         kohaMin=45,
-                        oraNisjes=10
+                        oraNisjes=08,
                     },
                 };
                 context.Kohezgjatjet.AddRange(kohezgjatja);
