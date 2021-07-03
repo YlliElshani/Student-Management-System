@@ -114,8 +114,8 @@ namespace Persistence
                 {
                     new Trajnim
                     {
-                        TrajnimEmri = "HTML/CSS",
-                        Pershkrimi = "Front-End Learning",
+                        TrajnimEmri = "Perseritje Modulet",
+                        Pershkrimi = "2/12/2020 ne ora 10:00",
                         numriDiteve = 20
                         
                     }
@@ -174,6 +174,36 @@ namespace Persistence
                         participants = "Vetëm nxënësit e vitit të tretë",
                         price = "Pagesat i mbulon shkolla"
 
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
+                    },
+                    new Trip
+                    {
+                        name = "Vizitë në qytetin e Shkodrës",
+                        place = "Shkodër",
+                        date = "2021-06-30",
+                        description = "Ekskursioni është një ditor dhe organizohet pas përfundimit të semestrit për të gjithë nxënësit që duan të argëtohen dhe të vizitojnë qytetin e Shkodrës",
+                        participants = "Vetëm nxënësit e vitit të tretë",
+                        price = "Pagesat i mbulon shkolla"
+
                     }
                 };
 
@@ -205,6 +235,30 @@ namespace Persistence
             {
                 var competitions = new List<Competition>
                 {
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
+                    new Competition
+                    {
+                        name = "Math Genius",
+                        date = "21-07-2021",
+                        description = "Gara organizohet ne kuader te shkolles dhe brenda kornizave te saj",
+                        field = "Matematikë",
+                        awards = "Certifikatë"
+                    },
                     new Competition
                     {
                         name = "Math Genius",
@@ -259,6 +313,23 @@ namespace Persistence
                             
                             };
                             context.Vijushmerit.AddRange(vijushmerit);
+                            context.SaveChanges();
+                        };
+
+                          
+            if(!context.Periodat.Any())
+                        {
+                            var periodat = new List<Perioda>
+                            {
+                                new Perioda
+                                {
+                                    Emri = "Perioda E Pare", 
+                                    Fillimi= "7/2/2021",
+                                    Mbarimi= "11/4/2021"                     
+                                }
+                            
+                            };
+                            context.Periodat.AddRange(periodat);
                             context.SaveChanges();
                         };
 
@@ -458,6 +529,97 @@ namespace Persistence
                 context.Vleresimet.AddRange(vleresimet);
                 context.SaveChanges();
             };
+
+            if(!context.Paraleleet.Any())
+            {
+                var paraleleet = new List<Paraleljaa>
+                {
+                    new Paraleljaa
+                    {
+                        EmriPar="17/18",
+                    },
+                    new Paraleljaa
+                    {
+                        EmriPar="18/19",
+                    },
+                    new Paraleljaa
+                    {
+                        EmriPar="18/19",
+                    }
+                };
+                context.Paraleleet.AddRange(paraleleet);
+                context.SaveChanges();
+            };
+
+            if(!context.ParaleletKlaset.Any())
+            {
+                var paraleletKlaset = new List<ParaleljaKlasa>
+                {
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    },
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    },
+                    new ParaleljaKlasa
+                    {
+                        EmriKl="X",
+                        EmriPar="1",
+                    }
+                };
+                context.ParaleletKlaset.AddRange(paraleletKlaset);
+                context.SaveChanges();
+            };
+
+            if(!context.Nderrimet.Any())
+            {
+                var nderrimet = new List<Nderrimi>
+                {
+                    new Nderrimi
+                    {
+                        Ndrr="Paradite",
+                    
+                    },
+                     new Nderrimi
+                    {
+                        Ndrr="Pasdite",
+                    
+                    }
+                };
+                context.Nderrimet.AddRange(nderrimet);
+                context.SaveChanges();
+            };
+
+        
+            if(!context.Materialet.Any())
+            {
+                var materialet = new List<Materiali>
+                {
+                    new Materiali
+                    {
+                        Titulli="Algorithms 4th Edition",
+                        Pershkrimi="Materiali dallon nga edicioni i 3-të, është riorganizuar dhe rishkruar në mënyrë thelbësore. Ndryshimet pasqyrojnë një model të qëndrueshëm modern të programimit, theksojnë zbatimet në shkencë dhe industri. Ai gjithashtu përfshin tema të ndryshme (p.sh., vargjet) dhe përdor veçori të reja në Java",
+                        Lenda="Algoritmet",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://algs4.cs.princeton.edu/home/"
+                    },
+                    new Materiali
+                    {
+                        Titulli="Permbledhje",
+                        Pershkrimi="Materiali përmban përmbledhje të të gjitha temave të ngërthyera në këtë lëndë.",
+                        Lenda="Inxhinieri Softuerike",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://filebin.net/a2tsaykahfr7orqg"
+                    }
+                };
+                context.Materialet.AddRange(materialet);
+                context.SaveChanges();
+            }
+            
             if(!context.Sallat.Any())
             {
                 var sallat = new List<Salla>

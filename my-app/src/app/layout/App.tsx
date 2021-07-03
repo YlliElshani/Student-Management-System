@@ -57,6 +57,11 @@ import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
+import ParaleljaaDashboard from '../../features/paraleleet/dashboard/ParaleljaaDashboard';
+import ParaleletKlasetDashboard from '../../features/paraleletKlaset/ParaleletKlasetDashboard';
+import NderrimiDashboard from '../../features/nderrimet/dashboard/NderrimiDashboard';
+import PeriodaList from '../../features/periodat/PeriodaList';
+import MaterialetList from '../../features/profesor/materialetMesimore/MaterialetList';
 import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 import SallatList from '../../features/administrator/sallat/SallatList';
 
@@ -99,6 +104,7 @@ function App () {
           <Route exact path='/admin/sallat' component={SallatList}/>
 
           <Route exact path='/detyrat' component={DetyraList}/>
+          <Route exact path='/periodat' component={PeriodaList}/>
 
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
           <Route exact path='/profesor/vijushmeria' component={VijushmeriaDashboard}/>
@@ -108,6 +114,9 @@ function App () {
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UserList}/>
+          <Route exact path='/admin/paraleleet' component={ParaleljaaDashboard}/>
+          <Route exact path='/admin/paraleletklaset' component={ParaleletKlasetDashboard}/>
+          <Route exact path='/admin/nderrimet' component={NderrimiDashboard}/>
           <Route exact path='/admin/kohezgjatjaOres' component={KohaZList}/>
 
           <Route exact path='/student/e-services' component={EServices}/>
@@ -141,6 +150,7 @@ function App () {
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
+          <Route exact path='/profesor/materialet' component={MaterialetList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>
@@ -152,7 +162,7 @@ function App () {
 
           <Route exact path='/profesorLogin' component={ProfesorLogin}/>
           <Route exact path='/profesorRegister' component={ProfesorRegister}/>
-          <Route exact path='/profesorprofile' component={ProfesorProfile}/>
+          <Route exact path='/profile' component={ProfesorProfile}/>
           <Route component={NotFound}/>
         </Switch>
       </>

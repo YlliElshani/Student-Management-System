@@ -45,8 +45,9 @@ export default observer(function DetyratList () {
                             <Item.Header >{detyra.detyraEmri}</Item.Header>
                             <Item.Meta>{detyra.pershkrimi}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => detyraStore.selectDetyra(detyra.detyraId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={detyra.detyraId} loading={loading && target === detyra.detyraId} onClick={(e) => handleDeleteDetyra(e, detyra.detyraId)} size='mini' floated='right' content='Fshij Detyren' />
+                            <Button name={detyra.detyraId} loading={loading && target === detyra.detyraId} onClick={(e) => handleDeleteDetyra(e, detyra.detyraId)} size='mini' floated='right' content='Fshij Detyren' />
+                                <Button onClick={() => detyraStore.selectDetyra(detyra.detyraId)} size='mini' floated='right' color='green' content='Shiko Detajet'/>
+
                             </Item.Extra>
                             </Item.Content>
                         </Item>

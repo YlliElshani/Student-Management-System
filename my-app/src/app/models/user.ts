@@ -1,6 +1,6 @@
 export interface User {
     id: string;
-    username: string;
+    userName: string;
     displayName: string;
     token: string;
     image?:string;
@@ -10,13 +10,15 @@ export interface User {
     address: string;
     zipCode: string;
     phoneNumber:string;
+    password:string;
 }
 
 export interface UserFormValues {
+    id?:string;
     email: string;
     password: string;
     displayName?:string;
-    username?:string;
+    userName?:string;
     age?: string;
     city?: string;
     address?: string;
@@ -24,6 +26,3 @@ export interface UserFormValues {
     phoneNumber?:string;
 }
 
-export interface UserRole {
-    
-}

@@ -18,6 +18,11 @@ import { IKlasa } from '../models/klasa';
 import { IVitiAkademik } from '../models/vitiAkademik';
 import { IVleresimi } from '../models/vleresimi';
 import { IVijushmeria } from '../models/vijushmeria';
+import { IParaleljaa } from '../models/paraleljaa';
+import { IParaleljaKlasa } from '../models/paraleljaKlasa';
+import { INderrimi } from '../models/nderrimi';
+import { IPerioda } from '../models/perioda';
+import { Materiali } from '../models/materiali';
 import { IKoheZ } from '../models/kOres';
 import { ISalla } from '../models/salla';
 import { IPlaniM } from '../models/pMesimor';
@@ -80,6 +85,14 @@ const Vijushmerit = {
     create: (vijushmeria:IVijushmeria) => requests.post('/vijushmerit', vijushmeria),
     update: (vijushmeria: IVijushmeria) => requests.put(`/vijushmerit/${vijushmeria.vijushmeriaId}`, vijushmeria),
     delete: (id: string) => requests.delete(`/vijushmerit/${id}`)
+}
+
+const Periodat = {
+    list: (): Promise<IPerioda[]> => requests.get('/periodat'),
+    details: (periodaId: string) => requests.get(`/periodat/${periodaId}`),
+    create: (perioda:IPerioda) => requests.post('/periodat', perioda),
+    update: (perioda: IPerioda) => requests.put(`/periodat/${perioda.periodaId}`, perioda),
+    delete: (id: string) => requests.delete(`/periodat/${id}`)
 }
 
 const Arsyetimet = {
@@ -199,7 +212,7 @@ const Account = {
     registerProfesor: (user: UserFormValues) => requests.post(`/profesor/registerProfesor`, user),
     loginGuardian: (user: UserFormValues) => requests.post(`/guardian/loginGuardian`, user),
     registerGuardian: (user: UserFormValues) => requests.post(`/guardian/registerGuardian`, user),
-    //update: (user: User) => requests.put(`/user/${user.id}`, user),
+    update: (user: User) => requests.put(`/admin/${user.id}`, user),
     delete: (id: string) => requests.delete(`/admin/${id}`)
 }
 
@@ -226,6 +239,36 @@ const Vleresimet = {
     update: (vleresimi: IVleresimi) => requests.put(`/vleresimet/${vleresimi.vleresimiId}`, vleresimi),
     delete: (id: string) => requests.delete(`/vleresimet/${id}`)
 }
+const Paraleleet = {
+    list: (): Promise<IParaleljaa[]> => requests.get('/paraleleet'),
+    details: (paraleljaaId: string) => requests.get(`/paraleleet/${paraleljaaId}`),
+    create: (paraleljaa:IParaleljaa) => requests.post('/paraleleet', paraleljaa),
+    update: (paraleljaa: IParaleljaa) => requests.put(`/paraleleet/${paraleljaa.paraleljaaId}`, paraleljaa),
+    delete: (id: string) => requests.delete(`/paraleleet/${id}`)
+}
+
+const ParaleletKlaset = {
+    list: (): Promise<IParaleljaKlasa[]> => requests.get('/paraleletKlaset'),
+    details: (paraleljaKlasaId: string) => requests.get(`/paraleletKlaset/${paraleljaKlasaId}`),
+    create: (paraleljaKlasa:IParaleljaKlasa) => requests.post('/paraleletKlaset', paraleljaKlasa),
+    update: (paraleljaKlasa: IParaleljaKlasa) => requests.put(`/paraleletKlaset/${paraleljaKlasa.paraleljaKlasaId}`, paraleljaKlasa),
+    delete: (id: string) => requests.delete(`/paraleletKlaset/${id}`)
+}
+const Nderrimet = {
+    list: (): Promise<INderrimi[]> => requests.get('/nderrimet'),
+    details: (nderrimiId: string) => requests.get(`/nderrimet/${nderrimiId}`),
+    create: (nderrimi:INderrimi) => requests.post('/nderrimet', nderrimi),
+    update: (nderrimi: INderrimi) => requests.put(`/nderrimet/${nderrimi.nderrimiId}`, nderrimi),
+    delete: (id: string) => requests.delete(`/nderrimet/${id}`)
+}
+
+
+const MaterialiMesimor = {
+    list: (): Promise<Materiali[]> => requests.get('/materiali'),
+    create: (materiali:Materiali) => requests.post('/materiali', materiali),
+    update: (materiali: Materiali) => requests.put(`/materiali/${materiali.id}`, materiali),
+    delete: (id: string) => requests.delete(`/materiali/${id}`) 
+}
 
 const agent = {
     Account, 
@@ -244,9 +287,14 @@ const agent = {
     VitetAkademike,
     Vleresimet,
     Vijushmerit,
+    PlaniMesimor, 
+    Paraleleet, 
+    ParaleletKlaset, 
+    Nderrimet,
+    Periodat,
+    MaterialiMesimor,
     KohezgjatjaOres,
     Sallat,
-    PlaniMesimor
 }
 
 export default agent;

@@ -9,6 +9,7 @@ import ProfesorRegister from '../../users/ProfesorRegister'
 import StudentRegister from '../../users/StudentRegister'
 import AdminNavBar from '../AdminNavBar'
 import UserDetails from './UserDetails'
+import UserForm from './UserForm'
 
 
 export default observer(function UserList () {
@@ -60,7 +61,7 @@ export default observer(function UserList () {
                             <Item.Header>{user.displayName}</Item.Header>
                             <Item.Meta>{user.email}</Item.Meta>
                             <Item.Extra>
-                                <Button positive onClick={(e) =>{userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
+                                <Button positive onClick={(e) =>{{userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}}} size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                             </Item.Extra>
                             </Item.Content>
@@ -68,7 +69,10 @@ export default observer(function UserList () {
                         ))}
                     </Item.Group>
                 </Grid.Column>
-            </Grid.Row>
+                <Grid.Row width='4' style={{marginTop:'3em'}}>
+                    {selectedUser && !editMode && <UserDetails />}
+                </Grid.Row>
+                </Grid.Row>
         </Grid>
     )
 })

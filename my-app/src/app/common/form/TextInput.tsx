@@ -1,6 +1,6 @@
 import { useField } from "formik";
 import React from "react";
-import { Form, Label } from "semantic-ui-react";
+import { Form, Label, StrictFormInputProps, StrictInputProps } from "semantic-ui-react";
 
 
 interface Props{
@@ -8,6 +8,7 @@ interface Props{
     name: string;
     type?:string;
     label?: string;
+    value?:string;
 }
 
 export default function TextInput(props: Props){

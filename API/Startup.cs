@@ -30,6 +30,9 @@ using Application.Qytetet;
 using Application.Vleresimet;
 using Application.KohezgjatjaOres;
 using Application.Sallat;
+using Application.Competitions;
+using Application.MaterialiMesimor;
+
 namespace API
 {
     public class Startup
@@ -67,6 +70,8 @@ namespace API
             services.AddMediatR(typeof(ListoKoheZ.Handler).Assembly);
             services.AddMediatR(typeof(ListSallat.Handler).Assembly);
             services.AddMediatR(typeof(ListPlanetMesimor.Handler).Assembly);
+            services.AddMediatR(typeof(ListCompetitions.Handler).Assembly);
+            services.AddMediatR(typeof(ListMaterialet.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
