@@ -225,17 +225,6 @@ namespace Persistence.Migrations
                     b.ToTable("Lendet");
                 });
 
-            modelBuilder.Entity("Domain.Nderrimi", b =>
-                {
-                    b.Property<Guid>("NderrimiId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Ndrr");
-
-                    b.HasKey("NderrimiId");
-
-                    b.ToTable("Nderrimet");
-            });
             modelBuilder.Entity("Domain.Materiali", b =>
                 {
                     b.Property<Guid>("id")
@@ -254,6 +243,18 @@ namespace Persistence.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Materialet");
+                });
+
+            modelBuilder.Entity("Domain.Nderrimi", b =>
+                {
+                    b.Property<Guid>("NderrimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Ndrr");
+
+                    b.HasKey("NderrimiId");
+
+                    b.ToTable("Nderrimet");
                 });
 
             modelBuilder.Entity("Domain.Njoftime", b =>
@@ -328,7 +329,8 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaaId");
 
                     b.ToTable("Paraleleet");
-            });
+                });
+
             modelBuilder.Entity("Domain.Perioda", b =>
                 {
                     b.Property<Guid>("PeriodaId")
