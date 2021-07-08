@@ -28,14 +28,15 @@ export default observer(function VleresimiStudentiDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
+        <Grid>
+            <Grid.Row>
             <Grid.Column width='4'>
                 <StudentNavBar />
                  <AdminNavBar />
                     
                 </Grid.Column>
             
-            <Grid.Column width={10}>   
+            <Grid.Column width={10} style={{marginTop:"5em"}}>   
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -63,6 +64,7 @@ export default observer(function VleresimiStudentiDashboard() {
             </Grid.Column>
             
             </Grid.Column>
+            </Grid.Row>
             
         </Grid>
     )

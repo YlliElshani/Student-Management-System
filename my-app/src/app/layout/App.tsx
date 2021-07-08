@@ -151,6 +151,8 @@ function App () {
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/planiMesimor' component={PlaniMList}/>
           <Route exact path='/profesor/materialet' component={MaterialetList}/>
+          <Route exact path='/profesor/lendet' component={LendaDashboard}/>
+          <Route exact path='/profesor/notat' component={NotaDashboard}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

@@ -25,7 +25,7 @@ export default observer(function PrezantimiDetails ()  {
         </Grid>
         <Button.Group>
                 <Button onClick={() => openForm(prezantimi?.prezantimiId)}  basic color='blue' content='Ndrysho'/>
-                <Button onClick={cancelSelectedPrezantimi} basic color='grey' content='Anulo'/>
+                <Button onClick={cancelSelectedPrezantimi} basic color='red' content='Anulo'/>
             </Button.Group>
         </Segment>
     )

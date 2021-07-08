@@ -29,13 +29,14 @@ export default observer(function LendaStudentiDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
+        <Grid>
+            <Grid.Row>
             <Grid.Column width='4'>
                 <StudentNavBar />
                     
                 </Grid.Column>
             
-            <Grid.Column width={10}>   
+            <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>   
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -63,6 +64,7 @@ export default observer(function LendaStudentiDashboard() {
             </Grid.Column>
             
             </Grid.Column>
+            </Grid.Row>
             
         </Grid>
     )

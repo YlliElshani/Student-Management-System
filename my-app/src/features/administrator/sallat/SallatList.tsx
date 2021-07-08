@@ -33,7 +33,7 @@ export default observer(function SallatList () {
                     <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => sallaStore.openForm()} content='Shto Sallën'/>
+                    <Button onClick={() => sallaStore.openForm()} content='Shto Sallën' color="green"/>
                     <Item.Group divided>
                         {sallatByDate.map((salla) => (
                         <Item key={salla.sallaId}>
@@ -42,8 +42,8 @@ export default observer(function SallatList () {
                             <Item.Meta>{salla.kapaciteti}</Item.Meta>
                             <Item.Meta>{salla.statusi}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => sallaStore.selectSalla(salla.sallaId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={salla.sallaId} loading={loading && target === salla.sallaId} onClick={(e) => handleDeleteSalla(e, salla.sallaId)} size='mini' floated='right' content='Fshij Shëtitjen' />
+                                <Button onClick={() => sallaStore.selectSalla(salla.sallaId)} size='mini' floated='right' content='Shiko Detajet' color="twitter"/>
+                                <Button name={salla.sallaId} loading={loading && target === salla.sallaId} onClick={(e) => handleDeleteSalla(e, salla.sallaId)} size='mini' floated='right' content='Fshij Shëtitjen' color="red"/>
                             </Item.Extra>
                             </Item.Content>
                         </Item>
