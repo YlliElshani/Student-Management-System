@@ -6,12 +6,14 @@ import AdminRegister from '../../users/AdminRegister';
 import Tilt from 'react-parallax-tilt';
 import Img from '../../../assets/login.png'
 import { combineValidators, composeValidators, isRequired } from 'revalidate';
+import QytetiStore from '../../../app/stores/qytetiStore';
+import { IQyteti } from '../../../app/models/qyteti';
 
 
 export default observer( function UserDetails ()  {
     const {userStore, modalStore, qytetiStore} = useStore();
     const {selectedUser, cancelSelectedUser, registerAdmin, updateUser, loading} = userStore;
-    const { qytetetByAlphabet } = qytetiStore;
+    const { qytetetByAlphabet, createQyteti } = qytetiStore;
 
     const validate = combineValidators({
         displayName: isRequired({message: 'The display name is required'}),
@@ -32,6 +34,10 @@ export default observer( function UserDetails ()  {
     const [user, setUser] = useState(initialState);
     const [option, setOption] = React.useState("");
 
+    const addCity = (item: IQyteti) => {
+        
+    };
+
     function handleSubmit() {
         user.id ? updateUser(user) : registerAdmin(user);
     }
@@ -47,6 +53,12 @@ export default observer( function UserDetails ()  {
         setUser({ ...user, [name]: value });
     }
 
+    const getCity = (cityId: string) => {
+        for(const city of qytetetByAlphabet)
+            if(city.id === cityId) return city.emri;
+        //return "";
+    }
+
     
     return (
         <Form validate={validate} key={user!.id} className='ui form' onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', marginLeft:'20px', display:'flex', position:'relative'}}>
@@ -59,7 +71,7 @@ export default observer( function UserDetails ()  {
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}}>
                     <select onChange={changeSelectOptionHandler} name='city' placeholder='City' value={user.city}>
                     {qytetetByAlphabet.map(qyteti => (
-                        <option>{qyteti.emri}</option>
+                        <option>{getCity(qyteti.emri)}</option>
                             ))}
                     </select>
                 </Form.Input>

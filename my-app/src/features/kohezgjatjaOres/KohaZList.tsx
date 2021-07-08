@@ -5,6 +5,7 @@ import { LoadingComponent } from '../../app/layout/LoadingComponent'
 import { IKoheZ } from '../../app/models/kOres'
 import KoheZStore from '../../app/stores/koheZStore'
 import { useStore } from '../../app/stores/store'
+import AdminNavBar from '../administrator/AdminNavBar'
 import ProfesorNavBar from '../profesor/Profesor-Profili/ProfesorNavBar'
 import KohaZDetails from './KohaZDetails'
 import KohaZForm from './KohaZForm'
@@ -33,7 +34,7 @@ export default observer(function KohaZList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <ProfesorNavBar />
+                    <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={() => koheZStore.openForm()} content='Shto kohen e nje ore mesimore'/>

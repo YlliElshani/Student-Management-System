@@ -41,16 +41,16 @@ export default observer(function UserList () {
                     <Grid.Row> 
                         <Segment.Group horizontal>
                             <Segment>
-                                <Button style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', background:'#03a9f4', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
                             </Segment>
                             <Segment>
-                                <Button style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', background:'#03a9f4', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<StudentRegister/>)} content='Shto Student'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<StudentRegister/>)} content='Shto Student'/>
                             </Segment>
                             <Segment>
-                                <Button style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', background:'#03a9f4', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<GuardianRegister/>)} content='Shto Kujdestar/Prind'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt',color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<GuardianRegister/>)} content='Shto Kujdestar/Prind'/>
                             </Segment>
                             <Segment>
-                                <Button style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', background:'#03a9f4', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<ProfesorRegister/>)} content='Shto Profesor'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<ProfesorRegister/>)} content='Shto Profesor'/>
                             </Segment>
                         </Segment.Group>
                     </Grid.Row>

@@ -25,6 +25,7 @@ import { IPerioda } from '../models/perioda';
 import { Materiali } from '../models/materiali';
 import { IKoheZ } from '../models/kOres';
 import { ISalla } from '../models/salla';
+import { IOrari } from '../models/orari';
 import { IPlaniM } from '../models/pMesimor';
 
 
@@ -270,6 +271,14 @@ const MaterialiMesimor = {
     delete: (id: string) => requests.delete(`/materiali/${id}`) 
 }
 
+const Oraret = {
+    list: (): Promise<IOrari[]> => requests.get('/oraret'),
+    details: (orariId: string) => requests.get(`/oraret/${orariId}`),
+    create: (orari:IOrari) => requests.post('/oraret', orari),
+    update: (orari: IOrari) => requests.put(`/oraret/${orari.orariId}`, orari),
+    delete: (id: string) => requests.delete(`/oraret/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -294,7 +303,9 @@ const agent = {
     Periodat,
     MaterialiMesimor,
     KohezgjatjaOres,
-    Sallat,
+    Sallat, 
+    Oraret
+    
 }
 
 export default agent;

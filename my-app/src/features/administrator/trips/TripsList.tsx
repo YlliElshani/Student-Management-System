@@ -34,18 +34,17 @@ export default observer(function TripsList () {
                     <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => tripStore.openForm()} content='Shto Shëtitjen'/>
+                    <Button size='mini' basic onClick={() => tripStore.openForm()} content='Shto Shëtitjen'/>
                     <Item.Group divided>
                         {tripsByDate.map((trip) => (
                         <Item key={trip.tripId}>
-                            <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
                             <Item.Content inverted="true">
                             <Item.Header >{trip.name}</Item.Header>
                             <Item.Meta>{trip.place}</Item.Meta>
                             <Item.Meta>{trip.user}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => tripStore.selectTrip(trip.tripId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={trip.tripId} loading={loading && target === trip.tripId} onClick={(e) => handleDeleteTrip(e, trip.tripId)} size='mini' floated='right' content='Fshij Shëtitjen' />
+                                <Button size='mini' basic onClick={() => tripStore.selectTrip(trip.tripId)}  floated='right' content='Shiko Detajet'/>
+                                <Button size='mini' basic name={trip.tripId} loading={loading && target === trip.tripId} onClick={(e) => handleDeleteTrip(e, trip.tripId)}  floated='right' content='Fshij Shëtitjen' />
                             </Item.Extra>
                             </Item.Content>
                         </Item>

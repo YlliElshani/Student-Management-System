@@ -51,7 +51,7 @@ export default observer(function VitiAkademikDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => vitiAkademikStore.openForm()} content='Shto Vitin'/>
+                <Button  class='ui button' onClick={() => vitiAkademikStore.openForm()} content='Shto Vitin'/>
                 <Grid.Column width='5'>
                 {selectedVitiAkademik && !editMode && 
                 <VitiAkademikDetails/>}

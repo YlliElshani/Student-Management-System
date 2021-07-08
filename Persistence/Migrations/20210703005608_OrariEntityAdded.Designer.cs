@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210703005608_OrariEntityAdded")]
+    partial class OrariEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -580,15 +582,15 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("KriteriPlotsimit");
+                    b.Property<DateTime>("dataShenimit");
 
-                    b.Property<Guid>("LendaId");
+                    b.Property<string>("kriteriSuksesit");
 
-                    b.Property<string>("PlaniInfo");
+                    b.Property<string>("planiInfo");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlanetMesimor");
+                    b.ToTable("PlaniMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>
