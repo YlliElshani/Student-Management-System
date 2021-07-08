@@ -1,7 +1,6 @@
 export interface IPlaniM{
     id:string,
     planiInfo:string,
-    klasa:string,
-    lenda:string,
+    lendaId:string,
     kriteriPlotsimit:string
 }

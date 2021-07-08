@@ -278,8 +278,7 @@ namespace Persistence.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     PlaniInfo = table.Column<string>(nullable: true),
                     KriteriPlotsimit = table.Column<string>(nullable: true),
-                    klasa = table.Column<string>(nullable: true),
-                    lenda = table.Column<string>(nullable: true)
+                    LendaId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {

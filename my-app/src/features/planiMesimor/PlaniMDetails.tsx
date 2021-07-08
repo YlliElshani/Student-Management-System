@@ -17,8 +17,7 @@ export default observer (function PlaniMDetails ()  {
             <Grid.Column>
                 <Segment>{planiM!.planiInfo}</Segment>
                 <Segment>{planiM!.kriteriPlotsimit}</Segment>
-                <Segment>{planiM!.lenda}</Segment>
-                <Segment>{planiM!.klasa}</Segment>
+                <Segment>{planiM!.lendaId}</Segment>
                 <br/>
             </Grid.Column>
             </Grid.Row>

@@ -32,8 +32,8 @@ export default observer(function NjoftimeFom() {
     <Segment clearing>
         <Grid>
         <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
-            <Form.Input onChange={handleInputChange}  name='njoftimi' placeholder='Njoftimi' value={njoftimi.njoftimi} />
-            <Form.Input onChange={handleInputChange} name='dataENjoftimit' placeholder='Data e Vendosjes' type='date' value={njoftimi.dataENjoftimit} />
+            <Form.TextArea required onChange={handleInputChange}  name='njoftimi' placeholder='Njoftimi' value={njoftimi.njoftimi} />
+            <Form.Input required onChange={handleInputChange} name='dataENjoftimit' placeholder='Data e Vendosjes' type='date' value={njoftimi.dataENjoftimit} />
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
             <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>

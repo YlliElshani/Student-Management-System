@@ -9,7 +9,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210703102107_AllEntity")]
+    [Migration("20210707212617_AllEntity")]
     partial class AllEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -356,11 +356,9 @@ namespace Persistence.Migrations
 
                     b.Property<string>("KriteriPlotsimit");
 
+                    b.Property<Guid>("LendaId");
+
                     b.Property<string>("PlaniInfo");
-
-                    b.Property<string>("klasa");
-
-                    b.Property<string>("lenda");
 
                     b.HasKey("Id");
 

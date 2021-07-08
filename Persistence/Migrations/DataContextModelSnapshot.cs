@@ -354,11 +354,9 @@ namespace Persistence.Migrations
 
                     b.Property<string>("KriteriPlotsimit");
 
+                    b.Property<Guid>("LendaId");
+
                     b.Property<string>("PlaniInfo");
-
-                    b.Property<string>("klasa");
-
-                    b.Property<string>("lenda");
 
                     b.HasKey("Id");
 

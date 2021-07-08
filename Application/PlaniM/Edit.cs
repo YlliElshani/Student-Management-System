@@ -14,9 +14,7 @@ namespace Application.PlaniM
             public string PlaniInfo { get; set; }
             public string KriteriPlotsimit { get; set; }
 
-            public string klasa{get; set;}
 
-            public string lenda{get; set;}
         }
 
         public class Handler : IRequestHandler<Command>
@@ -37,8 +35,6 @@ namespace Application.PlaniM
                     
                 planiM.PlaniInfo=request.PlaniInfo ?? request.PlaniInfo;
                 planiM.KriteriPlotsimit=request.KriteriPlotsimit ?? request.KriteriPlotsimit;
-                planiM.klasa=request.klasa ?? request.klasa;
-                planiM.lenda=request.lenda ?? request.lenda;
                 
                 var success = await _context.SaveChangesAsync() > 0;
 

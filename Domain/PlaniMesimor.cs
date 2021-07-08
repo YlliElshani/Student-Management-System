@@ -10,9 +10,8 @@ namespace Domain
 
         public string KriteriPlotsimit{get; set;}
 
-        public string klasa{get; set;}
+        public Guid LendaId{get; set;}
 
-        public string lenda{get; set;}
 
     }
 }

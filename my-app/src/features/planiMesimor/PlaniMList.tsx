@@ -1,7 +1,9 @@
+import axios from 'axios'
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../app/layout/LoadingComponent'
+import { ILenda } from '../../app/models/lenda'
 import { useStore } from '../../app/stores/store'
 import ProfesorNavBar from '../profesor/Profesor-Profili/ProfesorNavBar'
 import PlaniMDetails from './PlaniMDetails'
@@ -11,13 +13,22 @@ import PlaniMForm from './PlaniMForm'
 export default observer(function PlaniMList () {
 
     const {pMesimorStore} = useStore();
-    const {selectedPlaniM, editMode,deletePlaniM,loading,planiM} = pMesimorStore;
+    const {selectedPlaniM, editMode,deletePlaniM,loading,planiM,lendet} = pMesimorStore;
+    //@ts-ignore
+    const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
 
     const [target, setTarget] = useState('');
     
     useEffect(()=>{
         pMesimorStore.loadPlaniM();
       }, [pMesimorStore]); 
+
+      React.useEffect(()=>{
+        axios
+        .get(('https://localhost:5000/API/Lendet'))
+        .then((res)=>setData(res.data));
+    },[])
+  
     
     if(pMesimorStore.loadingInitial) return <LoadingComponent content='Prisni pak...'/>
     
@@ -25,6 +36,7 @@ export default observer(function PlaniMList () {
         setTarget(e.currentTarget.name);
         deletePlaniM(Id);
     }
+
 
     return (
         <Grid>
@@ -39,10 +51,10 @@ export default observer(function PlaniMList () {
                         <Item key={planiMesimor.id}>
                             <Item.Content inverted="true">
                             <Item.Header >Plani Mesimor: {planiMesimor.planiInfo}</Item.Header>
-                            <h4>Kriteri i Suksesit:</h4>
-                            <Item.Header>{planiMesimor.kriteriPlotsimit}</Item.Header>
-                            <Item.Header>{planiMesimor.klasa}</Item.Header>
-                            <Item.Header>{planiMesimor.lenda}</Item.Header>
+                            <h4>Kriteri i Suksesit:{planiMesimor.kriteriPlotsimit}</h4>
+                            <h4>Lenda:{data.map(lenda => (
+                                                <option key={lenda.lendaId}>{lenda.emri}</option>
+                                         ))}</h4>
                             <Item.Extra> 
                                 <Button onClick={() => pMesimorStore.selectPlaniM(planiMesimor.id)}size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button name={planiMesimor.id} loading={loading && target === planiMesimor.id} onClick={(e) => handleDeletePlaniM(e, planiMesimor.id)} size='mini' floated='right' content='Fshij Planin Mesimor' />

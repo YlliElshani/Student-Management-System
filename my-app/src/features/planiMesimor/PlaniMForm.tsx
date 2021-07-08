@@ -1,30 +1,38 @@
+import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import React, {ChangeEvent, useState} from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import { validate } from 'uuid';
-import LendaStore from '../../app/stores/lendaStore';
+import { ILenda } from '../../app/models/lenda';
 import { useStore } from '../../app/stores/store';
 
 
-export default observer(function PlaniMForm() {
-    const {pMesimorStore,lendaStore,klasaStore} = useStore();
+export default observer(function PlaniMform() {
+    const {pMesimorStore,lendaStore} = useStore();
     const {selectedPlaniM, closeForm, createPlaniM, updatePlaniM, loading} = pMesimorStore;
-    const { lendetByEmri } = lendaStore;
-    const { klasetByEmri } = klasaStore;
+    const{lendetByEmri}=lendaStore
+    //@ts-ignore
+    const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
+    //@ts-ignore
+    const [selectedData,setSelectedData] = React.useState<ILenda>({} as lendetByEmri);
+
+    React.useEffect(()=>{
+        axios
+        .get(('https://localhost:5000/API/Lendet'))
+        .then((res)=>setData(res.data));
+    },[])
+  
 
     const initialState = selectedPlaniM ?? {
         id: '',
         planiInfo:'',
-        klasa:'',
-        lenda:'',
+        lendaId:'',
         kriteriPlotsimit:''
     }
     
-
-    const [planiM, setPlaniM] = useState(initialState);
-
     const [selected, setSelected] = React.useState("");
 
+    const [planiM, setPlaniM] = useState(initialState);
 
     function handleSubmit () { 
         planiM.id ? updatePlaniM(planiM) : createPlaniM(planiM);
@@ -41,29 +49,22 @@ export default observer(function PlaniMForm() {
         setPlaniM({ ...planiM, [name]: value });
       }
 
-   
+      
+    
     return (
     <Segment clearing>
         <Grid>
         <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
-            <Form.Input onChange={handleInputChange}  name='planiInfo' placeholder='Plani Mesimor' value={planiM.planiInfo} required />
+            <Form.TextArea required onChange={handleInputChange}  name='planiInfo' placeholder='Plani Info' value={planiM.planiInfo} />
             <Form.Input>
-            <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={planiM.lenda} >
-                {lendetByEmri.map(lenda => (
-                    
-                    <option>{lenda.emri}</option>
-                ))}
+            <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={planiM.lendaId}>
+            {data.map(lenda => (
+                
+                <option value={lenda.lendaId}>{lenda.emri}</option>
+            ))}
             </select>
             </Form.Input>
-            <Form.Input>
-            <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={planiM.klasa} >
-                {klasetByEmri.map(klasa => (
-                    
-                    <option>{klasa.emriKl}</option>
-                ))}
-            </select>
-            </Form.Input>
-            <Form.Input onChange={handleInputChange} name='kriteriPlotsimit' placeholder='Kriteri i Suksesit' required value={planiM.kriteriPlotsimit} />
+            <Form.Input required onChange={handleInputChange} name='kriteriPlotsimit' placeholder='Kriteri Suksesit'  value={planiM.kriteriPlotsimit} />
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
             <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>

@@ -32,8 +32,8 @@ export default observer(function ArsyejaForm() {
     <Segment clearing>
         <Grid>
         <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
-            <Form.Input onChange={handleInputChange}  name='arsyejaMungeses' placeholder='Arsyeja e mungeses' value={arsyeja.arsyejaMungeses} />
-            <Form.Input onChange={handleInputChange} name='nrDiteve' placeholder='Nr i diteve' value={arsyeja.nrDiteve} />
+            <Form.TextArea onChange={handleInputChange} required  name='arsyejaMungeses' placeholder='Arsyeja e mungeses' value={arsyeja.arsyejaMungeses} />
+            <Form.Input type='number' min='1' max='8' required onChange={handleInputChange} name='nrDiteve' placeholder='Nr i diteve' value={arsyeja.nrDiteve} />
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
             <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>

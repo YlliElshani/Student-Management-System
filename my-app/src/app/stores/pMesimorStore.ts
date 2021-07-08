@@ -1,11 +1,12 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { v4 as uuid } from 'uuid';
-import { IPrezantimi } from "../models/prezantimi";
 import { IPlaniM } from "../models/pMesimor";
+import { ILenda } from "../models/lenda";
 
 export default class PMesimorStore {
     planiMRegistry = new Map<string, IPlaniM>();
+    lendaMRegistry = new Map<string, ILenda>();
     selectedPlaniM: IPlaniM | undefined = undefined;
     editMode = false;
     loading = false;
@@ -17,6 +18,25 @@ export default class PMesimorStore {
 
     get planiM() {
         return Array.from(this.planiMRegistry.values());
+    }
+
+    get lendet() {
+        return Array.from(this.lendaMRegistry.values());
+    }
+
+
+    
+    loadLandet = async () => {
+        try {
+            const lendeM = await agent.Lendet.list();
+            lendeM.forEach(lendaPlani => {
+                this.lendaMRegistry.set(lendaPlani.lendaId, lendaPlani);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
     }
 
     loadPlaniM = async () => {
