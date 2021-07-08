@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Domain
 {
@@ -7,10 +6,12 @@ namespace Domain
     {
         public Guid Id{get; set;}
 
-        public string planiInfo{get; set;}
+        public string PlaniInfo{get; set;}
 
-        public string kriteriSuksesit{get; set;}
+        public string KriteriPlotsimit{get; set;}
 
-        public DateTime dataShenimit{get; set;}
+        public Guid LendaId{get; set;}
+
+
     }
 }

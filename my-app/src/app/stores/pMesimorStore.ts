@@ -1,28 +1,49 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
-import {v4 as uuid} from 'uuid'
-import { IPlaniMesimor } from "../models/pMesimor";
+import { v4 as uuid } from 'uuid';
+import { IPlaniM } from "../models/pMesimor";
+import { ILenda } from "../models/lenda";
 
-export default class pMesimorStore {
-    planiMRegistry = new Map<string, IPlaniMesimor>();
-    selectedPlani: IPlaniMesimor | undefined = undefined;
+export default class PMesimorStore {
+    planiMRegistry = new Map<string, IPlaniM>();
+    lendaMRegistry = new Map<string, ILenda>();
+    selectedPlaniM: IPlaniM | undefined = undefined;
     editMode = false;
     loading = false;
-    loadingInitial= true;
+    loadingInitial = true;
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    get planetM() {
+    get planiM() {
         return Array.from(this.planiMRegistry.values());
+    }
+
+    get lendet() {
+        return Array.from(this.lendaMRegistry.values());
+    }
+
+
+    
+    loadLandet = async () => {
+        try {
+            const lendeM = await agent.Lendet.list();
+            lendeM.forEach(lendaPlani => {
+                this.lendaMRegistry.set(lendaPlani.lendaId, lendaPlani);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
     }
 
     loadPlaniM = async () => {
         try {
             const planiM = await agent.PlaniMesimor.list();
-            planiM.forEach(planiMes=>{
-                this.planiMRegistry.set(planiMes.id, planiMes);
+            planiM.forEach(planiMesimor => {
+                this.planiMRegistry.set(planiMesimor.id, planiMesimor);
             })
             this.setLoadingInitial(false);
         } catch (error) {
@@ -35,16 +56,16 @@ export default class pMesimorStore {
         this.loadingInitial = state;
     }
 
-    selectPlani = (id: string) => {
-        this.selectedPlani = this.planiMRegistry.get(id);
+    selectPlaniM = (id: string) => {
+        this.selectedPlaniM = this.planiMRegistry.get(id);
     }
 
-    cancelSelectedPlani = () => {
-        this.selectedPlani = undefined;
+    cancelSelectedPlaniM = () => {
+        this.selectedPlaniM = undefined;
     }
 
     openForm = (id?: string) => {
-        id ? this.selectPlani(id) : this.cancelSelectedPlani();
+        id ? this.selectPlaniM(id) : this.cancelSelectedPlaniM();
         this.editMode = true;
     }
 
@@ -52,14 +73,14 @@ export default class pMesimorStore {
         this.editMode = false;
     }
 
-    createPlaniM = async (planiM: IPlaniMesimor) => {
+    createPlaniM = async (planiMesimor: IPlaniM) => {
         this.loading = true;
-        planiM.id = uuid();
+        planiMesimor.id = uuid();
         try {
-            await agent.PlaniMesimor.create(planiM);
+            await agent.PlaniMesimor.create(planiMesimor);
             runInAction(() => {
-                this.planiMRegistry.set(planiM.id, planiM);
-                this.selectedPlani = planiM;
+                this.planiMRegistry.set(planiMesimor.id, planiMesimor);
+                this.selectedPlaniM = planiMesimor;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -71,13 +92,13 @@ export default class pMesimorStore {
         }
     }
 
-    updatePlani = async (planiM: IPlaniMesimor) => {
+    updatePlaniM= async (planiMesimor: IPlaniM) => {
         this.loading = true;
         try {
-            await agent.PlaniMesimor.update(planiM);
+            await agent.PlaniMesimor.update(planiMesimor);
             runInAction(() => {
-                this.planiMRegistry.set(planiM.id, planiM);
-                this.selectedPlani = planiM;
+                this.planiMRegistry.set(planiMesimor.id, planiMesimor);
+                this.selectedPlaniM = planiMesimor;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -89,13 +110,13 @@ export default class pMesimorStore {
         }
     }
 
-    deletePlani = async (id: string) => {
+    deletePlaniM = async (id: string) => {
         this.loading = true;
         try {
             await agent.PlaniMesimor.delete(id);
             runInAction(() => {
                 this.planiMRegistry.delete(id);
-                if(this.selectedPlani?.id === id) this.cancelSelectedPlani();
+                if (this.selectedPlaniM?.id === id) this.cancelSelectedPlaniM();
                 this.loading = false;
             })
         } catch (error) {

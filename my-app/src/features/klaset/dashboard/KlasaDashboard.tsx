@@ -51,7 +51,7 @@ export default observer(function KlasaDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => klasaStore.openForm()} content='Shto Klase'/>
+                <Button  class='ui button' onClick={() => klasaStore.openForm()} content='Shto Klase'/>
                 <Grid.Column width='5'>
                 {selectedKlasa && !editMode && 
                 <KlasaDetails/>}

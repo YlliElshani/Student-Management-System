@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class Entities : Migration
+    public partial class AllEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -179,6 +179,18 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Nderrimet",
+                columns: table => new
+                {
+                    NderrimiId = table.Column<Guid>(nullable: false),
+                    Ndrr = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Nderrimet", x => x.NderrimiId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Njoftimet",
                 columns: table => new
                 {
@@ -205,6 +217,18 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Paraleleet",
+                columns: table => new
+                {
+                    ParaleljaaId = table.Column<Guid>(nullable: false),
+                    EmriPar = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Paraleleet", x => x.ParaleljaaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Paralelet",
                 columns: table => new
                 {
@@ -218,6 +242,19 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Paralelet", x => x.ParaleljaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ParaleletKlaset",
+                columns: table => new
+                {
+                    ParaleljaKlasaId = table.Column<Guid>(nullable: false),
+                    EmriKl = table.Column<string>(nullable: true),
+                    EmriPar = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ParaleletKlaset", x => x.ParaleljaKlasaId);
                 });
 
             migrationBuilder.CreateTable(
@@ -235,17 +272,17 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PlaniMesimor",
+                name: "PlanetMesimor",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    planiInfo = table.Column<string>(nullable: true),
-                    kriteriSuksesit = table.Column<string>(nullable: true),
-                    dataShenimit = table.Column<DateTime>(nullable: false)
+                    PlaniInfo = table.Column<string>(nullable: true),
+                    KriteriPlotsimit = table.Column<string>(nullable: true),
+                    LendaId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlaniMesimor", x => x.Id);
+                    table.PrimaryKey("PK_PlanetMesimor", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -553,19 +590,28 @@ namespace Persistence.Migrations
                 name: "Materialet");
 
             migrationBuilder.DropTable(
+                name: "Nderrimet");
+
+            migrationBuilder.DropTable(
                 name: "Njoftimet");
 
             migrationBuilder.DropTable(
                 name: "Notat");
 
             migrationBuilder.DropTable(
+                name: "Paraleleet");
+
+            migrationBuilder.DropTable(
                 name: "Paralelet");
+
+            migrationBuilder.DropTable(
+                name: "ParaleletKlaset");
 
             migrationBuilder.DropTable(
                 name: "Periodat");
 
             migrationBuilder.DropTable(
-                name: "PlaniMesimor");
+                name: "PlanetMesimor");
 
             migrationBuilder.DropTable(
                 name: "Prezantimet");

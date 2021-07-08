@@ -64,6 +64,8 @@ import PeriodaList from '../../features/periodat/PeriodaList';
 import MaterialetList from '../../features/profesor/materialetMesimore/MaterialetList';
 import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 import SallatList from '../../features/administrator/sallat/SallatList';
+import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
+import OrariDetails from '../../features/oraret/details/OrariDetails';
 
 
 
@@ -102,6 +104,8 @@ function App () {
           <Route exact path='/admin/njoftimetN' component={NjoftimeList}/>
           <Route exact path='/admin/qytetet' component={QytetetList}/>
           <Route exact path='/admin/sallat' component={SallatList}/>
+          <Route exact path='/admin/oraret' component={OrariDashboard}/>
+          <Route exact path='/admin/oraretDetails' component={OrariDetails}/>
 
           <Route exact path='/detyrat' component={DetyraList}/>
           <Route exact path='/periodat' component={PeriodaList}/>

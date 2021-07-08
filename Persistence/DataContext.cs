@@ -47,7 +47,6 @@ namespace Persistence
 
         public DbSet <Materiali> Materialet {get; set;}
 
-        public DbSet <PlaniMesimor> PlaniMesimor {get; set;}
         public DbSet <Qyteti> Qytetet {get; set;}
         public DbSet <Klasa> Klaset {get; set;}
         public DbSet <VitiAkademik> VitetAkademike {get; set; }
@@ -55,9 +54,12 @@ namespace Persistence
         public DbSet <Paraleljaa> Paraleleet {get; set;}
         public DbSet <ParaleljaKlasa> ParaleletKlaset {get; set;}
         public DbSet <Nderrimi> Nderrimet {get; set;}
+        public DbSet <Orari> Oraret {get; set;}
        
         
         public DbSet <Salla> Sallat {get; set; }
+
+        public DbSet <PlaniMesimor> PlanetMesimor {get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

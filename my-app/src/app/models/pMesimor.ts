@@ -1,8 +1,6 @@
-export interface IPlaniMesimor{
+export interface IPlaniM{
     id:string,
     planiInfo:string,
-    kriteriSuksesit:string,
-    lenda:string,
-    klasa:string,
-    dataShenimit:string
+    lendaId:string,
+    kriteriPlotsimit:string
 }

@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210702115404_ParaleljaaEntityAdded")]
-    partial class ParaleljaaEntityAdded
+    [Migration("20210703005608_OrariEntityAdded")]
+    partial class OrariEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -206,7 +206,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Kohezgjatja");
+                    b.ToTable("Kohezgjatjet");
                 });
 
             modelBuilder.Entity("Domain.Lenda", b =>
@@ -225,6 +225,38 @@ namespace Persistence.Migrations
                     b.HasKey("LendaId");
 
                     b.ToTable("Lendet");
+                });
+
+            modelBuilder.Entity("Domain.Materiali", b =>
+                {
+                    b.Property<Guid>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FileDrop");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<string>("Perioda");
+
+                    b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Titulli");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Materialet");
+                });
+
+            modelBuilder.Entity("Domain.Nderrimi", b =>
+                {
+                    b.Property<Guid>("NderrimiId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Ndrr");
+
+                    b.HasKey("NderrimiId");
+
+                    b.ToTable("Nderrimet");
                 });
 
             modelBuilder.Entity("Domain.Njoftime", b =>
@@ -255,6 +287,234 @@ namespace Persistence.Migrations
                     b.ToTable("Notat");
                 });
 
+            modelBuilder.Entity("Domain.Orari", b =>
+                {
+                    b.Property<Guid>("OrariId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Dita");
+
+                    b.Property<string>("Gjenerata");
+
+                    b.Property<string>("Klasa");
+
+                    b.Property<string>("KohaEnjt1");
+
+                    b.Property<string>("KohaEnjt2");
+
+                    b.Property<string>("KohaEnjt3");
+
+                    b.Property<string>("KohaEnjt4");
+
+                    b.Property<string>("KohaEnjt5");
+
+                    b.Property<string>("KohaEnjt6");
+
+                    b.Property<string>("KohaEnjt7");
+
+                    b.Property<string>("KohaHen1");
+
+                    b.Property<string>("KohaHen2");
+
+                    b.Property<string>("KohaHen3");
+
+                    b.Property<string>("KohaHen4");
+
+                    b.Property<string>("KohaHen5");
+
+                    b.Property<string>("KohaHen6");
+
+                    b.Property<string>("KohaHen7");
+
+                    b.Property<string>("KohaMar1");
+
+                    b.Property<string>("KohaMar2");
+
+                    b.Property<string>("KohaMar3");
+
+                    b.Property<string>("KohaMar4");
+
+                    b.Property<string>("KohaMar5");
+
+                    b.Property<string>("KohaMar6");
+
+                    b.Property<string>("KohaMar7");
+
+                    b.Property<string>("KohaMer1");
+
+                    b.Property<string>("KohaMer2");
+
+                    b.Property<string>("KohaMer3");
+
+                    b.Property<string>("KohaMer4");
+
+                    b.Property<string>("KohaMer5");
+
+                    b.Property<string>("KohaMer6");
+
+                    b.Property<string>("KohaMer7");
+
+                    b.Property<string>("KohaPre1");
+
+                    b.Property<string>("KohaPre2");
+
+                    b.Property<string>("KohaPre3");
+
+                    b.Property<string>("KohaPre4");
+
+                    b.Property<string>("KohaPre5");
+
+                    b.Property<string>("KohaPre6");
+
+                    b.Property<string>("KohaPre7");
+
+                    b.Property<string>("LendaEnjt1");
+
+                    b.Property<string>("LendaEnjt2");
+
+                    b.Property<string>("LendaEnjt3");
+
+                    b.Property<string>("LendaEnjt4");
+
+                    b.Property<string>("LendaEnjt5");
+
+                    b.Property<string>("LendaEnjt6");
+
+                    b.Property<string>("LendaEnjt7");
+
+                    b.Property<string>("LendaHen1");
+
+                    b.Property<string>("LendaHen2");
+
+                    b.Property<string>("LendaHen3");
+
+                    b.Property<string>("LendaHen4");
+
+                    b.Property<string>("LendaHen5");
+
+                    b.Property<string>("LendaHen6");
+
+                    b.Property<string>("LendaHen7");
+
+                    b.Property<string>("LendaMar1");
+
+                    b.Property<string>("LendaMar2");
+
+                    b.Property<string>("LendaMar3");
+
+                    b.Property<string>("LendaMar4");
+
+                    b.Property<string>("LendaMar5");
+
+                    b.Property<string>("LendaMar6");
+
+                    b.Property<string>("LendaMar7");
+
+                    b.Property<string>("LendaMer1");
+
+                    b.Property<string>("LendaMer2");
+
+                    b.Property<string>("LendaMer3");
+
+                    b.Property<string>("LendaMer4");
+
+                    b.Property<string>("LendaMer5");
+
+                    b.Property<string>("LendaMer6");
+
+                    b.Property<string>("LendaMer7");
+
+                    b.Property<string>("LendaPre1");
+
+                    b.Property<string>("LendaPre2");
+
+                    b.Property<string>("LendaPre3");
+
+                    b.Property<string>("LendaPre4");
+
+                    b.Property<string>("LendaPre5");
+
+                    b.Property<string>("LendaPre6");
+
+                    b.Property<string>("LendaPre7");
+
+                    b.Property<string>("Nderrimi");
+
+                    b.Property<string>("ProfaEnjt1");
+
+                    b.Property<string>("ProfaEnjt2");
+
+                    b.Property<string>("ProfaEnjt3");
+
+                    b.Property<string>("ProfaEnjt4");
+
+                    b.Property<string>("ProfaEnjt5");
+
+                    b.Property<string>("ProfaEnjt6");
+
+                    b.Property<string>("ProfaEnjt7");
+
+                    b.Property<string>("ProfaHen1");
+
+                    b.Property<string>("ProfaHen2");
+
+                    b.Property<string>("ProfaHen3");
+
+                    b.Property<string>("ProfaHen4");
+
+                    b.Property<string>("ProfaHen5");
+
+                    b.Property<string>("ProfaHen6");
+
+                    b.Property<string>("ProfaHen7");
+
+                    b.Property<string>("ProfaMar1");
+
+                    b.Property<string>("ProfaMar2");
+
+                    b.Property<string>("ProfaMar3");
+
+                    b.Property<string>("ProfaMar4");
+
+                    b.Property<string>("ProfaMar5");
+
+                    b.Property<string>("ProfaMar6");
+
+                    b.Property<string>("ProfaMar7");
+
+                    b.Property<string>("ProfaMer1");
+
+                    b.Property<string>("ProfaMer2");
+
+                    b.Property<string>("ProfaMer3");
+
+                    b.Property<string>("ProfaMer4");
+
+                    b.Property<string>("ProfaMer5");
+
+                    b.Property<string>("ProfaMer6");
+
+                    b.Property<string>("ProfaMer7");
+
+                    b.Property<string>("ProfaPre1");
+
+                    b.Property<string>("ProfaPre2");
+
+                    b.Property<string>("ProfaPre3");
+
+                    b.Property<string>("ProfaPre4");
+
+                    b.Property<string>("ProfaPre5");
+
+                    b.Property<string>("ProfaPre6");
+
+                    b.Property<string>("ProfaPre7");
+
+                    b.HasKey("OrariId");
+
+                    b.ToTable("Oraret");
+                });
+
             modelBuilder.Entity("Domain.Paralelja", b =>
                 {
                     b.Property<Guid>("ParaleljaId")
@@ -275,6 +535,20 @@ namespace Persistence.Migrations
                     b.ToTable("Paralelet");
                 });
 
+            modelBuilder.Entity("Domain.ParaleljaKlasa", b =>
+                {
+                    b.Property<Guid>("ParaleljaKlasaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("EmriKl");
+
+                    b.Property<string>("EmriPar");
+
+                    b.HasKey("ParaleljaKlasaId");
+
+                    b.ToTable("ParaleletKlaset");
+                });
+
             modelBuilder.Entity("Domain.Paraleljaa", b =>
                 {
                     b.Property<Guid>("ParaleljaaId")
@@ -285,6 +559,22 @@ namespace Persistence.Migrations
                     b.HasKey("ParaleljaaId");
 
                     b.ToTable("Paraleleet");
+                });
+
+            modelBuilder.Entity("Domain.Perioda", b =>
+                {
+                    b.Property<Guid>("PeriodaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Emri");
+
+                    b.Property<string>("Fillimi");
+
+                    b.Property<string>("Mbarimi");
+
+                    b.HasKey("PeriodaId");
+
+                    b.ToTable("Periodat");
                 });
 
             modelBuilder.Entity("Domain.PlaniMesimor", b =>
@@ -333,6 +623,26 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Qytetet");
+                });
+
+            modelBuilder.Entity("Domain.Salla", b =>
+                {
+                    b.Property<Guid>("SallaId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DataRezervimit");
+
+                    b.Property<string>("Emri");
+
+                    b.Property<int>("Kapaciteti");
+
+                    b.Property<string>("OraRezervimit");
+
+                    b.Property<string>("Statusi");
+
+                    b.HasKey("SallaId");
+
+                    b.ToTable("Sallat");
                 });
 
             modelBuilder.Entity("Domain.Trajnim", b =>

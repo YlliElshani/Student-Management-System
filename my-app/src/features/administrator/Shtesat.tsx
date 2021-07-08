@@ -11,7 +11,7 @@ export default observer( function Shtesat() {
   const { userStore: { user, logout } } = useStore();
 
   return (
-    <Grid>
+    <Grid style={{display:'flex'}}>
       <Grid.Column width='6' >
         <AdminNavBar />
       </Grid.Column>
@@ -37,6 +37,41 @@ export default observer( function Shtesat() {
             </Card>
           </Grid.Row>
 
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Qytetet</Card.Header>
+                <Card.Description>
+                 Shtoni qytetet e përdoruesve
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/admin/qytetet'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Sallat</Card.Header>
+                <Card.Description>
+                 Shtoni sallat
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/admin/sallat'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
 
 
           <Grid.Row style={{ marginTop: '50px' }}>
@@ -165,6 +200,24 @@ export default observer( function Shtesat() {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <Button as={NavLink} to='/admin/lendet' basic color='green'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header as={NavLink} to='/admin/oraret'>Oraret</Card.Header>
+                <Card.Description>
+                 Shtoni Oraret
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button as={NavLink} to='/admin/oraret' basic color='green'>
                     Shfaq
                   </Button>
                 </div>

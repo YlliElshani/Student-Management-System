@@ -33,17 +33,16 @@ export default observer(function CompetitionsList() {
                     <AdminNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => competitionStore.openForm} content='Shto Garën'/>
+                    <Button size='mini' basic onClick={() => competitionStore.openForm()} content='Shto Garën'/>
                         <Item.Group divided>
                             {competitionsByDate.map((competition) => (
                             <Item key={competition.competitionId}>
-                                <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
                                 <Item.Content inverted="true">
                                 <Item.Header >{competition.name}</Item.Header>
                                 <Item.Meta>{competition.field}</Item.Meta>
                                 <Item.Extra>
-                                    <Button onClick={() => competitionStore.selectCompetition(competition.competitionId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                    <Button name={competition.competitionId} loading={loading && target === competition.competitionId} onClick={(e) => handleDeleteCompetition(e, competition.competitionId)} size='mini' floated='right' content='Fshij Garën' />
+                                    <Button basic onClick={() => competitionStore.selectCompetition(competition.competitionId)} size='mini' floated='right' content='Shiko Detajet'/>
+                                    <Button basic name={competition.competitionId} loading={loading && target === competition.competitionId} onClick={(e) => handleDeleteCompetition(e, competition.competitionId)} size='mini' floated='right' content='Fshij Garën' />
                                 </Item.Extra>
                                 </Item.Content>
                             </Item>

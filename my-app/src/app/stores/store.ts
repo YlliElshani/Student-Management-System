@@ -25,6 +25,7 @@ import PeriodaStore from "./periodaStore";
 import MaterialiMesimorStore from "./materialiMesimorStore";
 import KoheZStore from "./koheZStore";
 import SallaStore from "./sallaStore";
+import OrariStore from "./orariStore";
 
 
 interface Store {
@@ -54,6 +55,7 @@ interface Store {
     materialiStore: MaterialiMesimorStore;
     koheZStore: KoheZStore;
     sallaStore: SallaStore;
+    orariStore:OrariStore;
 }
 
 export const store: Store = {
@@ -84,6 +86,7 @@ export const store: Store = {
     materialiStore: new MaterialiMesimorStore(),
     koheZStore:new KoheZStore(),
     sallaStore: new SallaStore(),
+    orariStore: new OrariStore(),
 }
 
 export const StoreContext = createContext(store);

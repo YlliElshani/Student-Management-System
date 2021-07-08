@@ -347,22 +347,7 @@ namespace Persistence
                 context.KerkesaN.AddRange(kerkesat);
                 context.SaveChanges();
             };
-
-            if(!context.PlaniMesimor.Any())
-            {
-                var planiM = new List<PlaniMesimor>
-                {
-                    new PlaniMesimor
-                    {
-                        planiInfo="Do te spjegohen bazat e trigonometris",
-                        kriteriSuksesit="Nxenesi do mundet te kryej detyra me formule te pitagores",
-                        dataShenimit=DateTime.Now
-                    }
-                };
-                context.PlaniMesimor.AddRange(planiM);
-                context.SaveChanges();
-            };
-
+           
             if(!context.Eventet.Any())
             {
                 var evente = new List<Evente>
@@ -376,6 +361,21 @@ namespace Persistence
                     }
                 };
                 context.Eventet.AddRange(evente);
+                context.SaveChanges();
+            };
+
+            
+            if(!context.PlanetMesimor.Any())
+            {
+                var planeM = new List<PlaniMesimor>
+                {
+                    new PlaniMesimor
+                    {
+                        PlaniInfo="Do te spjegohen bazat e trigonometris",
+                        KriteriPlotsimit="Nxenesi do mund te kryej detyra me formule te pitagores"
+                    }
+                };
+                context.PlanetMesimor.AddRange(planeM);
                 context.SaveChanges();
             };
 
@@ -508,7 +508,7 @@ namespace Persistence
                     new Kohezgjatja
                     {
                         kohaMin=45,
-                        oraNisjes=10
+                        oraNisjes=08,
                     },
                 };
                 context.Kohezgjatjet.AddRange(kohezgjatja);

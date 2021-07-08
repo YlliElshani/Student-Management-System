@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using MediatR;
 using Persistence;
 
-namespace Application.PlaniM
+namespace Application.Oraret
 {
     public class Delete
     {
         public class Command : IRequest
         {
-            public Guid Id {get; set;}
+            public Guid  OrariId {get; set;}
         }
 
         public class Handler : IRequestHandler<Command>
@@ -24,12 +24,12 @@ namespace Application.PlaniM
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var planiM = await _context.PlanetMesimor.FindAsync(request.Id);
+                var orari = await _context.Oraret.FindAsync(request.OrariId);
 
-                if(planiM == null)
-                    throw new Exception("Could not find grade");
+                if(orari == null)
+                    throw new Exception("Could not find subject");
 
-                _context.Remove(planiM);
+                _context.Remove(orari);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

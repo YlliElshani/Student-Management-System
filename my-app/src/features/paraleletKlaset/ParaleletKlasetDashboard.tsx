@@ -57,7 +57,7 @@ export default observer(function ParaleletKlasetDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => paraleljaKlasaStore.openForm()} content='Shto'/>
+                <Button  class='ui button'  onClick={() => paraleljaKlasaStore.openForm()} content='Shto'/>
                 <Grid.Column width='5'>
                 {selectedParaleljaKlasa && !editMode && 
                 <ParaleletKlasetDetails/>}

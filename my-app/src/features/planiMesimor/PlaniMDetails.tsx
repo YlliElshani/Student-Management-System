@@ -1,12 +1,14 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
+import { IKoheZ } from '../../app/models/kOres';
 import { useStore } from '../../app/stores/store';
 
 
 export default observer (function PlaniMDetails ()  {
     const {pMesimorStore} = useStore();
-    const {selectedPlani: planiM, openForm, cancelSelectedPlani} = pMesimorStore;
+    const {selectedPlaniM: planiM, openForm, cancelSelectedPlaniM} = pMesimorStore;
+
     
     return (
         <Segment>
@@ -14,15 +16,15 @@ export default observer (function PlaniMDetails ()  {
             <Grid.Row stretched>
             <Grid.Column>
                 <Segment>{planiM!.planiInfo}</Segment>
-                <Segment>{planiM!.lenda}</Segment>
-                <Segment>{planiM!.kriteriSuksesit}</Segment>
-                <Segment>{planiM!.dataShenimit}</Segment>
+                <Segment>{planiM!.kriteriPlotsimit}</Segment>
+                <Segment>{planiM!.lendaId}</Segment>
+                <br/>
             </Grid.Column>
             </Grid.Row>
         </Grid>
         <Button.Group>
                 <Button onClick={() => openForm(planiM?.id)}  basic color='blue' content='Ndrysho'/>
-                <Button onClick={cancelSelectedPlani} basic color='grey' content='Anulo'/>
+                <Button onClick={cancelSelectedPlaniM} basic color='grey' content='Anulo'/>
             </Button.Group>
         </Segment>
     )
