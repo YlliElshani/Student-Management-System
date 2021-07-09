@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210703005608_OrariEntityAdded")]
-    partial class OrariEntityAdded
+    [Migration("20210709132912_Entities")]
+    partial class Entities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Age");
 
-                    b.Property<string>("City");
+                    b.Property<Guid>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -582,15 +582,15 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("dataShenimit");
+                    b.Property<string>("KriteriPlotsimit");
 
-                    b.Property<string>("kriteriSuksesit");
+                    b.Property<Guid>("LendaId");
 
-                    b.Property<string>("planiInfo");
+                    b.Property<string>("PlaniInfo");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PlaniMesimor");
+                    b.ToTable("PlanetMesimor");
                 });
 
             modelBuilder.Entity("Domain.Prezantimi", b =>

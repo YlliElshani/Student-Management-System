@@ -1,5 +1,5 @@
 import { values } from 'mobx'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Label, Segment, Image, Header, Dropdown} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
@@ -19,6 +19,12 @@ export default observer (function StudentRegister(){
         setOption(event.target.value);
         const { emri, value } = event.target;
     }
+
+    
+    useEffect(() => {
+        qytetiStore.loadQytetet();
+    }, [qytetiStore])
+
 
     return (
                 <Formik 
@@ -48,12 +54,12 @@ export default observer (function StudentRegister(){
                             <TextInput name='password' placeholder='Password' type='password'/>
                             <TextInput name='age' placeholder='Age'/>
                             <TextInput name='city' placeholder='City'/>
-                            {/*<select
+                            <select onChange={changeSelectOptionHandler}
                                 style={{borderRadius:'20pt', margin:'15px', height:'30px', width:'250px', fontSize:'10pt'}} name='city'>
                                 {qytetetByAlphabet.map(qyteti => (
-                                    <option key={qyteti.emri}>{qyteti.emri}</option>
+                                    <option key={qyteti.id}>{qyteti.emri}</option>
                                 ))}
-                                </select>*/}
+                                </select>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>
