@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { observer } from 'mobx-react-lite';
+import React from 'react';
 import {ChangeEvent, useState} from 'react'
 import { Button, Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
@@ -23,7 +25,7 @@ export default observer(function ParaleljaaForm() {
       const { name, value } = event.target;
       setParaleljaa({ ...paraleljaa, [name]: value });
     };
-    
+
     return (
     <Segment clearing>
         
@@ -36,5 +38,3 @@ export default observer(function ParaleljaaForm() {
     </Segment>
     )
 })
-
-
