@@ -59,7 +59,6 @@ export default observer(function PlaniMform() {
             <Form.Input>
             <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={planiM.lendaId}>
             {data.map(lenda => (
-                
                 <option value={lenda.lendaId}>{lenda.emri}</option>
             ))}
             </select>

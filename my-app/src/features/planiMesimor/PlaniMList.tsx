@@ -53,7 +53,7 @@ export default observer(function PlaniMList () {
                             <Item.Header >Plani Mesimor: {planiMesimor.planiInfo}</Item.Header>
                             <h4>Kriteri i Suksesit:{planiMesimor.kriteriPlotsimit}</h4>
                             <h4>Lenda:{data.map(lenda => (
-                                                <option key={lenda.lendaId}>{lenda.emri}</option>
+                                                <h3 key={lenda.lendaId}>{lenda.emri}</h3>
                                          ))}</h4>
                             <Item.Extra> 
                                 <Button onClick={() => pMesimorStore.selectPlaniM(planiMesimor.id)}size='mini' floated='right' content='Shiko Detajet'/>

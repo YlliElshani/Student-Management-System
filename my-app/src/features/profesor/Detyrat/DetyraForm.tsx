@@ -26,13 +26,13 @@ export default observer(function DetyraForm() {
         const {name, value} = event.currentTarget;
         setDetyra({...detyra, [name]: value});
     }
-    
+    //duhet me shtu per cilen lende jon detyrat
     return (
-    <Segment clearing  style={{width:'300px'}}>
+    <Segment clearing  style={{width:'500px'}}>
         <Grid>
-        <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px'}}>
+        <Form validate={validate} onSubmit={handleSubmit} autoComplete='off'  style={{padding:'20px', width:'400px'}}>
             <Form.Input onChange={handleInputChange}  name='detyraEmri' placeholder='Emri' value={detyra.detyraEmri} />
-            <Form.Input onChange={handleInputChange} name='pershkrimi' placeholder='Pershkrimi' value={detyra.pershkrimi} />
+            <Form.TextArea onChange={handleInputChange} name='pershkrimi' placeholder='Pershkrimi' value={detyra.pershkrimi} />
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
             <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
         </Form>

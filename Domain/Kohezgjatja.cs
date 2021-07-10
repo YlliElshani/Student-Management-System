@@ -6,7 +6,7 @@ namespace Domain
     {
         public Guid Id{get; set;}
 
-        public int kohaMin{get; set;}
+        public float kohaMin{get; set;}
 
         public float oraNisjes{get; set;}
     }

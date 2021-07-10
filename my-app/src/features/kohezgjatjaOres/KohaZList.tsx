@@ -44,7 +44,7 @@ export default observer(function KohaZList () {
                             <Item.Content inverted="true">
                             <Item.Header >Ora ne minuta: {koheZgjatja.kohaMin}</Item.Header>
                             <h4>Ora e nisjes: {koheZgjatja.oraNisjes}</h4>
-                            <h4>Ora mbaron ne: {koheZgjatja.oraNisjes+":"+koheZgjatja.kohaMin}</h4>
+                            <h4>Ora mbaron ne: {parseFloat(koheZgjatja.oraNisjes)+parseFloat(koheZgjatja.kohaMin)}</h4>
                             <Item.Extra> 
                                 <Button onClick={() => koheZStore.selectKohaZ(koheZgjatja.id)}size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button name={koheZgjatja.id} loading={loading && target === koheZgjatja.id} onClick={(e) => handleDeleteKohaZ(e, koheZgjatja.id)} size='mini' floated='right' content='Fshij Oren' />

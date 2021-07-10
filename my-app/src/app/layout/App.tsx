@@ -55,7 +55,6 @@ import VleresimiDashboard from '../../features/vleresimet/dashboard/VleresimiDas
 import VleresimiStudentiDashboard from '../../features/student/vleresimiStudenti/VleresimiStudentiDashboard';
 import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
-import PlaniMList from '../../features/planiMesimor/PlaniMList';
 import LendaStudentiDashboard from '../../features/student/lendetStudenti/LendaStudentiDashboard';
 import ParaleljaaDashboard from '../../features/paraleleet/dashboard/ParaleljaaDashboard';
 import ParaleletKlasetDashboard from '../../features/paraleletKlaset/ParaleletKlasetDashboard';
@@ -66,6 +65,7 @@ import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
+import PlaniMList from '../../features/planiMesimor/PlaniMList';
 
 
 

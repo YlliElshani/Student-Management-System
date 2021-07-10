@@ -139,7 +139,7 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    kohaMin = table.Column<int>(nullable: false),
+                    kohaMin = table.Column<float>(nullable: false),
                     oraNisjes = table.Column<float>(nullable: false)
                 },
                 constraints: table =>
@@ -214,6 +214,126 @@ namespace Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Notat", x => x.NotaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Oraret",
+                columns: table => new
+                {
+                    OrariId = table.Column<Guid>(nullable: false),
+                    Gjenerata = table.Column<string>(nullable: true),
+                    Klasa = table.Column<string>(nullable: true),
+                    Nderrimi = table.Column<string>(nullable: true),
+                    Dita = table.Column<string>(nullable: true),
+                    LendaHen1 = table.Column<string>(nullable: true),
+                    LendaHen2 = table.Column<string>(nullable: true),
+                    LendaHen3 = table.Column<string>(nullable: true),
+                    LendaHen4 = table.Column<string>(nullable: true),
+                    LendaHen5 = table.Column<string>(nullable: true),
+                    LendaHen6 = table.Column<string>(nullable: true),
+                    LendaHen7 = table.Column<string>(nullable: true),
+                    ProfaHen1 = table.Column<string>(nullable: true),
+                    ProfaHen2 = table.Column<string>(nullable: true),
+                    ProfaHen3 = table.Column<string>(nullable: true),
+                    ProfaHen4 = table.Column<string>(nullable: true),
+                    ProfaHen5 = table.Column<string>(nullable: true),
+                    ProfaHen6 = table.Column<string>(nullable: true),
+                    ProfaHen7 = table.Column<string>(nullable: true),
+                    KohaHen1 = table.Column<string>(nullable: true),
+                    KohaHen2 = table.Column<string>(nullable: true),
+                    KohaHen3 = table.Column<string>(nullable: true),
+                    KohaHen4 = table.Column<string>(nullable: true),
+                    KohaHen5 = table.Column<string>(nullable: true),
+                    KohaHen6 = table.Column<string>(nullable: true),
+                    KohaHen7 = table.Column<string>(nullable: true),
+                    LendaMar1 = table.Column<string>(nullable: true),
+                    LendaMar2 = table.Column<string>(nullable: true),
+                    LendaMar3 = table.Column<string>(nullable: true),
+                    LendaMar4 = table.Column<string>(nullable: true),
+                    LendaMar5 = table.Column<string>(nullable: true),
+                    LendaMar6 = table.Column<string>(nullable: true),
+                    LendaMar7 = table.Column<string>(nullable: true),
+                    ProfaMar1 = table.Column<string>(nullable: true),
+                    ProfaMar2 = table.Column<string>(nullable: true),
+                    ProfaMar3 = table.Column<string>(nullable: true),
+                    ProfaMar4 = table.Column<string>(nullable: true),
+                    ProfaMar5 = table.Column<string>(nullable: true),
+                    ProfaMar6 = table.Column<string>(nullable: true),
+                    ProfaMar7 = table.Column<string>(nullable: true),
+                    KohaMar1 = table.Column<string>(nullable: true),
+                    KohaMar2 = table.Column<string>(nullable: true),
+                    KohaMar3 = table.Column<string>(nullable: true),
+                    KohaMar4 = table.Column<string>(nullable: true),
+                    KohaMar5 = table.Column<string>(nullable: true),
+                    KohaMar6 = table.Column<string>(nullable: true),
+                    KohaMar7 = table.Column<string>(nullable: true),
+                    LendaMer1 = table.Column<string>(nullable: true),
+                    LendaMer2 = table.Column<string>(nullable: true),
+                    LendaMer3 = table.Column<string>(nullable: true),
+                    LendaMer4 = table.Column<string>(nullable: true),
+                    LendaMer5 = table.Column<string>(nullable: true),
+                    LendaMer6 = table.Column<string>(nullable: true),
+                    LendaMer7 = table.Column<string>(nullable: true),
+                    ProfaMer1 = table.Column<string>(nullable: true),
+                    ProfaMer2 = table.Column<string>(nullable: true),
+                    ProfaMer3 = table.Column<string>(nullable: true),
+                    ProfaMer4 = table.Column<string>(nullable: true),
+                    ProfaMer5 = table.Column<string>(nullable: true),
+                    ProfaMer6 = table.Column<string>(nullable: true),
+                    ProfaMer7 = table.Column<string>(nullable: true),
+                    KohaMer1 = table.Column<string>(nullable: true),
+                    KohaMer2 = table.Column<string>(nullable: true),
+                    KohaMer3 = table.Column<string>(nullable: true),
+                    KohaMer4 = table.Column<string>(nullable: true),
+                    KohaMer5 = table.Column<string>(nullable: true),
+                    KohaMer6 = table.Column<string>(nullable: true),
+                    KohaMer7 = table.Column<string>(nullable: true),
+                    LendaEnjt1 = table.Column<string>(nullable: true),
+                    LendaEnjt2 = table.Column<string>(nullable: true),
+                    LendaEnjt3 = table.Column<string>(nullable: true),
+                    LendaEnjt4 = table.Column<string>(nullable: true),
+                    LendaEnjt5 = table.Column<string>(nullable: true),
+                    LendaEnjt6 = table.Column<string>(nullable: true),
+                    LendaEnjt7 = table.Column<string>(nullable: true),
+                    ProfaEnjt1 = table.Column<string>(nullable: true),
+                    ProfaEnjt2 = table.Column<string>(nullable: true),
+                    ProfaEnjt3 = table.Column<string>(nullable: true),
+                    ProfaEnjt4 = table.Column<string>(nullable: true),
+                    ProfaEnjt5 = table.Column<string>(nullable: true),
+                    ProfaEnjt6 = table.Column<string>(nullable: true),
+                    ProfaEnjt7 = table.Column<string>(nullable: true),
+                    KohaEnjt1 = table.Column<string>(nullable: true),
+                    KohaEnjt2 = table.Column<string>(nullable: true),
+                    KohaEnjt3 = table.Column<string>(nullable: true),
+                    KohaEnjt4 = table.Column<string>(nullable: true),
+                    KohaEnjt5 = table.Column<string>(nullable: true),
+                    KohaEnjt6 = table.Column<string>(nullable: true),
+                    KohaEnjt7 = table.Column<string>(nullable: true),
+                    LendaPre1 = table.Column<string>(nullable: true),
+                    LendaPre2 = table.Column<string>(nullable: true),
+                    LendaPre3 = table.Column<string>(nullable: true),
+                    LendaPre4 = table.Column<string>(nullable: true),
+                    LendaPre5 = table.Column<string>(nullable: true),
+                    LendaPre6 = table.Column<string>(nullable: true),
+                    LendaPre7 = table.Column<string>(nullable: true),
+                    ProfaPre1 = table.Column<string>(nullable: true),
+                    ProfaPre2 = table.Column<string>(nullable: true),
+                    ProfaPre3 = table.Column<string>(nullable: true),
+                    ProfaPre4 = table.Column<string>(nullable: true),
+                    ProfaPre5 = table.Column<string>(nullable: true),
+                    ProfaPre6 = table.Column<string>(nullable: true),
+                    ProfaPre7 = table.Column<string>(nullable: true),
+                    KohaPre1 = table.Column<string>(nullable: true),
+                    KohaPre2 = table.Column<string>(nullable: true),
+                    KohaPre3 = table.Column<string>(nullable: true),
+                    KohaPre4 = table.Column<string>(nullable: true),
+                    KohaPre5 = table.Column<string>(nullable: true),
+                    KohaPre6 = table.Column<string>(nullable: true),
+                    KohaPre7 = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Oraret", x => x.OrariId);
                 });
 
             migrationBuilder.CreateTable(
@@ -597,6 +717,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Notat");
+
+            migrationBuilder.DropTable(
+                name: "Oraret");
 
             migrationBuilder.DropTable(
                 name: "Paraleleet");

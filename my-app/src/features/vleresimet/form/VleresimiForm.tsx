@@ -1,5 +1,6 @@
+import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
@@ -13,6 +14,26 @@ export default observer(function VleresimiForm() {
   const { notat } = notaStore;
   const { lendaStore } = useStore();
   const { lendetByEmri } = lendaStore;
+   //@ts-ignore
+   const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
+
+   const [target, setTarget] = useState('');
+   
+  //  useEffect(()=>{
+  //      pMesimorStore.loadPlaniM();
+  //    }, [pMesimorStore]); 
+
+     React.useEffect(()=>{
+       axios
+       .get(('https://localhost:5000/API/Lendet'))
+       .then((res)=>setData(res.data));
+   },[])
+
+   React.useEffect(()=>{
+    axios
+    .get(('https://localhost:5000/API/Notat'))
+    .then((res)=>setData(res.data));
+},[])
 
   const initialState = selectedVleresimi ?? {
     vleresimiId: '',
@@ -47,15 +68,15 @@ export default observer(function VleresimiForm() {
       <Form onSubmit={handleSubmit} autoComplete='off'>
         <Form.Input>
       <select onChange={changeSelectOptionHandler} name='lenda' placeholder='Lenda' value={vleresimi.lenda}>
-          {lendetByEmri.map(lenda => (
+          {data.map(lenda => (
             
-            <option>{lenda.emri}</option>
+            <option key={lenda.id}>{lenda.emri}</option>
           ))}
         </select>
         </Form.Input>
         <Form.Input>
         <select onChange={changeSelectOptionHandler} name='nota' placeholder='Nota' value={vleresimi.nota}>
-          {notat.map(nota => (
+          {data.map(nota => (
             
             <option>{nota.grade}</option>
           ))}

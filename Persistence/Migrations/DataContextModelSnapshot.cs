@@ -198,7 +198,7 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("kohaMin");
+                    b.Property<float>("kohaMin");
 
                     b.Property<float>("oraNisjes");
 

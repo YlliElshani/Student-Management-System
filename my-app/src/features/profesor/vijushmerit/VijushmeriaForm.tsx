@@ -7,7 +7,6 @@ import { useStore } from '../../../app/stores/store'
 export default observer(function VijushmeriaForm() {
   const { vijushmeriaStore } = useStore();
   const { selectedVijushmeria, closeForm, createVijushmeria, updateVijushmeria, loading } = vijushmeriaStore;
-  //i shton qito store t'qasaj tabele qe ka me hi ndrop-down (12-13)
   const { userStore } = useStore();
   const { users } = userStore;
 
@@ -19,7 +18,6 @@ export default observer(function VijushmeriaForm() {
 
  
   const [vijushmeria, setVijushmeria] = useState(initialState);
-  //shton rreshtin 26
   const [selected, setSelected] = React.useState("");
 
   function handleSubmit() {
@@ -30,7 +28,6 @@ export default observer(function VijushmeriaForm() {
     const { name, value } = event.target;
     setVijushmeria({ ...vijushmeria, [name]: value });
   };
-  //e shton 45-49
   function changeSelectOptionHandler(event: { target: { value: any; name?: any; }; }) {
     setSelected(event.target.value);
     const { name, value } = event.target;
@@ -42,7 +39,6 @@ export default observer(function VijushmeriaForm() {
 
       <Form onSubmit={handleSubmit} autoComplete='off'>
         <Form.Input onChange={handleInputChange} name='pjesmarrja' placeholder='pjesmarrja' value={vijushmeria.pjesmarrja} />
-        {/* Rreshti 57-64 esht dropdowni */}
         <Form.Input>
         <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={vijushmeria.studenti}>
           {users.map(user => (
