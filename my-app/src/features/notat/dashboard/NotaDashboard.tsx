@@ -26,13 +26,14 @@ export default observer(function NotaDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'70px'}}>
+        <Grid>
+            <Grid.Row>
             <Grid.Column width='4'>
                     <ProfesorNavBar/>
                 </Grid.Column>
             
-            <Grid.Column width={10}>   
-                <Table singleLine>
+            <Grid.Column width={7} style={{marginTop:'5em', marginLeft:"3em"}}>  
+                <Table singleLine style={{"border": "1px solid black"}}>
                     <Table.Header>
                         <Table.Row>
                             <Table.HeaderCell>Nota</Table.HeaderCell>
@@ -43,14 +44,14 @@ export default observer(function NotaDashboard() {
                     {notat.map(nota => (
                         <Table.Body key={nota.notaId}>
                             <Table.Row>
-                                <Table.Cell>{nota.grade}</Table.Cell>
-                                <Table.Cell><Button onClick={() => selectNota(nota.notaId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
-                                <Table.Cell><Button inverted color='red' name={nota.notaId} loading={target === nota.notaId && loading} onClick={(e) => handleNotaDelete(e, nota.notaId)} size='mini'  content='Fshij Notat' /></Table.Cell>
+                                <Table.Cell style={{fontWeight: "bold"}}>{nota.grade}</Table.Cell>
+                                <Table.Cell><Button onClick={() => selectNota(nota.notaId)} size='mini'  content='Edit Notën' color='twitter' /></Table.Cell>
+                                <Table.Cell><Button name={nota.notaId} loading={target === nota.notaId && loading} onClick={(e) => handleNotaDelete(e, nota.notaId)} size='mini'  content='Fshij Notën' color="red" /></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => notaStore.openForm()} content='Shto Notë'/>
+                <Button  class='ui button' onClick={() => notaStore.openForm()} content='Shto Notë' color="green"/>
                 <Grid.Column width='5'>
                 {selectedNota && !editMode && 
                 <NotaDetails/>}
@@ -58,6 +59,7 @@ export default observer(function NotaDashboard() {
             </Grid.Column>
             
             </Grid.Column>
+            </Grid.Row>
             
         </Grid>
     )

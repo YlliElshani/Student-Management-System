@@ -33,7 +33,7 @@ const ListGApp =()=> {
           <Grid.Column width='4'>
           <StudentMiniNav/>
           </Grid.Column>
-          <Grid.Column width='10' style={{marginTop:'10em', marginLeft:"3em"}}>
+          <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
           <Listues listgara={gara}/>
         </Grid.Column>
         </Grid.Row>

@@ -1,5 +1,5 @@
 import { values } from 'mobx'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Label, Segment, Image, Header, Dropdown} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
@@ -12,6 +12,11 @@ import * as Yup from 'yup';
 export default observer (function AdminRegister(){
     const {userStore, modalStore, qytetiStore} = useStore();
     const { qytetetByAlphabet } = qytetiStore;
+
+    useEffect(() => {
+        qytetiStore.loadQytetet();
+    }, [qytetiStore])
+
 
     const [option, setOption] = React.useState("");
 
@@ -30,7 +35,6 @@ export default observer (function AdminRegister(){
                 username: Yup.string().required(),
                 email: Yup.string().required().email(),
                 age: Yup.string().required(),
-                city:Yup.string().required(),
                 address: Yup.string().required(),
                 zipCode: Yup.string().required(),
                 phoneNumber: Yup.string().required(),
@@ -47,13 +51,11 @@ export default observer (function AdminRegister(){
                             <TextInput name='username' placeholder='Username'/>
                             <TextInput name='password' placeholder='Password' type='password'/>
                             <TextInput name='age' placeholder='Age'/>
-                            <TextInput name='city' placeholder='City'/>
-                            {/*<select
-                                style={{borderRadius:'20pt', margin:'15px', height:'30px', width:'250px', fontSize:'10pt'}} name='city'>
+                            <select onChange={changeSelectOptionHandler} name='city' placeholder='City' style={{borderRadius:'20pt', marginBottom:'15px', height:'35px', width:'250px', fontSize:'10pt'}}>
                                 {qytetetByAlphabet.map(qyteti => (
-                                    <option key={qyteti.emri}>{qyteti.emri}</option>
+                                    <option value={qyteti.id}>{qyteti.emri}</option>
                                 ))}
-                                </select>*/}
+                            </select>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>

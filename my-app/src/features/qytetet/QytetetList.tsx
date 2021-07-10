@@ -33,8 +33,8 @@ export default observer(function QytetetList () {
                 <Grid.Column width='4'>
                     <AdminNavBar />
                 </Grid.Column>
-                <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => qytetiStore.openForm()} content='Shto Qytetin'/>
+                <Grid.Column width='5' style={{marginTop:'2em', marginLeft:"3em"}}>
+                    <Button onClick={() => qytetiStore.openForm()} content='Shto Qytetin' color="green"/>
                     <Item.Group divided>
                         {qytetetByAlphabet.map((qyteti) => (
                         <Item key={qyteti.id}>
@@ -42,8 +42,8 @@ export default observer(function QytetetList () {
                             <Item.Header >{qyteti.emri}</Item.Header>
                             <Item.Meta>{qyteti.shteti}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => qytetiStore.selectQyteti(qyteti.id)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={qyteti.id} loading={loading && target === qyteti.id} onClick={(e) => handleDeleteQyteti(e, qyteti.id)} size='mini' floated='right' content='Fshij Qytetin' />
+                                <Button onClick={() => qytetiStore.selectQyteti(qyteti.id)} size='mini' floated='right' content='Shiko Detajet' color="twitter"/>
+                                <Button name={qyteti.id} loading={loading && target === qyteti.id} onClick={(e) => handleDeleteQyteti(e, qyteti.id)} size='mini' floated='right' content='Fshij Qytetin' color="red" />
                             </Item.Extra>
                             </Item.Content>
                         </Item>

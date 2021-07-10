@@ -6,6 +6,7 @@ using System;
 using FluentValidation;
 using Application.Errors;
 using System.Net;
+using Domain;
 
 namespace Application.User
 {

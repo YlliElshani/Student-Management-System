@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Button, Segment, Header, Form, Image, Input } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import AdminRegister from '../../users/AdminRegister';
@@ -13,7 +13,11 @@ import { IQyteti } from '../../../app/models/qyteti';
 export default observer( function UserDetails ()  {
     const {userStore, modalStore, qytetiStore} = useStore();
     const {selectedUser, cancelSelectedUser, registerAdmin, updateUser, loading} = userStore;
-    const { qytetetByAlphabet, createQyteti } = qytetiStore;
+    const { qytetetByAlphabet } = qytetiStore;
+
+    useEffect(() => {
+        qytetiStore.loadQytetet();
+    }, [qytetiStore])
 
     const validate = combineValidators({
         displayName: isRequired({message: 'The display name is required'}),
@@ -34,9 +38,6 @@ export default observer( function UserDetails ()  {
     const [user, setUser] = useState(initialState);
     const [option, setOption] = React.useState("");
 
-    const addCity = (item: IQyteti) => {
-        
-    };
 
     function handleSubmit() {
         user.id ? updateUser(user) : registerAdmin(user);
@@ -52,13 +53,6 @@ export default observer( function UserDetails ()  {
         const { name, value } = event.target;
         setUser({ ...user, [name]: value });
     }
-
-    const getCity = (cityId: string) => {
-        for(const city of qytetetByAlphabet)
-            if(city.id === cityId) return city.emri;
-        //return "";
-    }
-
     
     return (
         <Form validate={validate} key={user!.id} className='ui form' onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', marginLeft:'20px', display:'flex', position:'relative'}}>
@@ -68,13 +62,11 @@ export default observer( function UserDetails ()  {
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.userName} name='userName' placeholder='Username' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.email} name='email' placeholder='Email' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.age} name='age' placeholder='Age' onChange={handleInputChange}/>
-                <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}}>
-                    <select onChange={changeSelectOptionHandler} name='city' placeholder='City' value={user.city}>
-                    {qytetetByAlphabet.map(qyteti => (
-                        <option>{getCity(qyteti.emri)}</option>
-                            ))}
-                    </select>
-                </Form.Input>
+                <select onChange={changeSelectOptionHandler} name='city' placeholder='City' value={user.city}>
+                {qytetetByAlphabet.map(qyteti => (
+                    <option value={qyteti.id}>{qyteti.emri}</option>
+                        ))}
+                </select>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.address} name='address' placeholder='Address' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.zipCode} name='zipCode' placeholder='Zip Code' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'4  0px', width:'250px', fontSize:'10pt'}} value={user.phoneNumber} name='phoneNumber' placeholder='Phone Number' onChange={handleInputChange}/>

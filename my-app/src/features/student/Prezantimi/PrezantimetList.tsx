@@ -35,7 +35,7 @@ export default observer(function PrezantimetList () {
                     <StudentMiniNav/>
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => prezantimiStore.openForm()} content='Shto Prezantim' color='twitter'/>
+                    <Button onClick={() => prezantimiStore.openForm()} content='Shto Prezantim' color='green'/>
                     <Item.Group divided>
                         {prezantimetByDate.map((prezantimi) => (
                         <Item key={prezantimi.prezantimiId}>
@@ -44,8 +44,8 @@ export default observer(function PrezantimetList () {
                             <Item.Meta>{prezantimi.data}</Item.Meta>
                             <Item.Meta>{prezantimi.ora}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => prezantimiStore.selectPrezantimi(prezantimi.prezantimiId)} size='mini' floated='right' content='Shiko Detajet' color='youtube'/>
-                                <Button name={prezantimi.prezantimiId} loading={loading && target === prezantimi.prezantimiId} onClick={(e) => handleDeletePrezantimi(e, prezantimi.prezantimiId)} size='mini' floated='right' content='Fshij Prezantimin' />
+                                <Button onClick={() => prezantimiStore.selectPrezantimi(prezantimi.prezantimiId)} size='mini' floated='right' content='Shiko Detajet' color='blue'/>
+                                <Button name={prezantimi.prezantimiId} loading={loading && target === prezantimi.prezantimiId} onClick={(e) => handleDeletePrezantimi(e, prezantimi.prezantimiId)} size='mini' floated='right' content='Fshij Prezantimin' color="red"/>
                             </Item.Extra>
                             </Item.Content>
                         </Item>

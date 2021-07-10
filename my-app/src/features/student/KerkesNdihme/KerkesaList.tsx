@@ -4,6 +4,8 @@ import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
 import AdminNavBar from '../../administrator/AdminNavBar'
+import StudentMiniNav from '../EServices/StudentMiniNav'
+import StudentNavBar from '../StudentNavBar'
 import KerkeseNForm from './KerkeseNForm'
 import KerkesNDetails from './KerkesNDetails'
 
@@ -31,10 +33,10 @@ export default observer(function KerkesaList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <AdminNavBar />
+                    <StudentMiniNav />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => kerkesNdihmeStore.openForm()} content='Shto Arsyen'/>
+                    <Button onClick={() => kerkesNdihmeStore.openForm()} content='Shto Kërkesë' color='twitter'/>
                     <Item.Group divided>
                         {kerkesat.map((kerkese) => (
                         <Item key={kerkese.id}>
@@ -42,8 +44,8 @@ export default observer(function KerkesaList () {
                             <Item.Header >{kerkese.kerkesaInfo}</Item.Header>
                             <Item.Meta>{kerkese.dataECaktuar}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => kerkesNdihmeStore.selectKerkesa(kerkese.id)} size='mini' floated='right' content='Shiko Detajet'/>
-                                <Button name={kerkese.id} loading={loading && target === kerkese.id} onClick={(e) => handleDeleteKerkesa(e, kerkese.id)} size='mini' floated='right' content='Fshij Arsyjen' />
+                                <Button onClick={() => kerkesNdihmeStore.selectKerkesa(kerkese.id)} size='mini' floated='right' content='Shiko Detajet'  color='youtube'/>
+                                <Button name={kerkese.id} loading={loading && target === kerkese.id} onClick={(e) => handleDeleteKerkesa(e, kerkese.id)} size='mini' floated='right' content='Fshij Kërkesën' />
                             </Item.Extra>
                             </Item.Content>
                         </Item>
