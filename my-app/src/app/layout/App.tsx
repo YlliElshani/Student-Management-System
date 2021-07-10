@@ -41,7 +41,7 @@ import Shtesat from '../../features/administrator/Shtesat';
 
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
-import UserList from '../../features/administrator/users/UserList';
+import UsersList from '../../features/administrator/users/UsersList';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import TrajnimList from '../../features/profesor/trajnimet/TrajnimList';
 
@@ -66,6 +66,10 @@ import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
+import AdminList from '../../features/administrator/users/AdminList';
+import ProfessorList from '../../features/administrator/users/ProfessorList';
+import StudentList from '../../features/administrator/users/StudentList';
+import GuardianList from '../../features/administrator/users/GuardianList';
 
 
 
@@ -117,7 +121,11 @@ function App () {
           <Route exact path='/profesor/ProfesorShtesat' component={ProfesorShtesat}/>
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
-          <Route exact path='/admin/users' component={UserList}/>
+          <Route exact path='/admin/users' component={UsersList}/>
+          <Route exact path='/admin/users/adminList' component={AdminList}/>
+          <Route exact path='/admin/users/professorList' component={ProfessorList}/>
+          <Route exact path='/admin/users/studentList' component={StudentList}/>
+          <Route exact path='/admin/users/guardianList' component={GuardianList}/>
           <Route exact path='/admin/paraleleet' component={ParaleljaaDashboard}/>
           <Route exact path='/admin/paraleletklaset' component={ParaleletKlasetDashboard}/>
           <Route exact path='/admin/nderrimet' component={NderrimiDashboard}/>

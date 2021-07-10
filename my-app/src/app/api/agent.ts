@@ -204,7 +204,10 @@ const Sallat = {
 
 const Account = {
     current: () => requests.get('/admin'),
-    list: (): Promise<User[]> => requests.get('/admin/list'),
+    listProfessor: (): Promise<User[]> => requests.get('/profesor/list'),
+    listAdmin: (): Promise<User[]> => requests.get('/admin/list'),
+    listStudent: (): Promise<User[]> => requests.get('/student/list'),
+    listGuardian: (): Promise<User[]> => requests.get('/guardian/list'),
     loginAdmin: (user: UserFormValues) => requests.post(`/admin/loginAdmin`, user),
     registerAdmin: (user: UserFormValues) => requests.post(`/admin/registerAdmin`, user),
     loginStudent: (user: UserFormValues) => requests.post(`/student/loginStudent`, user),

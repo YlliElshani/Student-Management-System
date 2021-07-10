@@ -44,9 +44,9 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpGet("list")]
-        public async Task<ActionResult<List<AppUser>>> UserList()
+        public async Task<ActionResult<List<AppUser>>> AdminsList()
         {
-            return await Mediator.Send(new UserList.Query());
+            return await Mediator.Send(new AdminsList.Query());
         }
 
         [AllowAnonymous]
