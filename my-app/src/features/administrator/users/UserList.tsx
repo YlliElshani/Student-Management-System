@@ -19,13 +19,13 @@ export default observer(function UserList () {
     const {deleteUser, users, loading} = userStore;
 
     const [target, setTarget] = useState('');
-    
+
     useEffect(()=>{
         userStore.loadUsers();
       }, [userStore]); 
-    
+
     if(userStore.loadingInitial) return <LoadingComponent content='Loading Users ...'/>
-    
+
     function handleDeleteUser(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);
         deleteUser(id);
@@ -41,13 +41,13 @@ export default observer(function UserList () {
                     <Grid.Row> 
                         <Segment.Group horizontal>
                             <Segment>
-                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt',color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
                             </Segment>
                             <Segment>
                                 <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<StudentRegister/>)} content='Shto Student'/>
                             </Segment>
                             <Segment>
-                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt',color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<GuardianRegister/>)} content='Shto Kujdestar/Prind'/>
+                                <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<GuardianRegister/>)} content='Shto Kujdestar/Prind'/>
                             </Segment>
                             <Segment>
                                 <Button basic style={{borderRadius:'20pt', marginLeft:'60px', marginTop:'6px', fontSize:'7pt', color:'white',  width:'120px'}} onClick={() => modalStore.openModal(<ProfesorRegister/>)} content='Shto Profesor'/>
@@ -61,7 +61,7 @@ export default observer(function UserList () {
                             <Item.Header>{user.displayName}</Item.Header>
                             <Item.Meta>{user.email}</Item.Meta>
                             <Item.Extra>
-                                <Button positive onClick={(e) =>{{userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}}} size='mini' floated='right' content='Shiko Detajet'/>
+                                <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                             </Item.Extra>
                             </Item.Content>
@@ -69,10 +69,7 @@ export default observer(function UserList () {
                         ))}
                     </Item.Group>
                 </Grid.Column>
-                <Grid.Row width='4' style={{marginTop:'3em'}}>
-                    {selectedUser && !editMode && <UserDetails />}
-                </Grid.Row>
-                </Grid.Row>
+            </Grid.Row>
         </Grid>
     )
 })

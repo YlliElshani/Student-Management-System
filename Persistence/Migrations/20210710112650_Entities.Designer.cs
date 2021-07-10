@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210708195504_AllEntity.Designer.cs
-    [Migration("20210708195504_AllEntity")]
-    partial class AllEntity
-=======
-    [Migration("20210709132912_Entities")]
+    [Migration("20210710112650_Entities")]
     partial class Entities
->>>>>>> 1ef6cb3a70c4a523af4677ae6d24eefc699ddb86:Persistence/Migrations/20210709132912_Entities.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,7 +54,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Age");
 
-                    b.Property<Guid>("City");
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();

@@ -10,21 +10,7 @@ import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function ProfesorRegister(){
-    const {userStore, modalStore, qytetiStore} = useStore();
-    const { qytetetByAlphabet } = qytetiStore;
-
-    const [option, setOption] = React.useState("");
-
-    useEffect(() => {
-        qytetiStore.loadQytetet();
-    }, [qytetiStore])
-
-    
-    function changeSelectOptionHandler(event: { target: { value: any; emri?: any; }; }) {
-        setOption(event.target.value);
-        const { emri, value } = event.target;
-    }
-
+    const {userStore, modalStore} = useStore();
 
     return (
                 <Formik 
@@ -36,7 +22,6 @@ export default observer (function ProfesorRegister(){
                 username: Yup.string().required(),
                 email: Yup.string().required().email(),
                 age: Yup.string().required(),
-                city:Yup.string().required(),
                 address: Yup.string().required(),
                 zipCode: Yup.string().required(),
                 phoneNumber: Yup.string().required(),
@@ -47,19 +32,13 @@ export default observer (function ProfesorRegister(){
                 {({ handleSubmit, isSubmitting, errors, isValid, dirty}) => (
                     <Form className='ui form' onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', marginLeft:'20px', display:'flex'}}>
                         <div style={{ marginRight:'50px'}} className='ui form'>
-                            <Header as='h2' style={{fontSize:'15px', textAlign:'center'}}>Profesor Register</Header>
+                            <Header as='h2' style={{fontSize:'15px', textAlign:'center'}}>Admin Register</Header>
                             <TextInput name='displayName' placeholder='Display Name'/>
                             <TextInput name='email' placeholder='Email'/>
                             <TextInput name='username' placeholder='Username'/>
                             <TextInput name='password' placeholder='Password' type='password'/>
                             <TextInput name='age' placeholder='Age'/>
                             <TextInput name='city' placeholder='City'/>
-                            <select onChange={changeSelectOptionHandler}
-                                style={{borderRadius:'20pt', margin:'15px', height:'30px', width:'250px', fontSize:'10pt'}} name='city'>
-                                {qytetetByAlphabet.map(qyteti => (
-                                    <option key={qyteti.id}>{qyteti.emri}</option>
-                                ))}
-                                </select>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>

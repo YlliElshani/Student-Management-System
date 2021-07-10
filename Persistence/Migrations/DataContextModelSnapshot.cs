@@ -52,7 +52,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Age");
 
-                    b.Property<Guid>("City");
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();

@@ -26,14 +26,13 @@ export default observer(function VijushmeriaDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
+        <Grid >
             <Grid.Column width='4'>
                 <ProfesorNavBar />
-                 <AdminNavBar />
                     
                 </Grid.Column>
             
-            <Grid.Column width={10}>   
+            <Grid.Column style={{marginTop:'50px'}} width={10}>   
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>

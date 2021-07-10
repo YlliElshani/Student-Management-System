@@ -55,7 +55,7 @@ namespace Persistence.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     DisplayName = table.Column<string>(nullable: true),
                     Age = table.Column<string>(nullable: true),
-                    City = table.Column<Guid>(nullable: false),
+                    City = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     ZipCode = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true)

@@ -10,20 +10,8 @@ import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function AdminRegister(){
-    const {userStore, modalStore, qytetiStore} = useStore();
-    const { qytetetByAlphabet } = qytetiStore;
-
-    useEffect(() => {
-        qytetiStore.loadQytetet();
-    }, [qytetiStore])
-
-
-    const [option, setOption] = React.useState("");
-
-    function changeSelectOptionHandler(event: { target: { value: any; emri?: any; }; }) {
-        setOption(event.target.value);
-        const { emri, value } = event.target;
-    }
+    const {userStore, modalStore } = useStore();
+  
 
     return (
                 <Formik 
@@ -51,11 +39,7 @@ export default observer (function AdminRegister(){
                             <TextInput name='username' placeholder='Username'/>
                             <TextInput name='password' placeholder='Password' type='password'/>
                             <TextInput name='age' placeholder='Age'/>
-                            <select onChange={changeSelectOptionHandler} name='city' placeholder='City' style={{borderRadius:'20pt', marginBottom:'15px', height:'35px', width:'250px', fontSize:'10pt'}}>
-                                {qytetetByAlphabet.map(qyteti => (
-                                    <option value={qyteti.id}>{qyteti.emri}</option>
-                                ))}
-                            </select>
+                            <TextInput name='city' placeholder='City'/>
                             <TextInput name='address' placeholder='Address'/>
                             <TextInput name='zipCode' placeholder='Zip Code'/>
                             <TextInput name='phoneNumber' placeholder='Phone Number'/>

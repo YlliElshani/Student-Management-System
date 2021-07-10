@@ -41,6 +41,10 @@ export default observer(function AdminNavBar() {
                 <Icon name='newspaper' />
                 Njoftimet
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/admin/oraret'>
+                <Icon name='list' />
+                Oraret
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/admin/shtesat'>
                 <Icon name='university' />
                 Ceshtjet administrative
