@@ -66,11 +66,7 @@ import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
-import AdminList from '../../features/administrator/users/AdminList';
-import ProfessorList from '../../features/administrator/users/ProfessorList';
-import StudentList from '../../features/administrator/users/StudentList';
-import GuardianList from '../../features/administrator/users/GuardianList';
-
+import Materialet from '../../features/student/materialiMesimor/Materialet';
 
 
 function App () {
@@ -122,10 +118,6 @@ function App () {
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UsersList}/>
-          <Route exact path='/admin/users/adminList' component={AdminList}/>
-          <Route exact path='/admin/users/professorList' component={ProfessorList}/>
-          <Route exact path='/admin/users/studentList' component={StudentList}/>
-          <Route exact path='/admin/users/guardianList' component={GuardianList}/>
           <Route exact path='/admin/paraleleet' component={ParaleljaaDashboard}/>
           <Route exact path='/admin/paraleletklaset' component={ParaleletKlasetDashboard}/>
           <Route exact path='/admin/nderrimet' component={NderrimiDashboard}/>
@@ -137,6 +129,7 @@ function App () {
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/vleresimi' component={VleresimiStudentiDashboard}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
+          <Route exact path='/student/materialet' component={Materialet}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>

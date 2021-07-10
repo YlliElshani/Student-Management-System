@@ -1,5 +1,3 @@
-import { values } from 'mobx'
-import React from 'react'
 import { Button, Label, Segment, Image, Header} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'

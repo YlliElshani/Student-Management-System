@@ -1,14 +1,10 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Segment } from 'semantic-ui-react'
 import Foto from '../../assets/school.png';
 import Tilt from 'react-parallax-tilt';
 import { observer } from 'mobx-react-lite';
-import { useStore } from '../../app/stores/store';
 
 export default observer (function HomePage(){
-    const {modalStore} = useStore();
-
     return (
         <div className="container">
             <Tilt>

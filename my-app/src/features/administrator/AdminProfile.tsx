@@ -1,7 +1,5 @@
-import React from 'react'
 import { Container, Grid, Image, Divider, Header, Table, Icon } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
-
 import AdminNavBar from './AdminNavBar'
 import Photo from '../../assets/user.png';
 import { observer } from 'mobx-react-lite';

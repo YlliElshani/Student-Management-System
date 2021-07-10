@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Item } from 'semantic-ui-react'
+import { Button, Grid, Item, Segment } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
 import AdminNavBar from '../AdminNavBar'
@@ -9,9 +9,8 @@ import CompetitionDetails from './CompetitionDetails'
 import CompetitionForm from './CompetitionForm'
 
 export default observer(function CompetitionsList() {
-    const {competitionStore} = useStore();
-    const {selectedCompetition, editMode} = competitionStore;
-    const {deleteCompetition, competitionsByDate, loading} = competitionStore;
+    const {competitionStore, modalStore} = useStore();
+    const { deleteCompetition, competitionsByDate, loading} = competitionStore;
 
     const [target, setTarget] = useState('');
     
@@ -27,33 +26,29 @@ export default observer(function CompetitionsList() {
     }
     
     return (
-        <Grid>
-            <Grid.Row>
-                <Grid.Column width='4'>
-                    <AdminNavBar />
-                </Grid.Column>
-                <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button size='mini' basic onClick={() => competitionStore.openForm()} content='Shto Garën'/>
-                        <Item.Group divided>
-                            {competitionsByDate.map((competition) => (
-                            <Item key={competition.competitionId}>
-                                <Item.Content inverted="true">
-                                <Item.Header >{competition.name}</Item.Header>
-                                <Item.Meta>{competition.field}</Item.Meta>
-                                <Item.Extra>
-                                    <Button basic onClick={() => competitionStore.selectCompetition(competition.competitionId)} size='mini' floated='right' content='Shiko Detajet'/>
-                                    <Button basic name={competition.competitionId} loading={loading && target === competition.competitionId} onClick={(e) => handleDeleteCompetition(e, competition.competitionId)} size='mini' floated='right' content='Fshij Garën' />
-                                </Item.Extra>
-                                </Item.Content>
-                            </Item>
-                            ))}
-                        </Item.Group>
-                </Grid.Column>
-                <Grid.Column width='4' style={{marginTop:'3em'}}>
-                    {selectedCompetition && !editMode && <CompetitionDetails />}
-                    {editMode && <CompetitionForm />}
-                </Grid.Column>
-                </Grid.Row>
+        <Grid >
+            <Grid.Column width='4'>
+                <AdminNavBar />
+            </Grid.Column>
+            <Segment style={{width:'65%', marginTop:'5em', marginLeft:'5em'}}>
+            <Grid.Column style={{ padding:'20px'}}>
+                <Button size='mini' basic onClick={() =>{modalStore.openModal(<CompetitionForm/>); competitionStore.cancelSelectedCompetition()}} content='Shto Garën'/>
+                    <Item.Group divided>
+                        {competitionsByDate.map((competition) => (
+                        <Item key={competition.competitionId}>
+                            <Item.Content inverted="true">
+                            <Item.Header >{competition.name}</Item.Header>
+                            <Item.Meta>{competition.field}</Item.Meta>
+                            <Item.Extra>
+                                <Button basic onClick={() => {competitionStore.selectCompetition(competition.competitionId); modalStore.openModal(<CompetitionDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
+                                <Button basic name={competition.competitionId} loading={loading && target === competition.competitionId} onClick={(e) => handleDeleteCompetition(e, competition.competitionId)} size='mini' floated='right' content='Fshij Garën' />
+                            </Item.Extra>
+                            </Item.Content>
+                        </Item>
+                        ))}
+                    </Item.Group>
+            </Grid.Column>
+            </Segment>
         </Grid>
                 
     )

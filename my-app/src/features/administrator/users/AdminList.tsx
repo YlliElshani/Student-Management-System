@@ -1,17 +1,11 @@
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Item, Segment } from 'semantic-ui-react'
-import { LoadingComponent } from '../../../app/layout/LoadingComponent'
+import { Button, Grid, Item } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import AdminRegister from '../../users/AdminRegister'
-import GuardianRegister from '../../users/GuardianRegister'
-import ProfesorRegister from '../../users/ProfesorRegister'
-import StudentRegister from '../../users/StudentRegister'
-import AdminNavBar from '../AdminNavBar'
-import UserDetails from './UserDetails'
-import UserForm from './UserForm'
 import {User} from '../../../app/models/user';
 import axios from 'axios'
+import UserForm from './UserForm'
 
 
 export default observer(function AdminList () {
@@ -24,7 +18,7 @@ export default observer(function AdminList () {
     
 
     const {userStore, modalStore} = useStore();
-    const {deleteUser,selectUser, loading} = userStore;
+    const {deleteUser, loading} = userStore;
 
     const [target, setTarget] = useState('');
 
@@ -35,7 +29,7 @@ export default observer(function AdminList () {
 
     return (
         <Grid.Column width='11' style={{marginTop:'2em', marginLeft:"3em"}}>
-            <Button basic size='mini' onClick={()=>modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
+            <Button basic size='mini' onClick={()=>{modalStore.openModal(<AdminRegister/>); userStore.cancelSelectedUser()}} content='Shto Admin'/>
             <Item.Group divided>
                 {data.map((user) => (
                 <Item style={{fontSize:'8pt'}} key={user.id}>
@@ -43,8 +37,13 @@ export default observer(function AdminList () {
                     <Item.Header>{user.displayName}</Item.Header>
                     <Item.Meta>{user.email}</Item.Meta>
                     <Item.Meta>{user.userName}</Item.Meta>
+                    <Item.Meta>{user!.age}</Item.Meta>
+                    <Item.Meta>{user!.phoneNumber}</Item.Meta>
+                    <Item.Meta>{user!.city}</Item.Meta>
+                    <Item.Meta>{user!.address}</Item.Meta>
+                    <Item.Meta>{user!.zipCode}</Item.Meta>
                     <Item.Extra>
-                        <Button positive onClick={() => {selectUser(user.id); modalStore.openModal(<UserDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
+                        <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Shiko Detajet'/>
                         <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                     </Item.Extra>
                     </Item.Content>

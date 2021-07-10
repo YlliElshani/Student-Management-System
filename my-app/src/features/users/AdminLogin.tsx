@@ -1,5 +1,3 @@
-import { values } from 'mobx'
-import React from 'react'
 import { Button, Label, Segment, Image, Header} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
@@ -9,7 +7,7 @@ import Img from '../../assets/login.png'
 import Tilt from 'react-parallax-tilt';
 
 export default observer (function AdminLogin(){
-    const {userStore, modalStore} = useStore();
+    const {userStore} = useStore();
 
     return (
         <div style={{padding:'5%', marginLeft:'18%'}}>

@@ -1,8 +1,9 @@
 import React, {FormEvent, useState} from 'react'
-import { Button, Form, Grid, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Label, Segment } from 'semantic-ui-react'
 import {combineValidators, composeValidators, hasLengthGreaterThan, isRequired} from 'revalidate';
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../app/stores/store';
+import axios from 'axios';
 
 const validate = combineValidators({
     name: isRequired({message: 'The competition name is required'}),
@@ -13,7 +14,7 @@ const validate = combineValidators({
 })
 
 export default observer(function CompetitionForm() {
-    const {competitionStore} = useStore();
+    const {competitionStore, modalStore} = useStore();
     const {selectedCompetition, closeForm, createCompetition, updateCompetition, loading} = competitionStore;
 
     const initialState = selectedCompetition ??  {
@@ -35,18 +36,42 @@ export default observer(function CompetitionForm() {
          const {name, value} = event.currentTarget;
          setCompetition({...competition, [name]: value});
     }
+
+    //@ts-ignore
+    const [lendetData, setLendet]=React.useState<ILenda[]>([] as lendet);
+    //@ts-ignore
+    const [selected, setSelected] = React.useState("");
+
+    
+    React.useEffect(()=>{
+        axios
+        .get(('https://localhost:5000/api/lendet'))
+        .then((res)=>setLendet(res.data));
+    },[])
+
+
+    function changeSelectOptionHandler(event: { target: { value: any; name?: any; }; }) {
+        setSelected(event.target.value);
+        const { name, value } = event.target;
+        setCompetition({ ...competition, [name]: value });
+      }
     
     return (
     <Segment clearing>
         <Grid>
+        <Label style={{marginLeft:'3em', fontSize:'15pt', background:'none'}}  content='Competitions' />
         <Form validate={validate} onSubmit={handleSubmit} style={{padding:'20px', width:'100%'}}>
             <Form.Input onChange={handleInputChange}  name='name' placeholder='Name' value={competition.name} />
             <Form.Input type='date' onChange={handleInputChange} name='date' placeholder='Date' value={competition.date} />
             <Form.TextArea rows={5} onChange={handleInputChange} name='description' placeholder='Description' value={competition.description} />
-            <Form.Input onChange={handleInputChange} name='field' placeholder='Field' value={competition.field}/>
-            <Form.Input onChange={handleInputChange} name='awards' placeholder='Awards' value={competition.awards}/>
+            <select onChange={changeSelectOptionHandler} name='field' placeholder='Field' value={competition.field}>
+                {lendetData.map(lenda=>(
+                    <option key={lenda.lendaId}>{lenda.emri}</option>
+                ) )}
+            </select>
+            <Form.Input style={{marginTop:'20px'}} onChange={handleInputChange} name='awards' placeholder='Awards' value={competition.awards}/>
             <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
-            <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
+            <Button onClick={modalStore.closeModal} floated='right' type='submit' content='Anulo' />
         </Form>
         </Grid>
     </Segment>

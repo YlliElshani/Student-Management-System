@@ -1,15 +1,9 @@
 import axios from 'axios'
 import { observer } from 'mobx-react-lite'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Item, Segment } from 'semantic-ui-react'
-import { LoadingComponent } from '../../../app/layout/LoadingComponent'
+import React, { SyntheticEvent, useState } from 'react'
+import { Button, Grid, Item } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
-import AdminRegister from '../../users/AdminRegister'
 import GuardianRegister from '../../users/GuardianRegister'
-import ProfesorRegister from '../../users/ProfesorRegister'
-import StudentRegister from '../../users/StudentRegister'
-import AdminNavBar from '../AdminNavBar'
-import UserDetails from './UserDetails'
 import UserForm from './UserForm'
 
 
@@ -34,15 +28,21 @@ export default observer(function GuardianList () {
 
     return (
         <Grid.Column width='11' style={{marginTop:'2em', marginLeft:"3em"}}>
-            <Button basic size='mini' onClick={()=>modalStore.openModal(<GuardianRegister/>)} content='Shto Prind/Kujdestar'/>
+            <Button basic size='mini' onClick={()=>{modalStore.openModal(<GuardianRegister/>); userStore.cancelSelectedUser()}} content='Shto Prind/Kujdestar'/>
             <Item.Group divided>
                 {data.map((user) => (
                 <Item style={{fontSize:'8pt'}} key={user.id}>
                     <Item.Content inverted="true">
                     <Item.Header>{user.displayName}</Item.Header>
                     <Item.Meta>{user.email}</Item.Meta>
+                    <Item.Meta>{user.userName}</Item.Meta>
+                    <Item.Meta>{user.age}</Item.Meta>
+                    <Item.Meta>{user.phoneNumber}</Item.Meta>
+                    <Item.Meta>{user.city}</Item.Meta>
+                    <Item.Meta>{user.address}</Item.Meta>
+                    <Item.Meta>{user.zipCode}</Item.Meta>
                     <Item.Extra>
-                        <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
+                        <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Edit'/>
                         <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                     </Item.Extra>
                     </Item.Content>
