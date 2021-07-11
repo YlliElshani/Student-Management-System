@@ -5,15 +5,14 @@ import { Button, Grid, Item  } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import ProfesorRegister from '../../users/ProfesorRegister'
 import UserForm from './UserForm'
-
+import {User} from '../../../app/models/user'
 
 export default observer(function ProfessorList () {
-     //@ts-ignore
-     const [data, setData] = React.useState<User[]>([] as professors);
+     const [data, setData] = React.useState<User[]>([]);
      React.useEffect(() => {
          axios.get(('https://localhost:5000/api/profesor/list'))
          .then((res)=>setData(res.data));
-     });
+     },[]);
 
     const {userStore, modalStore} = useStore();
     const {deleteUser, loading} = userStore;

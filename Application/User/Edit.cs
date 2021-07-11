@@ -18,7 +18,7 @@ namespace Application.User
 
             public string DisplayName { get; set; }
 
-            public string Username { get; set; }
+            public string UserName { get; set; }
 
             public string Image { get; set; }
 
@@ -40,7 +40,7 @@ namespace Application.User
             public CommandValidator () 
             {
                 RuleFor(x => x.DisplayName).NotEmpty();
-                RuleFor(x => x.Username).NotEmpty();
+                RuleFor(x => x.UserName).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty();
                 RuleFor(x => x.Age).NotEmpty();
                 RuleFor(x => x.City).NotEmpty();
@@ -66,7 +66,14 @@ namespace Application.User
                 if(user == null)
                     throw new RestException(HttpStatusCode.NotFound, new {user = "Not Found"});
 
-               user.DisplayName = request.DisplayName ?? user.DisplayName;
+                    user.DisplayName = request.DisplayName ?? user.DisplayName;
+                    user.UserName = request.UserName ?? user.UserName;
+                    user.Email = request.Email ?? user.Email;
+                    user.Age = request.Age ?? user.Age;
+                    user.City = request.City ?? user.City;
+                    user.Address = request.Address ?? user.Address;
+                    user.ZipCode = request.ZipCode ?? user.ZipCode;
+                    user.PhoneNumber = request.PhoneNumber ?? user.PhoneNumber;
                
 
                 var success = await _context.SaveChangesAsync() > 0;

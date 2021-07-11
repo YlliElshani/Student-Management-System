@@ -702,8 +702,6 @@ namespace Persistence.Migrations
 
                     b.Property<string>("price");
 
-                    b.Property<string>("user");
-
                     b.HasKey("tripId");
 
                     b.ToTable("Trips");

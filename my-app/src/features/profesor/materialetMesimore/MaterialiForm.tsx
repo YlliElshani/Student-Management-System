@@ -43,7 +43,7 @@ export default observer(function MaterialiForm() {
         axios
         .get(('https://localhost:5000/API/periodat'))
         .then((res)=>setPeriodat(res.data));
-    },[])
+    },[]);
 
 
     function changeSelectOptionHandler(event: { target: { value: any; name?: any; }; }) {

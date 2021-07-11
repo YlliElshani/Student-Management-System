@@ -10,18 +10,9 @@ using MediatR;
 
 namespace API.Controllers
 {
-    
+    [AllowAnonymous]
     public class AdminController : BaseController
     {
-        /*[AllowAnonymous]
-        [HttpPost("login")]
-
-        public async Task<ActionResult<User>> Login(Login.Query query)
-        {
-            return await Mediator.Send(query);
-        }*/
-
-        [AllowAnonymous]
         [HttpPost("loginAdmin")]
         //[Authorize(Roles.Admin)]
         public async Task<ActionResult<User>> LoginAdmin(LoginAdmin.Query query)
@@ -29,7 +20,6 @@ namespace API.Controllers
             return await Mediator.Send(query);
         }
 
-        [AllowAnonymous]
         [HttpPost("registerAdmin")]
         public async Task<ActionResult<User>> RegisterAdmin(RegisterAdmin.Command command)
         {
@@ -42,20 +32,17 @@ namespace API.Controllers
             return await Mediator.Send(new CurrentUser.Query());
         }
 
-        [AllowAnonymous]
         [HttpGet("list")]
         public async Task<ActionResult<List<AppUser>>> AdminsList()
         {
             return await Mediator.Send(new AdminsList.Query());
         }
 
-        [AllowAnonymous]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> DeleteUser(string id){
             return await Mediator.Send(new DeleteUser.Command{Id = id});
         }
 
-        [AllowAnonymous]
         [HttpPut("{id}")]
         public async Task<ActionResult<Unit>> Edit(string id, Edit.Command command)
         {

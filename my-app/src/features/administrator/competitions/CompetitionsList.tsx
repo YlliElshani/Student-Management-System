@@ -30,7 +30,7 @@ export default observer(function CompetitionsList() {
             <Grid.Column width='4'>
                 <AdminNavBar />
             </Grid.Column>
-            <Segment style={{width:'65%', marginTop:'5em', marginLeft:'5em'}}>
+            <Segment size='mini' style={{width:'65%', marginTop:'5em', marginLeft:'5em'}}>
             <Grid.Column style={{ padding:'20px'}}>
                 <Button size='mini' basic onClick={() =>{modalStore.openModal(<CompetitionForm/>); competitionStore.cancelSelectedCompetition()}} content='Shto Garën'/>
                     <Item.Group divided>
@@ -39,6 +39,7 @@ export default observer(function CompetitionsList() {
                             <Item.Content inverted="true">
                             <Item.Header >{competition.name}</Item.Header>
                             <Item.Meta>{competition.field}</Item.Meta>
+                            <Item.Meta>{competition.date}</Item.Meta>
                             <Item.Extra>
                                 <Button basic onClick={() => {competitionStore.selectCompetition(competition.competitionId); modalStore.openModal(<CompetitionDetails/>)}} size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button basic name={competition.competitionId} loading={loading && target === competition.competitionId} onClick={(e) => handleDeleteCompetition(e, competition.competitionId)} size='mini' floated='right' content='Fshij Garën' />

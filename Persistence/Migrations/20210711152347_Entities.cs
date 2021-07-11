@@ -492,8 +492,7 @@ namespace Persistence.Migrations
                     date = table.Column<string>(nullable: true),
                     description = table.Column<string>(nullable: true),
                     participants = table.Column<string>(nullable: true),
-                    price = table.Column<string>(nullable: true),
-                    user = table.Column<string>(nullable: true)
+                    price = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

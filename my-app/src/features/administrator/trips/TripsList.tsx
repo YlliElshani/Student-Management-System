@@ -11,8 +11,7 @@ import TripForm from './TripForm'
 export default observer(function TripsList () {
 
     const {tripStore} = useStore();
-    const {selectedTrip, editMode} = tripStore;
-    const {deleteTrip, tripsByDate, loading} = tripStore;
+    const {selectedTrip, editMode, deleteTrip, tripsByDate, loading} = tripStore;
 
     const [target, setTarget] = useState('');
     
@@ -41,7 +40,7 @@ export default observer(function TripsList () {
                             <Item.Content inverted="true">
                             <Item.Header >{trip.name}</Item.Header>
                             <Item.Meta>{trip.place}</Item.Meta>
-                            <Item.Meta>{trip.user}</Item.Meta>
+                            <Item.Meta>{trip.date}</Item.Meta>
                             <Item.Extra>
                                 <Button size='mini' basic onClick={() => tripStore.selectTrip(trip.tripId)}  floated='right' content='Shiko Detajet'/>
                                 <Button size='mini' basic name={trip.tripId} loading={loading && target === trip.tripId} onClick={(e) => handleDeleteTrip(e, trip.tripId)}  floated='right' content='Fshij Shëtitjen' />

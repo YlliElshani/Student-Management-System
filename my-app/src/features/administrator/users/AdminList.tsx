@@ -8,17 +8,16 @@ import axios from 'axios'
 import UserForm from './UserForm'
 
 
-export default observer(function AdminList () {
-        //@ts-ignore
-        const [data, setData] = React.useState<User[]>([] as admins);
-        React.useEffect(() => {
-            axios.get(('https://localhost:5000/api/admin/list'))
-            .then((res)=>setData(res.data));
-        });
+export default observer(function AdminList () {    
+    const [data, setData] = React.useState<User[]>([]);
+    React.useEffect(() => {
+        axios.get(('https://localhost:5000/api/admin/list'))
+        .then((res)=>setData(res.data));
+    }, []);
     
 
     const {userStore, modalStore} = useStore();
-    const {deleteUser, loading} = userStore;
+    const {deleteUser, loading, openForm} = userStore;
 
     const [target, setTarget] = useState('');
 
@@ -29,7 +28,7 @@ export default observer(function AdminList () {
 
     return (
         <Grid.Column width='11' style={{marginTop:'2em', marginLeft:"3em"}}>
-            <Button basic size='mini' onClick={()=>{modalStore.openModal(<AdminRegister/>); userStore.cancelSelectedUser()}} content='Shto Admin'/>
+            <Button basic size='mini' onClick={()=>modalStore.openModal(<AdminRegister/>)} content='Shto Admin'/>
             <Item.Group divided>
                 {data.map((user) => (
                 <Item style={{fontSize:'8pt'}} key={user.id}>
@@ -37,13 +36,13 @@ export default observer(function AdminList () {
                     <Item.Header>{user.displayName}</Item.Header>
                     <Item.Meta>{user.email}</Item.Meta>
                     <Item.Meta>{user.userName}</Item.Meta>
-                    <Item.Meta>{user!.age}</Item.Meta>
-                    <Item.Meta>{user!.phoneNumber}</Item.Meta>
-                    <Item.Meta>{user!.city}</Item.Meta>
-                    <Item.Meta>{user!.address}</Item.Meta>
-                    <Item.Meta>{user!.zipCode}</Item.Meta>
+                    <Item.Meta>{user.age}</Item.Meta>
+                    <Item.Meta>{user.phoneNumber}</Item.Meta>
+                    <Item.Meta>{user.city}</Item.Meta>
+                    <Item.Meta>{user.address}</Item.Meta>
+                    <Item.Meta>{user.zipCode}</Item.Meta>
                     <Item.Extra>
-                        <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Shiko Detajet'/>
+                        <Button positive onClick={() => {(openForm(user.id)); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Shiko Detajet'/>
                         <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                     </Item.Extra>
                     </Item.Content>

@@ -5,15 +5,14 @@ import { Button, Grid, Item } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import GuardianRegister from '../../users/GuardianRegister'
 import UserForm from './UserForm'
-
+import {User} from '../../../app/models/user'
 
 export default observer(function GuardianList () {
-    //@ts-ignore
-    const [data, setData] = React.useState<User[]>([] as guardians);
+    const [data, setData] = React.useState<User[]>([]);
     React.useEffect(() => {
         axios.get(('https://localhost:5000/api/guardian/list'))
         .then((res)=>setData(res.data));
-    });
+    },[]);
     
 
     const {userStore, modalStore} = useStore();

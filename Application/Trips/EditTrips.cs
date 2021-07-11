@@ -27,7 +27,6 @@ namespace Application.Trips
 
             public string price {get; set;}
 
-            public string user {get; set;}
         }
 
         public class CommandValidator : AbstractValidator<Command>
