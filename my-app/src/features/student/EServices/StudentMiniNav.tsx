@@ -14,7 +14,7 @@ const StudentMiniNav = () => (
         width='wide'
         direction='left'
         >
-        <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='/student/e-services'>
+        <Menu.Item style={{marginTop:"10%"}} as={NavLink} to='/student/e-services'>
             <Icon name='server' />
             E-Shërbimet
         </Menu.Item>

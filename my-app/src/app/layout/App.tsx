@@ -33,8 +33,8 @@ import ProfesorRegister from '../../features/users/ProfesorRegister';
 import GuardianRegister from '../../features/users/GuardianRegister';
 import StudentProfile from '../../features/student/StudentProfile';
 import ProfesorProfile from '../../features/profesor/Profesor-Profili/ProfesorProfile';
-import ListTApp2 from '../../features/listoTrips2/listTApp2';
-import QytetetList from '../../features/qytetet/QytetetList';
+import ListTApp2 from '../../features/student/listoTrips2/listTApp2';
+import QytetetList from '../../features/administrator/qytetet/QytetetList';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
 
@@ -49,8 +49,8 @@ import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetLis
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
 import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
-import NotaDashboard from '../../features/notat/dashboard/NotaDashboard';
-import VleresimiDashboard from '../../features/vleresimet/dashboard/VleresimiDashboard';
+import NotaDashboard from '../../features/profesor/notat/dashboard/NotaDashboard';
+import VleresimiDashboard from '../../features/profesor/vleresimet/dashboard/VleresimiDashboard';
 import VleresimiStudentiDashboard from '../../features/student/vleresimiStudenti/VleresimiStudentiDashboard';
 import ProfesorShtesat from '../../features/profesor/ProfesorShtesat';
 import VijushmeriaDashboard from '../../features/profesor/vijushmerit/VijushmeriaDashboard';
@@ -64,15 +64,13 @@ import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
-import PlaniMList from '../../features/planiMesimor/PlaniMList';
-import AdminList from '../../features/administrator/users/AdminList';
-import ProfessorList from '../../features/administrator/users/ProfessorList';
-import StudentList from '../../features/administrator/users/StudentList';
-import GuardianList from '../../features/administrator/users/GuardianList';
+import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
 
 import Materialet from '../../features/student/materialiMesimor/Materialet';
+import ProvimetList from '../../features/profesor/provimet/ProvimetList';
+import ListoProvimet from '../../features/student/provimet/ListoProvimet';
 
 
 function App () {
@@ -137,6 +135,7 @@ function App () {
           <Route exact path='/student/vleresimi' component={VleresimiStudentiDashboard}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
           <Route exact path='/student/materialet' component={Materialet}/>
+          <Route exact path='/student/provimet' component={ListoProvimet}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
@@ -165,6 +164,7 @@ function App () {
           <Route exact path='/profesor/materialet' component={MaterialetList}/>
           <Route exact path='/profesor/lendet' component={LendaDashboard}/>
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
+          <Route exact path='/profesor/provimet' component={ProvimetList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

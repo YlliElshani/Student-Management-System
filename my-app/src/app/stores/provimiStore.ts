@@ -1,11 +1,11 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { v4 as uuid } from 'uuid';
-import { Materiali } from "../models/materiali";
+import { Provimi } from "../models/provimi";
 
-export default class MaterialiMesimorStore {
-    materialiRegistry = new Map<string, Materiali>();
-    selectedMateriali: Materiali | undefined = undefined;
+export default class ProvimiStore {
+    provimiRegistry = new Map<string, Provimi>();
+    selectedProvimi: Provimi | undefined = undefined;
     editMode = false;
     loading = false;
     loadingInitial = true;
@@ -14,15 +14,15 @@ export default class MaterialiMesimorStore {
         makeAutoObservable(this)
     }
 
-    get materialet() {
-        return Array.from(this.materialiRegistry.values());
+    get provimet() {
+        return Array.from(this.provimiRegistry.values());
     }
 
-    loadMaterialet = async () => {
+    loadProvimet = async () => {
         try {
-            const materialet = await agent.MaterialiMesimor.list();
-            materialet.forEach(materiali => {
-                this.materialiRegistry.set(materiali.id, materiali);
+            const provimet = await agent.Provimet.list();
+            provimet.forEach(provimi => {
+                this.provimiRegistry.set(provimi.id, provimi);
             })
             this.setLoadingInitial(false);
         } catch (error) {
@@ -35,16 +35,16 @@ export default class MaterialiMesimorStore {
         this.loadingInitial = state;
     }
 
-    selectMateriali = (id: string) => {
-        this.selectedMateriali = this.materialiRegistry.get(id);
+    selectProvimi = (id: string) => {
+        this.selectedProvimi = this.provimiRegistry.get(id);
     }
 
-    cancelSelectedMateriali = () => {
-        this.selectedMateriali = undefined;
+    cancelSelectedProvimi = () => {
+        this.selectedProvimi = undefined;
     }
 
     openForm = (id?: string) => {
-        id ? this.selectMateriali(id) : this.cancelSelectedMateriali();
+        id ? this.selectProvimi(id) : this.cancelSelectedProvimi();
         this.editMode = true;
     }
 
@@ -52,14 +52,14 @@ export default class MaterialiMesimorStore {
         this.editMode = false;
     }
 
-    createMateriali = async (materiali: Materiali) => {
+    createProvimi = async (provimi: Provimi) => {
         this.loading = true;
-        materiali.id = uuid();
+        provimi.id = uuid();
         try {
-            await agent.MaterialiMesimor.create(materiali);
+            await agent.Provimet.create(provimi);
             runInAction(() => {
-                this.materialiRegistry.set(materiali.id, materiali);
-                this.selectedMateriali = materiali;
+                this.provimiRegistry.set(provimi.id, provimi);
+                this.selectedProvimi = provimi;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -71,13 +71,13 @@ export default class MaterialiMesimorStore {
         }
     }
 
-    updateMateriali = async (materiali: Materiali) => {
+    updateProvimi = async (provimi: Provimi) => {
         this.loading = true;
         try {
-            await agent.MaterialiMesimor.update(materiali);
+            await agent.Provimet.update(provimi);
             runInAction(() => {
-                this.materialiRegistry.set(materiali.id, materiali);
-                this.selectedMateriali = materiali;
+                this.provimiRegistry.set(provimi.id, provimi);
+                this.selectedProvimi = provimi;
                 this.editMode = false;
                 this.loading = false;
             })
@@ -89,13 +89,13 @@ export default class MaterialiMesimorStore {
         }
     }
 
-    deleteMateriali = async (id: string) => {
+    deleteProvimi = async (id: string) => {
         this.loading = true;
         try {
-            await agent.MaterialiMesimor.delete(id);
+            await agent.Provimet.delete(id);
             runInAction(() => {
-                this.materialiRegistry.delete(id);
-                if (this.selectedMateriali?.id === id) this.cancelSelectedMateriali();
+                this.provimiRegistry.delete(id);
+                if (this.selectedProvimi?.id === id) this.cancelSelectedProvimi();
                 this.loading = false;
             })
         } catch (error) {

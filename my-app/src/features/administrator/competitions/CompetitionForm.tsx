@@ -4,6 +4,7 @@ import {combineValidators, composeValidators, hasLengthGreaterThan, isRequired} 
 import { observer } from 'mobx-react-lite';
 import { useStore } from '../../../app/stores/store';
 import axios from 'axios';
+import {ILenda} from '../../../app/models/lenda';
 
 const validate = combineValidators({
     name: isRequired({message: 'The competition name is required'}),
@@ -37,9 +38,7 @@ export default observer(function CompetitionForm() {
          setCompetition({...competition, [name]: value});
     }
 
-    //@ts-ignore
-    const [lendetData, setLendet]=React.useState<ILenda[]>([] as lendet);
-    //@ts-ignore
+    const [lendetData, setLendet]=React.useState<ILenda[]>([]);
     const [selected, setSelected] = React.useState("");
 
     

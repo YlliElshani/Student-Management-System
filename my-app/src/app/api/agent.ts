@@ -27,6 +27,7 @@ import { IKoheZ } from '../models/kOres';
 import { ISalla } from '../models/salla';
 import { IOrari } from '../models/orari';
 import { IPlaniM } from '../models/pMesimor';
+import { Provimi } from '../models/provimi';
 
 
 
@@ -282,6 +283,13 @@ const Oraret = {
     delete: (id: string) => requests.delete(`/oraret/${id}`)
 }
 
+const Provimet = {
+    list: (): Promise<Provimi[]> => requests.get('/provimi'),
+    create: (provimi:Provimi) => requests.post('/provimi', provimi),
+    update: (provimi:Provimi) => requests.put(`/provimi/${provimi.id}`, provimi),
+    delete: (id: string) => requests.delete(`/provimi/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -307,7 +315,8 @@ const agent = {
     MaterialiMesimor,
     KohezgjatjaOres,
     Sallat, 
-    Oraret
+    Oraret,
+    Provimet
     
 }
 

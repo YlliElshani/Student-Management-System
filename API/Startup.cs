@@ -30,7 +30,6 @@ using Application.Qytetet;
 using Application.Vleresimet;
 using Application.KohezgjatjaOres;
 using Application.Sallat;
-using Application.Competitions;
 using Application.MaterialiMesimor;
 
 namespace API

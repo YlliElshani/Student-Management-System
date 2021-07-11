@@ -31,10 +31,8 @@ export default observer(function MaterialiForm() {
         setMateriali({...materiali, [name]: value});
     }
 
-     //@ts-ignore
-    const [lendetData, setLendet]=React.useState<ILenda[]>([] as lendet);
-    //@ts-ignore
-    const [periodatData, setPeriodat]=React.useState<IPerioda[]>([] as periodat);
+    const [lendetData, setLendet]=React.useState<ILenda[]>([]);
+    const [periodatData, setPeriodat]=React.useState<IPerioda[]>([]);
     const [selected, setSelected] = React.useState("");
 
     

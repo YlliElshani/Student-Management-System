@@ -39,6 +39,11 @@ export default observer(function ProfesorNavBar() {
                 Plani Mesimor
             </Menu.Item>
 
+            <Menu.Item as={NavLink} to='/profesor/provimet'>
+                <Icon name='file outline' />
+                Provimet
+            </Menu.Item>
+
             <Menu.Item as={NavLink} to='/profesor/ProfesorShtesat'>
                 <Icon name='users' />
                 Nxenesit
