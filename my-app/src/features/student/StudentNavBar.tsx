@@ -43,9 +43,15 @@ export default observer(function StudentNavBar() {
                 Notat
             </Menu.Item>
             <Menu.Item as={NavLink} to='/student/detyrat'>
-                <Icon name='plus' />
+                <Icon name='chart bar' />
                 Detyrat
             </Menu.Item>
+
+            <Menu.Item as={NavLink} to='/student/trajnimet'>
+                <Icon name='retweet' />
+                Oret Shtese
+            </Menu.Item>
+
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil
