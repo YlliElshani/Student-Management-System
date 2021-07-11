@@ -3,9 +3,10 @@ import { Button, Grid, Table } from 'semantic-ui-react'
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import AdminNavBar from '../../administrator/AdminNavBar';
-import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
+
 import { useStore } from '../../../app/stores/store';
 import DetyraDetailsS from './DetyraDetailsS';
+import StudentNavBar from '../StudentNavBar';
 
 
 
@@ -30,7 +31,7 @@ export default observer(function DetyraListS() {
         <Grid>
             <Grid.Row>
             <Grid.Column width='4'>
-                <ProfesorNavBar />
+                <StudentNavBar />
                  <AdminNavBar />
                     
                 </Grid.Column>

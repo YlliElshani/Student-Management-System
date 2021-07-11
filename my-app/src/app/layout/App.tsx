@@ -71,6 +71,7 @@ import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
 import Materialet from '../../features/student/materialiMesimor/Materialet';
 import ProvimetList from '../../features/profesor/provimet/ProvimetList';
 import ListoProvimet from '../../features/student/provimet/ListoProvimet';
+import TrajnimListS from '../../features/student/trajnimet-Studenti/TrajnimListS';
 
 
 function App () {
@@ -152,6 +153,7 @@ function App () {
           <Route exact path='/notatStudenti' component={NotaDashboard}/>
 
           <Route exact path='/trajnimet' component={TrajnimList}/>
+          <Route exact path='/student/trajnimet' component={TrajnimListS}/>
         
 
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
