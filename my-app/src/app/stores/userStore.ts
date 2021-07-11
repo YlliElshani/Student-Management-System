@@ -36,6 +36,11 @@ export default class UserStore {
         return Array.from(this.userRegistry.values());
     }
 
+    openForm = (id?: string) => {
+        id ? this.selectUser(id) : this.cancelSelectedUser();
+        this.editMode = true;
+    }
+
     loadAdmins = async () => {
         try {
             const users = await agent.Account.listAdmin();
@@ -153,7 +158,7 @@ export default class UserStore {
             const user = await agent.Account.registerAdmin(values);
             //store.commonStore.setToken(user.token);
             //runInAction(() => this.user = user);
-            history.push('/admin/users/adminList');
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -164,7 +169,7 @@ export default class UserStore {
             const user = await agent.Account.registerStudent(values);
             //store.commonStore.setToken(user.token);
             //runInAction(() => this.user = user);
-            history.push('/admin/users/studentList');
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -176,7 +181,7 @@ export default class UserStore {
             const user = await agent.Account.registerProfesor(values);
             //store.commonStore.setToken(user.token);
             //runInAction(() => this.user = user);
-            history.push('/admin/users/professorList');
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;
@@ -188,7 +193,7 @@ export default class UserStore {
             const user = await agent.Account.registerGuardian(values);
             //store.commonStore.setToken(user.token);
             //runInAction(() => this.user = user);
-            history.push('/admin/users/guardianList');
+            history.push('/admin/users');
             store.modalStore.closeModal();
         } catch (error) {
            throw error;

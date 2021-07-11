@@ -72,6 +72,7 @@ import GuardianList from '../../features/administrator/users/GuardianList';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
 
+import Materialet from '../../features/student/materialiMesimor/Materialet';
 
 
 function App () {
@@ -124,10 +125,6 @@ function App () {
           <Route exact path='/admin/klaset' component={KlasaDashboard}/>
           <Route exact path='/admin/vitetAkademike' component={VitiAkademikDashboard}/>
           <Route exact path='/admin/users' component={UsersList}/>
-          <Route exact path='/admin/users/adminList' component={AdminList}/>
-          <Route exact path='/admin/users/professorList' component={ProfessorList}/>
-          <Route exact path='/admin/users/studentList' component={StudentList}/>
-          <Route exact path='/admin/users/guardianList' component={GuardianList}/>
           <Route exact path='/admin/paraleleet' component={ParaleljaaDashboard}/>
           <Route exact path='/admin/paraleletklaset' component={ParaleletKlasetDashboard}/>
           <Route exact path='/admin/nderrimet' component={NderrimiDashboard}/>
@@ -139,6 +136,7 @@ function App () {
           <Route exact path='/student/prezantimet' component={PrezantimetList}/>
           <Route exact path='/student/vleresimi' component={VleresimiStudentiDashboard}/>
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
+          <Route exact path='/student/materialet' component={Materialet}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>

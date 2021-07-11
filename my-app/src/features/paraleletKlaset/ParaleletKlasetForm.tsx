@@ -1,7 +1,10 @@
+import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
+import { IKlasa } from '../../app/models/klasa';
+import { IParaleljaa } from '../../app/models/paraleljaa';
 import { useStore } from '../../app/stores/store'
 
 
@@ -13,6 +16,11 @@ export default observer(function ParaleletKlasaForm() {
   const { klasetByEmri } = klasaStore;
   const { paraleljaaStore } = useStore();
   const { paraleleetByEmri } = paraleljaaStore;
+  
+  //@ts-ignore
+  const [data, setData]=React.useState<IKlasa[]>([] as klaset);
+  //@ts-ignore
+  const [data2, setData2]=React.useState<IParaleljaa[]>([] as paraleleet);
 
   const initialState = selectedParaleljaKlasa ?? {
     paraleljaKlasaId: '',
@@ -41,6 +49,18 @@ export default observer(function ParaleletKlasaForm() {
     setParaleljaKlasa({ ...paraleljaKlasa, [name]: value });
   }
 
+  React.useEffect(()=>{
+    axios
+    .get(('https://localhost:5000/API/klaset'))
+    .then((res)=>setData(res.data));
+},[])
+
+React.useEffect(()=>{
+  axios
+  .get(('https://localhost:5000/API/paraleleet'))
+  .then((res)=>setData2(res.data));
+},[])
+
 
   return (
     <Segment clearing>
@@ -50,7 +70,7 @@ export default observer(function ParaleletKlasaForm() {
         {/* Rreshti 57-64 esht dropdowni */}
         <Form.Input>
         <select onChange={changeSelectOptionHandler} name='emriKl' placeholder='Klasa' value={paraleljaKlasa.emriKl}>
-          {klasetByEmri.map(klasa => (    
+          {data.map(klasa => (    
             <option>{klasa.emriKl}</option>
           ))}
         </select>
@@ -58,7 +78,7 @@ export default observer(function ParaleletKlasaForm() {
 
         <Form.Input>
         <select onChange={changeSelectOptionHandler} name='emriPar' placeholder='Klasa' value={paraleljaKlasa.emriPar}>
-          {paraleleetByEmri.map(paraleleet => (    
+          {data2.map(paraleleet => (    
             <option>{paraleleet.emriPar}</option>
           ))}
         </select>

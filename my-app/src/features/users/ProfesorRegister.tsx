@@ -1,12 +1,8 @@
-import { values } from 'mobx'
-import React, { useEffect, useState } from 'react'
-import { Button, Label, Segment, Image, Header, Dropdown} from 'semantic-ui-react'
+import { Button, Label, Header} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
-import { ErrorMessage, Form, Formik, useFormik } from 'formik'
+import { ErrorMessage, Form, Formik } from 'formik'
 import TextInput from '../../app/common/form/TextInput'
-import Img from '../../assets/login.png'
-import Tilt from 'react-parallax-tilt';
 import * as Yup from 'yup';
 
 export default observer (function ProfesorRegister(){

@@ -1,17 +1,14 @@
 import { observer } from 'mobx-react-lite'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Icon, Table } from 'semantic-ui-react'
+import React, { useEffect } from 'react'
+import { Grid, Icon, Table} from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import ProfesorNavBar from '../Profesor-Profili/ProfesorNavBar'
-import MaterialiForm from './MaterialiForm'
+import StudentNavBar from '../StudentNavBar'
 
-export default observer(function MaterialetList () {
+export default observer(function Materialet () {
 
-    const {materialiStore, modalStore} = useStore();
-    const {deleteMateriali, materialet, loading, openForm} = materialiStore;
-
-    const [target, setTarget] = useState('');
+    const {materialiStore} = useStore();
+    const {materialet} = materialiStore;
     
     useEffect(()=>{
         materialiStore.loadMaterialet();
@@ -19,20 +16,14 @@ export default observer(function MaterialetList () {
     
     if(materialiStore.loadingInitial) return <LoadingComponent content='Loading Materialet ...'/>
     
-    function handleDeleteMateriali(e: SyntheticEvent<HTMLButtonElement>, id: string) {
-        setTarget(e.currentTarget.name);
-        deleteMateriali(id);
-    }
-    
 
     return (
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <ProfesorNavBar />
+                    <StudentNavBar />
                 </Grid.Column>
                 <Grid.Column width='11' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button positive size='mini' onClick={() => modalStore.openModal(<MaterialiForm/>)} content='Add'/>
                     <Table size='small' celled striped>
                         <Table.Header>
                         <Table.Row>
@@ -57,12 +48,6 @@ export default observer(function MaterialetList () {
                                     <Table.Cell>{m.lenda}</Table.Cell>
                                     <Table.Cell>{m.perioda}</Table.Cell>
                                     <Table.Cell>{m.pershkrimi}</Table.Cell>
-                                    <Table.Cell>
-                                        <Button onClick={() => {(openForm(m.id)); modalStore.openModal(<MaterialiForm/>)}}  basic color='blue' size='mini' content='Edit'/>
-                                    </Table.Cell>
-                                    <Table.Cell>
-                                        <Button name={m.id} loading={loading && target === m.id} onClick={(e) => handleDeleteMateriali(e, m.id)} size='mini' basic color='red' floated='right' content='Delete'/>
-                                    </Table.Cell>
                                 </Table.Row>
                             )}
                         </Table.Body>

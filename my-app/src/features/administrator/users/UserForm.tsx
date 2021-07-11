@@ -1,17 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import { Button, Segment, Header, Form, Image, Input } from 'semantic-ui-react'
+import React, { ChangeEvent, useState } from 'react'
+import { Button, Header, Form} from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
-import AdminRegister from '../../users/AdminRegister';
-import Tilt from 'react-parallax-tilt';
-import Img from '../../../assets/login.png'
-import { combineValidators, composeValidators, isRequired } from 'revalidate';
-import QytetiStore from '../../../app/stores/qytetiStore';
-import { IQyteti } from '../../../app/models/qyteti';
 
 
 export default observer( function UserDetails ()  {
-    const {userStore, modalStore, qytetiStore} = useStore();
+    const {userStore, modalStore} = useStore();
     const {selectedUser, cancelSelectedUser, updateUser, loading} = userStore;
     
     const initialState = selectedUser ?? {
@@ -42,8 +36,8 @@ export default observer( function UserDetails ()  {
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.address} name='address' placeholder='Address' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'40px', width:'250px', fontSize:'10pt'}} value={user.zipCode} name='zipCode' placeholder='Zip Code' onChange={handleInputChange}/>
                 <Form.Input style={{borderRadius:'20pt', marginBottom:'10px', height:'4  0px', width:'250px', fontSize:'10pt'}} value={user.phoneNumber} name='phoneNumber' placeholder='Phone Number' onChange={handleInputChange}/>
-                <Button loading={loading}  onClick={cancelSelectedUser} basic color='blue' content='Send'  type='submit'/>
-                <Button onClick={() => {modalStore.closeModal()}} basic color='grey' content='Anulo'/>
+                <Button loading={loading} basic color='blue' content='Send'  type='submit'/>
+                <Button onClick={modalStore.closeModal} basic color='grey' content='Anulo'/>
             </div>
         </Form>
     )
