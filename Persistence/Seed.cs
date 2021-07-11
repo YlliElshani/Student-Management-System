@@ -87,8 +87,20 @@ namespace Persistence
                 {
                     new Detyra
                     {
-                        DetyraEmri = "Projekt",
-                        Pershkrimi = "Pershkrimi",
+                        DetyraEmri = "Projekt Lab",
+                        Lenda = "Lab Course",
+                        Klasa = "X",
+                        Profesori = "Endrit Makolli",
+                        Pershkrimi = "shorturl.at/kxPWZ",
+                        
+                    },
+                     new Detyra
+                    {
+                        DetyraEmri = "Projekti Individual",
+                        Lenda = "Web",
+                        Klasa = "XII",
+                        Profesori = "Altina Hodaj",
+                        Pershkrimi = "shorturl.at/kxYXFsndfSPWZ",
                         
                     }
                 };

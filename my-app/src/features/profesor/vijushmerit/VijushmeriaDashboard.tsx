@@ -5,7 +5,6 @@ import { useStore } from '../../../app/stores/store';
 import VijushmeriaDetails from './VijushmeriaDetails';
 import VijushmeriaForm from './VijushmeriaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import AdminNavBar from '../../administrator/AdminNavBar';
 import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 
 
@@ -36,7 +35,7 @@ export default observer(function VijushmeriaDashboard() {
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
-                            <Table.HeaderCell>Pershkrimi</Table.HeaderCell>
+                            <Table.HeaderCell>Vijushmeria</Table.HeaderCell>
                             <Table.HeaderCell>Studenti</Table.HeaderCell>
 
                         </Table.Row>

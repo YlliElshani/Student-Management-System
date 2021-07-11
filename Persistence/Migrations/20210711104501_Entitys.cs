@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class Entities : Migration
+    public partial class Entitys : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -86,6 +86,9 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     DetyraId = table.Column<Guid>(nullable: false),
+                    Lenda = table.Column<string>(nullable: true),
+                    Klasa = table.Column<string>(nullable: true),
+                    Profesori = table.Column<string>(nullable: true),
                     DetyraEmri = table.Column<string>(nullable: true),
                     Pershkrimi = table.Column<string>(nullable: true)
                 },

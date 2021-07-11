@@ -142,7 +142,13 @@ namespace Persistence.Migrations
 
                     b.Property<string>("DetyraEmri");
 
+                    b.Property<string>("Klasa");
+
+                    b.Property<string>("Lenda");
+
                     b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Profesori");
 
                     b.HasKey("DetyraId");
 

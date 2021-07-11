@@ -5,12 +5,12 @@ import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import AdminNavBar from '../../administrator/AdminNavBar';
 import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 import { useStore } from '../../../app/stores/store';
-import DetyraDetails from './DetyraDetails';
-import DetyraForm from './DetyraForm';
+import DetyraDetailsS from './DetyraDetailsS';
 
 
 
-export default observer(function DetyraList() {
+
+export default observer(function DetyraListS() {
     const {detyraStore} = useStore();
     const [target, setTarget] = useState('');
     const {selectedDetyra, editMode, detyrat, selectDetyra,   loading, deleteDetyra} = detyraStore;
@@ -44,8 +44,7 @@ export default observer(function DetyraList() {
                             <Table.HeaderCell>Klasa</Table.HeaderCell>
                             <Table.HeaderCell>Profesori</Table.HeaderCell>
                             <Table.HeaderCell>Pershkrim</Table.HeaderCell>
-                            <Table.HeaderCell>Edito</Table.HeaderCell>
-                            <Table.HeaderCell>Fshije</Table.HeaderCell>
+                            <Table.HeaderCell>Shiko Detajet</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
                     {detyrat.map(detyra => (
@@ -56,17 +55,17 @@ export default observer(function DetyraList() {
                                 <Table.Cell>{detyra.klasa}</Table.Cell>
                                 <Table.Cell>{detyra.profesori}</Table.Cell>
                                 <Table.Cell>{detyra.pershkrimi}</Table.Cell>
-                                <Table.Cell><Button onClick={() => selectDetyra(detyra.detyraId)}   content='Edit'  color='twitter' /></Table.Cell>
-                                <Table.Cell><Button  name={detyra.detyraId} loading={target === detyra.detyraId && loading} onClick={(e) => handleDetyraDelete(e, detyra.detyraId)}   content='Fshij Detyren' color="red" /></Table.Cell>
+                                <Table.Cell><Button onClick={() => selectDetyra(detyra.detyraId)}   content='Shiko Detajet'  color='twitter' /></Table.Cell>
+                          
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' onClick={() => detyraStore.openForm()} content='Shto Detyren' color="green"/>
+               
                 <Grid.Column width='5'>
                 {selectedDetyra && !editMode && 
-                <DetyraDetails/>}
-                {editMode && (<DetyraForm/>)}
+                <DetyraDetailsS/>}
+             
             </Grid.Column>
             
             </Grid.Column>

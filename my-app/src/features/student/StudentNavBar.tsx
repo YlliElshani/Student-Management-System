@@ -38,6 +38,10 @@ export default observer(function StudentNavBar() {
                 <Icon name='grid layout' />
                 Notat
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/student/detyrat'>
+                <Icon name='plus' />
+                Detyrat
+            </Menu.Item>
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil

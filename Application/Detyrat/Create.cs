@@ -12,6 +12,9 @@ namespace Application.Detyrat
         public class Command : IRequest
         {
         public Guid DetyraId {get; set;}
+        public string Lenda {get; set;}
+        public string Klasa {get; set;}
+        public string Profesori {get; set;}
         public string DetyraEmri {get; set;}
         public string Pershkrimi {get; set;}
         }
@@ -30,6 +33,9 @@ namespace Application.Detyrat
                 var detyra = new Detyra
                 {
                     DetyraId = request.DetyraId,
+                    Lenda = request.Lenda,
+                    Klasa = request.Klasa,
+                    Profesori = request.Profesori,
                     DetyraEmri = request.DetyraEmri,
                     Pershkrimi = request.Pershkrimi,
                 };

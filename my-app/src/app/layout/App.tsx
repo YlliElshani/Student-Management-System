@@ -42,7 +42,6 @@ import Shtesat from '../../features/administrator/Shtesat';
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
 import UsersList from '../../features/administrator/users/UsersList';
-import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import TrajnimList from '../../features/profesor/trajnimet/TrajnimList';
 
 import listApp from '../../features/ParentFeatures/listNjoftimet/listApp/listApp';
@@ -70,6 +69,8 @@ import AdminList from '../../features/administrator/users/AdminList';
 import ProfessorList from '../../features/administrator/users/ProfessorList';
 import StudentList from '../../features/administrator/users/StudentList';
 import GuardianList from '../../features/administrator/users/GuardianList';
+import DetyraList from '../../features/profesor/Detyrat/DetyraList';
+import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
 
 
 
@@ -111,7 +112,8 @@ function App () {
           <Route exact path='/admin/oraret' component={OrariDashboard}/>
           <Route exact path='/admin/oraretDetails' component={OrariDetails}/>
 
-          <Route exact path='/detyrat' component={DetyraList}/>
+          <Route exact path='/profesor/detyrat' component={DetyraList}/>
+          <Route exact path='/student/detyrat' component={DetyraListS}/>
           <Route exact path='/periodat' component={PeriodaList}/>
 
           <Route exact path='/admin/lendet' component={LendaDashboard}/>
