@@ -36,9 +36,53 @@ export default class UserStore {
         return Array.from(this.userRegistry.values());
     }
 
-    loadUsers = async () => {
+    openForm = (id?: string) => {
+        id ? this.selectUser(id) : this.cancelSelectedUser();
+        this.editMode = true;
+    }
+
+    loadAdmins = async () => {
         try {
-            const users = await agent.Account.list();
+            const users = await agent.Account.listAdmin();
+            users.forEach(user => {
+                this.userRegistry.set(user.id, user);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
+    }
+
+    loadStudents = async () => {
+        try {
+            const users = await agent.Account.listStudent();
+            users.forEach(user => {
+                this.userRegistry.set(user.id, user);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
+    }
+
+    loadGuardians = async () => {
+        try {
+            const users = await agent.Account.listGuardian();
+            users.forEach(user => {
+                this.userRegistry.set(user.id, user);
+            })
+            this.setLoadingInitial(false);
+        } catch (error) {
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
+    }
+
+    loadProfessors = async () => {
+        try {
+            const users = await agent.Account.listProfessor();
             users.forEach(user => {
                 this.userRegistry.set(user.id, user);
             })

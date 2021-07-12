@@ -27,6 +27,7 @@ import { IKoheZ } from '../models/kOres';
 import { ISalla } from '../models/salla';
 import { IOrari } from '../models/orari';
 import { IPlaniM } from '../models/pMesimor';
+import { Provimi } from '../models/provimi';
 
 
 
@@ -204,7 +205,10 @@ const Sallat = {
 
 const Account = {
     current: () => requests.get('/admin'),
-    list: (): Promise<User[]> => requests.get('/admin/list'),
+    listProfessor: (): Promise<User[]> => requests.get('/profesor/list'),
+    listAdmin: (): Promise<User[]> => requests.get('/admin/list'),
+    listStudent: (): Promise<User[]> => requests.get('/student/list'),
+    listGuardian: (): Promise<User[]> => requests.get('/guardian/list'),
     loginAdmin: (user: UserFormValues) => requests.post(`/admin/loginAdmin`, user),
     registerAdmin: (user: UserFormValues) => requests.post(`/admin/registerAdmin`, user),
     loginStudent: (user: UserFormValues) => requests.post(`/student/loginStudent`, user),
@@ -279,6 +283,13 @@ const Oraret = {
     delete: (id: string) => requests.delete(`/oraret/${id}`)
 }
 
+const Provimet = {
+    list: (): Promise<Provimi[]> => requests.get('/provimi'),
+    create: (provimi:Provimi) => requests.post('/provimi', provimi),
+    update: (provimi:Provimi) => requests.put(`/provimi/${provimi.id}`, provimi),
+    delete: (id: string) => requests.delete(`/provimi/${id}`)
+}
+
 const agent = {
     Account, 
     Lendet, 
@@ -304,7 +315,8 @@ const agent = {
     MaterialiMesimor,
     KohezgjatjaOres,
     Sallat, 
-    Oraret
+    Oraret,
+    Provimet
     
 }
 

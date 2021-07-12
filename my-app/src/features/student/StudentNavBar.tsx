@@ -19,7 +19,7 @@ export default observer(function StudentNavBar() {
             direction='left'
             >
             {isLoggedIn ? (
-                        <Menu.Item style={{marginTop:"50%"}} as={NavLink} to='/student/profile'>
+                        <Menu.Item style={{marginTop:"10%"}} as={NavLink} to='/student/profile'>
                         <Icon name='user' />
                         Profili
                     </Menu.Item>
@@ -34,10 +34,28 @@ export default observer(function StudentNavBar() {
                 <Icon name='book' />
                 Lëndët
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/student/provimet'>
+                <Icon name='file outline' />
+                Provimet
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/student/materialet'>
+                <Icon name='plus' />
+                Materialet Mësimore
+            </Menu.Item>
             <Menu.Item as={NavLink} to='/student/vleresimi'>
                 <Icon name='grid layout' />
                 Notat
             </Menu.Item>
+            <Menu.Item as={NavLink} to='/student/detyrat'>
+                <Icon name='chart bar' />
+                Detyrat
+            </Menu.Item>
+
+            <Menu.Item as={NavLink} to='/student/trajnimet'>
+                <Icon name='retweet' />
+                Oret Shtese
+            </Menu.Item>
+
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil

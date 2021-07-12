@@ -49,7 +49,7 @@ namespace Persistence
                     PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(secondUser, "Pa$$w0rd");
-                await userManager.AddToRoleAsync(secondUser, Roles.Admin);
+                await userManager.AddToRoleAsync(secondUser, Roles.Student);
 
                 var thirdUser = new AppUser
                 {
@@ -63,7 +63,7 @@ namespace Persistence
                     PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(thirdUser, "Pa$$w0rd");
-                await userManager.AddToRoleAsync(thirdUser, Roles.Profesor);
+                await userManager.AddToRoleAsync(thirdUser, Roles.Student);
 
                 var fourthUser = new AppUser
                 {
@@ -77,8 +77,139 @@ namespace Persistence
                     PhoneNumber = "044 - 675 - 192"
                 };
                 await userManager.CreateAsync(fourthUser, "Pa$$w0rd");
-                await userManager.AddToRoleAsync(fourthUser, Roles.Guardian);
+                await userManager.AddToRoleAsync(fourthUser, Roles.Student);
+
+                var fifthUser = new AppUser
+                {
+                    DisplayName = "Lulzim Zllanoga",
+                    UserName = "Lulzim",
+                    Email = "atmane.z@gmail.com",
+                    Age = "54",
+                    City = "Rahovec",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(fifthUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(fifthUser, Roles.Guardian);
+
+                var sixthUser = new AppUser
+                {
+                    DisplayName = "Bashkim Elshani",
+                    UserName = "Bashkim",
+                    Email = "bashka@gmail.com",
+                    Age = "45",
+                    City = "Peje",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(sixthUser, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(sixthUser, Roles.Guardian);
+
+                 var seventh = new AppUser
+                {
+                    DisplayName = "Lavdim Menxhiqi",
+                    UserName = "Lavdim",
+                    Email = "lavdim@gmail.com",
+                    Age = "28",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(seventh, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(seventh, Roles.Profesor);
+
+                 var eigth = new AppUser
+                {
+                    DisplayName = "Blerim Zylfiu",
+                    UserName = "Blerim",
+                    Email = "blerim@gmail.com",
+                    Age = "28",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(eigth, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(eigth, Roles.Profesor);
+
+                 var ninth = new AppUser
+                {
+                    DisplayName = "Ramiz Hoxha",
+                    UserName = "Ramiz",
+                    Email = "ramiz@gmail.com",
+                    Age = "43",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(ninth, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(ninth, Roles.Profesor);
+
+                 var tenth = new AppUser
+                {
+                    DisplayName = "Arber Kadriu",
+                    UserName = "Arber",
+                    Email = "arber@gmail.com",
+                    Age = "27",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(tenth, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(tenth, Roles.Profesor);
+
+                var eleventh = new AppUser
+                {
+                    DisplayName = "Bertan Karahoda",
+                    UserName = "bertan",
+                    Email = "bertan@gmail.com",
+                    Age = "47",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(eleventh, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(eleventh, Roles.Admin);
+
+
+                var twelfth = new AppUser
+                {
+                    DisplayName = "Edmond Hajrizi",
+                    UserName = "Edmond",
+                    Email = "edmond@gmail.com",
+                    Age = "48",
+                    City = "Prishtine",
+                    Address = "Mizair Isma",
+                    ZipCode = "21000",
+                    PhoneNumber = "044 - 675 - 192"
+                };
+                await userManager.CreateAsync(twelfth, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(twelfth, Roles.Admin);
+
             };
+
+            if(!context.Provimet.Any())
+            {
+                var provimet = new List<Provimi>
+                {
+                    new Provimi
+                    {
+                        Lenda = "Lab",
+                        OraENisjes = 10,
+                        KoheZgjatja = 45,
+                        Salla = "A1",
+                        Profesori = "Lavdim Menxhiqi"
+                    }
+                }; 
+                context.Provimet.AddRange(provimet);
+                context.SaveChanges();
+            }
             
 
             if(!context.Detyrat.Any())
@@ -87,8 +218,20 @@ namespace Persistence
                 {
                     new Detyra
                     {
-                        DetyraEmri = "Projekt",
-                        Pershkrimi = "Pershkrimi",
+                        DetyraEmri = "Projekt Lab",
+                        Lenda = "Lab Course",
+                        Klasa = "X",
+                        Profesori = "Endrit Makolli",
+                        Pershkrimi = "shorturl.at/kxPWZ",
+                        
+                    },
+                     new Detyra
+                    {
+                        DetyraEmri = "Projekti Individual",
+                        Lenda = "Web",
+                        Klasa = "XII",
+                        Profesori = "Altina Hodaj",
+                        Pershkrimi = "shorturl.at/kxYXFsndfSPWZ",
                         
                     }
                 };

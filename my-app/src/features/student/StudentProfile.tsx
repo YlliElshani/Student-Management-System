@@ -89,16 +89,6 @@ export default function StudentProfile () {
                 </Table>
             </Grid.Row>
 
-            <Grid.Row columns={1} style={{marginTop:"20px"}}>
-              <Table  celled  >
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell><Icon style={{marginRight:"2em"}} name='newspaper'/>Informata rreth shkollës</Table.HeaderCell>
-                    </Table.Row>
-                  </Table.Header>
-                </Table>
-            </Grid.Row>
-
           </Grid>
         </Grid.Column>
         </Grid.Row>

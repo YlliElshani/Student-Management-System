@@ -25,7 +25,14 @@ namespace Application.Admin
 
             public async Task<List<AppUser>> Handle (Query request, CancellationToken cancellationToken)
             {
-                var users = await _context.AppUser.ToListAsync();                
+                var users = await (from user in _context.Users
+                                 join userRole in _context.UserRoles
+                                 on user.Id equals userRole.UserId
+                                 join role in _context.Roles 
+                                 on userRole.RoleId equals role.Id
+                                 where role.Name == "Admin" 
+                                 select user)
+                                 .ToListAsync();              
                 return users;
             }
         }

@@ -1,9 +1,7 @@
-import React from 'react'
 import {  Grid, Card, Button } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 
 import AdminNavBar from './AdminNavBar'
-import Photo from '../../assets/user.png';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 

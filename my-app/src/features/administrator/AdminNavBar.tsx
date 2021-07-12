@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite'
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
@@ -40,6 +39,10 @@ export default observer(function AdminNavBar() {
             <Menu.Item as={NavLink} to='/admin/njoftimetN'>
                 <Icon name='newspaper' />
                 Njoftimet
+            </Menu.Item>
+            <Menu.Item as={NavLink} to='/admin/oraret'>
+                <Icon name='list' />
+                Oraret
             </Menu.Item>
             <Menu.Item as={NavLink} to='/admin/shtesat'>
                 <Icon name='university' />

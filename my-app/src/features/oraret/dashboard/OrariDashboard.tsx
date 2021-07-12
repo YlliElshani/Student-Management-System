@@ -29,14 +29,14 @@ export default observer(function OrariDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
+        <Grid>
             <Grid.Column width='4'>
                 
                  <AdminNavBar />
                     
                 </Grid.Column>
             
-            <Grid.Column width={10}>  
+            <Grid.Column style={{marginTop:'50px'}} width={10}>  
 
             
                 <Table size='small'>
@@ -63,14 +63,14 @@ export default observer(function OrariDashboard() {
                                 <Table.Cell>{orari.Nderrimi}</Table.Cell>
                                 
                                 <Table.Cell><Button onClick={() => selectOrari(orari.orariId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
-                                <Table.Cell><Button inverted color='red' name={orari.orariId} loading={target === orari.orariId && loading} onClick={(e) => handleOrariDelete(e, orari.orariId)} size='mini'  content='Fshij Lenden' /></Table.Cell>
+                                <Table.Cell><Button inverted color='red' name={orari.orariId} loading={target === orari.orariId && loading} onClick={(e) => handleOrariDelete(e, orari.orariId)} size='mini'  content='Fshij Orarin' /></Table.Cell>
                             </Table.Row>
                             
                         </Table.Body>))}
 
 
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => orariStore.openForm()} content='Shto Lende'/>
+                <Button  class='ui button' inverted color='grey' onClick={() => orariStore.openForm()} content='Shto Orarin'/>
                 
                 <Grid.Column width='5'>
                 {selectedOrari && !editMode && 

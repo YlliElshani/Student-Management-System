@@ -1,5 +1,3 @@
-import { values } from 'mobx'
-import React from 'react'
 import { Button, Label, Segment, Image, Header} from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 import { observer } from 'mobx-react-lite'
@@ -28,9 +26,8 @@ export default observer (function ProfesorLogin(){
                         <Button style={{borderRadius:'20pt', marginBottom:'10px', height:'50px'}} loading={isSubmitting} positive content='Login' type='submit' fluid/>
                     </Form>
                 )}
-            </Formik>
-                
+                </Formik>    
             </Segment.Group>
-            </div>
+        </div>
     );
 })

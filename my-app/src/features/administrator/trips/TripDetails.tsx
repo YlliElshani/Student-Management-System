@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
@@ -22,7 +21,6 @@ export default observer( function TripDetails ()  {
                 <Segment>{trip!.description}</Segment>
                 <Segment>{trip!.participants}</Segment>
                 <Segment>{trip!.price}</Segment>
-                <Segment>{trip!.user}</Segment>
             </Grid.Column>
             </Grid.Row>
         </Grid>

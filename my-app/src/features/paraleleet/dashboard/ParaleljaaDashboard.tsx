@@ -27,12 +27,12 @@ export default observer(function ParaleljaaDashboard() {
 
     return (
         
-        <Grid style={{marginTop:'50px'}}>
+        <Grid>
             <Grid.Column width='4'>
                     <AdminNavBar />
                 </Grid.Column>
             
-            <Grid.Column width={10}>   
+            <Grid.Column style={{marginTop:'50px'}} width={10}>   
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>

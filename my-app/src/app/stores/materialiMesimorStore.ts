@@ -1,7 +1,6 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import agent from "../api/agent";
 import { v4 as uuid } from 'uuid';
-import { ITrip } from "../models/trip";
 import { Materiali } from "../models/materiali";
 
 export default class MaterialiMesimorStore {

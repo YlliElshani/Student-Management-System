@@ -52,7 +52,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Age");
 
-                    b.Property<Guid>("City");
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -142,7 +142,13 @@ namespace Persistence.Migrations
 
                     b.Property<string>("DetyraEmri");
 
+                    b.Property<string>("Klasa");
+
+                    b.Property<string>("Lenda");
+
                     b.Property<string>("Pershkrimi");
+
+                    b.Property<string>("Profesori");
 
                     b.HasKey("DetyraId");
 
@@ -609,6 +615,26 @@ namespace Persistence.Migrations
                     b.ToTable("Prezantimet");
                 });
 
+            modelBuilder.Entity("Domain.Provimi", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<float>("KoheZgjatja");
+
+                    b.Property<string>("Lenda");
+
+                    b.Property<float>("OraENisjes");
+
+                    b.Property<string>("Profesori");
+
+                    b.Property<string>("Salla");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Provimet");
+                });
+
             modelBuilder.Entity("Domain.Qyteti", b =>
                 {
                     b.Property<Guid>("Id")
@@ -675,8 +701,6 @@ namespace Persistence.Migrations
                     b.Property<string>("place");
 
                     b.Property<string>("price");
-
-                    b.Property<string>("user");
 
                     b.HasKey("tripId");
 

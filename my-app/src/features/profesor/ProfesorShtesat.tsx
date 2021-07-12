@@ -1,9 +1,8 @@
 import React from 'react'
-import { Container, Grid, Image, Divider, Header, Table, Icon, Card, Button } from 'semantic-ui-react'
+import { Grid, Card, Button } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store'
 
 import AdminNavBar from './Profesor-Profili/ProfesorNavBar'
-import Photo from '../../assets/user.png';
 import { NavLink } from 'react-router-dom';
 
 export default function ProfesorProfile() {
@@ -48,7 +47,7 @@ export default function ProfesorProfile() {
               </Card.Content>
               <Card.Content extra>
                 <div className='ui two buttons'>
-                  <Button basic color='green' as={NavLink} to='/detyrat'>
+                  <Button basic color='green' as={NavLink} to='/profesor/detyrat'>
                     Shfaq
                   </Button>
                 </div>

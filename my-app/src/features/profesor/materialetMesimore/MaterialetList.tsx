@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
-import { Button, Grid, Icon, Item, Table, TextArea } from 'semantic-ui-react'
+import { Button, Grid, Icon, Table } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
 import ProfesorNavBar from '../Profesor-Profili/ProfesorNavBar'
@@ -9,7 +9,7 @@ import MaterialiForm from './MaterialiForm'
 export default observer(function MaterialetList () {
 
     const {materialiStore, modalStore} = useStore();
-    const {selectMateriali, editMode, deleteMateriali, materialet, loading, openForm} = materialiStore;
+    const {deleteMateriali, materialet, loading, openForm} = materialiStore;
 
     const [target, setTarget] = useState('');
     
@@ -58,7 +58,7 @@ export default observer(function MaterialetList () {
                                     <Table.Cell>{m.perioda}</Table.Cell>
                                     <Table.Cell>{m.pershkrimi}</Table.Cell>
                                     <Table.Cell>
-                                        <Button onClick={() => { (openForm(m.id)); modalStore.openModal(<MaterialiForm/>)}}  basic color='blue' size='mini' content='Edit'/>
+                                        <Button onClick={() => {(openForm(m.id)); modalStore.openModal(<MaterialiForm/>)}}  basic color='blue' size='mini' content='Edit'/>
                                     </Table.Cell>
                                     <Table.Cell>
                                         <Button name={m.id} loading={loading && target === m.id} onClick={(e) => handleDeleteMateriali(e, m.id)} size='mini' basic color='red' floated='right' content='Delete'/>

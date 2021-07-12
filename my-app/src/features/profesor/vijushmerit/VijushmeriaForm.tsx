@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import axios from 'axios';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
@@ -9,6 +10,16 @@ export default observer(function VijushmeriaForm() {
   const { selectedVijushmeria, closeForm, createVijushmeria, updateVijushmeria, loading } = vijushmeriaStore;
   const { userStore } = useStore();
   const { users } = userStore;
+
+
+      //@ts-ignore
+      const [dataa2, setDataa2]=React.useState<User[]>([] as users);
+  
+    React.useEffect(()=>{
+      axios
+      .get(('https://localhost:5000/API/student/list'))
+      .then((res)=>setDataa2(res.data));
+  },[])
 
   const initialState = selectedVijushmeria ?? {
     vijushmeriaId: '',
@@ -41,7 +52,7 @@ export default observer(function VijushmeriaForm() {
         <Form.Input onChange={handleInputChange} name='pjesmarrja' placeholder='pjesmarrja' value={vijushmeria.pjesmarrja} />
         <Form.Input>
         <select onChange={changeSelectOptionHandler} name='studenti' placeholder='studenti' value={vijushmeria.studenti}>
-          {users.map(user => (
+          {dataa2.map(user => (
             
             <option>{user.displayName}</option>
           ))}

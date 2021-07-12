@@ -11,6 +11,8 @@ namespace Persistence
             
         }
 
+        public DbSet <Provimi> Provimet { get; set; }
+
         public DbSet <Prezantimi> Prezantimet {get; set;}
 
         public DbSet <Vijushmeria> Vijushmerit {get; set;}

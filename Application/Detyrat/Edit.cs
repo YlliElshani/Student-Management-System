@@ -11,6 +11,9 @@ namespace Application.Detyrat
         public class Command : IRequest
         {
         public Guid DetyraId {get; set;}
+        public string Lenda {get; set;}
+        public string Klasa {get; set;}
+        public string Profesori {get; set;}
         public string DetyraEmri {get; set;}
         public string Pershkrimi {get; set;}
         }
@@ -31,6 +34,9 @@ namespace Application.Detyrat
                 if(detyra == null)
                     throw new Exception ("Could not find user");
 
+                detyra.Lenda = request.Lenda ?? detyra.Lenda;
+                detyra.Klasa = request.Klasa ?? detyra.Klasa;
+                detyra.Profesori = request.Profesori ?? detyra.Profesori;
                 detyra.DetyraEmri = request.DetyraEmri ?? detyra.DetyraEmri;
                 detyra.Pershkrimi = request.Pershkrimi ?? detyra.Pershkrimi;
                 
