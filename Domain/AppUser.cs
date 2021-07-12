@@ -19,6 +19,5 @@ namespace Domain
 
         public string PhoneNumber {get; set;}
 
-        public virtual ICollection<ProfessorMaterial> ProfessorMaterials { get; set; }
     }
 }
