@@ -16,7 +16,7 @@ export default observer(function MaterialiForm() {
         pershkrimi:'',
         lenda:'',
         perioda:'',
-        fileDrop:''
+        fileDrop:'',
     }
     
 

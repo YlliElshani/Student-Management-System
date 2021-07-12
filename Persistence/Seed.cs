@@ -25,6 +25,7 @@ namespace Persistence
             {
                 var firstUser = new AppUser
                 {
+                    Id = "a",
                     DisplayName = "Hysnije Zllanoga",
                     UserName = "Hysi",
                     Email = "hysi@gmail.com",
@@ -39,6 +40,7 @@ namespace Persistence
 
                 var secondUser = new AppUser
                 {
+                    Id = "b",
                     DisplayName = "Altina Hodaj",
                     UserName = "Tina",
                     Email = "tina@gmail.com",
@@ -53,6 +55,7 @@ namespace Persistence
 
                 var thirdUser = new AppUser
                 {
+                    Id = "c",
                     DisplayName = "Albiona Berisha",
                     UserName = "Biona",
                     Email = "biona@gmail.com",
@@ -67,6 +70,7 @@ namespace Persistence
 
                 var fourthUser = new AppUser
                 {
+                    Id = "d",
                     DisplayName = "Ylli Elshani",
                     UserName = "Ylli",
                     Email = "ylli@gmail.com",
@@ -81,6 +85,7 @@ namespace Persistence
 
                 var fifthUser = new AppUser
                 {
+                    Id = "e",
                     DisplayName = "Lulzim Zllanoga",
                     UserName = "Lulzim",
                     Email = "atmane.z@gmail.com",
@@ -95,6 +100,7 @@ namespace Persistence
 
                 var sixthUser = new AppUser
                 {
+                    Id = "f",
                     DisplayName = "Bashkim Elshani",
                     UserName = "Bashkim",
                     Email = "bashka@gmail.com",
@@ -109,6 +115,7 @@ namespace Persistence
 
                  var seventh = new AppUser
                 {
+                    Id = "g",
                     DisplayName = "Lavdim Menxhiqi",
                     UserName = "Lavdim",
                     Email = "lavdim@gmail.com",
@@ -123,6 +130,7 @@ namespace Persistence
 
                  var eigth = new AppUser
                 {
+                    Id = "h",
                     DisplayName = "Blerim Zylfiu",
                     UserName = "Blerim",
                     Email = "blerim@gmail.com",
@@ -137,6 +145,7 @@ namespace Persistence
 
                  var ninth = new AppUser
                 {
+                    Id = "i",
                     DisplayName = "Ramiz Hoxha",
                     UserName = "Ramiz",
                     Email = "ramiz@gmail.com",
@@ -151,6 +160,7 @@ namespace Persistence
 
                  var tenth = new AppUser
                 {
+                    Id = "j",
                     DisplayName = "Arber Kadriu",
                     UserName = "Arber",
                     Email = "arber@gmail.com",
@@ -165,6 +175,7 @@ namespace Persistence
 
                 var eleventh = new AppUser
                 {
+                    Id = "k",
                     DisplayName = "Bertan Karahoda",
                     UserName = "bertan",
                     Email = "bertan@gmail.com",
@@ -180,6 +191,7 @@ namespace Persistence
 
                 var twelfth = new AppUser
                 {
+                    Id = "l",
                     DisplayName = "Edmond Hajrizi",
                     UserName = "Edmond",
                     Email = "edmond@gmail.com",
@@ -208,6 +220,46 @@ namespace Persistence
                     }
                 }; 
                 context.Provimet.AddRange(provimet);
+                context.SaveChanges();
+            }
+
+            
+            if(!context.Materialet.Any())
+            {
+                var materialet = new List<Materiali>
+                {
+                    new Materiali
+                    {
+                        Titulli="Algorithms 4th Edition",
+                        Pershkrimi="Materiali dallon nga edicioni i 3-të, është riorganizuar dhe rishkruar në mënyrë thelbësore. Ndryshimet pasqyrojnë një model të qëndrueshëm modern të programimit, theksojnë zbatimet në shkencë dhe industri. Ai gjithashtu përfshin tema të ndryshme (p.sh., vargjet) dhe përdor veçori të reja në Java",
+                        Lenda="Algoritmet",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://algs4.cs.princeton.edu/home/",
+                        ProfessorMaterials = new List<ProfessorMaterial>
+                        {
+                            new ProfessorMaterial
+                            {
+                                AppUserId = "h"
+                            }
+                        }
+                    },
+                    new Materiali
+                    {
+                        Titulli="Permbledhje",
+                        Pershkrimi="Materiali përmban përmbledhje të të gjitha temave të ngërthyera në këtë lëndë.",
+                        Lenda="Inxhinieri Softuerike",
+                        Perioda="Perioda e dytë",
+                        FileDrop="https://filebin.net/a2tsaykahfr7orqg",
+                        ProfessorMaterials = new List<ProfessorMaterial>
+                        {
+                            new ProfessorMaterial
+                            {
+                                AppUserId = "h"
+                            }
+                        }
+                    }
+                };
+                context.Materialet.AddRange(materialet);
                 context.SaveChanges();
             }
             
@@ -469,6 +521,12 @@ namespace Persistence
                                     Emri = "Perioda E Pare", 
                                     Fillimi= "7/2/2021",
                                     Mbarimi= "11/4/2021"                     
+                                },
+                                new Perioda
+                                {
+                                    Emri = "Perioda E Dyte", 
+                                    Fillimi= "17/4/2021",
+                                    Mbarimi= "21/6/2021"  
                                 }
                             
                             };
@@ -736,32 +794,6 @@ namespace Persistence
                 context.Nderrimet.AddRange(nderrimet);
                 context.SaveChanges();
             };
-
-        
-            if(!context.Materialet.Any())
-            {
-                var materialet = new List<Materiali>
-                {
-                    new Materiali
-                    {
-                        Titulli="Algorithms 4th Edition",
-                        Pershkrimi="Materiali dallon nga edicioni i 3-të, është riorganizuar dhe rishkruar në mënyrë thelbësore. Ndryshimet pasqyrojnë një model të qëndrueshëm modern të programimit, theksojnë zbatimet në shkencë dhe industri. Ai gjithashtu përfshin tema të ndryshme (p.sh., vargjet) dhe përdor veçori të reja në Java",
-                        Lenda="Algoritmet",
-                        Perioda="Perioda e dytë",
-                        FileDrop="https://algs4.cs.princeton.edu/home/"
-                    },
-                    new Materiali
-                    {
-                        Titulli="Permbledhje",
-                        Pershkrimi="Materiali përmban përmbledhje të të gjitha temave të ngërthyera në këtë lëndë.",
-                        Lenda="Inxhinieri Softuerike",
-                        Perioda="Perioda e dytë",
-                        FileDrop="https://filebin.net/a2tsaykahfr7orqg"
-                    }
-                };
-                context.Materialet.AddRange(materialet);
-                context.SaveChanges();
-            }
             
             if(!context.Sallat.Any())
             {

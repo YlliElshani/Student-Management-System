@@ -31,6 +31,7 @@ using Application.Vleresimet;
 using Application.KohezgjatjaOres;
 using Application.Sallat;
 using Application.MaterialiMesimor;
+using AutoMapper;
 
 namespace API
 {
@@ -48,6 +49,7 @@ namespace API
         {
             services.AddDbContext<DataContext>(opt => 
             {
+                opt.UseLazyLoadingProxies();
                 opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddCors(opt => 
@@ -71,6 +73,8 @@ namespace API
             services.AddMediatR(typeof(ListPlanetMesimor.Handler).Assembly);
             services.AddMediatR(typeof(ListCompetitions.Handler).Assembly);
             services.AddMediatR(typeof(ListMaterialet.Handler).Assembly);
+
+            services.AddAutoMapper(typeof(ListMaterialet.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

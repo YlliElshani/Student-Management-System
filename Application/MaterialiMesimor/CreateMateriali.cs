@@ -5,6 +5,8 @@ using Persistence;
 using Domain;
 using System;
 using FluentValidation;
+using Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.MaterialiMesimor
 {
@@ -40,9 +42,12 @@ namespace Application.MaterialiMesimor
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
+        
+            private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context)
+            public Handler(DataContext context, IUserAccessor userAccessor)
             {
+                _userAccessor = userAccessor;
                 _context = context;
             }
 
@@ -59,6 +64,18 @@ namespace Application.MaterialiMesimor
                 };
 
                 _context.Materialet.Add(materiali);
+
+                var user = await _context.AppUser.SingleOrDefaultAsync(x =>
+                x.UserName == _userAccessor.GetCurrentUsername());
+
+                var materialetEProfit = new ProfessorMaterial
+                {
+                    AppUser = user,
+                    Materiali = materiali
+                };
+
+                _context.ProfessorMaterials.Add(materialetEProfit);
+
                 var success = await _context.SaveChangesAsync() > 0;
 
                 if(success) return Unit.Value;

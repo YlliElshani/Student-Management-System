@@ -49,6 +49,8 @@ namespace Persistence
 
         public DbSet <Materiali> Materialet {get; set;}
 
+        public DbSet <ProfessorMaterial> ProfessorMaterials { get; set; }
+
         public DbSet <Qyteti> Qytetet {get; set;}
         public DbSet <Klasa> Klaset {get; set;}
         public DbSet <VitiAkademik> VitetAkademike {get; set; }
@@ -67,6 +69,17 @@ namespace Persistence
         {
             base.OnModelCreating(builder);
             
+            builder.Entity<ProfessorMaterial>(x => x.HasKey(pm => new {pm.AppUserId, pm.MaterialiId}));
+
+            builder.Entity<ProfessorMaterial>()
+            .HasOne(u => u.AppUser)
+            .WithMany(p => p.ProfessorMaterials)
+            .HasForeignKey(u => u.AppUserId);
+
+            builder.Entity<ProfessorMaterial>()
+            .HasOne(m => m.Materiali)
+            .WithMany(p => p.ProfessorMaterials)
+            .HasForeignKey(m => m.MaterialiId);
 
         }
 
