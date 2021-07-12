@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class AllEntity : Migration
+    public partial class Entities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -649,6 +649,30 @@ namespace Persistence.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ProfessorMaterials",
+                columns: table => new
+                {
+                    AppUserId = table.Column<string>(nullable: false),
+                    MaterialiId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProfessorMaterials", x => new { x.AppUserId, x.MaterialiId });
+                    table.ForeignKey(
+                        name: "FK_ProfessorMaterials_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProfessorMaterials_Materialet_MaterialiId",
+                        column: x => x.MaterialiId,
+                        principalTable: "Materialet",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -685,6 +709,11 @@ namespace Persistence.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProfessorMaterials_MaterialiId",
+                table: "ProfessorMaterials",
+                column: "MaterialiId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -729,9 +758,6 @@ namespace Persistence.Migrations
                 name: "Lendet");
 
             migrationBuilder.DropTable(
-                name: "Materialet");
-
-            migrationBuilder.DropTable(
                 name: "Nderrimet");
 
             migrationBuilder.DropTable(
@@ -762,6 +788,9 @@ namespace Persistence.Migrations
                 name: "Prezantimet");
 
             migrationBuilder.DropTable(
+                name: "ProfessorMaterials");
+
+            migrationBuilder.DropTable(
                 name: "Provimet");
 
             migrationBuilder.DropTable(
@@ -790,6 +819,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Materialet");
         }
     }
 }
