@@ -50,6 +50,11 @@ export default observer(function StudentNavBar() {
                 Detyrat
             </Menu.Item>
 
+            <Menu.Item as={NavLink} to='/student/orariStud'>
+                <Icon name='list' />
+                Orari
+            </Menu.Item>
+
             <Menu.Item as={NavLink} to='/student/trajnimet'>
                 <Icon name='retweet' />
                 Oret Shtese

@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210712120625_AllEntity.Designer.cs
-    [Migration("20210712120625_AllEntity")]
-    partial class AllEntity
-=======
     [Migration("20210712134412_Entities")]
     partial class Entities
->>>>>>> abc752218a548a7bf845b4fbf7d782d803148656:Persistence/Migrations/20210712134412_Entities.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -62,6 +62,7 @@ import ListoProvimet from '../../features/student/provimet/ListoProvimet';
 import TrajnimListS from '../../features/student/trajnimet-Studenti/TrajnimListS';
 import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
 import EvidencaList from '../../features/profesor/EvidencaPrinderve/EvidencaList';
+import OrarStudenti from '../../features/student/Orari/OrarStudenti';
 
 
 function App () {
@@ -127,6 +128,7 @@ function App () {
           <Route exact path='/student/lendet' component={LendaStudentiDashboard}/>
           <Route exact path='/student/materialet' component={Materialet}/>
           <Route exact path='/student/provimet' component={ListoProvimet}/>
+          <Route exact path='/student/orariStud' component={OrarStudenti}/>
 
 
           <Route exact path='/student/listoTrips' component={ListTApp}/>
