@@ -173,12 +173,32 @@ namespace Persistence.Migrations
                     b.ToTable("Eventet");
                 });
 
+            modelBuilder.Entity("Domain.EvidencaPrindeve", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("displayName");
+
+                    b.Property<string>("displayName2");
+
+                    b.Property<string>("evidencaInfo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Evidencat");
+                });
+
             modelBuilder.Entity("Domain.KerkesaNdihmes", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataECaktuar");
+
+                    b.Property<string>("displayName");
+
+                    b.Property<string>("emri");
 
                     b.Property<string>("kerkesaInfo");
 
@@ -586,9 +606,13 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("EmriKl");
+
+                    b.Property<string>("EmriPar");
+
                     b.Property<string>("KriteriPlotsimit");
 
-                    b.Property<Guid>("LendaId");
+                    b.Property<string>("Lenda");
 
                     b.Property<string>("PlaniInfo");
 

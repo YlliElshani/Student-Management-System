@@ -28,6 +28,7 @@ import { ISalla } from '../models/salla';
 import { IOrari } from '../models/orari';
 import { IPlaniM } from '../models/pMesimor';
 import { Provimi } from '../models/provimi';
+import { IEvidenca } from '../models/evidence';
 
 
 
@@ -152,6 +153,14 @@ const Competitions = {
     create: (competition:ICompetition) => requests.post('/competition',competition),
     update: (competition: ICompetition) => requests.put(`/competition/${competition.competitionId}`, competition),
     delete: (id: string) => requests.delete(`/competition/${id}`)
+}
+
+const Evidence = {
+    list: () : Promise<IEvidenca[]> => requests.get('/evidence'),
+    details: (id: string) => requests.get(`/evidence/${id}`),
+    create: (evidence:IEvidenca) => requests.post('/evidence',evidence),
+    update: (evidence: IEvidenca) => requests.put(`/evidence/${evidence.id}`, evidence),
+    delete: (id: string) => requests.delete(`/evidence/${id}`)
 }
 
 const KerkesaN = {
@@ -316,8 +325,8 @@ const agent = {
     KohezgjatjaOres,
     Sallat, 
     Oraret,
-    Provimet
-    
+    Provimet,
+    Evidence
 }
 
 export default agent;

@@ -14,7 +14,7 @@ export default observer(function VijushmeriaDashboard() {
     const {selectedVijushmeria, editMode, vijushmeritByPjesmarrja, selectVijushmeria,  loading, deleteVijushmeria} = vijushmeriaStore;
     function handleVijushmeriaDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
         setTarget(e.currentTarget.name);
-        deleteVijushmeria(id);
+        deleteVijushmeria(id); 
       }
 
       useEffect(()=>{

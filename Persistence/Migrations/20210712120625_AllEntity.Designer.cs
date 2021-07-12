@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210711133811_AllEntity.Designer.cs
-    [Migration("20210711133811_AllEntity")]
+    [Migration("20210712120625_AllEntity")]
     partial class AllEntity
-=======
-    [Migration("20210711152347_Entities")]
-    partial class Entities
->>>>>>> eac54249930e1f5e0c908ad1292f5b0a49f40843:Persistence/Migrations/20210711152347_Entities.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -178,6 +173,22 @@ namespace Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Eventet");
+                });
+
+            modelBuilder.Entity("Domain.EvidencaPrindeve", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("displayName");
+
+                    b.Property<string>("displayName2");
+
+                    b.Property<string>("evidencaInfo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Evidencat");
                 });
 
             modelBuilder.Entity("Domain.KerkesaNdihmes", b =>

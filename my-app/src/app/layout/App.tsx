@@ -73,6 +73,7 @@ import ProvimetList from '../../features/profesor/provimet/ProvimetList';
 import ListoProvimet from '../../features/student/provimet/ListoProvimet';
 import TrajnimListS from '../../features/student/trajnimet-Studenti/TrajnimListS';
 import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
+import EvidencaList from '../../features/profesor/EvidencaPrinderve/EvidencaList';
 
 
 function App () {
@@ -169,6 +170,7 @@ function App () {
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
           <Route exact path='/profesor/kerkesaNView' component={KerkesaListView}/>
           <Route exact path='/profesor/provimet' component={ProvimetList}/>
+          <Route exact path='/profesor/EvidencaPrinderve' component={EvidencaList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

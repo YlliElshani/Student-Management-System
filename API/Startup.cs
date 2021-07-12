@@ -31,6 +31,7 @@ using Application.Vleresimet;
 using Application.KohezgjatjaOres;
 using Application.Sallat;
 using Application.MaterialiMesimor;
+using Application.EvidencatEPrinderve;
 
 namespace API
 {
@@ -71,6 +72,7 @@ namespace API
             services.AddMediatR(typeof(ListPlanetMesimor.Handler).Assembly);
             services.AddMediatR(typeof(ListCompetitions.Handler).Assembly);
             services.AddMediatR(typeof(ListMaterialet.Handler).Assembly);
+            services.AddMediatR(typeof(ListEvidencat.Handler).Assembly);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

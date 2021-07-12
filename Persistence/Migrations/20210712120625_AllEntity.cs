@@ -113,6 +113,20 @@ namespace Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Evidencat",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    evidencaInfo = table.Column<string>(nullable: true),
+                    displayName = table.Column<string>(nullable: true),
+                    displayName2 = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Evidencat", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "KerkesaN",
                 columns: table => new
                 {
@@ -715,6 +729,9 @@ namespace Persistence.Migrations
 
             migrationBuilder.DropTable(
                 name: "Eventet");
+
+            migrationBuilder.DropTable(
+                name: "Evidencat");
 
             migrationBuilder.DropTable(
                 name: "KerkesaN");

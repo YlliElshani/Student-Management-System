@@ -459,6 +459,22 @@ namespace Persistence
                             context.SaveChanges();
                         };
 
+                        if(!context.Evidencat.Any())
+                        {
+                            var evidence = new List<EvidencaPrindeve>
+                            {
+                                new EvidencaPrindeve
+                                {
+                                    evidencaInfo="Sot kam konsultuar me prindin rreth suksesit akademik te nxenesit",
+                                    displayName="Fisteku Filan",
+                                    displayName2="Filan Fisteku"
+                                }
+                            
+                            };
+                            context.Evidencat.AddRange(evidence);
+                            context.SaveChanges();
+                        };
+
                           
             if(!context.Periodat.Any())
                         {

@@ -27,6 +27,7 @@ import KoheZStore from "./koheZStore";
 import SallaStore from "./sallaStore";
 import OrariStore from "./orariStore";
 import ProvimiStore from "./provimiStore";
+import EvidencaStore from "./evidencaStore";
 
 
 interface Store {
@@ -58,6 +59,7 @@ interface Store {
     sallaStore: SallaStore;
     orariStore:OrariStore;
     provimiStore:ProvimiStore;
+    evidencaStore:EvidencaStore;
 }
 
 export const store: Store = {
@@ -88,7 +90,8 @@ export const store: Store = {
     koheZStore:new KoheZStore(),
     sallaStore: new SallaStore(),
     orariStore: new OrariStore(),
-    provimiStore: new ProvimiStore()
+    provimiStore: new ProvimiStore(),
+    evidencaStore:new EvidencaStore()
 }
 
 export const StoreContext = createContext(store);

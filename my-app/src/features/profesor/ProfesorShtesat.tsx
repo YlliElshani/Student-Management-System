@@ -109,6 +109,24 @@ export default function ProfesorProfile() {
             </Card>
           </Grid.Row>
 
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card >
+              <Card.Content>
+                <Card.Header>Evidenca prinderve</Card.Header>
+                <Card.Description>
+                  Shtimi i Evidences per konsultim me prindin
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/profesor/EvidencaPrinderve'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
         </Card.Group>
       </Grid.Column>
 
