@@ -1,15 +1,15 @@
 import { observer } from 'mobx-react-lite';
-import { Button,Card } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react'
 import { LoadingComponent } from '../../app/layout/LoadingComponent';
 import { useStore } from '../../app/stores/store';
 
 
-export default observer( function ParaleljaKlasaDetails() {
-    const {paraleljaKlasaStore} = useStore();
-    const {selectedParaleljaKlasa: paraleljaKlasa, openForm, cancelSelectedParaleljaKlasa} = paraleljaKlasaStore
-    if (!paraleljaKlasa) return <LoadingComponent/>;
+export default observer(function ParaleljaKlasaDetails() {
+    const { paraleljaKlasaStore } = useStore();
+    const { selectedParaleljaKlasa: paraleljaKlasa, openForm, cancelSelectedParaleljaKlasa } = paraleljaKlasaStore
+    if (!paraleljaKlasa) return <LoadingComponent />;
     return (
-        <Card fluid>   
+        <Card fluid>
             <Card.Content>
                 <Card.Header>{paraleljaKlasa!.emriKl}</Card.Header>
                 <Card.Meta>

@@ -6,9 +6,7 @@ import { Button, Form, Segment, Table } from 'semantic-ui-react'
 import { IKoheZ } from '../../../app/models/kOres';
 import { IParaleljaKlasa } from '../../../app/models/paraleljaKlasa';
 import { IVitiAkademik } from '../../../app/models/vitiAkademik';
-import orariStore from '../../../app/stores/orariStore';
 import { useStore } from '../../../app/stores/store'
-import KohaZDetails from '../../kohezgjatjaOres/KohaZDetails';
 
 
 export default observer(function OrariForm() {
@@ -165,67 +163,50 @@ export default observer(function OrariForm() {
 
   /*
   Kodi i nevojshem per te gjithedropdowns*/
-
-  const { vitiAkademikStore } = useStore();
-  const { vitetAkademikeByEmri } = vitiAkademikStore;
-
-  const { paraleljaKlasaStore } = useStore();
-  const { paraleletKlasetByEmri } = paraleljaKlasaStore;
-
-  const { nderrimiStore } = useStore();
-  const { nderrimiByEmri } = nderrimiStore;
-
-  const { lendaStore } = useStore();
-  const { lendetByEmri } = lendaStore;
-
-  const { koheZStore } = useStore();
-  const { koheZ } = koheZStore;
-
-
   /*Per react use Effect */
   //@ts-ignore
-  const [data1, setData1]=React.useState<IVitiAkademik[]>([] as vitetAkademike);
+  const [data1, setData1] = React.useState<IVitiAkademik[]>([] as vitetAkademike);
   //@ts-ignore
-  const [data2, setData2]=React.useState<IParaleljaKlasa[]>([] as paraleletKlaset);
+  const [data2, setData2] = React.useState<IParaleljaKlasa[]>([] as paraleletKlaset);
   //@ts-ignore
-  const [data3, setData3]=React.useState<INderrimi[]>([] as nderrimet);
+  const [data3, setData3] = React.useState<INderrimi[]>([] as nderrimet);
   //@ts-ignore
-  const [data4, setData4]=React.useState<ILenda[]>([] as lendet);
+  const [data4, setData4] = React.useState<ILenda[]>([] as lendet);
   //@ts-ignore
-  const [data5, setData5]=React.useState<IKoheZ[]>([] as kohezgjatjet);
+  const [data5, setData5] = React.useState<IKoheZ[]>([] as kohezgjatjet);
 
 
   /*USE EFECTS */
-  React.useEffect(()=>{
+  React.useEffect(() => {
     axios
-    .get(('https://localhost:5000/API/vitetAkademike'))
-    .then((res)=>setData1(res.data));
-},[])
+      .get(('https://localhost:5000/API/vitetAkademike'))
+      .then((res) => setData1(res.data));
+  }, [])
 
-React.useEffect(()=>{
-  axios
-  .get(('https://localhost:5000/API/paraleletKlaset'))
-  .then((res)=>setData2(res.data));
-},[])
+  React.useEffect(() => {
+    axios
+      .get(('https://localhost:5000/API/paraleletKlaset'))
+      .then((res) => setData2(res.data));
+  }, [])
 
 
-React.useEffect(()=>{
-  axios
-  .get(('https://localhost:5000/API/nderrimet'))
-  .then((res)=>setData3(res.data));
-},[])
+  React.useEffect(() => {
+    axios
+      .get(('https://localhost:5000/API/nderrimet'))
+      .then((res) => setData3(res.data));
+  }, [])
 
-React.useEffect(()=>{
-  axios
-  .get(('https://localhost:5000/API/lendet'))
-  .then((res)=>setData4(res.data));
-},[])
+  React.useEffect(() => {
+    axios
+      .get(('https://localhost:5000/API/lendet'))
+      .then((res) => setData4(res.data));
+  }, [])
 
-React.useEffect(()=>{
-  axios
-  .get(('https://localhost:5000/API/kohezgjatja'))
-  .then((res)=>setData5(res.data));
-},[])
+  React.useEffect(() => {
+    axios
+      .get(('https://localhost:5000/API/kohezgjatja'))
+      .then((res) => setData5(res.data));
+  }, [])
 
 
 
@@ -235,11 +216,6 @@ React.useEffect(()=>{
     setOrari({ ...orari, [name]: value });
   }
 
-  
-
-
-
-  /* */
 
   return (
     <Segment clearing>
@@ -300,7 +276,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaHen1' placeholder='Klasa' value={orari.profaHen1}>
                     {data4.map(lenda => (
 
@@ -310,7 +286,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen1' placeholder='Klasa' value={orari.kohaHen1}>
                     {data5.map(koha => (
 
@@ -333,15 +309,15 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='profaHen2' placeholder='Klasa' value={orari.profaHen2}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='profaHen2' placeholder='Klasa' value={orari.profaHen2}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.profesori}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.profesori}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen2' placeholder='Klasa' value={orari.kohaHen2}>
                     {data5.map(koha => (
 
@@ -365,7 +341,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaHen3' placeholder='Klasa' value={orari.profaHen3}>
                     {data4.map(lenda => (
 
@@ -375,7 +351,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen3' placeholder='Klasa' value={orari.kohaHen3}>
                     {data5.map(koha => (
 
@@ -389,7 +365,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaHen4' placeholder='Klasa' value={orari.lendaHen4}>
                     {data4.map(lenda => (
 
@@ -399,7 +375,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaHen4' placeholder='Klasa' value={orari.profaHen4}>
                     {data4.map(lenda => (
 
@@ -409,7 +385,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen4' placeholder='Klasa' value={orari.kohaHen4}>
                     {data5.map(koha => (
 
@@ -423,7 +399,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaHen5' placeholder='Klasa' value={orari.lendaHen5}>
                     {data4.map(lenda => (
 
@@ -433,7 +409,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaHen5' placeholder='Klasa' value={orari.profaHen5}>
                     {data4.map(lenda => (
 
@@ -443,7 +419,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen5' placeholder='Klasa' value={orari.kohaHen5}>
                     {data5.map(koha => (
 
@@ -457,7 +433,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaHen6' placeholder='Klasa' value={orari.lendaHen6}>
                     {data4.map(lenda => (
 
@@ -467,15 +443,15 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='profaHen6' placeholder='Klasa' value={orari.profaHen6}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='profaHen6' placeholder='Klasa' value={orari.profaHen6}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.profesori}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.profesori}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaHen6' placeholder='Klasa' value={orari.kohaHen6}>
                     {data5.map(koha => (
 
@@ -492,7 +468,7 @@ React.useEffect(()=>{
             <Table.Row>
               <Table.Cell rowspan='6'>EMarte</Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMar1' placeholder='Klasa' value={orari.lendaMar1}>
                     {data4.map(lenda => (
 
@@ -502,7 +478,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMar1' placeholder='Klasa' value={orari.profaMar1}>
                     {data4.map(lenda => (
 
@@ -512,7 +488,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar1' placeholder='Klasa' value={orari.kohaMar1}>
                     {data5.map(koha => (
 
@@ -526,7 +502,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMar2' placeholder='Klasa' value={orari.lendaMar2}>
                     {data4.map(lenda => (
 
@@ -536,7 +512,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMar2' placeholder='Klasa' value={orari.profaMar2}>
                     {data4.map(lenda => (
 
@@ -546,7 +522,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar2' placeholder='Klasa' value={orari.kohaMar2}>
                     {data5.map(koha => (
 
@@ -560,7 +536,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMar3' placeholder='Klasa' value={orari.lendaMar3}>
                     {data4.map(lenda => (
 
@@ -570,7 +546,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMar3' placeholder='Klasa' value={orari.profaMar3}>
                     {data4.map(lenda => (
 
@@ -580,7 +556,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar3' placeholder='Klasa' value={orari.kohaMar3}>
                     {data5.map(koha => (
 
@@ -594,7 +570,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMar4' placeholder='Klasa' value={orari.lendaMar4}>
                     {data4.map(lenda => (
 
@@ -604,7 +580,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMar4' placeholder='Klasa' value={orari.profaMar4}>
                     {data4.map(lenda => (
 
@@ -614,7 +590,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar4' placeholder='Klasa' value={orari.kohaMar4}>
                     {data5.map(koha => (
 
@@ -628,15 +604,15 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='lendaMar5' placeholder='Klasa' value={orari.lendaMar5}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='lendaMar5' placeholder='Klasa' value={orari.lendaMar5}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.emri}  -  {lenda.klasa}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.emri}  -  {lenda.klasa}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMar5' placeholder='Klasa' value={orari.profaMar5}>
                     {data4.map(lenda => (
 
@@ -646,7 +622,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar5' placeholder='Klasa' value={orari.kohaMar5}>
                     {data5.map(koha => (
 
@@ -660,23 +636,23 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='lendaMar6' placeholder='Klasa' value={orari.lendaMar6}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='lendaMar6' placeholder='Klasa' value={orari.lendaMar6}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.emri}  -  {lenda.klasa}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.emri}  -  {lenda.klasa}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='profaMar6' placeholder='Klasa' value={orari.profaMar6}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='profaMar6' placeholder='Klasa' value={orari.profaMar6}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.profesori}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.profesori}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMar6' placeholder='Klasa' value={orari.kohaMar6}>
                     {data5.map(koha => (
 
@@ -692,7 +668,7 @@ React.useEffect(()=>{
             <Table.Row>
               <Table.Cell rowspan='6'>E merkure</Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer1' placeholder='Klasa' value={orari.lendaMer1}>
                     {data4.map(lenda => (
 
@@ -702,7 +678,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMer1' placeholder='Klasa' value={orari.profaMer1}>
                     {data4.map(lenda => (
 
@@ -712,7 +688,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer1' placeholder='Klasa' value={orari.kohaMer1}>
                     {data5.map(koha => (
 
@@ -726,7 +702,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer2' placeholder='Klasa' value={orari.lendaMer2}>
                     {data4.map(lenda => (
 
@@ -736,7 +712,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMer2' placeholder='Klasa' value={orari.profaMer2}>
                     {data4.map(lenda => (
 
@@ -746,7 +722,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer2' placeholder='Klasa' value={orari.kohaMer2}>
                     {data5.map(koha => (
 
@@ -760,7 +736,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer3' placeholder='Klasa' value={orari.lendaMer3}>
                     {data4.map(lenda => (
 
@@ -770,7 +746,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMer3' placeholder='Klasa' value={orari.profaMer3}>
                     {data4.map(lenda => (
 
@@ -780,7 +756,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer3' placeholder='Klasa' value={orari.kohaMer3}>
                     {data5.map(koha => (
 
@@ -794,7 +770,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer4' placeholder='Klasa' value={orari.lendaMer4}>
                     {data4.map(lenda => (
 
@@ -804,7 +780,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMer4' placeholder='Klasa' value={orari.profaMer4}>
                     {data4.map(lenda => (
 
@@ -814,7 +790,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer4' placeholder='Klasa' value={orari.kohaMer4}>
                     {data5.map(koha => (
 
@@ -828,7 +804,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer5' placeholder='Klasa' value={orari.lendaMer5}>
                     {data4.map(lenda => (
 
@@ -838,15 +814,15 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='profaMer5' placeholder='Klasa' value={orari.profaMer5}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='profaMer5' placeholder='Klasa' value={orari.profaMer5}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.profesori}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.profesori}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer5' placeholder='Klasa' value={orari.kohaMer5}>
                     {data5.map(koha => (
 
@@ -860,7 +836,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaMer6' placeholder='Klasa' value={orari.lendaMer6}>
                     {data4.map(lenda => (
 
@@ -870,7 +846,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaMer6' placeholder='Klasa' value={orari.profaMer6}>
                     {data4.map(lenda => (
 
@@ -880,7 +856,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaMer6' placeholder='Klasa' value={orari.kohaMer6}>
                     {data5.map(koha => (
 
@@ -896,7 +872,7 @@ React.useEffect(()=>{
             <Table.Row>
               <Table.Cell rowspan='6'>E enjte</Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaEnjt1' placeholder='Klasa' value={orari.lendaEnjt1}>
                     {data4.map(lenda => (
 
@@ -906,7 +882,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt1' placeholder='Klasa' value={orari.profaEnjt1}>
                     {data4.map(lenda => (
 
@@ -916,7 +892,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt1' placeholder='Klasa' value={orari.kohaEnjt1}>
                     {data5.map(koha => (
 
@@ -930,15 +906,15 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell><Form.Input>
-                  <select onChange={changeSelectOptionHandler} name='lendaEnjt2' placeholder='Klasa' value={orari.lendaEnjt2}>
-                    {data4.map(lenda => (
+                <select onChange={changeSelectOptionHandler} name='lendaEnjt2' placeholder='Klasa' value={orari.lendaEnjt2}>
+                  {data4.map(lenda => (
 
-                      <option>{lenda.emri}  -  {lenda.klasa}</option>
-                    ))}
-                  </select>
-                </Form.Input></Table.Cell>
+                    <option>{lenda.emri}  -  {lenda.klasa}</option>
+                  ))}
+                </select>
+              </Form.Input></Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt2' placeholder='Klasa' value={orari.profaEnjt2}>
                     {data4.map(lenda => (
 
@@ -948,7 +924,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt2' placeholder='Klasa' value={orari.kohaEnjt2}>
                     {data5.map(koha => (
 
@@ -962,7 +938,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaEnjt3' placeholder='Klasa' value={orari.lendaEnjt3}>
                     {data4.map(lenda => (
 
@@ -972,7 +948,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt3' placeholder='Klasa' value={orari.profaEnjt3}>
                     {data4.map(lenda => (
 
@@ -982,7 +958,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt3' placeholder='Klasa' value={orari.kohaEnjt3}>
                     {data5.map(koha => (
 
@@ -996,7 +972,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaEnjt4' placeholder='Klasa' value={orari.lendaEnjt4}>
                     {data4.map(lenda => (
 
@@ -1006,7 +982,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt1' placeholder='Klasa' value={orari.profaEnjt4}>
                     {data4.map(lenda => (
 
@@ -1016,7 +992,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt4' placeholder='Klasa' value={orari.kohaEnjt4}>
                     {data5.map(koha => (
 
@@ -1030,7 +1006,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaEnjt5' placeholder='Klasa' value={orari.lendaEnjt5}>
                     {data4.map(lenda => (
 
@@ -1040,7 +1016,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt5' placeholder='Klasa' value={orari.profaEnjt5}>
                     {data4.map(lenda => (
 
@@ -1050,7 +1026,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt5' placeholder='Klasa' value={orari.kohaEnjt5}>
                     {data5.map(koha => (
 
@@ -1064,7 +1040,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaEnjt6' placeholder='Klasa' value={orari.lendaEnjt6}>
                     {data4.map(lenda => (
 
@@ -1074,7 +1050,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaEnjt6' placeholder='Klasa' value={orari.profaEnjt6}>
                     {data4.map(lenda => (
 
@@ -1084,7 +1060,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaEnjt6' placeholder='Klasa' value={orari.kohaEnjt6}>
                     {data5.map(koha => (
 
@@ -1099,7 +1075,7 @@ React.useEffect(()=>{
             <Table.Row>
               <Table.Cell rowspan='6'>E premte</Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre1' placeholder='Klasa' value={orari.lendaPre1}>
                     {data4.map(lenda => (
 
@@ -1109,7 +1085,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre1' placeholder='Klasa' value={orari.profaPre1}>
                     {data4.map(lenda => (
 
@@ -1119,7 +1095,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre1' placeholder='Klasa' value={orari.kohaPre1}>
                     {data5.map(koha => (
 
@@ -1133,7 +1109,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre2' placeholder='Klasa' value={orari.lendaPre2}>
                     {data4.map(lenda => (
 
@@ -1143,7 +1119,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre2' placeholder='Klasa' value={orari.profaPre2}>
                     {data4.map(lenda => (
 
@@ -1153,7 +1129,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre2' placeholder='Klasa' value={orari.kohaPre2}>
                     {data5.map(koha => (
 
@@ -1167,7 +1143,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre3' placeholder='Klasa' value={orari.lendaPre3}>
                     {data4.map(lenda => (
 
@@ -1177,7 +1153,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre3' placeholder='Klasa' value={orari.profaPre3}>
                     {data4.map(lenda => (
 
@@ -1187,7 +1163,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre3' placeholder='Klasa' value={orari.kohaPre3}>
                     {data5.map(koha => (
 
@@ -1201,7 +1177,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre4' placeholder='Klasa' value={orari.lendaPre4}>
                     {data4.map(lenda => (
 
@@ -1211,7 +1187,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre4' placeholder='Klasa' value={orari.profaPre4}>
                     {data4.map(lenda => (
 
@@ -1221,7 +1197,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre4' placeholder='Klasa' value={orari.kohaPre4}>
                     {data5.map(koha => (
 
@@ -1235,7 +1211,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre5' placeholder='Klasa' value={orari.lendaPre5}>
                     {data4.map(lenda => (
 
@@ -1245,7 +1221,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre5' placeholder='Klasa' value={orari.profaPre5}>
                     {data4.map(lenda => (
 
@@ -1255,7 +1231,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre5' placeholder='Klasa' value={orari.kohaPre5}>
                     {data5.map(koha => (
 
@@ -1269,7 +1245,7 @@ React.useEffect(()=>{
             <Table.Row>
 
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='lendaPre6' placeholder='Klasa' value={orari.lendaPre6}>
                     {data4.map(lenda => (
 
@@ -1279,7 +1255,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='profaPre6' placeholder='Klasa' value={orari.profaPre6}>
                     {data4.map(lenda => (
 
@@ -1289,7 +1265,7 @@ React.useEffect(()=>{
                 </Form.Input>
               </Table.Cell>
               <Table.Cell>
-              <Form.Input>
+                <Form.Input>
                   <select onChange={changeSelectOptionHandler} name='kohaPre6' placeholder='Klasa' value={orari.kohaPre6}>
                     {data5.map(koha => (
 

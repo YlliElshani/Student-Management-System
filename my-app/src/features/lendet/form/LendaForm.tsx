@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { ChangeEvent,  useState } from 'react'
-import { Button,  Form, Segment } from 'semantic-ui-react'
+import { ChangeEvent, useState } from 'react'
+import { Button, Form, Segment } from 'semantic-ui-react'
 import { IKlasa } from '../../../app/models/klasa';
 import { useStore } from '../../../app/stores/store'
 
@@ -11,14 +11,14 @@ export default observer(function LendaForm() {
   const { lendaStore } = useStore();
   const { selectedLenda, closeForm, createLenda, updateLenda, loading } = lendaStore;
 
-   //@ts-ignore
-   const [data, setData]=React.useState<IKlasa[]>([] as klaset);
+  //@ts-ignore
+  const [data, setData] = React.useState<IKlasa[]>([] as klaset);
 
-     React.useEffect(()=>{
-       axios
-       .get(('https://localhost:5000/API/klaset'))
-       .then((res)=>setData(res.data));
-   },[])
+  React.useEffect(() => {
+    axios
+      .get(('https://localhost:5000/API/klaset'))
+      .then((res) => setData(res.data));
+  }, [])
 
   const initialState = selectedLenda ?? {
     lendaId: '',
@@ -28,7 +28,7 @@ export default observer(function LendaForm() {
     descripion: ''
   }
 
- 
+
   const [lenda, setLenda] = useState(initialState);
   const [selected, setSelected] = React.useState("");
 
@@ -54,12 +54,12 @@ export default observer(function LendaForm() {
       <Form onSubmit={handleSubmit} autoComplete='off'>
         <Form.Input onChange={handleInputChange} name='emri' placeholder='Lenda' value={lenda.emri} />
         <Form.Input>
-        <select onChange={changeSelectOptionHandler} name='klasa' placeholder='Klasa' value={lenda.klasa}>
-          {data.map(klasa => (
-            
-            <option key={klasa.klasaId}>{klasa.emriKl}</option>
-          ))}
-        </select>
+          <select onChange={changeSelectOptionHandler} name='klasa' placeholder='Klasa' value={lenda.klasa}>
+            {data.map(klasa => (
+
+              <option key={klasa.klasaId}>{klasa.emriKl}</option>
+            ))}
+          </select>
         </Form.Input>
         <Form.Input onChange={handleInputChange} name='profesori' placeholder='Profesori' value={lenda.profesori} />
         <Form.Input onChange={handleInputChange} name='descripion' placeholder='Description' value={lenda.descripion} />

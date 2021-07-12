@@ -10,29 +10,29 @@ import ParaleljaaForm from '../form/ParaleljaaForm';
 
 
 export default observer(function ParaleljaaDashboard() {
-    const {paraleljaaStore} = useStore();
+    const { paraleljaaStore } = useStore();
     const [target, setTarget] = useState('');
-    const {selectedParaleljaa, editMode, paraleleetByEmri, selectParaleljaa,  loading, deleteParaleljaa} = paraleljaaStore;
-    function handleParaleljaaDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
+    const { selectedParaleljaa, editMode, paraleleetByEmri, selectParaleljaa, loading, deleteParaleljaa } = paraleljaaStore;
+    function handleParaleljaaDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);
         deleteParaleljaa(id);
-      }
+    }
 
-      useEffect(()=>{
+    useEffect(() => {
         paraleljaaStore.loadParaleleet();
-      }, [paraleljaaStore]);
+    }, [paraleljaaStore]);
 
 
-   if (loading) return <LoadingComponent content='Loading Paralelet' />
+    if (loading) return <LoadingComponent content='Loading Paralelet' />
 
     return (
-        
+
         <Grid>
             <Grid.Column width='4'>
-                    <AdminNavBar />
-                </Grid.Column>
-            
-            <Grid.Column style={{marginTop:'50px'}} width={10}>   
+                <AdminNavBar />
+            </Grid.Column>
+
+            <Grid.Column style={{ marginTop: '50px' }} width={10}>
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -45,21 +45,21 @@ export default observer(function ParaleljaaDashboard() {
                         <Table.Body key={paraleljaa.paraleljaaId}>
                             <Table.Row>
                                 <Table.Cell>{paraleljaa.emriPar}</Table.Cell>
-                                <Table.Cell><Button onClick={() => selectParaleljaa(paraleljaa.paraleljaaId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
-                                <Table.Cell><Button inverted color='red' name={paraleljaa.emriPar} loading={target === paraleljaa.paraleljaaId && loading} onClick={(e) => handleParaleljaaDelete(e, paraleljaa.paraleljaaId)} size='mini'  content='Fshij Paralelen' /></Table.Cell>
+                                <Table.Cell><Button onClick={() => selectParaleljaa(paraleljaa.paraleljaaId)} size='mini' content='Edit' inverted color='olive' /></Table.Cell>
+                                <Table.Cell><Button inverted color='red' name={paraleljaa.emriPar} loading={target === paraleljaa.paraleljaaId && loading} onClick={(e) => handleParaleljaaDelete(e, paraleljaa.paraleljaaId)} size='mini' content='Fshij Paralelen' /></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' onClick={() => paraleljaaStore.openForm()} content='Shto Paralelen'/>
+                <Button class='ui button' onClick={() => paraleljaaStore.openForm()} content='Shto Paralelen' />
                 <Grid.Column width='5'>
-                {selectedParaleljaa && !editMode && 
-                <ParaleljaaDetails/>}
-                {editMode && (<ParaleljaaForm/>)}
+                    {selectedParaleljaa && !editMode &&
+                        <ParaleljaaDetails />}
+                    {editMode && (<ParaleljaaForm />)}
+                </Grid.Column>
+
             </Grid.Column>
-            
-            </Grid.Column>
-            
+
         </Grid>
     )
 });

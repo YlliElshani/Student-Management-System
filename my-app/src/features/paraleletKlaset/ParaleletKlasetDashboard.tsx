@@ -11,31 +11,31 @@ import ParaleletKlasetForm from './ParaleletKlasetForm';
 
 
 export default observer(function ParaleletKlasetDashboard() {
-    const {paraleljaKlasaStore} = useStore();
+    const { paraleljaKlasaStore } = useStore();
     const [target, setTarget] = useState('');
-    const {selectedParaleljaKlasa, editMode, paraleletKlasetByEmri, selectParaleljaKlasa,  loading, deleteParaleljaKlasa} = paraleljaKlasaStore;
-    function handleParaleljaKlasaDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
+    const { selectedParaleljaKlasa, editMode, paraleletKlasetByEmri, selectParaleljaKlasa, loading, deleteParaleljaKlasa } = paraleljaKlasaStore;
+    function handleParaleljaKlasaDelete(e: SyntheticEvent<HTMLButtonElement>, id: string) {
         setTarget(e.currentTarget.name);
         deleteParaleljaKlasa(id);
-      }
+    }
 
-      useEffect(()=>{
+    useEffect(() => {
         paraleljaKlasaStore.loadParaleletKlaset();
-      }, [paraleljaKlasaStore]);
+    }, [paraleljaKlasaStore]);
 
 
-   if (loading) return <LoadingComponent content='Loading' />
+    if (loading) return <LoadingComponent content='Loading' />
 
     return (
-        
+
         <Grid>
             <Grid.Column width='4'>
-                
-                 <AdminNavBar />
-                    
-                </Grid.Column>
-            
-            <Grid.Column style={{marginTop:'50px'}} width={10}>   
+
+                <AdminNavBar />
+
+            </Grid.Column>
+
+            <Grid.Column style={{ marginTop: '50px' }} width={10}>
                 <Table singleLine>
                     <Table.Header>
                         <Table.Row>
@@ -50,21 +50,21 @@ export default observer(function ParaleletKlasetDashboard() {
                             <Table.Row>
                                 <Table.Cell>{paraleljaKlasa.emriKl}</Table.Cell>
                                 <Table.Cell>{paraleljaKlasa.emriPar}</Table.Cell>
-                                <Table.Cell><Button onClick={() => selectParaleljaKlasa(paraleljaKlasa.paraleljaKlasaId)} size='mini'  content='Edit' inverted color='olive' /></Table.Cell>
-                                <Table.Cell><Button inverted color='red' name={paraleljaKlasa.paraleljaKlasaId} loading={target === paraleljaKlasa.paraleljaKlasaId && loading} onClick={(e) => handleParaleljaKlasaDelete(e, paraleljaKlasa.paraleljaKlasaId)} size='mini'  content='Fshij ' /></Table.Cell>
+                                <Table.Cell><Button onClick={() => selectParaleljaKlasa(paraleljaKlasa.paraleljaKlasaId)} size='mini' content='Edit' inverted color='olive' /></Table.Cell>
+                                <Table.Cell><Button inverted color='red' name={paraleljaKlasa.paraleljaKlasaId} loading={target === paraleljaKlasa.paraleljaKlasaId && loading} onClick={(e) => handleParaleljaKlasaDelete(e, paraleljaKlasa.paraleljaKlasaId)} size='mini' content='Fshij ' /></Table.Cell>
                             </Table.Row>
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button'  onClick={() => paraleljaKlasaStore.openForm()} content='Shto'/>
+                <Button class='ui button' onClick={() => paraleljaKlasaStore.openForm()} content='Shto' />
                 <Grid.Column width='5'>
-                {selectedParaleljaKlasa && !editMode && 
-                <ParaleletKlasetDetails/>}
-                {editMode && (<ParaleletKlasetForm/>)}
+                    {selectedParaleljaKlasa && !editMode &&
+                        <ParaleletKlasetDetails />}
+                    {editMode && (<ParaleletKlasetForm />)}
+                </Grid.Column>
+
             </Grid.Column>
-            
-            </Grid.Column>
-            
+
         </Grid>
     )
 });
