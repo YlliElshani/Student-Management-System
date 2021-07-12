@@ -9,13 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-<<<<<<< HEAD:Persistence/Migrations/20210708195504_AllEntity.Designer.cs
-    [Migration("20210708195504_AllEntity")]
+    [Migration("20210711133811_AllEntity")]
     partial class AllEntity
-=======
-    [Migration("20210709132912_Entities")]
-    partial class Entities
->>>>>>> 1ef6cb3a70c4a523af4677ae6d24eefc699ddb86:Persistence/Migrations/20210709132912_Entities.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -59,7 +54,7 @@ namespace Persistence.Migrations
 
                     b.Property<string>("Age");
 
-                    b.Property<Guid>("City");
+                    b.Property<string>("City");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken();
@@ -180,6 +175,10 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("dataECaktuar");
+
+                    b.Property<string>("displayName");
+
+                    b.Property<string>("emri");
 
                     b.Property<string>("kerkesaInfo");
 
@@ -587,9 +586,13 @@ namespace Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("EmriKl");
+
+                    b.Property<string>("EmriPar");
+
                     b.Property<string>("KriteriPlotsimit");
 
-                    b.Property<Guid>("LendaId");
+                    b.Property<string>("Lenda");
 
                     b.Property<string>("PlaniInfo");
 

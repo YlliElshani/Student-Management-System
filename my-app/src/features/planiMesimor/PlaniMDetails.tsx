@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
-import { IKoheZ } from '../../app/models/kOres';
 import { useStore } from '../../app/stores/store';
 
 
@@ -17,7 +16,10 @@ export default observer (function PlaniMDetails ()  {
             <Grid.Column>
                 <Segment>{planiM!.planiInfo}</Segment>
                 <Segment>{planiM!.kriteriPlotsimit}</Segment>
-                <Segment>{planiM!.lendaId}</Segment>
+                <Segment>{planiM!.lenda}</Segment>
+                <Segment>{planiM!.emriPar}</Segment>
+                <Segment>{planiM!.emriKl}</Segment>
+
                 <br/>
             </Grid.Column>
             </Grid.Row>

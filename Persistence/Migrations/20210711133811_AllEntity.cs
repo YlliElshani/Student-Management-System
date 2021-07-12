@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Persistence.Migrations
 {
-    public partial class Entities : Migration
+    public partial class AllEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,7 +55,7 @@ namespace Persistence.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     DisplayName = table.Column<string>(nullable: true),
                     Age = table.Column<string>(nullable: true),
-                    City = table.Column<Guid>(nullable: false),
+                    City = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     ZipCode = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true)
@@ -115,6 +115,8 @@ namespace Persistence.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     kerkesaInfo = table.Column<string>(nullable: true),
+                    emri = table.Column<string>(nullable: true),
+                    displayName = table.Column<string>(nullable: true),
                     dataECaktuar = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -398,7 +400,9 @@ namespace Persistence.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     PlaniInfo = table.Column<string>(nullable: true),
                     KriteriPlotsimit = table.Column<string>(nullable: true),
-                    LendaId = table.Column<Guid>(nullable: false)
+                    Lenda = table.Column<string>(nullable: true),
+                    EmriKl = table.Column<string>(nullable: true),
+                    EmriPar = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

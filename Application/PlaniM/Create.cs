@@ -15,7 +15,10 @@ namespace Application.PlaniM
             public string PlaniInfo { get; set; }
             public string KriteriPlotsimit { get; set; }
             
-            public Guid LendaId {get;set;}
+             public string Lenda { get; set; }
+             public string EmriKl { get; set; }
+        
+            public string EmriPar { get; set; }
 
         }
 
@@ -35,7 +38,9 @@ namespace Application.PlaniM
                     Id=request.Id,
                     PlaniInfo=request.PlaniInfo,
                     KriteriPlotsimit=request.KriteriPlotsimit,
-                    LendaId=request.LendaId
+                    Lenda=request.Lenda,
+                    EmriKl=request.EmriKl,
+                    EmriPar=request.EmriPar
                 };
 
                 _context.PlanetMesimor.Add(planiM);

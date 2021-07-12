@@ -66,6 +66,7 @@ import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
 import PlaniMList from '../../features/planiMesimor/PlaniMList';
+import KerkesaListView from '../../features/profesor/kerkesaNView/KerkesaListView';
 
 
 
@@ -157,6 +158,7 @@ function App () {
           <Route exact path='/profesor/materialet' component={MaterialetList}/>
           <Route exact path='/profesor/lendet' component={LendaDashboard}/>
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
+          <Route exact path='/profesor/kerkesaNView' component={KerkesaListView}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

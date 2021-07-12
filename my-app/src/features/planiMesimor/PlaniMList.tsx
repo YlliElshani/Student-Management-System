@@ -52,9 +52,9 @@ export default observer(function PlaniMList () {
                             <Item.Content inverted="true">
                             <Item.Header >Plani Mesimor: {planiMesimor.planiInfo}</Item.Header>
                             <h4>Kriteri i Suksesit:{planiMesimor.kriteriPlotsimit}</h4>
-                            <h4>Lenda:{data.map(lenda => (
-                                                <h3 key={lenda.lendaId}>{lenda.emri}</h3>
-                                         ))}</h4>
+                            <h4>Emri i Klases:{planiMesimor.emriKl}</h4>
+                            <h4>Paralelja:{planiMesimor.emriPar}</h4>
+                            <h4>Lenda:{planiMesimor.lenda}</h4>
                             <Item.Extra> 
                                 <Button onClick={() => pMesimorStore.selectPlaniM(planiMesimor.id)}size='mini' floated='right' content='Shiko Detajet'/>
                                 <Button name={planiMesimor.id} loading={loading && target === planiMesimor.id} onClick={(e) => handleDeletePlaniM(e, planiMesimor.id)} size='mini' floated='right' content='Fshij Planin Mesimor' />
