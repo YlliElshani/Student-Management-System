@@ -4,7 +4,7 @@ import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 
-export default observer (function KerkeseNDetails ()  {
+export default observer (function KerkeseNDetailsView ()  {
     const {kerkesNdihmeStore} = useStore();
     const {selectedKerkese: kerkesa, openForm, cancelSelectedKerkese} = kerkesNdihmeStore;
     
@@ -22,8 +22,7 @@ export default observer (function KerkeseNDetails ()  {
         </Grid>
         <br/>
         <Button.Group>
-                <Button onClick={() => openForm(kerkesa?.id)}  basic color='blue' content='Ndrysho'/>
-                <Button onClick={cancelSelectedKerkese} basic color='grey' content='Anulo'/>
+                <Button onClick={cancelSelectedKerkese} basic color='grey' content='Mbyll'/>
             </Button.Group>
         </Segment>
     )

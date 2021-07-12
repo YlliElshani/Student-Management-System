@@ -3,12 +3,11 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import StudentMiniNav from '../EServices/StudentMiniNav'
-import KerkeseNForm from './KerkeseNForm'
-import KerkesNDetails from './KerkesNDetails'
+import ProfesorNavBar from '../Profesor-Profili/ProfesorNavBar'
+import KerkesNDetails from './KerkesNDetailsView'
 
 
-export default observer(function KerkesaList () {
+export default observer(function KerkesaListView () {
 
     const {kerkesNdihmeStore} = useStore();
     const {selectedKerkese, editMode,kerkesat} = kerkesNdihmeStore;
@@ -31,10 +30,9 @@ export default observer(function KerkesaList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <StudentMiniNav />
+                    <ProfesorNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
-                    <Button onClick={() => kerkesNdihmeStore.openForm()} content='Shto Kërkesë' color='green'/>
                     <Item.Group divided>
                         {kerkesat.map((kerkese) => (
                         <Item key={kerkese.id}>
@@ -52,8 +50,8 @@ export default observer(function KerkesaList () {
                             Lenda:
                             <Item.Meta>{kerkese.emri}</Item.Meta>
                             <Item.Extra>
-                                <Button onClick={() => kerkesNdihmeStore.selectKerkesa(kerkese.id)} size='mini' floated='right' content='Shiko Detajet'  color='youtube'/>
-                                <Button name={kerkese.id} loading={loading && target === kerkese.id} onClick={(e) => handleDeleteKerkesa(e, kerkese.id)} size='mini' floated='right' content='Fshij Kërkesën' />
+                                <Button onClick={() => kerkesNdihmeStore.selectKerkesa(kerkese.id)} size='mini' floated='right' content='Shiko Detajet'  color='grey'/>
+                                <Button name={kerkese.id} loading={loading && target === kerkese.id} onClick={(e) => handleDeleteKerkesa(e, kerkese.id)} size='mini' color='green' floated='right' content='Konfirmo Kërkesën' />
                             </Item.Extra>
                             </Item.Content>
                         </Item> 
@@ -63,7 +61,6 @@ export default observer(function KerkesaList () {
                 <Grid.Column  width='4' style={{marginTop:'3em'}}>
                     {selectedKerkese && !editMode && 
                     <KerkesNDetails />}
-                    {editMode && <KerkeseNForm/>}
                 </Grid.Column>
             </Grid.Row>
         </Grid>

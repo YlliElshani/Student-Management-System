@@ -12,6 +12,10 @@ namespace Application.KerkesaNdihme
         {
         public Guid Id {get; set;}
         public string kerkesaInfo {get; set;}
+
+        public string emri { get; set; }
+
+        public string displayName {get; set;}
         public DateTime? dataECaktuar {get; set;}
         }
         
@@ -32,6 +36,8 @@ namespace Application.KerkesaNdihme
                     throw new Exception ("Could not find user");
 
                 kerkesa.kerkesaInfo = request.kerkesaInfo ?? kerkesa.kerkesaInfo;
+                kerkesa.emri = request.emri ?? kerkesa.emri;
+                kerkesa.displayName = request.displayName ?? kerkesa.displayName;
                 kerkesa.dataECaktuar = request.dataECaktuar ?? kerkesa.dataECaktuar;
                 
 

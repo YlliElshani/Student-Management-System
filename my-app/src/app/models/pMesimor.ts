@@ -1,6 +1,8 @@
 export interface IPlaniM{
     id:string,
     planiInfo:string,
-    lendaId:string,
-    kriteriPlotsimit:string
+    kriteriPlotsimit:string,
+    lenda:string,
+    emriKl:string,
+    emriPar:string
 }

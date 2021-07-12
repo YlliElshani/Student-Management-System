@@ -60,7 +60,7 @@ export default observer(function LendaDashboard() {
                         </Table.Body>
                     ))}
                 </Table>
-                <Button  class='ui button' inverted color='grey' onClick={() => lendaStore.openForm()} content='Shto Lende'/>
+                <Button  class='ui button' color='grey' onClick={() => lendaStore.openForm()} content='Shto Lende'/>
                 <Grid.Column width='5'>
                 {selectedLenda && !editMode && 
                 <LendaDetails/>}

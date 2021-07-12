@@ -64,7 +64,7 @@ import KohaZList from '../../features/kohezgjatjaOres/KohaZList';
 import SallatList from '../../features/administrator/sallat/SallatList';
 import OrariDashboard from '../../features/oraret/dashboard/OrariDashboard';
 import OrariDetails from '../../features/oraret/details/OrariDetails';
-import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
+import KerkesaListView from '../../features/profesor/kerkesaNView/KerkesaListView';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
 
@@ -72,6 +72,7 @@ import Materialet from '../../features/student/materialiMesimor/Materialet';
 import ProvimetList from '../../features/profesor/provimet/ProvimetList';
 import ListoProvimet from '../../features/student/provimet/ListoProvimet';
 import TrajnimListS from '../../features/student/trajnimet-Studenti/TrajnimListS';
+import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
 
 
 function App () {
@@ -166,6 +167,7 @@ function App () {
           <Route exact path='/profesor/materialet' component={MaterialetList}/>
           <Route exact path='/profesor/lendet' component={LendaDashboard}/>
           <Route exact path='/profesor/notat' component={NotaDashboard}/>
+          <Route exact path='/profesor/kerkesaNView' component={KerkesaListView}/>
           <Route exact path='/profesor/provimet' component={ProvimetList}/>
           
           <Route exact path='/EServices' component={EServices}/>

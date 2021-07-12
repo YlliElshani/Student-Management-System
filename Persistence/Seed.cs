@@ -542,6 +542,8 @@ namespace Persistence
                     new KerkesaNdihmes
                     {
                         kerkesaInfo="Kam nevoje per ndihm rreth numrave kompleks",
+                        emri="Matematike",
+                        displayName="Filan Fisteku",
                         dataECaktuar=DateTime.Now
                     }
                 };

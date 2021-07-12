@@ -64,6 +64,7 @@ export default class KerkesNdihmeStore {
                 this.editMode = false;
                 this.loading = false;
             })
+            console.log(kerkese);
         } catch (error) {
             console.log(error);
             runInAction(() => {
