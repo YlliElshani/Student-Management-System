@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../../app/stores/store'
@@ -10,18 +10,8 @@ export default observer(function VleresimiForm() {
   const { vleresimiStore } = useStore();
   const { selectedVleresimi, closeForm, createVleresimi, updateVleresimi, loading } = vleresimiStore;
 
-  const { notaStore } = useStore();
-  const { notat } = notaStore;
-  const { lendaStore } = useStore();
-  const { lendetByEmri } = lendaStore;
    //@ts-ignore
    const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
-
-   const [target, setTarget] = useState('');
-   
-  //  useEffect(()=>{
-  //      pMesimorStore.loadPlaniM();
-  //    }, [pMesimorStore]); 
 
      React.useEffect(()=>{
        axios

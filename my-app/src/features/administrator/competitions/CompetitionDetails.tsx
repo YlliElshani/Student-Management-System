@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { Grid, Button, Segment, Label } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import CompetitionForm from './CompetitionForm';

@@ -18,9 +18,6 @@ export default observer(function KohaZForm() {
 
     const [kohaZ, setKohaZ] = useState(initialState);
 
-    const [selected, setSelected] = React.useState("");
-
-
     function handleSubmit () { 
         kohaZ.id ? updateKoheZ(kohaZ) : createKoheZ(kohaZ);
      }

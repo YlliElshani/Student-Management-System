@@ -1,4 +1,3 @@
-import React from 'react'
 import { Container, Grid, Image, Divider, Header, Table, Icon } from 'semantic-ui-react'
 import StudentNavBar from './StudentNavBar'
 
@@ -6,7 +5,7 @@ import Photo from '../../assets/studentphoto.jpg'
 import { useStore } from '../../app/stores/store';
 
 export default function StudentProfile () {
-  const {userStore: {user,logout}} = useStore();
+  const {userStore: {user}} = useStore();
   
     return (
       <Grid divided='vertically'>

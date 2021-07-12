@@ -1,12 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { Container, Grid, Divider, Header, Table, Icon } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 import ProfesorNavBar from './ProfesorNavBar';
 
 export default observer( function ProfesorProfile () {
-  const {userStore: {user,logout}} = useStore();
+  const {userStore: {user}} = useStore();
   
     return (
       <Grid divided='vertically'>
@@ -88,40 +87,6 @@ export default observer( function ProfesorProfile () {
                   </Table.Body>
                 </Table>
             </Grid.Row>
-
-            <Grid.Row columns={1} style={{marginTop:"20px"}}>
-              <Table  celled  >
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell><Icon style={{marginRight:"2em"}} name='newspaper'/>Informata rreth shkollës</Table.HeaderCell>
-                    </Table.Row>
-                  </Table.Header>
-
-                  <Table.Body>
-                    <Table.Row>
-                      <Table.Cell>
-                        <Header as='h4' image>
-                          <Header.Content>
-                            Drejtimi
-                          </Header.Content>
-                        </Header>
-                      </Table.Cell>
-                      <Table.Cell>Shkenca Natyrore</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                      <Table.Cell>
-                        <Header as='h4' image>
-                          <Header.Content>
-                            Klasa 
-                          </Header.Content>
-                        </Header>
-                      </Table.Cell>
-                      <Table.Cell>XII/11</Table.Cell>
-                    </Table.Row>
-                  </Table.Body>
-                </Table>
-            </Grid.Row>
-
           </Grid>
         </Grid.Column>
         </Grid.Row>

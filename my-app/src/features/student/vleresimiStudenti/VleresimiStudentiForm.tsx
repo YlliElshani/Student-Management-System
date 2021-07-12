@@ -1,13 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ChangeEvent,  useState } from 'react'
-import { Button,  Form, Segment } from 'semantic-ui-react'
+import { Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 
 
 export default observer(function VleresimiStudentiForm() {
   const { vleresimiStore } = useStore();
-  const { selectedVleresimi, closeForm, createVleresimi, updateVleresimi, loading } = vleresimiStore;
+  const { selectedVleresimi, createVleresimi, updateVleresimi } = vleresimiStore;
 
   const { notaStore } = useStore();
   const { notat } = notaStore;

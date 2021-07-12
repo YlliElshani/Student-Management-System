@@ -6,3 +6,10 @@ export interface Materiali {
     perioda: string;
     fileDrop: string;
 }
+
+export interface IProfessor {
+    username: string;
+    displayName: string;
+    image: string;
+    isHost: boolean;
+}

@@ -5,7 +5,7 @@ import Photo from '../../assets/user.png';
 import { observer } from 'mobx-react-lite';
 
 export default observer( function AdminProfile () {
-  const {userStore: {user,logout}} = useStore();
+  const {userStore: {user}} = useStore();
 
     return (
       <Grid divided='vertically'>

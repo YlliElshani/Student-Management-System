@@ -1,6 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Domain
 {
@@ -18,5 +19,6 @@ namespace Domain
 
         public string PhoneNumber {get; set;}
 
+        public virtual ICollection<ProfessorMaterial> ProfessorMaterials { get; set; }
     }
 }

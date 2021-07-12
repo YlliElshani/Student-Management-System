@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import { Button,Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 
 export default observer( function VleresimiStudentiDetails() {
     const {vleresimiStore} = useStore();
-    const {selectedVleresimi: vleresimi, openForm, cancelSelectedVleresimi} = vleresimiStore;
+    const {selectedVleresimi: vleresimi} = vleresimiStore;
     if (!vleresimi) return <LoadingComponent/>;
     return (
         <Card fluid>   

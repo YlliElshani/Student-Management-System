@@ -1,9 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { Button, Grid, Table } from 'semantic-ui-react'
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import AdminNavBar from '../../administrator/AdminNavBar';
-
 import { useStore } from '../../../app/stores/store';
 import DetyraDetailsS from './DetyraDetailsS';
 import StudentNavBar from '../StudentNavBar';
@@ -13,12 +12,7 @@ import StudentNavBar from '../StudentNavBar';
 
 export default observer(function DetyraListS() {
     const {detyraStore} = useStore();
-    const [target, setTarget] = useState('');
-    const {selectedDetyra, editMode, detyrat, selectDetyra,   loading, deleteDetyra} = detyraStore;
-    function handleDetyraDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
-        setTarget(e.currentTarget.name);
-        deleteDetyra(id);
-      }
+    const {selectedDetyra, editMode, detyrat, selectDetyra,   loading} = detyraStore;
 
       useEffect(()=>{
         detyraStore.loadDetyrat();

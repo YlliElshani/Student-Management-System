@@ -1,14 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import { Container, Grid, List } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import { Listues } from './Listues';
 import { INjoftimi } from '../../../app/models/njoftimi';
 import StudentMiniNav from '../EServices/StudentMiniNav';
-
-
-interface IProps{
-  njoftimet: INjoftimi;
-}
 
 const ListApp =()=> {
 

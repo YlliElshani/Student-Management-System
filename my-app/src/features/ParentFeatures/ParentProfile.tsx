@@ -1,12 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { Container, Grid, Divider, Header, Table, Icon } from 'semantic-ui-react'
 import { useStore } from '../../app/stores/store';
 import ParentNavBar from './ParentNavBar';
 
 
 export default observer( function ParentProfile () {
-  const {userStore: {user,logout}} = useStore();
+  const {userStore: {user}} = useStore();
   
     return (
       <Grid divided='vertically'>

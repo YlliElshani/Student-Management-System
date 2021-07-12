@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace Domain
+namespace Application.MaterialiMesimor
 {
-    public class Materiali
+    public class MaterialiDto
     {
         public Guid id {get; set;}
 
@@ -17,6 +18,7 @@ namespace Domain
 
         public string FileDrop {get; set;}
 
-        public virtual ICollection<ProfessorMaterial> ProfessorMaterials { get; set; }
+        [JsonProperty("professorMaterials")]
+        public ICollection<ProfessorDto> ProfessorMaterials { get; set; }
     }
 }

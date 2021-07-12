@@ -1,11 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
-
-
-
-
 import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
@@ -20,9 +15,6 @@ import ModalContainer  from '../common/modals/modalContainer';
 import GuardianLogin from '../../features/users/GuardianLogin';
 import ProfesorLogin from '../../features/users/ProfesorLogin';
 import StudentLogin from '../../features/users/StudentLogin';
-
-
-
 import AdminProfile from '../../features/administrator/AdminProfile';
 import { useStore } from '../stores/store';
 import { LoadingComponent } from './LoadingComponent';
@@ -37,17 +29,14 @@ import ListTApp2 from '../../features/student/listoTrips2/listTApp2';
 import QytetetList from '../../features/administrator/qytetet/QytetetList';
 import PrezantimetList from '../../features/student/Prezantimi/PrezantimetList';
 import Shtesat from '../../features/administrator/Shtesat';
-
-
 import KlasaDashboard from '../../features/klaset/dashboard/KlasaDashboard';
 import VitiAkademikDashboard from '../../features/vitetAkademike/dashboard/VitiAkademikDashboard';
 import UsersList from '../../features/administrator/users/UsersList';
 import TrajnimList from '../../features/profesor/trajnimet/TrajnimList';
-
 import listApp from '../../features/ParentFeatures/listNjoftimet/listApp/listApp';
 import ArsyetimetList from '../../features/ParentFeatures/mungesat/ArsyetimetList';
 import ParentProfile from '../../features/ParentFeatures/ParentProfile';
-import NjoftimeList from '../../features/njoftimetA/njoftimetN/NjoftimeList';
+import NjoftimeList from '../../features/administrator/njoftimetN/NjoftimeList';
 import KerkesaList from '../../features/student/KerkesNdihme/KerkesaList';
 import NotaDashboard from '../../features/profesor/notat/dashboard/NotaDashboard';
 import VleresimiDashboard from '../../features/profesor/vleresimet/dashboard/VleresimiDashboard';
@@ -67,7 +56,6 @@ import OrariDetails from '../../features/oraret/details/OrariDetails';
 import KerkesaListView from '../../features/profesor/kerkesaNView/KerkesaListView';
 import DetyraList from '../../features/profesor/Detyrat/DetyraList';
 import DetyraListS from '../../features/student/Detyrat-Studenti/DetyraListS';
-
 import Materialet from '../../features/student/materialiMesimor/Materialet';
 import ProvimetList from '../../features/profesor/provimet/ProvimetList';
 import ListoProvimet from '../../features/student/provimet/ListoProvimet';

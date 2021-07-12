@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
 import { IKlasa } from '../../../app/models/klasa';
@@ -11,21 +11,10 @@ import { useStore } from '../../../app/stores/store';
 export default observer(function PlaniMForm() {
   const { pMesimorStore } = useStore();
   const { selectedPlaniM, closeForm, createPlaniM, updatePlaniM, loading } = pMesimorStore;
-
-  const { paraleljaaStore } = useStore();
-  const { paraleleetByEmri } = paraleljaaStore;
-  const { klasaStore } = useStore();
-  const { klasetByEmri } = klasaStore;
-  const { lendaStore } = useStore();
-  const { lendetByEmri } = lendaStore;
    //@ts-ignore
    const [data, setData]=React.useState<ILenda[]>([]);
    const [paralelet, setParalelet]=React.useState<IParaleljaa[]>([]);
    const [klaset, setKlaset]=React.useState<IKlasa[]>([]);
-
-
-   const [target, setTarget] = useState('');
-   
 
      React.useEffect(()=>{
        axios

@@ -1,13 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ChangeEvent,  useState } from 'react'
-import { Button,  Form, Segment } from 'semantic-ui-react'
+import {  Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 
 
 export default observer(function LendaForm() {
   const { lendaStore } = useStore();
-  const { selectedLenda, closeForm, createLenda, updateLenda, loading } = lendaStore;
+  const { selectedLenda, createLenda, updateLenda } = lendaStore;
   //i shton qito store t'qasaj tabele qe ka me hi ndrop-down (12-13)
   const { klasaStore } = useStore();
   const { klasetByEmri } = klasaStore;

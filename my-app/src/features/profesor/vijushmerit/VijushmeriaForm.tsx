@@ -8,9 +8,6 @@ import { useStore } from '../../../app/stores/store'
 export default observer(function VijushmeriaForm() {
   const { vijushmeriaStore } = useStore();
   const { selectedVijushmeria, closeForm, createVijushmeria, updateVijushmeria, loading } = vijushmeriaStore;
-  const { userStore } = useStore();
-  const { users } = userStore;
-
 
       //@ts-ignore
       const [dataa2, setDataa2]=React.useState<User[]>([] as users);
