@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, Container, Form, Segment } from 'semantic-ui-react'
+import { Button, Form, Segment } from 'semantic-ui-react'
 import StudentMiniNav from './StudentMiniNav'
 
 export const EServices = () => {

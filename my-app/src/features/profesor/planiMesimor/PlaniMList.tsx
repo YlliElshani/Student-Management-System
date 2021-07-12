@@ -13,7 +13,7 @@ import PlaniMForm from './PlaniMForm'
 export default observer(function PlaniMList () {
 
     const {pMesimorStore} = useStore();
-    const {selectedPlaniM, editMode,deletePlaniM,loading,planiM,lendet} = pMesimorStore;
+    const {selectedPlaniM, editMode,deletePlaniM,loading,planiM} = pMesimorStore;
     //@ts-ignore
     const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
 

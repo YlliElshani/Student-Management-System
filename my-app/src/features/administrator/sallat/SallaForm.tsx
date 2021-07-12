@@ -6,9 +6,8 @@ import { useStore } from '../../../app/stores/store';
 
 
 export default observer(function SallaForm() {
-    const {sallaStore, userStore} = useStore();
+    const {sallaStore} = useStore();
     const {selectedSalla, closeForm, createSalla, updateSalla, loading} = sallaStore;
-    const {users} = userStore;
 
     const initialState = selectedSalla ?? {
         sallaId: '',

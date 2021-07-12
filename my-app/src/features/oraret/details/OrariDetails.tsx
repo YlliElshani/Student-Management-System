@@ -1,9 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import { Button,Card, Table } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import orariStore from '../../../app/stores/orariStore';
 import { useStore } from '../../../app/stores/store';
-import AdminNavBar from '../../administrator/AdminNavBar';
 
 export default observer( function OrariDetails() {
     const {orariStore} = useStore();

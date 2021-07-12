@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import React, {ChangeEvent, useState} from 'react'
-import { combineValidators, composeValidators, hasLengthGreaterThan, isRequired } from 'revalidate';
 import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import { validate } from 'uuid';
 import { useStore } from '../../../app/stores/store';

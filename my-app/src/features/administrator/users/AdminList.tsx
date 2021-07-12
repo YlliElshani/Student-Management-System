@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { SyntheticEvent, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import AdminRegister from '../../users/AdminRegister'

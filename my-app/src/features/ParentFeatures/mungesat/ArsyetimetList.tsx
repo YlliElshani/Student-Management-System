@@ -5,10 +5,7 @@ import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
 import ParentNavBar from '../ParentNavBar'
 import ArsyejaDetails from './ArsyejaDetails'
-
-import QytetiDetails from './ArsyejaDetails'
 import ArsyejaForm from './ArsyejaForm'
-import QytetiForm from './ArsyejaForm'
 
 export default observer(function ArsyetimetList () {
 

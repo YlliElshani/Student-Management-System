@@ -5,7 +5,7 @@ import { useStore } from '../../../app/stores/store';
 
 export default observer( function DetyraDetailsS() {
     const {detyraStore} = useStore();
-    const {selectedDetyra: detyra, openForm, cancelSelectedDetyra} = detyraStore;
+    const {selectedDetyra: detyra} = detyraStore;
     if (!detyra) return <LoadingComponent/>;
     return (
         <Card fluid>   

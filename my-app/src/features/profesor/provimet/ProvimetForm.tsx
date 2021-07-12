@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React, {ChangeEvent, useState} from 'react'
+import React, { useState} from 'react'
 import { Button, Form, Label } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 import {ILenda} from '../../../app/models/lenda';

@@ -1,13 +1,8 @@
-import React from 'react'
 import { Grid, Card, Button } from 'semantic-ui-react'
-import { useStore } from '../../app/stores/store'
-
 import AdminNavBar from './Profesor-Profili/ProfesorNavBar'
 import { NavLink } from 'react-router-dom';
 
 export default function ProfesorProfile() {
-  const { userStore: { user, logout } } = useStore();
-
   return (
 
     <Grid>

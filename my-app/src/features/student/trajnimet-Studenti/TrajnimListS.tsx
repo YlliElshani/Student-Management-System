@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import React, { SyntheticEvent, useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
@@ -10,21 +10,13 @@ import TrajnimDetailsS from './TrajnimDetailsS'
 export default observer(function TrajnimetListS () {
 
     const {trajnimStore} = useStore();
-    const {selectedTrajnim, editMode} = trajnimStore;
-    const {deleteTrajnim, trajnimet, loading} = trajnimStore;
+    const {selectedTrajnim, editMode, trajnimet} = trajnimStore;
 
-    const [target, setTarget] = useState('');
-    
     useEffect(()=>{
         trajnimStore.loadTrajnimet();
       }, [trajnimStore]); 
     
     if(trajnimStore.loadingInitial) return <LoadingComponent content='Loading Trajnimet'/>
-    
-    function handleDeleteTrajnim(e: SyntheticEvent<HTMLButtonElement>, trajnimId: string) {
-        setTarget(e.currentTarget.name);
-        deleteTrajnim(trajnimId);
-    }
 
     return (
         <Grid>

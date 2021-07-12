@@ -16,7 +16,6 @@ export default observer(function UsersList () {
         { menuItem: 'Professor', render: () => <Tab.Pane><ProfessorList/></Tab.Pane> },
       ]
       
-      const TabExampleBasic = () => <Tab panes={panes} />
     return (
         <Grid>
             <Grid.Row>

@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import { Button, Grid, Table } from 'semantic-ui-react'
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useStore } from '../../app/stores/store';
-import paraleljaKlasaStore from '../../app/stores/paraleljaKlasaStore';
 import AdminNavBar from '../administrator/AdminNavBar';
 import { LoadingComponent } from '../../app/layout/LoadingComponent';
 import ParaleletKlasetDetails from './ParaleletKlasetDetails';

@@ -1,13 +1,9 @@
 import {  Grid, Card, Button } from 'semantic-ui-react'
-import { useStore } from '../../app/stores/store'
-
 import AdminNavBar from './AdminNavBar'
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
 export default observer( function Shtesat() {
-  const { userStore: { user, logout } } = useStore();
-
   return (
     <Grid style={{display:'flex'}}>
       <Grid.Column width='6' >

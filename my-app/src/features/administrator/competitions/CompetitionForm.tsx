@@ -16,7 +16,7 @@ const validate = combineValidators({
 
 export default observer(function CompetitionForm() {
     const {competitionStore, modalStore} = useStore();
-    const {selectedCompetition, closeForm, createCompetition, updateCompetition, loading} = competitionStore;
+    const {selectedCompetition, createCompetition, updateCompetition, loading} = competitionStore;
 
     const initialState = selectedCompetition ??  {
         competitionId: '',

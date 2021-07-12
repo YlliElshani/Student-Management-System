@@ -6,8 +6,6 @@ import LendaDetails from '../details/LendaDetails';
 import LendaForm from '../form/LendaForm';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import AdminNavBar from '../../administrator/AdminNavBar';
-import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
-
 
 
 export default observer(function LendaDashboard() {

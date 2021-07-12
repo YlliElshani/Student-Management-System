@@ -1,16 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import { Grid, List } from 'semantic-ui-react';
-import axios from 'axios';
+import { Grid } from 'semantic-ui-react';
 import { Listues } from './Listues';
-import { INjoftimi } from '../../../app/models/njoftimi';
-
 import { ICompetition } from '../../../app/models/competition';
 import agent from '../../../app/api/agent';
 import StudentMiniNav from '../EServices/StudentMiniNav';
-
-interface IProps{
-  gara: ICompetition;
-}
 
 const ListGApp =()=> {
 

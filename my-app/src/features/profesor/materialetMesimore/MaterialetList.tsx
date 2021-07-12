@@ -52,7 +52,7 @@ export default observer(function MaterialetList () {
                             </Table.Row>
                             {materialet.map(m => 
                                 <Table.Row key={m.id}>
-                                    <Table.Cell width='2'><a href={m.fileDrop} target="_blank">{m.fileDrop}</a></Table.Cell>
+                                    <Table.Cell width='2'><a href={m.fileDrop} rel="noopener noreferrer" target="_blank">{m.fileDrop}</a></Table.Cell>
                                     <Table.Cell>{m.titulli}</Table.Cell>
                                     <Table.Cell>{m.lenda}</Table.Cell>
                                     <Table.Cell>{m.perioda}</Table.Cell>

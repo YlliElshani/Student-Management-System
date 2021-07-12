@@ -1,12 +1,11 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 
 export default observer (function KerkeseNDetailsView ()  {
     const {kerkesNdihmeStore} = useStore();
-    const {selectedKerkese: kerkesa, openForm, cancelSelectedKerkese} = kerkesNdihmeStore;
+    const {selectedKerkese: kerkesa, cancelSelectedKerkese} = kerkesNdihmeStore;
     
     return (
         <Segment>

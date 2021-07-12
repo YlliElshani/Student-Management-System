@@ -10,14 +10,9 @@ import { useStore } from '../../../app/stores/store'
 export default observer(function LendaForm() {
   const { lendaStore } = useStore();
   const { selectedLenda, closeForm, createLenda, updateLenda, loading } = lendaStore;
-  const { klasaStore } = useStore();
-  const { klasetByEmri } = klasaStore;
 
    //@ts-ignore
    const [data, setData]=React.useState<IKlasa[]>([] as klaset);
-
-   const [target, setTarget] = useState('');
-   
 
      React.useEffect(()=>{
        axios

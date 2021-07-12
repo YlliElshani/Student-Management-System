@@ -1,10 +1,8 @@
 import { observer } from 'mobx-react-lite';
-import { Button, Grid, Table } from 'semantic-ui-react'
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { Grid, Table } from 'semantic-ui-react'
+import {  useEffect } from 'react';
 import { useStore } from '../../../app/stores/store';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import AdminNavBar from '../../administrator/AdminNavBar';
-import ProfesorNavBar from '../../profesor/Profesor-Profili/ProfesorNavBar';
 import LendaStudentiDetails from './LendaStudentiDetails';
 import LendaStudentiForm from './LendaStudentiForm';
 import StudentNavBar from '../StudentNavBar';
@@ -13,12 +11,7 @@ import StudentNavBar from '../StudentNavBar';
 
 export default observer(function LendaStudentiDashboard() {
     const {lendaStore} = useStore();
-    const [target, setTarget] = useState('');
-    const {selectedLenda, editMode, lendetByEmri, selectLenda,  loading, deleteLenda} = lendaStore;
-    function handleLendaDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
-        setTarget(e.currentTarget.name);
-        deleteLenda(id);
-      }
+    const {selectedLenda, editMode, lendetByEmri,  loading} = lendaStore;
 
       useEffect(()=>{
         lendaStore.loadLendet();

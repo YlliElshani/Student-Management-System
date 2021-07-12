@@ -1,6 +1,5 @@
 
 import { observer } from 'mobx-react-lite';
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Icon,  Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';

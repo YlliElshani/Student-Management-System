@@ -7,7 +7,7 @@ import {ILenda} from '../../../app/models/lenda';
 import {User} from '../../../app/models/user';
 
 export default observer(function KerkeseNForm() {
-    const {kerkesNdihmeStore, modalStore} = useStore();
+    const {kerkesNdihmeStore} = useStore();
     const {selectedKerkese, createKerkesa, updateKerkese, loading,closeForm} = kerkesNdihmeStore;
 
     const initialState = selectedKerkese ?? {

@@ -1,15 +1,9 @@
 import React, { useState,useEffect } from 'react';
-import { Grid, List } from 'semantic-ui-react';
-import axios from 'axios';
+import { Grid } from 'semantic-ui-react';
 import { Listues } from './Listues';
 import { ITrip } from '../../../app/models/trip';
 import agent from '../../../app/api/agent';
 import ParentNavBar from '../../ParentFeatures/ParentNavBar';
-
-
-interface IProps{
-  trips: ITrip;
-}
 
 export const ListTApp2 =()=> {
 

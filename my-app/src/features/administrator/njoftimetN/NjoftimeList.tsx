@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import AdminNavBar from '../../administrator/AdminNavBar'
+import AdminNavBar from '../AdminNavBar'
 
 import NjoftimeDetails from './NjoftimeDetails'
 import NjoftimeForm from './NjoftimeForm'

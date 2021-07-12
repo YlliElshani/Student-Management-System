@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
-import { Button, Grid, Table } from 'semantic-ui-react'
-import { SyntheticEvent, useEffect, useState } from 'react';
+import { Grid, Table } from 'semantic-ui-react'
+import { useEffect } from 'react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import AdminNavBar from '../../administrator/AdminNavBar';
 import { useStore } from '../../../app/stores/store';
@@ -12,12 +12,7 @@ import StudentNavBar from '../StudentNavBar';
 
 export default observer(function VleresimiStudentiDashboard() {
     const {vleresimiStore} = useStore();
-    const [target, setTarget] = useState('');
-    const {selectedVleresimi, editMode, vleresimetByDate, selectVleresimi,  loading, deleteVleresimi} = vleresimiStore;
-    function handleVleresimiDelete(e: SyntheticEvent<HTMLButtonElement>, id:string) {
-        setTarget(e.currentTarget.name);
-        deleteVleresimi(id);
-      }
+    const {selectedVleresimi, editMode, vleresimetByDate,  loading} = vleresimiStore;
 
       useEffect(()=>{
         vleresimiStore.loadVleresimet();

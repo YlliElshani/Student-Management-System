@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
@@ -13,7 +13,6 @@ export default observer(function DetyraDashboard() {
    //@ts-ignore
    const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
 
-   const [target, setTarget] = useState('');
   //@ts-ignore
    const [dataa, setDataa]=React.useState<IKlasa[]>([] as klasetByEmri);
 
