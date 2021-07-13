@@ -53,9 +53,9 @@ export default function ProfesorProfile() {
           <Grid.Row style={{ marginTop: '50px' }}>
             <Card >
               <Card.Content>
-                <Card.Header>Vlersimi</Card.Header>
+                <Card.Header>Vleresimi</Card.Header>
                 <Card.Description>
-                  Shtimi i Vlersimit per nxenesin e caktuar
+                  Shtimi i Vleresimit per nxenesin e caktuar
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
@@ -79,6 +79,24 @@ export default function ProfesorProfile() {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <Button basic color='green' as={NavLink} to='/profesor/kerkesaNView'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card >
+              <Card.Content>
+                <Card.Header>Prezantimet</Card.Header>
+                <Card.Description>
+                  Shiko Prezantimet
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/profesor/prezantimet'>
                     Shfaq
                   </Button>
                 </div>

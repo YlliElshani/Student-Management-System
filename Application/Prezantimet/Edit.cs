@@ -13,6 +13,9 @@ namespace Application.Prezantimet
             public Guid prezantimiId {get; set;}
 
             public string prezantimiInfo {get; set;}
+            public string lenda {get; set;}
+            public string profesori {get; set;}
+            public string salla {get; set;}
 
             public string kohezgjatja {get; set;}
 
@@ -40,6 +43,9 @@ namespace Application.Prezantimet
                     
                 prezantimi.prezantimiInfo = request.prezantimiInfo ?? prezantimi.prezantimiInfo;
                 prezantimi.kohezgjatja = request.kohezgjatja ?? prezantimi.kohezgjatja;
+                prezantimi.lenda = request.lenda ?? prezantimi.lenda;
+                prezantimi.profesori = request.profesori ?? prezantimi.profesori;
+                prezantimi.salla = request.salla ?? prezantimi.salla;
                 prezantimi.data= request.data ?? prezantimi.data;
                 prezantimi.ora = request.ora ?? prezantimi.ora;
                

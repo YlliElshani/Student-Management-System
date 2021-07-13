@@ -3,7 +3,7 @@ import { Grid, Button, Segment } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store';
 
 
-export default observer(function PrezantimiDetails ()  {
+export default observer(function PrezantimiPDetails ()  {
     const {prezantimiStore} = useStore();
     const {selectedPrezantimi: prezantimi, openForm, cancelSelectedPrezantimi} = prezantimiStore;
     
@@ -26,7 +26,6 @@ export default observer(function PrezantimiDetails ()  {
                 </Grid.Row>
             </Grid>
             <Button.Group>
-                <Button onClick={() => openForm(prezantimi?.prezantimiId)}  basic color='blue' content='Ndrysho'/>
                 <Button onClick={cancelSelectedPrezantimi} basic color='red' content='Anulo'/>
             </Button.Group>
         </Segment>

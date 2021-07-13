@@ -15,12 +15,11 @@ export default observer(function QytetiForm() {
         shteti: ''
     }
     
-
     const [qyteti, setQyteti] = useState(initialState);
 
     function handleSubmit () { 
         qyteti.id ? updateQyteti(qyteti) : createQyteti(qyteti);
-     }
+    }
  
     function handleInputChange (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>){
         const {name, value} = event.currentTarget;
@@ -28,16 +27,16 @@ export default observer(function QytetiForm() {
     }
     
     return (
-    <Segment clearing>
-        <Grid>
-        <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
-            <Form.Input onChange={handleInputChange}  name='emri' placeholder='Emri' value={qyteti.emri} />
-            <Form.Input onChange={handleInputChange} name='shteti' placeholder='Shteti' value={qyteti.shteti} />
-            <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
-            <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
-        </Form>
-        </Grid>
-    </Segment>
+        <Segment clearing>
+            <Grid>
+                <Form validate={validate} onSubmit={handleSubmit} autoComplete='off' style={{padding:'20px', width:'100%'}}>
+                    <Form.Input onChange={handleInputChange}  name='emri' placeholder='Emri' value={qyteti.emri} />
+                    <Form.Input onChange={handleInputChange} name='shteti' placeholder='Shteti' value={qyteti.shteti} />
+                    <Button loading={loading} floated='right' positive type='submit' content='Dërgo'/>
+                    <Button onClick={closeForm} floated='right' type='submit' content='Anulo' />
+                </Form>
+            </Grid>
+        </Segment>
     )
 })
 

@@ -4,6 +4,7 @@ import { Listues } from './Listues';
 import { ITrip } from '../../../app/models/trip';
 import agent from '../../../app/api/agent';
 import StudentMiniNav from '../EServices/StudentMiniNav';
+import StudentNavBar from '../StudentNavBar';
 
 export const ListTApp =()=> {
 
@@ -24,7 +25,7 @@ export const ListTApp =()=> {
       <Grid>
           <Grid.Row>
           <Grid.Column width='4'>
-          <StudentMiniNav/>
+          <StudentNavBar/>
           </Grid.Column>
           <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
           <Listues trips={trips}/>

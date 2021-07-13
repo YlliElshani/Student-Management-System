@@ -86,6 +86,24 @@ export default observer( function Shtesat() {
             </Card>
           </Grid.Row>
 
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card>
+              <Card.Content>
+                <Card.Header>Notat</Card.Header>
+                <Card.Description>
+                  Shtoni notat!
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons' >
+                  <Button basic color='green' as={NavLink} to='/admin/notat'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
           
           <Grid.Row style={{ marginTop: '50px' }}>
             <Card>

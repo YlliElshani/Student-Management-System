@@ -6,7 +6,9 @@ import { useStore } from '../../../../app/stores/store';
 export default observer( function VleresimiDetails() {
     const {vleresimiStore} = useStore();
     const {selectedVleresimi: vleresimi, openForm, cancelSelectedVleresimi} = vleresimiStore;
+    
     if (!vleresimi) return <LoadingComponent/>;
+    
     return (
         <Card fluid>   
             <Card.Content>

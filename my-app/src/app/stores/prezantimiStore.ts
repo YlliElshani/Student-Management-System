@@ -22,7 +22,6 @@ export default class PrezantimiStore {
         try {
             const prezantimet = await agent.Prezantimet.list();
             prezantimet.forEach(prezantimi => {
-                prezantimi.data = prezantimi.data.split('')[0];
                 this.prezantimiRegistry.set(prezantimi.prezantimiId, prezantimi);
             })
             this.setLoadingInitial(false);

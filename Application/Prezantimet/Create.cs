@@ -14,6 +14,9 @@ namespace Application.Prezantimet
             public Guid prezantimiId {get; set;}
 
             public string prezantimiInfo {get; set;}
+            public string lenda {get; set;}
+            public string profesori {get; set;}
+            public string salla {get; set;}
 
             public string kohezgjatja {get; set;}
 
@@ -36,7 +39,10 @@ namespace Application.Prezantimet
                 var prezantimi = new Prezantimi
                 {
                     prezantimiId=request.prezantimiId,
-                    prezantimiInfo=request.prezantimiInfo, 
+                    prezantimiInfo=request.prezantimiInfo,
+                    lenda=request.lenda,
+                    profesori=request.profesori,
+                    salla=request.salla,
                     kohezgjatja=request.kohezgjatja,
                     data=request.data,
                     ora=request.ora

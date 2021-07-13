@@ -8,7 +8,7 @@ import { ISalla } from '../../../app/models/salla';
 import { User } from '../../../app/models/user';
 import { useStore } from '../../../app/stores/store';
 
-export default observer(function PrezantimiForm() {
+export default observer(function PrezantimiPForm() {
   const {prezantimiStore} = useStore();
   const {selectedPrezantimi, closeForm, createPrezantimi, updatePrezantimi, loading} = prezantimiStore;
 

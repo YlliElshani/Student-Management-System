@@ -12,8 +12,6 @@ namespace Application.Notat
         public class Command : IRequest
         {
             public Guid NotaId { get; set; }
-            public string Lenda { get; set; }
-
             public int Grade { get; set; }
         }
 
@@ -31,7 +29,6 @@ namespace Application.Notat
                 var nota = new Nota
                 {
                     NotaId=request.NotaId,
-                    Lenda=request.Lenda,
                     Grade=request.Grade
                 };
 
