@@ -304,8 +304,6 @@ namespace Persistence.Migrations
 
                     b.Property<int>("Grade");
 
-                    b.Property<string>("Lenda");
-
                     b.HasKey("NotaId");
 
                     b.ToTable("Notat");
@@ -630,9 +628,15 @@ namespace Persistence.Migrations
 
                     b.Property<string>("kohezgjatja");
 
+                    b.Property<string>("lenda");
+
                     b.Property<string>("ora");
 
                     b.Property<string>("prezantimiInfo");
+
+                    b.Property<string>("profesori");
+
+                    b.Property<string>("salla");
 
                     b.HasKey("prezantimiId");
 

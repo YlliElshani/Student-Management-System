@@ -3,21 +3,19 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import StudentMiniNav from '../EServices/StudentMiniNav'
+import StudentNavBar from '../StudentNavBar'
 import PrezantimiDetails from './PrezantimiDetails'
 import PrezantimiForm from './PrezantimiForm'
 
 export default observer(function PrezantimetList () {
-
     const {prezantimiStore} = useStore();
     const {selectedPrezantimi, editMode} = prezantimiStore;
     const {deletePrezantimi, prezantimetByDate, loading} = prezantimiStore;
-
     const [target, setTarget] = useState('');
     
     useEffect(()=>{
         prezantimiStore.loadPrezantimet();
-      }, [prezantimiStore]); 
+    }, [prezantimiStore]); 
     
     if(prezantimiStore.loadingInitial) return <LoadingComponent content='Loading Prezantimet ...'/>
     
@@ -30,17 +28,18 @@ export default observer(function PrezantimetList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <StudentMiniNav/>
+                    <StudentNavBar/>
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={() => prezantimiStore.openForm()} content='Shto Prezantim' color='green'/>
                     <Item.Group divided>
                         {prezantimetByDate.map((prezantimi) => (
-                        <Item key={prezantimi.prezantimiId}>
+                            <Item key={prezantimi.prezantimiId}>
                             <Item.Content inverted="true">
-                            <Item.Header >{prezantimi.prezantimiInfo}</Item.Header>
+                            <Item.Header>{prezantimi.prezantimiInfo}</Item.Header>
+                            <Item.Meta>{prezantimi.lenda}</Item.Meta>
+                            <Item.Meta>{prezantimi.profesori}</Item.Meta>
                             <Item.Meta>{prezantimi.data}</Item.Meta>
-                            <Item.Meta>{prezantimi.ora}</Item.Meta>
                             <Item.Extra>
                                 <Button onClick={() => prezantimiStore.selectPrezantimi(prezantimi.prezantimiId)} size='mini' floated='right' content='Shiko Detajet' color='blue'/>
                                 <Button name={prezantimi.prezantimiId} loading={loading && target === prezantimi.prezantimiId} onClick={(e) => handleDeletePrezantimi(e, prezantimi.prezantimiId)} size='mini' floated='right' content='Fshij Prezantimin' color="red"/>

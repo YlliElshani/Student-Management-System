@@ -9,15 +9,15 @@ export default observer (function QytetiDetails ()  {
     
     return (
         <Segment>
-         <Grid key={qyteti!.id} columns={1} divided>
-            <Grid.Row stretched>
-            <Grid.Column>
-                <Segment>{qyteti!.emri}</Segment>
-                <Segment>{qyteti!.shteti}</Segment>
-            </Grid.Column>
-            </Grid.Row>
-        </Grid>
-        <Button.Group>
+            <Grid key={qyteti!.id} columns={1} divided>
+                <Grid.Row stretched>
+                    <Grid.Column>
+                        <Segment>{qyteti!.emri}</Segment>
+                        <Segment>{qyteti!.shteti}</Segment>
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
+            <Button.Group>
                 <Button onClick={() => openForm(qyteti?.id)}  basic color='blue' content='Ndrysho'/>
                 <Button onClick={cancelSelectedQyteti} basic color='grey' content='Anulo'/>
             </Button.Group>

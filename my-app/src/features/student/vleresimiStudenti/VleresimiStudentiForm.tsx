@@ -16,6 +16,7 @@ export default observer(function VleresimiStudentiForm() {
 
   const initialState = selectedVleresimi ?? {
     vleresimiId: '',
+    studenti: '',
     lenda: '',
     nota: '',
     dataEVendosjes: '',

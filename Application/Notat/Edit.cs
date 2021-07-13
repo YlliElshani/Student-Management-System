@@ -11,7 +11,6 @@ namespace Application.Notat
         public class Command : IRequest
         {
             public Guid NotaId { get; set; }
-            public string Lenda { get; set; }
             public int? Grade { get; set; }
         }
 
@@ -31,7 +30,6 @@ namespace Application.Notat
                 if (nota == null)
                     throw new Exception("Could not find grade");
                     
-                nota.Lenda = request.Lenda ?? nota.Lenda;
                 nota.Grade = request.Grade ?? nota.Grade;
                 
                 var success = await _context.SaveChangesAsync() > 0;

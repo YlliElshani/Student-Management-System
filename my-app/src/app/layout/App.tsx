@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LendaDashboard from '../../features/lendet/dashboard/LendaDashboard';
-import { EServices } from '../../features/student/EServices/EServices';
 import ListApp from '../../features/student/listoNjoftimetS/listApp';
 import ListGApp from '../../features/student/listoGara/listGApp';
 import ListTApp from '../../features/student/listoTrips/listTApp';
@@ -63,6 +62,7 @@ import TrajnimListS from '../../features/student/trajnimet-Studenti/TrajnimListS
 import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
 import EvidencaList from '../../features/profesor/EvidencaPrinderve/EvidencaList';
 import OrarStudenti from '../../features/student/Orari/OrarStudenti';
+import EServices from '../../features/student/EServices/EServices';
 
 
 function App () {
@@ -102,6 +102,7 @@ function App () {
           <Route exact path='/admin/sallat' component={SallatList}/>
           <Route exact path='/admin/oraret' component={OrariDashboard}/>
           <Route exact path='/admin/oraretDetails' component={OrariDetails}/>
+          <Route exact path='/admin/notat' component={NotaDashboard}/>
 
           <Route exact path='/profesor/detyrat' component={DetyraList}/>
           <Route exact path='/student/detyrat' component={DetyraListS}/>

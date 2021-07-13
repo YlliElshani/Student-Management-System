@@ -9,8 +9,8 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210712134412_Entities")]
-    partial class Entities
+    [Migration("20210712205904_EntitiesAdded")]
+    partial class EntitiesAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -305,8 +305,6 @@ namespace Persistence.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("Grade");
-
-                    b.Property<string>("Lenda");
 
                     b.HasKey("NotaId");
 
@@ -632,9 +630,15 @@ namespace Persistence.Migrations
 
                     b.Property<string>("kohezgjatja");
 
+                    b.Property<string>("lenda");
+
                     b.Property<string>("ora");
 
                     b.Property<string>("prezantimiInfo");
+
+                    b.Property<string>("profesori");
+
+                    b.Property<string>("salla");
 
                     b.HasKey("prezantimiId");
 

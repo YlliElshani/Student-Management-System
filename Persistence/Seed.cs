@@ -412,14 +412,23 @@ namespace Persistence
                 {
                     new Nota
                     {
-                        Lenda = "Gjuhe shqipe",
                         Grade = 5
                     },
                     new Nota
                     {
-                        Lenda = "Matematike",
+                        Grade = 4    
+                    },
+                    new Nota
+                    {
                         Grade = 3
-                        
+                    },
+                    new Nota
+                    {
+                        Grade = 2
+                    },
+                    new Nota
+                    {
+                        Grade = 1
                     }
                 };
                 context.Notat.AddRange(notat);
@@ -607,8 +616,21 @@ namespace Persistence
                     {
                         prezantimiInfo="Prezantimi do perfshij mbrojtjen e punimit ne lenden Matematike",
                         kohezgjatja="20 minuta",
-                        data="03-07-2021",
+                        lenda="Matematike",
+                        profesori="Filan Fisteku",
+                        salla="A008",
+                        data="2021-08-15",
                         ora="12:45 PM"
+                    },
+                    new Prezantimi
+                    {
+                        prezantimiInfo="Prezantimi do perfshij mbrojtjen e punimit ne lenden Astronomi",
+                        kohezgjatja="30 minuta",
+                        lenda="Astronomi",
+                        profesori="Filan Fisteku",
+                        salla="A008",
+                        data="2021-09-21",
+                        ora="13:30 PM"
                     }
                 };
                 context.Prezantimet.AddRange(prezantime);

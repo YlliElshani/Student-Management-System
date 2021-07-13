@@ -11,6 +11,7 @@ namespace Application.Vleresimet
         public class Command : IRequest
         {
             public Guid VleresimiId { get; set; }
+            public string Sudenti {get; set;}
             public string Lenda { get; set; }
             public int? Nota { get; set; }
             public string DataEVendosjes {get; set;}
@@ -33,7 +34,8 @@ namespace Application.Vleresimet
 
                 if (vleresimi == null)
                     throw new Exception("Could not find subject");
-                    
+                
+                vleresimi.Sudenti = request.Sudenti ?? vleresimi.Sudenti;
                 vleresimi.Lenda = request.Lenda ?? vleresimi.Lenda;
                 vleresimi.Nota = request.Nota ?? vleresimi.Nota;
                 vleresimi.DataEVendosjes = request.DataEVendosjes ?? vleresimi.DataEVendosjes;

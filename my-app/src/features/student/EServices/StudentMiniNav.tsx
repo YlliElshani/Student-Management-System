@@ -17,6 +17,10 @@ const StudentMiniNav = () => (
             <Icon name='server' />
             E-Shërbimet
         </Menu.Item>
+        <Menu.Item as={NavLink} to='/student/vleresimi'>
+                <Icon name='grid layout' />
+                Transkripta
+            </Menu.Item>
         <Menu.Item as={NavLink} to='/student/KerkesNdihme'>
             <Icon name='question circle' />
             Kërko Ndihmë
@@ -42,12 +46,10 @@ const StudentMiniNav = () => (
             Dil
         </Menu.Item>
         </Sidebar>
-
         <Sidebar.Pusher>
         <Segment basic style={{height:"100vh"}}>
         </Segment>
         </Sidebar.Pusher>
     </Sidebar.Pushable>
 )
-
 export default observer (StudentMiniNav);

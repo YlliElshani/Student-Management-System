@@ -3,7 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import { Listues } from './Listues';
 import { ICompetition } from '../../../app/models/competition';
 import agent from '../../../app/api/agent';
-import StudentMiniNav from '../EServices/StudentMiniNav';
+import StudentNavBar from '../StudentNavBar';
 
 const ListGApp =()=> {
 
@@ -24,7 +24,7 @@ const ListGApp =()=> {
       <Grid>
           <Grid.Row>
           <Grid.Column width='4'>
-          <StudentMiniNav/>
+          <StudentNavBar/>
           </Grid.Column>
           <Grid.Column width='10' style={{marginTop:'5em', marginLeft:"3em"}}>
           <Listues listgara={gara}/>

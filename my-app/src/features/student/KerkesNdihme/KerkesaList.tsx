@@ -3,7 +3,7 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { Button, Grid, Item } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent'
 import { useStore } from '../../../app/stores/store'
-import StudentMiniNav from '../EServices/StudentMiniNav'
+import StudentNavBar from '../StudentNavBar'
 import KerkeseNForm from './KerkeseNForm'
 import KerkesNDetails from './KerkesNDetails'
 
@@ -31,7 +31,7 @@ export default observer(function KerkesaList () {
         <Grid>
             <Grid.Row>
                 <Grid.Column width='4'>
-                    <StudentMiniNav />
+                    <StudentNavBar />
                 </Grid.Column>
                 <Grid.Column width='5' style={{marginTop:'5em', marginLeft:"3em"}}>
                     <Button onClick={() => kerkesNdihmeStore.openForm()} content='Shto Kërkesë' color='green'/>

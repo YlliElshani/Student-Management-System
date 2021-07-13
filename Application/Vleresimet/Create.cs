@@ -12,6 +12,7 @@ namespace Application.Vleresimet
         public class Command : IRequest
         {
             public Guid VleresimiId { get; set; }
+            public string Sudenti {get; set;}
             public string Lenda { get; set; }
             public int Nota { get; set; }
             public string DataEVendosjes {get; set;}
@@ -32,6 +33,7 @@ namespace Application.Vleresimet
                 var vleresimi = new Vleresimi
                 {
                     VleresimiId=request.VleresimiId,
+                    Sudenti=request.Sudenti,
                     Lenda=request.Lenda, 
                     Nota=request.Nota,
                     DataEVendosjes=request.DataEVendosjes,

@@ -9,16 +9,14 @@ import QytetiDetails from './QytetiDetails'
 import QytetiForm from './QytetiForm'
 
 export default observer(function QytetetList () {
-
     const {qytetiStore} = useStore();
     const {selectedQyteti, editMode} = qytetiStore;
     const {deleteQyteti, qytetetByAlphabet, loading} = qytetiStore;
-
     const [target, setTarget] = useState('');
     
     useEffect(()=>{
         qytetiStore.loadQytetet();
-      }, [qytetiStore]); 
+    }, [qytetiStore]); 
     
     if(qytetiStore.loadingInitial) return <LoadingComponent content='Loading Qytetet'/>
     
@@ -37,22 +35,22 @@ export default observer(function QytetetList () {
                     <Button onClick={() => qytetiStore.openForm()} content='Shto Qytetin' color="green"/>
                     <Item.Group divided>
                         {qytetetByAlphabet.map((qyteti) => (
-                        <Item key={qyteti.id}>
-                            <Item.Content inverted="true">
-                            <Item.Header >{qyteti.emri}</Item.Header>
-                            <Item.Meta>{qyteti.shteti}</Item.Meta>
-                            <Item.Extra>
-                                <Button onClick={() => qytetiStore.selectQyteti(qyteti.id)} size='mini' floated='right' content='Shiko Detajet' color="twitter"/>
-                                <Button name={qyteti.id} loading={loading && target === qyteti.id} onClick={(e) => handleDeleteQyteti(e, qyteti.id)} size='mini' floated='right' content='Fshij Qytetin' color="red" />
-                            </Item.Extra>
-                            </Item.Content>
-                        </Item>
+                            <Item key={qyteti.id}>
+                                <Item.Content inverted="true">
+                                    <Item.Header >{qyteti.emri}</Item.Header>
+                                    <Item.Meta>{qyteti.shteti}</Item.Meta>
+                                    <Item.Extra>
+                                        <Button onClick={() => qytetiStore.selectQyteti(qyteti.id)} size='mini' floated='right' content='Shiko Detajet' color="twitter"/>
+                                        <Button name={qyteti.id} loading={loading && target === qyteti.id} onClick={(e) => handleDeleteQyteti(e, qyteti.id)} size='mini' floated='right' content='Fshij Qytetin' color="red" />
+                                    </Item.Extra>
+                                </Item.Content>
+                            </Item>
                         ))}
                     </Item.Group>
                 </Grid.Column>
                 <Grid.Column  width='4' style={{marginTop:'3em'}}>
                     {selectedQyteti && !editMode && 
-                    <QytetiDetails />}
+                        <QytetiDetails />}
                     {editMode && <QytetiForm/>}
                 </Grid.Column>
             </Grid.Row>

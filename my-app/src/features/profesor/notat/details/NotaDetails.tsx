@@ -5,7 +5,9 @@ import { useStore } from '../../../../app/stores/store';
 export default function NotaDetails() {
     const {notaStore} = useStore();
     const {selectedNota: nota, openForm, cancelSelectedNota} = notaStore
+
     if (!nota) return <LoadingComponent/>;
+    
     return (
         <Card fluid>   
             <Card.Content>

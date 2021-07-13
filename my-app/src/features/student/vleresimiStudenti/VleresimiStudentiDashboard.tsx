@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import { Grid, Table } from 'semantic-ui-react'
 import { useEffect } from 'react';
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
-import AdminNavBar from '../../administrator/AdminNavBar';
 import { useStore } from '../../../app/stores/store';
 import VleresimiStudentiDetails from './VleresimiStudentiDetails';
 import VleresimiStudentiForm from './VleresimiStudentiForm';
@@ -27,8 +26,6 @@ export default observer(function VleresimiStudentiDashboard() {
             <Grid.Row>
             <Grid.Column width='4'>
                 <StudentNavBar />
-                 <AdminNavBar />
-                    
                 </Grid.Column>
             
             <Grid.Column width={10} style={{marginTop:"5em"}}>   

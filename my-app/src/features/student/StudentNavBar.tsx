@@ -18,32 +18,27 @@ export default observer(function StudentNavBar() {
             direction='left'
             >
             {isLoggedIn ? (
-                        <Menu.Item style={{marginTop:"10%"}} as={NavLink} to='/student/profile'>
+                    <Menu.Item style={{marginTop:"10%"}} as={NavLink} to='/student/profile'>
                         <Icon name='user' />
                         Profili
                     </Menu.Item>
                     ) : (
                         null
-                    )}
-            <Menu.Item as={NavLink} to='/student/e-services'>
-                <Icon name='server' />
-                E-Shërbimet
+            )}
+
+            <Menu.Item as={NavLink} to='/student/vleresimi'>
+                <Icon name='chart bar' />
+                Transkripta
             </Menu.Item>
+
             <Menu.Item as={NavLink} to='/student/lendet'>
                 <Icon name='book' />
                 Lëndët
             </Menu.Item>
+
             <Menu.Item as={NavLink} to='/student/provimet'>
                 <Icon name='file outline' />
                 Provimet
-            </Menu.Item>
-            <Menu.Item as={NavLink} to='/student/materialet'>
-                <Icon name='plus' />
-                Materialet Mësimore
-            </Menu.Item>
-            <Menu.Item as={NavLink} to='/student/vleresimi'>
-                <Icon name='grid layout' />
-                Notat
             </Menu.Item>
             <Menu.Item as={NavLink} to='/student/detyrat'>
                 <Icon name='chart bar' />
@@ -55,11 +50,10 @@ export default observer(function StudentNavBar() {
                 Orari
             </Menu.Item>
 
-            <Menu.Item as={NavLink} to='/student/trajnimet'>
-                <Icon name='retweet' />
-                Oret Shtese
+            <Menu.Item as={NavLink} to='/student/e-services'>
+                <Icon name='server' />
+                Shërbimet tjera
             </Menu.Item>
-
             <Menu.Item onClick={logout}>
                 <Icon name='log out'/>
                 Dil
