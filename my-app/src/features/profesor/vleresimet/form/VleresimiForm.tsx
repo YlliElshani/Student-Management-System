@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
+import { User } from '../../../../app/models/user';
 import { useStore } from '../../../../app/stores/store'
 
 
@@ -12,17 +13,19 @@ export default observer(function VleresimiForm() {
 
   //@ts-ignore
   const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
+  const [studenti, setStudenti]=React.useState<User[]>([]);
+
 
   React.useEffect(()=>{
     axios
       .get(('https://localhost:5000/API/Lendet'))
       .then((res)=>setData(res.data));
-  },[])
-
-  React.useEffect(()=>{
-    axios
+      axios
       .get(('https://localhost:5000/API/Notat'))
       .then((res)=>setData(res.data));
+      axios
+    .get(('https://localhost:5000/API/student/list'))
+    .then((res)=>setStudenti(res.data));
   },[])
 
   const initialState = selectedVleresimi ?? {
@@ -55,6 +58,13 @@ export default observer(function VleresimiForm() {
   return (
     <Segment clearing>
       <Form onSubmit={handleSubmit} autoComplete='off'>
+      <Form.Input>
+          <select onChange={changeSelectOptionHandler} name='studenti' placeholder='Studenti' value={vleresimi.studenti}>
+            {studenti.map(student => (
+              <option key={student.id}>{student.displayName}</option>
+            ))}
+          </select>
+        </Form.Input>
         <Form.Input>
           <select onChange={changeSelectOptionHandler} name='lenda' placeholder='Lenda' value={vleresimi.lenda}>
             {data.map(lenda => (

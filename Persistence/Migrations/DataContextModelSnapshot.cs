@@ -643,19 +643,6 @@ namespace Persistence.Migrations
                     b.ToTable("Prezantimet");
                 });
 
-            modelBuilder.Entity("Domain.ProfessorMaterial", b =>
-                {
-                    b.Property<string>("AppUserId");
-
-                    b.Property<Guid>("MaterialiId");
-
-                    b.HasKey("AppUserId", "MaterialiId");
-
-                    b.HasIndex("MaterialiId");
-
-                    b.ToTable("ProfessorMaterials");
-                });
-
             modelBuilder.Entity("Domain.Provimi", b =>
                 {
                     b.Property<Guid>("Id")
@@ -787,6 +774,8 @@ namespace Persistence.Migrations
 
                     b.Property<string>("OraEVendosjes");
 
+                    b.Property<string>("Studenti");
+
                     b.HasKey("VleresimiId");
 
                     b.ToTable("Vleresimet");
@@ -874,19 +863,6 @@ namespace Persistence.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Domain.ProfessorMaterial", b =>
-                {
-                    b.HasOne("Domain.AppUser", "AppUser")
-                        .WithMany("ProfessorMaterials")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Domain.Materiali", "Materiali")
-                        .WithMany("ProfessorMaterials")
-                        .HasForeignKey("MaterialiId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

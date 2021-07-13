@@ -215,7 +215,15 @@ namespace Persistence
                         Lenda = "Lab",
                         OraENisjes = 10,
                         KoheZgjatja = 45,
-                        Salla = "A1",
+                        Salla = "A002",
+                        Profesori = "Lavdim Menxhiqi"
+                    },
+                    new Provimi
+                    {
+                        Lenda = "SHK2",
+                        OraENisjes = 09,
+                        KoheZgjatja = 90,
+                        Salla = "A008",
                         Profesori = "Lavdim Menxhiqi"
                     }
                 }; 
@@ -331,7 +339,39 @@ namespace Persistence
                     },
                     new Lenda
                     {
-                        Emri = "Matematike", 
+                        Emri = "Fizike", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Gjuhe Shqipe", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Kimi", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Biologji", 
+                        Klasa= "XII",
+                        Profesori="Filan Fisteku", 
+                        Descripion="Lende e klases se 12te"
+                        
+                    },
+                    new Lenda
+                    {
+                        Emri = "Teknologji", 
                         Klasa= "XII",
                         Profesori="Filan Fisteku", 
                         Descripion="Lende e klases se 12te"
@@ -499,6 +539,11 @@ namespace Persistence
                                 {
                                     Pjesmarrja = "80%", 
                                     Studenti= "Endrit Makolli"                  
+                                },
+                                new Vijushmeria
+                                {
+                                    Pjesmarrja = "100%", 
+                                    Studenti= "Hysnije Zllanoga"                  
                                 }
                             
                             };
@@ -587,6 +632,11 @@ namespace Persistence
                     {
                         PlaniInfo="Do te spjegohen bazat e trigonometris",
                         KriteriPlotsimit="Nxenesi do mund te kryej detyra me formule te pitagores"
+                    },
+                    new PlaniMesimor
+                    {
+                        PlaniInfo="Do te spjegohen bazat e numrave kompleks",
+                        KriteriPlotsimit="Nxenesi do mund te kryej detyra te komplikuara"
                     }
                 };
                 context.PlanetMesimor.AddRange(planeM);
@@ -737,6 +787,11 @@ namespace Persistence
                         kohaMin=45,
                         oraNisjes=08,
                     },
+                    new Kohezgjatja
+                    {
+                        kohaMin=50,
+                        oraNisjes=08,
+                    },
                 };
                 context.Kohezgjatjet.AddRange(kohezgjatja);
                 context.SaveChanges();
@@ -747,10 +802,27 @@ namespace Persistence
                 {
                     new Vleresimi
                     {
+                        Studenti="Ylli Elshani",
                         Lenda="Gjuhe Shqipe",
                         Nota=5,
                         DataEVendosjes="09-07-2021",
-                        OraEVendosjes="18:47 PM"
+                        OraEVendosjes="06:47 PM"
+                    },
+                    new Vleresimi
+                    {
+                        Studenti="Altina Hodaj",
+                        Lenda="Matematike",
+                        Nota=3,
+                        DataEVendosjes="14-07-2021",
+                        OraEVendosjes="05:30 PM"
+                    },
+                    new Vleresimi
+                    {
+                        Studenti="Hysnije Zllanoga",
+                        Lenda="Kimi",
+                        Nota=5,
+                        DataEVendosjes="05-07-2021",
+                        OraEVendosjes="03:33 PM"
                     },
                 };
                 context.Vleresimet.AddRange(vleresimet);
@@ -831,6 +903,30 @@ namespace Persistence
                         Kapaciteti=80,
                         Statusi="E Rezervuar",
                         DataRezervimit="10-07-2021",
+                        OraRezervimit="10:40 AM"
+                    },
+                    new Salla
+                    {
+                        Emri="A008",
+                        Kapaciteti=80,
+                        Statusi="E Lirë",
+                        DataRezervimit="14-07-2021",
+                        OraRezervimit="09:40 AM"
+                    },
+                    new Salla
+                    {
+                        Emri="A002",
+                        Kapaciteti=80,
+                        Statusi="E Lirë",
+                        DataRezervimit="15-07-2021",
+                        OraRezervimit="12:30 PM"
+                    },
+                    new Salla
+                    {
+                        Emri="A001",
+                        Kapaciteti=80,
+                        Statusi="E Rezervuar",
+                        DataRezervimit="17-07-2021",
                         OraRezervimit="10:40 AM"
                     },
                 };

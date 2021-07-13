@@ -38,6 +38,7 @@ export default observer(function VleresimiDashboard() {
                     <Table singleLine>
                         <Table.Header>
                             <Table.Row>
+                                <Table.HeaderCell>Studenti</Table.HeaderCell>
                                 <Table.HeaderCell>Lenda</Table.HeaderCell>
                                 <Table.HeaderCell>Nota</Table.HeaderCell>
                                 <Table.HeaderCell>Data e Vendosjes</Table.HeaderCell>
@@ -49,6 +50,7 @@ export default observer(function VleresimiDashboard() {
                         {vleresimetByDate.map(vleresimi => (
                             <Table.Body key={vleresimi.vleresimiId}>
                                 <Table.Row>
+                                    <Table.Cell>{vleresimi.studenti}</Table.Cell>
                                     <Table.Cell>{vleresimi.lenda}</Table.Cell>
                                     <Table.Cell>{vleresimi.nota}</Table.Cell>
                                     <Table.Cell>{vleresimi.dataEVendosjes}</Table.Cell>
