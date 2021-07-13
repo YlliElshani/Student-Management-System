@@ -25,11 +25,21 @@ export default observer(function GuardianList () {
         deleteUser(id);
     }
 
+    //for searching users
+    const [search, setSearch] = useState('');
+
     return (
-        <Grid.Column width='11' style={{marginTop:'2em', marginLeft:"3em"}}>
+        <Grid.Column width='11' style={{marginTop:'2em', marginLeft:"3em", marginRight:'2em'}}>
             <Button basic size='mini' onClick={()=>{modalStore.openModal(<GuardianRegister/>); userStore.cancelSelectedUser()}} content='Shto Prind/Kujdestar'/>
+            <input style={{marginLeft:'65%', border:'none', borderBottom:'1px solid black', fontSize:'10pt'}} type="text" placeholder="Search User..." onChange={e => {setSearch(e.target.value)}}/>
             <Item.Group divided>
-                {data.map((user) => (
+                {data.filter((user) => {
+                        if (search == ""){
+                            return user;
+                        } else if (user.displayName.toLowerCase().includes(search.toLowerCase())) {
+                            return user;
+                        }
+                    }).map((user) => (
                 <Item style={{fontSize:'8pt'}} key={user.id}>
                     <Item.Content inverted="true">
                     <Item.Header>{user.displayName}</Item.Header>
@@ -41,7 +51,7 @@ export default observer(function GuardianList () {
                     <Item.Meta>{user.address}</Item.Meta>
                     <Item.Meta>{user.zipCode}</Item.Meta>
                     <Item.Extra>
-                        <Button positive onClick={() => {userStore.selectUser(user.id); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Edit'/>
+                        {/*<Button positive onClick={() => {(openForm(user.id)); modalStore.openModal(<UserForm/>)}} size='mini' floated='right' content='Edit'/>*/}
                         <Button negative name={user.id} loading={loading && target === user.id} onClick={(e) => handleDeleteUser(e, user.id)} size='mini' floated='right' content='Fshij Përdoruesin' />
                     </Item.Extra>
                     </Item.Content>

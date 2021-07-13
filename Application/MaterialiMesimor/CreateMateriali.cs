@@ -45,9 +45,8 @@ namespace Application.MaterialiMesimor
         
             private readonly IUserAccessor _userAccessor;
 
-            public Handler(DataContext context, IUserAccessor userAccessor)
+            public Handler(DataContext context)
             {
-                _userAccessor = userAccessor;
                 _context = context;
             }
 
@@ -64,17 +63,6 @@ namespace Application.MaterialiMesimor
                 };
 
                 _context.Materialet.Add(materiali);
-
-                var user = await _context.AppUser.SingleOrDefaultAsync(x =>
-                x.UserName == _userAccessor.GetCurrentUsername());
-
-                var materialetEProfit = new ProfessorMaterial
-                {
-                    AppUser = user,
-                    Materiali = materiali
-                };
-
-                _context.ProfessorMaterials.Add(materialetEProfit);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

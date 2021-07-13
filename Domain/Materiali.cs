@@ -17,6 +17,5 @@ namespace Domain
 
         public string FileDrop {get; set;}
 
-        public virtual ICollection<ProfessorMaterial> ProfessorMaterials { get; set; }
     }
 }
