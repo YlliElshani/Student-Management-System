@@ -1,13 +1,13 @@
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
-import { Button, Card, Grid, Table } from 'semantic-ui-react'
+import { Grid, Table } from 'semantic-ui-react'
 import { LoadingComponent } from '../../../app/layout/LoadingComponent';
 import { useStore } from '../../../app/stores/store';
 import StudentNavBar from '../StudentNavBar';
 
 export default observer(function OrarStudenti() {
     const { orariStore } = useStore();
-    const { selectedOrari: orari, oraretByEmri } = orariStore
+    const { oraretByEmri } = orariStore
     
 
     useEffect(()=>{

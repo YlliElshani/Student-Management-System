@@ -7,9 +7,11 @@ import {createBrowserHistory} from 'history';
 import { store, StoreContext } from './app/stores/store';
 import 'react-toastify/dist/ReactToastify.css';
 
+//tregon react router cila pjese e url duhet mu kqyr kur vendos qka ka me shfaq ne ekran
 export const history = createBrowserHistory();
 
 ReactDOM.render(
+  //context - share data without using props
     <StoreContext.Provider value={store}>
       <Router history={history}>
       <App/>

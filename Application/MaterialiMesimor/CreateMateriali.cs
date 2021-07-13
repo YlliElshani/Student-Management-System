@@ -43,8 +43,6 @@ namespace Application.MaterialiMesimor
         {
             private readonly DataContext _context;
         
-            private readonly IUserAccessor _userAccessor;
-
             public Handler(DataContext context)
             {
                 _context = context;

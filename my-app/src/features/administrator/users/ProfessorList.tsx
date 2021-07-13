@@ -4,7 +4,6 @@ import React, { SyntheticEvent, useState } from 'react'
 import { Button, Grid, Item  } from 'semantic-ui-react'
 import { useStore } from '../../../app/stores/store'
 import ProfesorRegister from '../../users/ProfesorRegister'
-import UserForm from './UserForm'
 import {User} from '../../../app/models/user'
 
 export default observer(function ProfessorList () {
@@ -33,7 +32,7 @@ export default observer(function ProfessorList () {
             <input style={{marginLeft:'65%', border:'none', borderBottom:'1px solid black', fontSize:'10pt'}} type="text" placeholder="Search User..." onChange={e => {setSearch(e.target.value)}}/>
             <Item.Group divided>
                 {data.filter((user) => {
-                        if (search == ""){
+                        if (search === ""){
                             return user;
                         } else if (user.displayName.toLowerCase().includes(search.toLowerCase())) {
                             return user;

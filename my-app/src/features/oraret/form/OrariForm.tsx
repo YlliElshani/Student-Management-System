@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 import { Button, Form, Segment, Table } from 'semantic-ui-react'
 import { IKoheZ } from '../../../app/models/kOres';
 import { IParaleljaKlasa } from '../../../app/models/paraleljaKlasa';
@@ -152,11 +152,6 @@ export default observer(function OrariForm() {
 
   function handleSubmit() {
     orari.orariId ? updateOrari(orari) : createOrari(orari);
-  };
-
-  function handleInputChange(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    const { name, value } = event.target;
-    setOrari({ ...orari, [name]: value });
   };
   //e shton 45-49
 

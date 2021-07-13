@@ -14,7 +14,7 @@ namespace API.Controllers
     public class AdminController : BaseController
     {
         [HttpPost("loginAdmin")]
-        //[Authorize(Roles.Admin)]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult<User>> LoginAdmin(LoginAdmin.Query query)
         {
             return await Mediator.Send(query);

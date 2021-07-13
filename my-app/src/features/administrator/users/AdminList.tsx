@@ -5,8 +5,6 @@ import { useStore } from '../../../app/stores/store'
 import AdminRegister from '../../users/AdminRegister'
 import {User} from '../../../app/models/user';
 import axios from 'axios'
-import UserForm from './UserForm'
-
 
 export default observer(function AdminList () {    
     const [data, setData] = React.useState<User[]>([]);
@@ -17,7 +15,7 @@ export default observer(function AdminList () {
     
 
     const {userStore, modalStore} = useStore();
-    const {deleteUser, loading, openForm} = userStore;
+    const {deleteUser, loading} = userStore;
 
     const [target, setTarget] = useState('');
 
@@ -35,7 +33,7 @@ export default observer(function AdminList () {
             <input style={{marginLeft:'65%', border:'none', borderBottom:'1px solid black', fontSize:'10pt'}} type="text" placeholder="Search User..." onChange={e => {setSearch(e.target.value)}}/>
             <Item.Group divided>
                 {data.filter((user) => {
-                    if (search == ""){
+                    if (search === ""){
                         return user;
                     } else if (user.displayName.toLowerCase().includes(search.toLowerCase())) {
                         return user;
