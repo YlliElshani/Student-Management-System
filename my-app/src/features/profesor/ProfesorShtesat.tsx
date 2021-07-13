@@ -89,6 +89,24 @@ export default function ProfesorProfile() {
           <Grid.Row style={{ marginTop: '50px' }}>
             <Card >
               <Card.Content>
+                <Card.Header>Prezantimet</Card.Header>
+                <Card.Description>
+                  Shiko Prezantimet
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                <div className='ui two buttons'>
+                  <Button basic color='green' as={NavLink} to='/profesor/prezantimet'>
+                    Shfaq
+                  </Button>
+                </div>
+              </Card.Content>
+            </Card>
+          </Grid.Row>
+
+          <Grid.Row style={{ marginTop: '50px' }}>
+            <Card >
+              <Card.Content>
                 <Card.Header>Oret Shtese</Card.Header>
                 <Card.Description>
                   Shtimi i Oreve Shtese per nxenesin e caktuar

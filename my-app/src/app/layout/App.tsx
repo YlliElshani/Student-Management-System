@@ -63,6 +63,7 @@ import PlaniMList from '../../features/profesor/planiMesimor/PlaniMList';
 import EvidencaList from '../../features/profesor/EvidencaPrinderve/EvidencaList';
 import OrarStudenti from '../../features/student/Orari/OrarStudenti';
 import EServices from '../../features/student/EServices/EServices';
+import PrezantimetPList from '../../features/profesor/PrezantimiP/PrezantimetPList';
 
 
 function App () {
@@ -162,6 +163,7 @@ function App () {
           <Route exact path='/profesor/kerkesaNView' component={KerkesaListView}/>
           <Route exact path='/profesor/provimet' component={ProvimetList}/>
           <Route exact path='/profesor/EvidencaPrinderve' component={EvidencaList}/>
+          <Route exact path='/profesor/prezantimet' component={PrezantimetPList}/>
           
           <Route exact path='/EServices' component={EServices}/>
           <Route exact path='/listoNjoftimetS' component={ListApp}/>

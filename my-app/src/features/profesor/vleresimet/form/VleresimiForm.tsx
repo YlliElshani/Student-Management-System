@@ -3,6 +3,8 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { ChangeEvent,  useState } from 'react'
 import { Button,  Form, Segment } from 'semantic-ui-react'
+import { ILenda } from '../../../../app/models/lenda';
+import { INota } from '../../../../app/models/nota';
 import { User } from '../../../../app/models/user';
 import { useStore } from '../../../../app/stores/store'
 
@@ -11,18 +13,19 @@ export default observer(function VleresimiForm() {
   const { vleresimiStore } = useStore();
   const { selectedVleresimi, closeForm, createVleresimi, updateVleresimi, loading } = vleresimiStore;
 
-  //@ts-ignore
-  const [data, setData]=React.useState<ILenda[]>([] as lendetByEmri);
+  
+  const [lenda, setLenda]=React.useState<ILenda[]>([]);
   const [studenti, setStudenti]=React.useState<User[]>([]);
+  const [nota, setNota]=React.useState<INota[]>([]);
 
 
   React.useEffect(()=>{
     axios
       .get(('https://localhost:5000/API/Lendet'))
-      .then((res)=>setData(res.data));
+      .then((res)=>setLenda(res.data));
       axios
       .get(('https://localhost:5000/API/Notat'))
-      .then((res)=>setData(res.data));
+      .then((res)=>setNota(res.data));
       axios
     .get(('https://localhost:5000/API/student/list'))
     .then((res)=>setStudenti(res.data));
@@ -67,14 +70,14 @@ export default observer(function VleresimiForm() {
         </Form.Input>
         <Form.Input>
           <select onChange={changeSelectOptionHandler} name='lenda' placeholder='Lenda' value={vleresimi.lenda}>
-            {data.map(lenda => (
-              <option key={lenda.id}>{lenda.emri}</option>
+            {lenda.map(lenda => (
+              <option key={lenda.lendaId}>{lenda.emri}</option>
             ))}
           </select>
         </Form.Input>
         <Form.Input>
           <select onChange={changeSelectOptionHandler} name='nota' placeholder='Nota' value={vleresimi.nota}>
-            {data.map(nota => (
+            {nota.map(nota => (
               <option>{nota.grade}</option>
             ))}
           </select>
