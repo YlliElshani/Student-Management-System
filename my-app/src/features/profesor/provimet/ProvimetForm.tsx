@@ -62,7 +62,7 @@ export default observer(function ProvimetForm() {
         <Form onSubmit={handleSubmit} className='ui form' autoComplete='off' style={{padding:'20px'}}>
             <Label style={{background:'transparent', fontSize:'large', marginLeft:'28%', marginBottom:'20px'}}>Materialet</Label>
             <Form.Input>
-                <select onChange={changeSelectOptionHandler} name='profesori' placeholder='Profesori' value={provimi.lenda}>
+                <select onChange={changeSelectOptionHandler} name='lenda' placeholder='Profesori' value={provimi.lenda}>
                 {lendet.map(lenda => (
                     <option key={lenda.lendaId}>{lenda.emri}</option>
                 ))}
@@ -83,14 +83,14 @@ export default observer(function ProvimetForm() {
                 </select>
             </Form.Input>
             <Form.Input>
-                <select onChange={changeSelectOptionHandler} name='oraNisjes' placeholder='Ora' value={provimi.oraENisjes}>
+                <select onChange={changeSelectOptionHandler} name='oraENisjes' placeholder='Ora' value={provimi.oraENisjes}>
                     {koha.map(koha => (
                         <option key={koha.id}>{koha.oraNisjes}</option>
                     ))}
                 </select>
             </Form.Input>
             <Form.Input>
-                <select onChange={changeSelectOptionHandler} name='kohezgjatja' placeholder='Kohezgjatja' value={provimi.koheZgjatja}>
+                <select onChange={changeSelectOptionHandler} name='koheZgjatja' placeholder='Kohezgjatja' value={provimi.koheZgjatja}>
                     {koha.map(koha => (
                         <option key={koha.id}>{koha.kohaMin}</option>
                     ))}
